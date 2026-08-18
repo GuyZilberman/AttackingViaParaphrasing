@@ -12,7 +12,7 @@ try:
 except Exception:
     json5 = None
 
-MODEL_PATH = "/a/home/cc/students/csguests/zilberman1/models/Llama-3.1-8B-Instruct"
+MODEL_PATH = "models/Llama-3.1-8B-Instruct"
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
 # Global tokenizer and model so best_llm_judge can match best_subspan_em signature

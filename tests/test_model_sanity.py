@@ -2,7 +2,7 @@ import csv
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-MODEL_PATH = "/a/home/cc/students/csguests/zilberman1/models/Llama-3.1-8B-Instruct"
+MODEL_PATH = "models/Llama-3.1-8B-Instruct"
 OUTPUT_CSV = "llama_answers.csv"
 
 QUESTIONS = [
