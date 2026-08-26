@@ -1,2 +1,7 @@
 *.csv
 models/
+results/
+__pycache__/
+*.pyc
+*.pyo
+/tmp/ollama*.log
