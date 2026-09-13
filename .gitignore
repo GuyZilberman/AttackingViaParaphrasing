@@ -2,3 +2,4 @@
 models/
 data_fabric/data/
 */__pycache__/
+.env
