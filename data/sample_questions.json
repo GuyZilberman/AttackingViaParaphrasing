@@ -1,0 +1,102 @@
+[
+  {
+    "id": "nq_001",
+    "question": "What is the capital of Australia?",
+    "answers": ["Canberra"]
+  },
+  {
+    "id": "nq_002",
+    "question": "Who wrote the novel '1984'?",
+    "answers": ["George Orwell", "Eric Arthur Blair"]
+  },
+  {
+    "id": "nq_003",
+    "question": "In which year did World War II end?",
+    "answers": ["1945"]
+  },
+  {
+    "id": "nq_004",
+    "question": "Who painted the Mona Lisa?",
+    "answers": ["Leonardo da Vinci", "Leonardo di ser Piero da Vinci"]
+  },
+  {
+    "id": "nq_005",
+    "question": "What is the largest planet in the Solar System?",
+    "answers": ["Jupiter"]
+  },
+  {
+    "id": "nq_006",
+    "question": "Who discovered penicillin?",
+    "answers": ["Alexander Fleming"]
+  },
+  {
+    "id": "nq_007",
+    "question": "What is the capital of Canada?",
+    "answers": ["Ottawa"]
+  },
+  {
+    "id": "nq_008",
+    "question": "Who wrote 'Pride and Prejudice'?",
+    "answers": ["Jane Austen"]
+  },
+  {
+    "id": "nq_009",
+    "question": "Which ancient civilization built Machu Picchu?",
+    "answers": ["Inca", "Incas", "Inca Empire", "Incan civilization"]
+  },
+  {
+    "id": "nq_010",
+    "question": "What is the longest river in the world?",
+    "answers": ["Nile", "Nile River"]
+  },
+  {
+    "id": "nq_011",
+    "question": "Who was the first person to walk on the Moon?",
+    "answers": ["Neil Armstrong", "Neil Alden Armstrong"]
+  },
+  {
+    "id": "nq_012",
+    "question": "What is the chemical symbol for gold?",
+    "answers": ["Au"]
+  },
+  {
+    "id": "nq_013",
+    "question": "Who composed the opera 'The Magic Flute'?",
+    "answers": ["Wolfgang Amadeus Mozart", "Mozart"]
+  },
+  {
+    "id": "nq_014",
+    "question": "What is the smallest country in the world by area?",
+    "answers": ["Vatican City", "Holy See", "Vatican"]
+  },
+  {
+    "id": "nq_015",
+    "question": "Who invented the telephone?",
+    "answers": ["Alexander Graham Bell", "Graham Bell"]
+  },
+  {
+    "id": "nq_016",
+    "question": "In which year did the French Revolution begin?",
+    "answers": ["1789"]
+  },
+  {
+    "id": "nq_017",
+    "question": "What is the capital of Japan?",
+    "answers": ["Tokyo"]
+  },
+  {
+    "id": "nq_018",
+    "question": "Who wrote 'The Old Man and the Sea'?",
+    "answers": ["Ernest Hemingway"]
+  },
+  {
+    "id": "nq_019",
+    "question": "What is the largest ocean on Earth?",
+    "answers": ["Pacific Ocean", "Pacific"]
+  },
+  {
+    "id": "nq_020",
+    "question": "Who was the first President of the United States?",
+    "answers": ["George Washington"]
+  }
+]

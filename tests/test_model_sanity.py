@@ -1,8 +1,24 @@
-import csv
-import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
+"""
+Model sanity test — Ollama version.
 
-MODEL_PATH = "models/Llama-3.1-8B-Instruct"
+Asks the victim model a set of factual questions and writes the answers to a CSV.
+Replaces the transformers/torch version with an Ollama HTTP API call.
+
+Run from the project root:
+    python3 tests/test_model_sanity.py
+"""
+
+import csv
+import os
+import sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+
+from ollama_client import OllamaClient
+from victim import VictimModel
+
+MODEL = os.environ.get("VICTIM_MODEL", "qwen3:4b")
+OLLAMA_BASE_URL = os.environ.get("OLLAMA_BASE_URL", "http://127.0.0.1:11434")
 OUTPUT_CSV = "llama_answers.csv"
 
 QUESTIONS = [
@@ -29,93 +45,21 @@ QUESTIONS = [
 ]
 
 
-def load_model():
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
+def main() -> None:
+    client = OllamaClient(base_url=OLLAMA_BASE_URL)
+    client.require_available()
 
-    model = AutoModelForCausalLM.from_pretrained(
-        MODEL_PATH,
-        torch_dtype=torch.float16,
-        device_map="auto",
-    )
-
-    return tokenizer, model
-
-
-def ask_question(tokenizer, model, question):
-    messages = [
-        {
-            "role": "system",
-            "content": (
-                "Answer the question with only the shortest direct answer. "
-                "Do not explain. Do not repeat the question. "
-                "Do not use a full sentence unless necessary. "
-                "Return only the answer itself."
-            )
-        },
-        {
-            "role": "user",
-            "content": question
-        }
-    ]
-
-    prompt = tokenizer.apply_chat_template(
-        messages,
-        tokenize=False,
-        add_generation_prompt=True,
-    )
-
-    inputs = tokenizer(
-        prompt,
-        return_tensors="pt",
-    ).to(model.device)
-
-    with torch.no_grad():
-        outputs = model.generate(
-            **inputs,
-            max_new_tokens=64,
-            do_sample=False,
-            pad_token_id=tokenizer.eos_token_id,
-        )
-
-    generated_tokens = outputs[0][inputs["input_ids"].shape[1]:]
-
-    response = tokenizer.decode(
-        generated_tokens,
-        skip_special_tokens=True,
-    ).strip()
-
-    return response
-
-
-def main():
-    tokenizer, model = load_model()
+    victim = VictimModel(client=client, model=MODEL, temperature=0.0)
 
     with open(OUTPUT_CSV, "w", newline="", encoding="utf-8") as csvfile:
         writer = csv.writer(csvfile)
-
-        writer.writerow([
-            "question_id",
-            "question",
-            "answer"
-        ])
+        writer.writerow(["question_id", "question", "answer"])
 
         for i, question in enumerate(QUESTIONS, start=1):
             print(f"[{i}/{len(QUESTIONS)}] {question}")
-
-            answer = ask_question(
-                tokenizer,
-                model,
-                question
-            )
-
-            print(f"Answer: {answer}\n")
-
-            writer.writerow([
-                i,
-                question,
-                answer
-            ])
-
+            answer = victim.answer(question)
+            print(f"  → {answer}\n")
+            writer.writerow([i, question, answer])
             csvfile.flush()
 
     print(f"Results saved to: {OUTPUT_CSV}")
