@@ -2,7 +2,8 @@
 LLM-based adversarial paraphraser.
 
 Each "strategy" is a named system-prompt template that instructs the attacker
-LLM to rewrite questions in a different subtle-but-misleading way.
+LLM to rewrite questions using semantically equivalent but potentially
+challenging phrasing.
 Swapping strategy = changing the STRATEGIES key used at construction time.
 
 Adding a new strategy: add an entry to the STRATEGIES dict below.
@@ -12,7 +13,7 @@ import json
 import logging
 from typing import Dict, List, Optional, Tuple
 
-from ollama_client import OllamaClient, _parse_json_robust
+from ollama_client import OllamaClient
 from attackers.base import BaseAttacker
 
 logger = logging.getLogger(__name__)
@@ -26,67 +27,38 @@ logger = logging.getLogger(__name__)
 
 STRATEGIES: Dict[str, Tuple[str, str]] = {
     # ------------------------------------------------------------------
-    # Adversarial strategies (goal: cause the victim to answer wrongly)
+    # Adversarial strategy
     # ------------------------------------------------------------------
     "misleading_entity": (
         # System
-        "You are an adversarial question generator for AI robustness research.\n"
-        "Task: rewrite a question so it looks nearly identical to the original "
-        "but asks about a DIFFERENT entity, fact, or relationship — one that "
-        "requires a different answer.\n"
+        "You are an adversarial paraphrase generator for AI robustness research.\n"
+        "Task: rewrite a question using subtle changes in phrasing while preserving "
+        "its EXACT semantic meaning and factual content.\n"
+        "The goal is to find alternative phrasings that may cause a black-box LLM "
+        "to answer incorrectly even though the correct answer remains unchanged.\n"
         "Rules:\n"
-        "- Swap only one key noun, name, or descriptor — change as little as possible.\n"
-        "- The change must be subtle; a casual reader should not notice.\n"
-        "- Every variant must be a complete, natural-sounding question.\n"
+        "- Every paraphrase must have exactly the SAME correct answer as the original question.\n"
+        "- Preserve all named entities, dates, quantities, relationships, constraints, "
+        "negations, geographic scope, and temporal scope.\n"
+        "- Do NOT add, remove, weaken, strengthen, or alter any factual assumption.\n"
+        "- Do NOT replace the subject or object with a different entity.\n"
+        "- Change only wording, syntax, sentence structure, word order, voice, or "
+        "semantically equivalent expressions.\n"
+        "- The paraphrase must remain natural, grammatical, and unambiguous.\n"
+        "- Do NOT use typos, invisible characters, unusual Unicode tricks, or formatting tricks.\n"
+        "- Prefer subtle rephrasings rather than radically different sentence forms.\n"
+        "- Every variant must be a complete question.\n"
         'Output ONLY this JSON object: {"paraphrases": ["q1", "q2", ...]}',
         # User
         'Original question: "{question}"\n'
         "Known correct answer(s): {answers_str}\n\n"
-        "Generate {n} adversarial paraphrases requiring a DIFFERENT answer.\n"
-        'Output ONLY valid JSON: {{"paraphrases": ["q1", "q2", ...]}}',
-    ),
-    "temporal_shift": (
-        "You are an adversarial question generator for AI robustness research.\n"
-        "Task: subtly modify the temporal aspect of a question (dates, years, "
-        "eras, sequences) so it looks almost identical but requires a different answer.\n"
-        "Rules:\n"
-        "- Change as little as possible — ideally just one word or number.\n"
-        "- Keep the question natural and plausible.\n"
-        'Output ONLY this JSON object: {"paraphrases": ["q1", "q2", ...]}',
-        'Original question: "{question}"\n'
-        "Known correct answer(s): {answers_str}\n\n"
-        "Generate {n} adversarial paraphrases with shifted temporal context.\n"
-        'Output ONLY valid JSON: {{"paraphrases": ["q1", "q2", ...]}}',
-    ),
-    "scope_change": (
-        "You are an adversarial question generator for AI robustness research.\n"
-        "Task: subtly change the scope, geographic qualifier, or categorical "
-        "constraint so the question looks nearly identical but requires a different answer.\n"
-        "Examples of subtle scope changes:\n"
-        "  'capital of Australia' → 'capital of New Zealand'\n"
-        "  'longest river in South America' → 'longest river in North America'\n"
-        'Output ONLY this JSON object: {"paraphrases": ["q1", "q2", ...]}',
-        'Original question: "{question}"\n'
-        "Known correct answer(s): {answers_str}\n\n"
-        "Generate {n} adversarial paraphrases with a changed scope or qualifier.\n"
-        'Output ONLY valid JSON: {{"paraphrases": ["q1", "q2", ...]}}',
-    ),
-    "presupposition": (
-        "You are an adversarial question generator for AI robustness research.\n"
-        "Task: embed a subtle false presupposition inside the question so an LLM "
-        "might accept the false premise and answer incorrectly.\n"
-        "Examples:\n"
-        "  'Who wrote 1984, the novel set in Russia?' (false: it is set in Britain)\n"
-        "  'What is the capital of Australia, the continent's largest city?' "
-        "(false: Canberra is not the largest city)\n"
-        'Output ONLY this JSON object: {"paraphrases": ["q1", "q2", ...]}',
-        'Original question: "{question}"\n'
-        "Known correct answer(s): {answers_str}\n\n"
-        "Generate {n} adversarial paraphrases with subtle false presuppositions.\n"
+        "Generate {n} semantically equivalent adversarial paraphrases.\n"
+        "Each paraphrase must preserve the exact meaning and require the SAME answer, "
+        "while varying the phrasing in a way that could expose sensitivity to framing.\n"
         'Output ONLY valid JSON: {{"paraphrases": ["q1", "q2", ...]}}',
     ),
     # ------------------------------------------------------------------
-    # Control / baseline (should NOT attack effectively)
+    # Control / baseline
     # ------------------------------------------------------------------
     "semantic_preserve": (
         "You are a paraphrase generator.\n"
@@ -168,25 +140,16 @@ class LLMParaphraser(BaseAttacker):
         ]
 
         last_error: Optional[Exception] = None
-        last_raw: Optional[str] = None
         for attempt in range(1 + self.retries):
             try:
-                # Use plain chat (no format=json) so qwen3 doesn't return
-                # error objects.  We parse JSON from the raw response instead.
-                raw = self.client.chat(
+                parsed = self.client.chat_json(
                     model=self.model,
                     messages=messages,
                     temperature=self.temperature,
                     max_tokens=self.max_tokens,
                     think=False,
                 )
-                last_raw = raw
-                try:
-                    parsed = _parse_json_robust(raw)
-                    paraphrases = _extract_string_list(parsed, question)
-                except ValueError:
-                    # JSON parse failed — fall through to prose extraction below
-                    paraphrases = []
+                paraphrases = _extract_string_list(parsed, question)
 
                 if paraphrases:
                     return paraphrases
@@ -201,17 +164,6 @@ class LLMParaphraser(BaseAttacker):
                     attempt + 1, 1 + self.retries, exc,
                 )
 
-        # Last-resort: extract question-like sentences from whatever prose the model output.
-        # This handles qwen3's tendency to reason in prose without outputting JSON.
-        if last_raw:
-            fallback = _extract_questions_from_prose(last_raw, question, n)
-            if fallback:
-                logger.info(
-                    "[attacker] Prose fallback extracted %d questions for %r",
-                    len(fallback), question,
-                )
-                return fallback
-
         logger.error(
             "[attacker] All attempts exhausted for question %r. Last error: %s",
             question, last_error,
@@ -222,58 +174,6 @@ class LLMParaphraser(BaseAttacker):
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
-
-def _extract_questions_from_prose(text: str, original_question: str, n: int) -> List[str]:
-    """
-    Fallback: extract question sentences (ending with ?) from prose model output.
-    Used when the model reasons in natural language instead of outputting JSON.
-    Excludes the original question, meta-reasoning sentences, and structural fragments.
-    """
-    import re
-
-    # Split on sentence boundaries
-    sentences = re.split(r"(?<=[.?!])\s+", text)
-    questions = []
-    seen: set = {original_question.lower().strip()}
-
-    # Prefixes that indicate model meta-reasoning rather than actual questions
-    META_STARTS = (
-        "we are", "we can", "we need", "we should", "we want",
-        "i am", "i need", "i should", "i will", "i want", "i recall",
-        "let me", "let's", "so we", "so i",
-        "here are", "following are", "note that", "please note",
-        "should i", "can i", "do you", "would you", "shall i",
-        "is that correct", "is this correct",
-        "this is", "that is", "it is", "it's",
-        "in other words", "for example", "for instance",
-        "option", "step ", "rule ", "change \"", "swap \"",
-        "possible", "alternatively", "however", "therefore",
-        "ideas for", "now,", "finally,",
-    )
-
-    for sent in sentences:
-        sent = sent.strip()
-        if not sent.endswith("?"):
-            continue
-        low = sent.lower()
-        # Skip if it starts with a meta-reasoning prefix
-        if any(low.startswith(pfx) for pfx in META_STARTS):
-            continue
-        # Skip if it contains inline references to prompt structure
-        if any(kw in low for kw in [
-            "output json", "json object", "paraphrase", "adversarial",
-            "swap", "change \"", "key element", "correct answer",
-        ]):
-            continue
-        key = low
-        if key not in seen and 10 <= len(sent) <= 200:
-            seen.add(key)
-            questions.append(sent)
-        if len(questions) >= n:
-            break
-
-    return questions
-
 
 def _extract_string_list(parsed: object, original_question: str) -> List[str]:
     """

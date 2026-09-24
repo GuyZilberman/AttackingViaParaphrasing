@@ -9,10 +9,10 @@ import re
 from ollama_client import OllamaClient
 
 _SYSTEM_PROMPT = (
-    "You are a factual question answering system. "
-    "Answer each question with only the answer — "
-    "a name, date, place, or short phrase. "
-    "Do not explain. Do not restate the question."
+    "Answer the question with only the shortest direct answer. "
+    "Do not explain. Do not repeat the question. "
+    "Do not use a full sentence unless necessary. "
+    "Return only the answer itself."
 )
 
 
@@ -56,10 +56,13 @@ class VictimModel:
             max_tokens=self.max_tokens,
             think=False,
         )
-        return _extract_short_answer(raw)
+
+        if "</think>" in raw:
+            raw = raw.rsplit("</think>", 1)[1]
+
+        return raw.strip()
 
 
-# Patterns that introduce the final answer in reasoning-style outputs
 # Patterns that introduce the final answer in reasoning-style outputs
 _ANSWER_INTRO = re.compile(
     r"(?i)(?:the answer is|so the answer is|answer:|therefore[,\s]+the answer|"
