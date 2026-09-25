@@ -1,0 +1,400 @@
+[
+ {
+  "original": "All the motor neurons that control the skeletal muscles are?",
+  "candidate": "What type of nerves control the skeletal muscles?",
+  "gold": [
+   "efferent nerves",
+   "Somatic motor neurons",
+   "Somatic"
+  ],
+  "preserved": true
+ },
+ {
+  "original": "All the motor neurons that control the skeletal muscles are?",
+  "candidate": "Which nerves are responsible for controlling skeletal muscle activity?",
+  "gold": [
+   "efferent nerves",
+   "Somatic motor neurons",
+   "Somatic"
+  ],
+  "preserved": true
+ },
+ {
+  "original": "All the motor neurons that control the skeletal muscles are?",
+  "candidate": "What is the primary function of the nerves controlling the skeletal muscles?",
+  "gold": [
+   "efferent nerves",
+   "Somatic motor neurons",
+   "Somatic"
+  ],
+  "preserved": false
+ },
+ {
+  "original": "All the motor neurons that control the skeletal muscles are?",
+  "candidate": "What nerves make up the motor component of the skeletal muscle system?",
+  "gold": [
+   "efferent nerves",
+   "Somatic motor neurons",
+   "Somatic"
+  ],
+  "preserved": true
+ },
+ {
+  "original": "All the motor neurons that control the skeletal muscles are?",
+  "candidate": "Which neurons are associated with the contraction of skeletal muscles?",
+  "gold": [
+   "efferent nerves",
+   "Somatic motor neurons",
+   "Somatic"
+  ],
+  "preserved": true
+ },
+ {
+  "original": "All the motor neurons that control the skeletal muscles are?",
+  "candidate": "What nerves are primarily responsible for controlling skeletal muscle activity?",
+  "gold": [
+   "efferent nerves",
+   "Somatic motor neurons",
+   "Somatic"
+  ],
+  "preserved": true
+ },
+ {
+  "original": "All the motor neurons that control the skeletal muscles are?",
+  "candidate": "What is the main function of the nerves controlling the contraction of skeletal muscles?",
+  "gold": [
+   "efferent nerves",
+   "Somatic motor neurons",
+   "Somatic"
+  ],
+  "preserved": false
+ },
+ {
+  "original": "All the motor neurons that control the skeletal muscles are?",
+  "candidate": "What is the primary role of the nerves associated with the contraction of skeletal muscles?",
+  "gold": [
+   "efferent nerves",
+   "Somatic motor neurons",
+   "Somatic"
+  ],
+  "preserved": false
+ },
+ {
+  "original": "All the motor neurons that control the skeletal muscles are?",
+  "candidate": "What nerves have the primary function of controlling skeletal muscle activity?",
+  "gold": [
+   "efferent nerves",
+   "Somatic motor neurons",
+   "Somatic"
+  ],
+  "preserved": true
+ },
+ {
+  "original": "All the motor neurons that control the skeletal muscles are?",
+  "candidate": "What is the main purpose of the nerves controlling the movement of skeletal muscles?",
+  "gold": [
+   "efferent nerves",
+   "Somatic motor neurons",
+   "Somatic"
+  ],
+  "preserved": false
+ },
+ {
+  "original": "All the motor neurons that control the skeletal muscles are?",
+  "candidate": "What nerves are primarily responsible for carrying signals to the skeletal muscles?",
+  "gold": [
+   "efferent nerves",
+   "Somatic motor neurons",
+   "Somatic"
+  ],
+  "preserved": true
+ },
+ {
+  "original": "All the motor neurons that control the skeletal muscles are?",
+  "candidate": "What is the primary purpose of the nerves controlling the movement of skeletal muscles?",
+  "gold": [
+   "efferent nerves",
+   "Somatic motor neurons",
+   "Somatic"
+  ],
+  "preserved": false
+ },
+ {
+  "original": "All the motor neurons that control the skeletal muscles are?",
+  "candidate": "Which type of nerves control the contraction of skeletal muscles?",
+  "gold": [
+   "efferent nerves",
+   "Somatic motor neurons",
+   "Somatic"
+  ],
+  "preserved": true
+ },
+ {
+  "original": "All the motor neurons that control the skeletal muscles are?",
+  "candidate": "What is the main function of the nerves responsible for controlling skeletal muscle activity?",
+  "gold": [
+   "efferent nerves",
+   "Somatic motor neurons",
+   "Somatic"
+  ],
+  "preserved": false
+ },
+ {
+  "original": "All the motor neurons that control the skeletal muscles are?",
+  "candidate": "What nerves have the primary function of controlling the contraction of skeletal muscles?",
+  "gold": [
+   "efferent nerves",
+   "Somatic motor neurons",
+   "Somatic"
+  ],
+  "preserved": true
+ },
+ {
+  "original": "What age do you need to be to buy a bb gun?",
+  "candidate": "At what minimum age can you buy a bb gun?",
+  "gold": [
+   "18"
+  ],
+  "preserved": true
+ },
+ {
+  "original": "What age do you need to be to buy a bb gun?",
+  "candidate": "What is the age requirement for buying a bb gun?",
+  "gold": [
+   "18"
+  ],
+  "preserved": true
+ },
+ {
+  "original": "What age do you need to be to buy a bb gun?",
+  "candidate": "Can you buy a bb gun when you are still a minor?",
+  "gold": [
+   "18"
+  ],
+  "preserved": false
+ },
+ {
+  "original": "What age do you need to be to buy a bb gun?",
+  "candidate": "How old do you have to be to be eligible to buy a bb gun?",
+  "gold": [
+   "18"
+  ],
+  "preserved": true
+ },
+ {
+  "original": "What age do you need to be to buy a bb gun?",
+  "candidate": "Can a minor purchase a bb gun?",
+  "gold": [
+   "18"
+  ],
+  "preserved": false
+ },
+ {
+  "original": "What age do you need to be to buy a bb gun?",
+  "candidate": "At what age is it permitted to buy a bb gun?",
+  "gold": [
+   "18"
+  ],
+  "preserved": true
+ },
+ {
+  "original": "What age do you need to be to buy a bb gun?",
+  "candidate": "What age must you be to be allowed to buy a bb gun?",
+  "gold": [
+   "18"
+  ],
+  "preserved": true
+ },
+ {
+  "original": "What age do you need to be to buy a bb gun?",
+  "candidate": "Can you buy a bb gun if you're still a minor?",
+  "gold": [
+   "18"
+  ],
+  "preserved": false
+ },
+ {
+  "original": "What age do you need to be to buy a bb gun?",
+  "candidate": "At what minimum age is it lawful to purchase a bb gun?",
+  "gold": [
+   "18"
+  ],
+  "preserved": true
+ },
+ {
+  "original": "What age do you need to be to buy a bb gun?",
+  "candidate": "What's the minimum age to buy a bb gun if you're still a minor?",
+  "gold": [
+   "18"
+  ],
+  "preserved": false
+ },
+ {
+  "original": "What age do you need to be to buy a bb gun?",
+  "candidate": "Can a minor legally purchase a bb gun?",
+  "gold": [
+   "18"
+  ],
+  "preserved": false
+ },
+ {
+  "original": "What age do you need to be to buy a bb gun?",
+  "candidate": "Can you buy a bb gun while still considered a minor?",
+  "gold": [
+   "18"
+  ],
+  "preserved": false
+ },
+ {
+  "original": "What was the united states foreign policy after ww1 started?",
+  "candidate": "What was the official stance of the United States towards international conflicts after World War 1 began?",
+  "gold": [
+   "neutrality"
+  ],
+  "preserved": true
+ },
+ {
+  "original": "What was the united states foreign policy after ww1 started?",
+  "candidate": "How did the United States initially respond to the outbreak of World War 1 in terms of its foreign policy?",
+  "gold": [
+   "neutrality"
+  ],
+  "preserved": true
+ },
+ {
+  "original": "What was the united states foreign policy after ww1 started?",
+  "candidate": "What position did the United States take at the start of World War 1 with regards to foreign involvement?",
+  "gold": [
+   "neutrality"
+  ],
+  "preserved": true
+ },
+ {
+  "original": "What was the united states foreign policy after ww1 started?",
+  "candidate": "What was the initial policy of the United States towards foreign affairs once World War 1 started?",
+  "gold": [
+   "neutrality"
+  ],
+  "preserved": true
+ },
+ {
+  "original": "What was the united states foreign policy after ww1 started?",
+  "candidate": "How did the United States approach international relations in the period immediately following the start of World War 1?",
+  "gold": [
+   "neutrality"
+  ],
+  "preserved": true
+ },
+ {
+  "original": "What was the united states foreign policy after ww1 started?",
+  "candidate": "What was the United States' initial stance on foreign involvement during the early stages of World War 1?",
+  "gold": [
+   "neutrality"
+  ],
+  "preserved": true
+ },
+ {
+  "original": "What was the united states foreign policy after ww1 started?",
+  "candidate": "How did the United States react to the outbreak of World War 1 in its foreign policy at the beginning?",
+  "gold": [
+   "neutrality"
+  ],
+  "preserved": true
+ },
+ {
+  "original": "What was the united states foreign policy after ww1 started?",
+  "candidate": "What was the nature of the United States' response to the start of World War 1 in terms of its foreign policy stance?",
+  "gold": [
+   "neutrality"
+  ],
+  "preserved": true
+ },
+ {
+  "original": "What was the united states foreign policy after ww1 started?",
+  "candidate": "How did the United States handle international relations immediately after the beginning of World War 1 in terms of its foreign policy?",
+  "gold": [
+   "neutrality"
+  ],
+  "preserved": true
+ },
+ {
+  "original": "What was the united states foreign policy after ww1 started?",
+  "candidate": "What was the United States' attitude towards involvement in World War 1 when it first started?",
+  "gold": [
+   "neutrality"
+  ],
+  "preserved": true
+ },
+ {
+  "original": "What was the united states foreign policy after ww1 started?",
+  "candidate": "What stance did the United States take when World War 1 began in terms of its international interactions?",
+  "gold": [
+   "neutrality"
+  ],
+  "preserved": true
+ },
+ {
+  "original": "What was the united states foreign policy after ww1 started?",
+  "candidate": "How did the United States respond initially to the start of World War 1 in terms of its foreign policy actions?",
+  "gold": [
+   "neutrality"
+  ],
+  "preserved": true
+ },
+ {
+  "original": "What was the united states foreign policy after ww1 started?",
+  "candidate": "How did the United States behave in its international dealings at the beginning of World War 1?",
+  "gold": [
+   "neutrality"
+  ],
+  "preserved": true
+ },
+ {
+  "original": "What was the united states foreign policy after ww1 started?",
+  "candidate": "What was the initial position of the United States on involvement in World War 1 in the context of its foreign policy?",
+  "gold": [
+   "neutrality"
+  ],
+  "preserved": true
+ },
+ {
+  "original": "What was the united states foreign policy after ww1 started?",
+  "candidate": "What policy characterized the United States' international approach after WW1?",
+  "gold": [
+   "neutrality"
+  ],
+  "preserved": false
+ },
+ {
+  "original": "What was the united states foreign policy after ww1 started?",
+  "candidate": "The United States' stance on international relations was marked by what policy after WW1?",
+  "gold": [
+   "neutrality"
+  ],
+  "preserved": false
+ },
+ {
+  "original": "What was the united states foreign policy after ww1 started?",
+  "candidate": "What was the U.S. foreign policy after the outbreak of WW1?",
+  "gold": [
+   "neutrality"
+  ],
+  "preserved": true
+ },
+ {
+  "original": "What was the united states foreign policy after ww1 started?",
+  "candidate": "What principle guided the United States' foreign policy after the outbreak of WW1?",
+  "gold": [
+   "neutrality"
+  ],
+  "preserved": true
+ },
+ {
+  "original": "What was the united states foreign policy after ww1 started?",
+  "candidate": "The foreign policy of the United States was marked by what approach after the start of WW1.",
+  "gold": [
+   "neutrality"
+  ],
+  "preserved": true
+ }
+]

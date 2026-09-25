@@ -1,0 +1,368 @@
+[
+ {
+  "question": "Who sold out jesus for 30 pieces of silver?",
+  "prediction": "Judas",
+  "gold": [
+   "Judas Iscariot"
+  ],
+  "correct": true
+ },
+ {
+  "question": "When did the first marvel vs capcom come out?",
+  "prediction": "1998",
+  "gold": [
+   "1998",
+   "in 1996",
+   "1996"
+  ],
+  "correct": true
+ },
+ {
+  "question": "What is the big gold dome in jerusalem?",
+  "prediction": "Dome of the Rock",
+  "gold": [
+   "Dome of the Rock"
+  ],
+  "correct": true
+ },
+ {
+  "question": "All the motor neurons that control the skeletal muscles are?",
+  "prediction": "somatic motor neurons",
+  "gold": [
+   "efferent nerves",
+   "Somatic motor neurons",
+   "Somatic"
+  ],
+  "correct": true
+ },
+ {
+  "question": "The region that stretches between the black and caspian seas?",
+  "prediction": "Caucasus region",
+  "gold": [
+   "The Caucasus Mountains",
+   "Caucasus Mountains"
+  ],
+  "correct": true
+ },
+ {
+  "question": "The art and science of making objects from clay is called?",
+  "prediction": "pottery",
+  "gold": [
+   "Ceramic art",
+   "Ceramic"
+  ],
+  "correct": true
+ },
+ {
+  "question": "What was the united states foreign policy after ww1 started?",
+  "prediction": "neutrality",
+  "gold": [
+   "neutrality"
+  ],
+  "correct": true
+ },
+ {
+  "question": "When was catch me if you can made?",
+  "prediction": "2002",
+  "gold": [
+   "2002"
+  ],
+  "correct": true
+ },
+ {
+  "question": "When did the usa join world war one?",
+  "prediction": "April 6, 1917",
+  "gold": [
+   "April 1917",
+   "April 6, 1917",
+   "in April 1917"
+  ],
+  "correct": true
+ },
+ {
+  "question": "When was the design period known as art deco?",
+  "prediction": "1920s",
+  "gold": [
+   "1910–1939"
+  ],
+  "correct": true
+ },
+ {
+  "question": "A request to the supreme court that it review a case that was already decided is made via a(n)?",
+  "prediction": "writ of certiorari",
+  "gold": [
+   "a writ of certiorari",
+   "writ of certiorari"
+  ],
+  "correct": true
+ },
+ {
+  "question": "What is the 180 degree line of longitude called?",
+  "prediction": "International Date Line",
+  "gold": [
+   "180th meridian or antimeridian",
+   "180th meridian",
+   "antimeridian"
+  ],
+  "correct": false
+ },
+ {
+  "question": "Who wrote the music phantom of the opera?",
+  "prediction": "Andrew Lloyd Webber",
+  "gold": [
+   "Andrew Lloyd Webber"
+  ],
+  "correct": true
+ },
+ {
+  "question": "What is the name of the skin between your nostrils?",
+  "prediction": "septum",
+  "gold": [
+   "the nasal septum",
+   "septum"
+  ],
+  "correct": true
+ },
+ {
+  "question": "What has been the origin of most classical dances of india?",
+  "prediction": "ancient Hindu religious rituals",
+  "gold": [
+   "the Sanskrit text Natya Shastra",
+   "Natya Shastra",
+   "The Natya Shastra"
+  ],
+  "correct": false
+ },
+ {
+  "question": "Nodding your head no is an example of?",
+  "prediction": "contradiction",
+  "gold": [
+   "a gesture"
+  ],
+  "correct": false
+ },
+ {
+  "question": "What type of planet is neptune known as?",
+  "prediction": "gas giant",
+  "gold": [
+   "giant",
+   "ice giants"
+  ],
+  "correct": false
+ },
+ {
+  "question": "What is the meaning of auv in cars?",
+  "prediction": "Automatic Vehicle",
+  "gold": [
+   "action utility vehicles"
+  ],
+  "correct": false
+ },
+ {
+  "question": "When did cybermen first appear in doctor who?",
+  "prediction": "1966",
+  "gold": [
+   "in 1966",
+   "1966"
+  ],
+  "correct": true
+ },
+ {
+  "question": "Who explored waters of cuba the bahamas and hispaniola?",
+  "prediction": "Christopher Columbus",
+  "gold": [
+   "Christopher Columbus"
+  ],
+  "correct": true
+ },
+ {
+  "question": "Where in the constitution is the executive branch referenced?",
+  "prediction": "Article II",
+  "gold": [
+   "Article Two"
+  ],
+  "correct": true
+ },
+ {
+  "question": "What episode does lori die on the walking dead?",
+  "prediction": "Season 4, Episode 10",
+  "gold": [
+   "\"Killer Within\"",
+   "Killer Within"
+  ],
+  "correct": false
+ },
+ {
+  "question": "Is greenland part of europe or north america?",
+  "prediction": "North America",
+  "gold": [
+   "North America"
+  ],
+  "correct": true
+ },
+ {
+  "question": "Is aluminium a ferrous or non ferrous metal?",
+  "prediction": "non ferrous",
+  "gold": [
+   "non-ferrous"
+  ],
+  "correct": true
+ },
+ {
+  "question": "Where did the dewey decimal system come from?",
+  "prediction": "American librarian Melvil Dewey",
+  "gold": [
+   "Melvil Dewey"
+  ],
+  "correct": true
+ },
+ {
+  "question": "The general term for software that is designed to damage disable or steal data is?",
+  "prediction": "malware",
+  "gold": [
+   "Malware"
+  ],
+  "correct": true
+ },
+ {
+  "question": "The first political society started under british rule in india was?",
+  "prediction": "Indian Association",
+  "gold": [
+   "The British Indian Association"
+  ],
+  "correct": false
+ },
+ {
+  "question": "Another name for the torso is the blank region of the body?",
+  "prediction": "trunk",
+  "gold": [
+   "trunk"
+  ],
+  "correct": true
+ },
+ {
+  "question": "Dogs name in the grinch who stole christmas?",
+  "prediction": "Max",
+  "gold": [
+   "Max"
+  ],
+  "correct": true
+ },
+ {
+  "question": "Which organelle is the site of atp production and storage?",
+  "prediction": "mitochondria",
+  "gold": [
+   "mitochondrion"
+  ],
+  "correct": true
+ },
+ {
+  "question": "What disney cartoon character's middle name is fauntleroy?",
+  "prediction": "Bashful",
+  "gold": [
+   "Donald Duck",
+   "Donald Fauntleroy Duck"
+  ],
+  "correct": false
+ },
+ {
+  "question": "China in chinese is called zhongguo which means?",
+  "prediction": "middle country",
+  "gold": [
+   "Central States"
+  ],
+  "correct": true
+ },
+ {
+  "question": "When was the us department of homeland security created?",
+  "prediction": "2002",
+  "gold": [
+   "November 25, 2002",
+   "November 25, 2002"
+  ],
+  "correct": true
+ },
+ {
+  "question": "The most common form of megalithic architecture in europe is?",
+  "prediction": "dolmen",
+  "gold": [
+   "the portal tomb",
+   "portal tomb"
+  ],
+  "correct": true
+ },
+ {
+  "question": "Where was the louisiana purchase signed in 1803?",
+  "prediction": "Paris",
+  "gold": [
+   "Paris"
+  ],
+  "correct": true
+ },
+ {
+  "question": "Where is the majority of phosphorous stored in the environment?",
+  "prediction": "sedimentary rocks",
+  "gold": [
+   "minerals",
+   "rocks",
+   "in rocks and minerals"
+  ],
+  "correct": true
+ },
+ {
+  "question": "Who is the actress that plays penny on the big bang theory?",
+  "prediction": "Melissa Fumero",
+  "gold": [
+   "Kaley Christine Cuoco"
+  ],
+  "correct": false
+ },
+ {
+  "question": "Who is the actress that plays penny on the big bang theory?",
+  "prediction": "Kaley Cuoco",
+  "gold": [
+   "Kaley Christine Cuoco"
+  ],
+  "correct": true
+ },
+ {
+  "question": "Ethiopia flight 961 crashes in to the sea?",
+  "prediction": "No",
+  "gold": [
+   "23 November 1996"
+  ],
+  "correct": false
+ },
+ {
+  "question": "Who wrote the music phantom of the opera?",
+  "prediction": "Tim Rice",
+  "gold": [
+   "Andrew Lloyd Webber"
+  ],
+  "correct": false
+ },
+ {
+  "question": "What was the united states foreign policy after ww1 started?",
+  "prediction": "The United States remained neutral.",
+  "gold": [
+   "neutrality"
+  ],
+  "correct": true
+ },
+ {
+  "question": "What is the minimum number of parties required to enter into a deed?",
+  "prediction": "2",
+  "gold": [
+   "two parties"
+  ],
+  "correct": true
+ },
+ {
+  "question": "Who is the actress that plays penny on the big bang theory?",
+  "prediction": "Jennifer Aniston",
+  "gold": [
+   "Kaley Christine Cuoco"
+  ],
+  "correct": false
+ }
+]
