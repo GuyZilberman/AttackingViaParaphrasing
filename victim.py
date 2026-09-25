@@ -6,6 +6,8 @@ Swapping the underlying model is a one-liner in ExperimentConfig.
 """
 
 import re
+from typing import Optional
+
 from ollama_client import OllamaClient
 
 _SYSTEM_PROMPT = (
@@ -24,7 +26,10 @@ class VictimModel:
         client:      OllamaClient instance (shared across components).
         model:       Ollama model tag, e.g. "qwen3:4b".
         temperature: 0.0 = greedy / deterministic answers.
-        max_tokens:  Enough room for reasoning + short final answer.
+        max_tokens:  Enough room for reasoning + short final answer. qwen3
+                     reasons inside the reply even with think=False; on
+                     harder questions 512 tokens often cut it off before
+                     </think>, leaving no answer to extract.
     """
 
     def __init__(
@@ -32,16 +37,19 @@ class VictimModel:
         client: OllamaClient,
         model: str = "qwen3:4b",
         temperature: float = 0.0,
-        max_tokens: int = 512,
+        max_tokens: int = 2048,
     ):
         self.client = client
         self.model = model
         self.temperature = temperature
         self.max_tokens = max_tokens
 
-    def answer(self, question: str) -> str:
+    def answer(self, question: str, temperature: Optional[float] = None) -> str:
         """
         Ask the victim model a question and return a cleaned short answer.
+
+        `temperature` overrides the default for this call only; used to draw
+        sampled answers when estimating how often a paraphrase fools the victim.
         qwen3 often outputs reasoning before the answer; we extract only the
         final answer using _extract_short_answer().
         """
@@ -52,7 +60,7 @@ class VictimModel:
         raw = self.client.chat(
             model=self.model,
             messages=messages,
-            temperature=self.temperature,
+            temperature=self.temperature if temperature is None else temperature,
             max_tokens=self.max_tokens,
             think=False,
         )

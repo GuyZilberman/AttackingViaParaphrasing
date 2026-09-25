@@ -27,6 +27,11 @@ ATTACKER_STRATEGIES = [
 
 EVALUATOR_CHOICES = ["exact_match", "llm_judge", "both"]
 
+SEARCH_CHOICES = [
+    "evolutionary",  # mutate / recombine the highest-fitness paraphrases so far
+    "reflective",    # only show the attacker previous attempts + outcomes
+]
+
 
 # ---------------------------------------------------------------------------
 # Config dataclass
@@ -38,7 +43,7 @@ class ExperimentConfig:
     ollama_base_url: str = "http://127.0.0.1:11434"
 
     # ---- Models ----
-    attacker_model: str = "qwen3:4b"
+    attacker_model: str = "llama3.1:8b"
     victim_model: str = "qwen3:4b"
     judge_model: str = "qwen3:4b"
 
@@ -47,6 +52,18 @@ class ExperimentConfig:
     n_paraphrases: int = 10  # paraphrases generated per attack round
     max_rounds: int = 5      # iterative attack rounds per question
     stop_on_success: bool = False  # stop a question's search at its first success
+    # Second validation gate after questions_equivalent(): the known answer
+    # must still answer the paraphrase (utils/answer_preservation_judge.py).
+    answer_check: bool = True
+
+    # ---- Search strategy ----
+    search: str = "evolutionary"
+    n_parents: int = 3             # parents selected per evolutionary round
+    # Fitness = fraction of victim answers judged wrong (by llm_judge when it is
+    # enabled) over the greedy answer plus `fitness_samples` sampled ones.
+    # 0 → greedy answer only (fitness 0 or 1).
+    fitness_samples: int = 4
+    fitness_temperature: float = 0.7
 
     # ---- Dataset ----
     # None → use built-in data/sample_questions.json
@@ -78,6 +95,14 @@ class ExperimentConfig:
             )
         if self.n_paraphrases < 1:
             raise ValueError("n_paraphrases must be >= 1")
+        if self.search not in SEARCH_CHOICES:
+            raise ValueError(
+                f"Unknown search {self.search!r}. Choose from: {SEARCH_CHOICES}"
+            )
+        if self.n_parents < 1:
+            raise ValueError("n_parents must be >= 1")
+        if self.fitness_samples < 0:
+            raise ValueError("fitness_samples must be >= 0")
         if self.max_rounds < 1:
             raise ValueError("max_rounds must be >= 1")
         if self.n_questions < 1:
@@ -96,6 +121,7 @@ class ExperimentConfig:
             f"__victim_{slug(self.victim_model)}"
             f"__judge_{slug(self.judge_model)}"
             f"__q{self.n_questions}_p{self.n_paraphrases}_r{self.max_rounds}"
+            f"_{self.search}"
         )
 
     def to_dict(self) -> dict:
@@ -136,6 +162,21 @@ def parse_args(argv: Optional[List[str]] = None) -> ExperimentConfig:
     parser.add_argument("--stop-on-success", action="store_true",
                         help="Stop attacking a question after its first successful paraphrase")
 
+    parser.add_argument("--no-answer-check", dest="answer_check", action="store_false",
+                        help="Skip the answer-preservation check (equivalence check only)")
+
+    # Search strategy
+    parser.add_argument("--search", default=defaults.search, choices=SEARCH_CHOICES,
+                        help="How later rounds use earlier results")
+    parser.add_argument("--n-parents", type=int, default=defaults.n_parents,
+                        help="Highest-fitness paraphrases evolved per round (evolutionary search)")
+    parser.add_argument("--fitness-samples", type=int, default=defaults.fitness_samples,
+                        help="Extra sampled victim answers per paraphrase used to estimate "
+                             "how often it fools the victim (0 = greedy answer only)")
+    parser.add_argument("--fitness-temperature", type=float,
+                        default=defaults.fitness_temperature,
+                        help="Victim sampling temperature for the fitness estimate")
+
     # Dataset
     parser.add_argument("--dataset-path", default=None,
                         help="Path to a JSON or CSV question file (default: built-in samples)")
@@ -169,6 +210,11 @@ def parse_args(argv: Optional[List[str]] = None) -> ExperimentConfig:
         n_paraphrases=args.n_paraphrases,
         max_rounds=args.max_rounds,
         stop_on_success=args.stop_on_success,
+        answer_check=args.answer_check,
+        search=args.search,
+        n_parents=args.n_parents,
+        fitness_samples=args.fitness_samples,
+        fitness_temperature=args.fitness_temperature,
         dataset_path=args.dataset_path,
         n_questions=args.n_questions,
         random_seed=args.random_seed,

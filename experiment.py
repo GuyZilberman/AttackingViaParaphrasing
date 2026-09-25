@@ -27,7 +27,10 @@ Result file format
           "victim_answer": "...",
           "correct": { "exact_match": false, "llm_judge": false },
           "rationale": { "llm_judge": "..." },
-          "attack_success": { "exact_match": true, "llm_judge": true }
+          "attack_success": { "exact_match": true, "llm_judge": true },
+          "sample_answers": ["...", ...],   # extra victim answers at fitness_temperature
+          "fitness": 0.4                    # fraction of victim answers judged wrong
+                                            # (by llm_judge if enabled)
         },
         ...
       ],
@@ -39,9 +42,11 @@ Result file format
       "rounds": [                            # full iterative-search trace
         {
           "round": 1,
+          "parents": ["..."],                # paraphrases evolved (evolutionary search)
           "n_generated": 5, "n_duplicates": 0, "n_rejected": 1, "n_queried": 4,
           "candidates": [
-            {"paraphrase": "...", "status": "rejected", "equivalent": false},
+            {"paraphrase": "...", "status": "rejected", "equivalent": false,
+             "rejected_by": "equivalence" | "answer_preservation"},
             {"paraphrase": "...", "status": "duplicate"},
             { ...same fields as a "paraphrases" entry (status "queried")... }
           ]
@@ -96,6 +101,7 @@ from victim import VictimModel
 from attackers import LLMParaphraser
 from evaluators import ExactMatchEvaluator, LLMJudgeEvaluator, BaseEvaluator
 from utils.question_equivalence_judge import questions_equivalent
+from utils.answer_preservation_judge import answer_preserved
 
 logger = logging.getLogger(__name__)
 
@@ -312,8 +318,20 @@ def _iterative_attack(
     Run up to cfg.max_rounds attack rounds on one question.
 
     Each round: generate candidates (informed by all previous attempts),
-    drop ones already tried in any round, reject non-equivalent ones without
+    drop ones already tried in any round, reject ones that fail
+    questions_equivalent() or (cfg.answer_check) answer_preserved() without
     querying the victim, then query + evaluate the rest.
+
+    Every queried candidate gets a fitness in [0, 1]: the fraction of victim
+    answers judged wrong, over the greedy answer plus cfg.fitness_samples
+    sampled ones. Fitness and the correct/wrong verdict shown to the attacker
+    use a single "guide" evaluator: the LLM judge when enabled (exact match
+    flags valid rewordings like "alpha motor neurons" as wrong, which would
+    steer the search toward evaluator artefacts), else the only evaluator.
+
+    With cfg.search == "evolutionary", each later round asks the attacker to
+    mutate / recombine the cfg.n_parents fittest candidates so far; while no
+    candidate has fitness > 0 it explores freely instead.
 
     Returns (rounds, queried_records).
     """
@@ -321,14 +339,34 @@ def _iterative_attack(
     history: List[dict] = []   # feedback given to the attacker
     rounds: List[dict] = []
     queried: List[dict] = []
+    eval_cache: Dict[str, Tuple[Dict[str, bool], Dict[str, Optional[str]]]] = {}
+    ev_names = [ev.name for ev in evaluators]
+    guide = "llm_judge" if "llm_judge" in ev_names else ev_names[0]
+
+    def evaluate(answer: str) -> Tuple[Dict[str, bool], Dict[str, Optional[str]]]:
+        # Sampled answers repeat a lot; don't re-run (LLM) evaluators on them.
+        key = _normalize(answer)
+        if key not in eval_cache:
+            results = {ev.name: ev.evaluate(answer, gts) for ev in evaluators}
+            eval_cache[key] = (
+                {name: r.correct for name, r in results.items()},
+                {name: r.rationale for name, r in results.items()},
+            )
+        return eval_cache[key]
 
     for rnd in range(1, cfg.max_rounds + 1):
         logger.info("  Attack round %d/%d", rnd, cfg.max_rounds)
+        parents = _select_parents(cfg, history)
+        if parents:
+            logger.info("    Evolving %d parent(s):", len(parents))
+            for p in parents:
+                logger.info("      fitness=%.2f  %r", p["fitness"], p["paraphrase"])
         candidates = attacker.generate_paraphrases(
             question=question,
             answers=gts,
             n=cfg.n_paraphrases,
             history=history,
+            parents=parents,
         )
         logger.info("    Generated %d candidates", len(candidates))
 
@@ -347,27 +385,46 @@ def _iterative_attack(
                     f"\nOriginal:   {question}"
                     f"\nParaphrase: {cand}\n"
                 )
-                record = {"paraphrase": cand, "status": "rejected", "equivalent": False}
+                record = {"paraphrase": cand, "status": "rejected", "equivalent": False,
+                          "rejected_by": "equivalence"}
+                round_records.append(record)
+                history.append(record)
+                continue
+
+            if cfg.answer_check and not answer_preserved(question, cand, gts):
+                print(
+                    "\n[ANSWER PRESERVATION FAILED]"
+                    f"\nOriginal:   {question}"
+                    f"\nAnswer(s):  {gts}"
+                    f"\nParaphrase: {cand}\n"
+                )
+                record = {"paraphrase": cand, "status": "rejected", "equivalent": False,
+                          "rejected_by": "answer_preservation"}
                 round_records.append(record)
                 history.append(record)
                 continue
 
             para_answer = victim.answer(cand)
-            correct_map: Dict[str, bool] = {}
-            rationale_map: Dict[str, Optional[str]] = {}
-            attack_success_map: Dict[str, bool] = {}
-            for ev in evaluators:
-                res = ev.evaluate(para_answer, gts)
-                correct_map[ev.name] = res.correct
-                rationale_map[ev.name] = res.rationale
-                # Attack succeeds when the original was correct but the paraphrase is wrong
-                attack_success_map[ev.name] = (
-                    original_correct.get(ev.name, True) and not res.correct
-                )
+            correct_map, rationale_map = evaluate(para_answer)
+            # Attack succeeds when the original was correct but the paraphrase is wrong
+            attack_success_map: Dict[str, bool] = {
+                name: original_correct.get(name, True) and not ok
+                for name, ok in correct_map.items()
+            }
+
+            sample_answers = [
+                victim.answer(cand, temperature=cfg.fitness_temperature)
+                for _ in range(cfg.fitness_samples)
+            ]
+            n_wrong = sum(
+                1 for a in [para_answer] + sample_answers
+                if not evaluate(a)[0][guide]
+            )
+            fitness = n_wrong / (1 + len(sample_answers))
 
             logger.info(
-                "    Paraphrase: %r  →  Victim: %r  correct=%s",
-                cand, para_answer, correct_map,
+                "    Paraphrase: %r  →  Victim: %r  correct=%s  fitness=%.2f (%d/%d wrong, %s)",
+                cand, para_answer, correct_map, fitness, n_wrong, 1 + len(sample_answers), guide,
             )
             record = {
                 "round": rnd,
@@ -378,6 +435,8 @@ def _iterative_attack(
                 "correct": correct_map,
                 "rationale": rationale_map,
                 "attack_success": attack_success_map,
+                "sample_answers": sample_answers,
+                "fitness": fitness,
             }
             round_records.append(record)
             queried.append(record)
@@ -385,7 +444,8 @@ def _iterative_attack(
                 "paraphrase": cand,
                 "status": "queried",
                 "victim_answer": para_answer,
-                "victim_correct": all(correct_map.values()),
+                "victim_correct": correct_map[guide],
+                "fitness": fitness,
             })
 
             if any(attack_success_map.values()):
@@ -406,11 +466,12 @@ def _iterative_attack(
         )
         logger.info(
             "    Round %d/%d done: %d generated, %d duplicates, %d rejected, "
-            "%d passed equivalence validation (queried), %d successful",
+            "%d passed validation (queried), %d successful",
             rnd, cfg.max_rounds, len(candidates), n_dup, n_rej, n_q, n_succ,
         )
         rounds.append({
             "round": rnd,
+            "parents": [p["paraphrase"] for p in parents],
             "n_generated": len(candidates),
             "n_duplicates": n_dup,
             "n_rejected": n_rej,
@@ -423,6 +484,20 @@ def _iterative_attack(
             break
 
     return rounds, queried
+
+
+def _select_parents(cfg: ExperimentConfig, history: List[dict]) -> List[dict]:
+    """
+    Pick the cfg.n_parents fittest queried candidates so far (elitist
+    selection over all previous rounds). Returns [] for reflective search or
+    while no candidate has fooled the victim even once (no signal to follow).
+    """
+    if cfg.search != "evolutionary":
+        return []
+    scored = [h for h in history if h.get("fitness", 0) > 0]
+    # Stable sort: ties keep the earlier candidate first.
+    scored.sort(key=lambda h: h["fitness"], reverse=True)
+    return scored[:cfg.n_parents]
 
 
 def _print_summary(summary: dict, out_path: Path) -> None:

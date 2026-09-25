@@ -33,6 +33,7 @@ class BaseAttacker(ABC):
         answers: List[str],
         n: int = 10,
         history: Optional[List[dict]] = None,
+        parents: Optional[List[dict]] = None,
     ) -> List[str]:
         """
         Args:
@@ -42,7 +43,10 @@ class BaseAttacker(ABC):
             history:  Previous attempts for this question (iterative search).
                       Each dict has "paraphrase" and "status"
                       ("rejected" | "queried"); queried ones also carry
-                      "victim_answer" and "victim_correct".
+                      "victim_answer", "victim_correct" and optionally
+                      "fitness" (estimated probability of a wrong answer).
+            parents:  Subset of `history` to evolve (mutate / recombine) this
+                      round. None → explore freely.
 
         Returns:
             List of paraphrase strings (may be shorter than n if the model

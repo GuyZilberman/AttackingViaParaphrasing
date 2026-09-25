@@ -4,11 +4,18 @@ Entry point for the adversarial paraphrasing attack experiment.
 
 Usage
 -----
-  # Quick smoke test (default built-in questions, qwen3:4b for everything):
+  # Quick smoke test (built-in questions; attacker llama3.1:8b, victim + judge qwen3:4b):
   python3 run_experiment.py --n-questions 3 --n-paraphrases 5
 
   # Iterative attack: up to 5 rounds of 5 paraphrases each per question:
   python3 run_experiment.py --n-questions 3 --n-paraphrases 5 --max-rounds 5
+
+  # Harder questions (real search queries from NQ-Open; build once with
+  # python3 utils/download_nq_open.py):
+  python3 run_experiment.py --dataset-path data/nq_open_sample.json --n-questions 10
+
+  # Reflective search only (no parent selection, no victim sampling):
+  python3 run_experiment.py --search reflective --fitness-samples 0
 
   # Change the attack strategy:
   python3 run_experiment.py --attacker-strategy temporal_shift --n-questions 3 --n-paraphrases 5
@@ -52,6 +59,9 @@ def main() -> None:
     print(f"  Questions         : {cfg.n_questions}")
     print(f"  Paraphrases/round : {cfg.n_paraphrases}")
     print(f"  Max rounds        : {cfg.max_rounds}  (stop_on_success={cfg.stop_on_success})")
+    print(f"  Answer check      : {'on' if cfg.answer_check else 'off'}")
+    print(f"  Search            : {cfg.search}  (parents={cfg.n_parents}, "
+          f"fitness samples={cfg.fitness_samples} @ T={cfg.fitness_temperature})")
     print(f"  Dataset           : {cfg.dataset_path or 'built-in (data/sample_questions.json)'}")
     print(f"  Results dir       : {cfg.results_dir}")
     print("=" * 60 + "\n")

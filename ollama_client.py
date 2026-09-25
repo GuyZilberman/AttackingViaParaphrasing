@@ -12,6 +12,12 @@ import requests
 
 OLLAMA_BASE_URL = "http://127.0.0.1:11434"
 
+# Context window requested for every call. Without it Ollama loads each model
+# with its full native context (131k for llama3.1), which fills all VRAM and
+# forces a model unload/reload every time the pipeline switches between the
+# victim/attacker and the equivalence judge. 8k is plenty for our prompts.
+NUM_CTX = 8192
+
 
 class OllamaError(Exception):
     pass
@@ -84,6 +90,7 @@ class OllamaClient:
             "options": {
                 "temperature": temperature,
                 "num_predict": max_tokens,
+                "num_ctx": NUM_CTX,
             },
         }
 
@@ -128,6 +135,7 @@ class OllamaClient:
             "options": {
                 "temperature": temperature,
                 "num_predict": max_tokens,
+                "num_ctx": NUM_CTX,
             },
         }
 

@@ -11,6 +11,7 @@ Adding a new strategy: add an entry to the STRATEGIES dict below.
 
 import json
 import logging
+import re
 from typing import Dict, List, Optional, Tuple
 
 from ollama_client import OllamaClient
@@ -75,8 +76,10 @@ STRATEGIES: Dict[str, Tuple[str, str]] = {
 
 
 # ---------------------------------------------------------------------------
-# Feedback appended to the user message in later attack rounds.
-# Shared by all strategies. Placeholders: {history_str}, {n}
+# Feedback appended to the user message in later attack rounds (shared by all
+# strategies): the history of previous attempts, followed by either the
+# EXPLORE instruction (no promising parents yet) or the EVOLVE instruction
+# (mutate / recombine the highest-fitness paraphrases so far).
 # ---------------------------------------------------------------------------
 
 HISTORY_TEMPLATE = (
@@ -84,17 +87,46 @@ HISTORY_TEMPLATE = (
     "Their validation status and the victim model's results are listed below:\n"
     "{history_str}\n\n"
     "Legend:\n"
-    "- REJECTED: judged NOT semantically equivalent to the original; never sent "
-    "to the victim. Avoid whatever drift in meaning they introduced.\n"
-    "- VICTIM CORRECT: equivalent, but the victim still answered correctly. "
-    "That kind of phrasing did not work; try a clearly different one.\n"
-    "- VICTIM WRONG: equivalent, and the victim answered incorrectly. The "
-    "framing worked; you may explore NEW variations of its underlying idea, "
-    "but do not repeat it.\n\n"
-    "Now generate {n} NEW paraphrases. Do NOT repeat or closely imitate any "
+    "- REJECTED: judged NOT equivalent to the original, or the known correct "
+    "answer no longer answers it; never sent to the victim. Avoid whatever "
+    "drift in meaning they introduced.\n"
+    "- VICTIM CORRECT: equivalent, but the victim still answered correctly.\n"
+    "- VICTIM WRONG: equivalent, and the victim answered incorrectly; the "
+    "framing worked.\n"
+    "- 'wrong in X% of samples': how often the victim answered incorrectly when "
+    "asked repeatedly. Higher means the phrasing is closer to fooling it."
+)
+
+# The evolutionary search rewards whatever makes the victim answer "wrongly",
+# which pulls candidates toward neighbouring questions; spell out the most
+# common drifts explicitly.
+SAME_QUESTION_RULE = (
+    " Keep the same question type and ask for the same attribute: never turn "
+    "an open question into a yes/no question, and never ask for a function, "
+    "purpose, role, or reason instead of what the original asks for."
+)
+
+EXPLORE_INSTRUCTION = (
+    "\n\nNow generate {n} NEW paraphrases. Do NOT repeat or closely imitate any "
     "previous attempt. Use the outcomes above to explore different wording, "
     "syntax, sentence structure, voice, or framing, while preserving EXACTLY "
     "the same meaning, entities, time, scope, factual assumptions, and correct answer."
+    + SAME_QUESTION_RULE
+)
+
+EVOLVE_INSTRUCTION = (
+    "\n\nThe most promising paraphrases so far (highest rate of wrong victim "
+    "answers) are the PARENTS for this round:\n"
+    "{parents_str}\n\n"
+    "Now generate {n} NEW paraphrases by evolving the parents. Each new "
+    "paraphrase must be either:\n"
+    "- a MUTATION of one parent: a small change to its wording, word order, "
+    "voice, or framing that keeps what made it effective, or\n"
+    "- a CROSSOVER of two parents: combine phrasing elements from both.\n"
+    "Do NOT output any parent or any previous attempt verbatim. Every new "
+    "paraphrase must still be exactly equivalent to the ORIGINAL question: same "
+    "meaning, entities, time, scope, factual assumptions, and correct answer."
+    + SAME_QUESTION_RULE
 )
 
 
@@ -147,13 +179,16 @@ class LLMParaphraser(BaseAttacker):
         answers: List[str],
         n: int = 10,
         history: Optional[List[dict]] = None,
+        parents: Optional[List[dict]] = None,
     ) -> List[str]:
         """
         Generate up to `n` adversarial paraphrases for `question`.
 
         When `history` is given (later attack rounds), previous attempts and
         their outcomes are appended to the prompt so the attacker produces new
-        phrasings informed by what did and did not work.
+        phrasings informed by what did and did not work. When `parents` is
+        also given (evolutionary search), the attacker is asked to mutate /
+        recombine those paraphrases instead of exploring freely.
 
         Candidates are NOT checked for semantic equivalence here; the caller
         must validate them before querying the victim.
@@ -169,10 +204,14 @@ class LLMParaphraser(BaseAttacker):
             n=n,
         )
         if history:
-            user += HISTORY_TEMPLATE.format(
-                history_str=_format_history(history),
-                n=n,
-            )
+            user += HISTORY_TEMPLATE.format(history_str=_format_history(history))
+            if parents:
+                user += EVOLVE_INSTRUCTION.format(
+                    parents_str=_format_history(parents),
+                    n=n,
+                )
+            else:
+                user += EXPLORE_INSTRUCTION.format(n=n)
         messages = [
             {"role": "system", "content": system},
             {"role": "user", "content": user},
@@ -216,17 +255,27 @@ class LLMParaphraser(BaseAttacker):
 # ---------------------------------------------------------------------------
 
 def _format_history(history: List[dict]) -> str:
-    """Render previous attempts as a numbered list for the attacker prompt."""
+    """Render previous attempts (or parents) as a numbered list for the attacker prompt."""
     lines = []
     for i, h in enumerate(history, start=1):
         if h["status"] == "rejected":
-            outcome = "REJECTED (not equivalent)"
+            outcome = (
+                "REJECTED (known answer no longer fits)"
+                if h.get("rejected_by") == "answer_preservation"
+                else "REJECTED (not equivalent)"
+            )
         elif h.get("victim_correct"):
             outcome = f"VICTIM CORRECT (answered {h['victim_answer']!r})"
         else:
             outcome = f"VICTIM WRONG (answered {h['victim_answer']!r})"
+        if h.get("fitness") is not None:
+            outcome += f", wrong in {h['fitness']:.0%} of samples"
         lines.append(f'{i}. "{h["paraphrase"]}" -> {outcome}')
     return "\n".join(lines)
+
+
+# "q1: ...", "Q2) ...", "1. ...", "- ..." list labels at the start of a paraphrase
+_LABEL_PREFIX = re.compile(r"^\s*(?:q\s*\d+\s*[:.)\-]|\d+[.)]\s|[-*•]\s)\s*", re.IGNORECASE)
 
 
 def _extract_string_list(parsed: object, original_question: str) -> List[str]:
@@ -266,6 +315,10 @@ def _extract_string_list(parsed: object, original_question: str) -> List[str]:
             ).strip()
         else:
             continue
+
+        # Models sometimes copy the "q1", "q2" placeholders from the JSON
+        # format (or number the list); such prefixes would reach the victim.
+        text = _LABEL_PREFIX.sub("", text)
 
         # Deduplicate and exclude trivial exact copies
         key = text.lower()
