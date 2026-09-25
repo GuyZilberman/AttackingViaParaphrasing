@@ -25,7 +25,10 @@ ATTACKER_STRATEGIES = [
     "semantic_preserve",   # genuine paraphrase — control / baseline (should NOT attack)
 ]
 
-EVALUATOR_CHOICES = ["exact_match", "llm_judge", "both"]
+# Answer correctness is judged by an LLM only: string matching marked valid
+# rewordings wrong ("alpha" vs "somatic motor neurons") and nonsense right
+# ("No" vs "23 November 1996"). Kept as a choice so judges stay swappable.
+EVALUATOR_CHOICES = ["llm_judge"]
 
 SEARCH_CHOICES = [
     "evolutionary",  # mutate / recombine the highest-fitness paraphrases so far
@@ -72,7 +75,7 @@ class ExperimentConfig:
     random_seed: int = 42
 
     # ---- Evaluation ----
-    evaluator: str = "both"       # "exact_match" | "llm_judge" | "both"
+    evaluator: str = "llm_judge"
 
     # ---- Output ----
     results_dir: str = "results"

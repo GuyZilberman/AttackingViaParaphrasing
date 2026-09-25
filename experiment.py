@@ -14,10 +14,7 @@ Result file format
       "original_question": "...",
       "ground_truths": [...],
       "victim_original_answer": "...",
-      "victim_original_correct": {                  # per-evaluator
-          "exact_match": true,
-          "llm_judge": true
-      },
+      "victim_original_correct": {"llm_judge": true},   # per-evaluator
       "paraphrases": [                       # every candidate sent to the victim
         {
           "round": 1,
@@ -25,19 +22,18 @@ Result file format
           "status": "queried",
           "equivalent": true,
           "victim_answer": "...",
-          "correct": { "exact_match": false, "llm_judge": false },
+          "correct": {"llm_judge": false},
           "rationale": { "llm_judge": "..." },
-          "attack_success": { "exact_match": true, "llm_judge": true },
+          "attack_success": {"llm_judge": true},
           "sample_answers": ["...", ...],   # extra victim answers at fitness_temperature
           "fitness": 0.4                    # fraction of victim answers judged wrong
                                             # (by llm_judge if enabled)
         },
         ...
       ],
-      "attack_success_rate": {               # fraction of paraphrases where
-          "exact_match": 0.4,               # original was correct AND
-          "llm_judge": 0.3                  # paraphrase was wrong
-      },
+      "attack_success_rate": {"llm_judge": 0.3},  # fraction of paraphrases where
+                                                  # original was correct AND
+                                                  # paraphrase was wrong
       "rounds_attempted": 3,
       "rounds": [                            # full iterative-search trace
         {
@@ -56,10 +52,10 @@ Result file format
       "n_valid_victim_queries": 11,
       "successful_attacks": [
         {"round": 2, "paraphrase": "...", "victim_answer": "...",
-         "attack_success": {"exact_match": true, "llm_judge": true}}
+         "attack_success": {"llm_judge": true}}
       ],
-      "n_successful_attacks": {"exact_match": 1, "llm_judge": 1},
-      "attack_succeeded": {"exact_match": true, "llm_judge": true}
+      "n_successful_attacks": {"llm_judge": 1},
+      "attack_succeeded": {"llm_judge": true}
     },
     ...
   ],
@@ -68,21 +64,13 @@ Result file format
       "n_paraphrases_per_question": 10,     # per attack round
       "max_rounds": 5,
       "stop_on_success": false,
-      "evaluators_used": ["exact_match", "llm_judge"],
-      "overall_attack_success_rate": {
-          "exact_match": 0.35,
-          "llm_judge": 0.28
-      },
-      "question_attack_success_rate": {     # fraction of questions with
-          "exact_match": 0.67,              # >= 1 successful paraphrase
-          "llm_judge": 0.33
-      },
+      "evaluators_used": ["llm_judge"],
+      "overall_attack_success_rate": {"llm_judge": 0.28},
+      "question_attack_success_rate": {"llm_judge": 0.33},  # questions with
+                                                          # >= 1 success
       "total_valid_victim_queries": 33,
-      "total_successful_attacks": {"exact_match": 4, "llm_judge": 3},
-      "victim_baseline_accuracy": {
-          "exact_match": 0.67,
-          "llm_judge": 0.67
-      }
+      "total_successful_attacks": {"llm_judge": 3},
+      "victim_baseline_accuracy": {"llm_judge": 0.67}
   }
 }
 """
@@ -99,7 +87,7 @@ from dataset import load_questions, QuestionEntry
 from ollama_client import OllamaClient
 from victim import VictimModel
 from attackers import LLMParaphraser
-from evaluators import ExactMatchEvaluator, LLMJudgeEvaluator, BaseEvaluator
+from evaluators import LLMJudgeEvaluator, BaseEvaluator
 from utils.question_equivalence_judge import questions_equivalent
 from utils.answer_preservation_judge import answer_preserved
 
@@ -108,9 +96,7 @@ logger = logging.getLogger(__name__)
 
 def build_evaluators(cfg: ExperimentConfig, client: OllamaClient) -> List[BaseEvaluator]:
     evs: List[BaseEvaluator] = []
-    if cfg.evaluator in ("exact_match", "both"):
-        evs.append(ExactMatchEvaluator())
-    if cfg.evaluator in ("llm_judge", "both"):
+    if cfg.evaluator == "llm_judge":
         evs.append(LLMJudgeEvaluator(
             client=client,
             model=cfg.judge_model,
@@ -325,9 +311,8 @@ def _iterative_attack(
     Every queried candidate gets a fitness in [0, 1]: the fraction of victim
     answers judged wrong, over the greedy answer plus cfg.fitness_samples
     sampled ones. Fitness and the correct/wrong verdict shown to the attacker
-    use a single "guide" evaluator: the LLM judge when enabled (exact match
-    flags valid rewordings like "alpha motor neurons" as wrong, which would
-    steer the search toward evaluator artefacts), else the only evaluator.
+    use a single "guide" evaluator: the LLM judge when enabled, else the
+    first configured evaluator.
 
     With cfg.search == "evolutionary", each later round asks the attacker to
     mutate / recombine the cfg.n_parents fittest candidates so far; while no

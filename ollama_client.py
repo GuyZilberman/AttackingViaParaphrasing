@@ -217,7 +217,7 @@ def _parse_json_robust(text: str) -> Any:
 
 
 # ------------------------------------------------------------------
-# Text normalisation (reused by exact-match evaluator)
+# Text normalisation (used by the LLM judge's exact-equality fast path)
 # ------------------------------------------------------------------
 
 def normalise_text(s: str) -> str:

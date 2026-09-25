@@ -26,9 +26,6 @@ Usage
       --victim-model qwen3:4b \
       --judge-model qwen3:4b
 
-  # Use exact-match only (no LLM judge — much faster):
-  python3 run_experiment.py --evaluator exact_match --n-questions 3 --n-paraphrases 5
-
   # Load questions from a custom CSV file:
   python3 run_experiment.py --dataset-path my_questions.csv
 """
