@@ -15,7 +15,6 @@ from typing import Dict, List, Optional, Tuple
 
 from ollama_client import OllamaClient
 from attackers.base import BaseAttacker
-from utils.question_equivalence_judge import questions_equivalent
 
 logger = logging.getLogger(__name__)
 
@@ -75,6 +74,30 @@ STRATEGIES: Dict[str, Tuple[str, str]] = {
 }
 
 
+# ---------------------------------------------------------------------------
+# Feedback appended to the user message in later attack rounds.
+# Shared by all strategies. Placeholders: {history_str}, {n}
+# ---------------------------------------------------------------------------
+
+HISTORY_TEMPLATE = (
+    "\n\nThe following paraphrases have ALREADY been tried in previous rounds. "
+    "Their validation status and the victim model's results are listed below:\n"
+    "{history_str}\n\n"
+    "Legend:\n"
+    "- REJECTED: judged NOT semantically equivalent to the original; never sent "
+    "to the victim. Avoid whatever drift in meaning they introduced.\n"
+    "- VICTIM CORRECT: equivalent, but the victim still answered correctly. "
+    "That kind of phrasing did not work; try a clearly different one.\n"
+    "- VICTIM WRONG: equivalent, and the victim answered incorrectly. The "
+    "framing worked; you may explore NEW variations of its underlying idea, "
+    "but do not repeat it.\n\n"
+    "Now generate {n} NEW paraphrases. Do NOT repeat or closely imitate any "
+    "previous attempt. Use the outcomes above to explore different wording, "
+    "syntax, sentence structure, voice, or framing, while preserving EXACTLY "
+    "the same meaning, entities, time, scope, factual assumptions, and correct answer."
+)
+
+
 class LLMParaphraser(BaseAttacker):
     """
     Uses an Ollama LLM to generate adversarial paraphrases of questions.
@@ -123,15 +146,17 @@ class LLMParaphraser(BaseAttacker):
         question: str,
         answers: List[str],
         n: int = 10,
+        history: Optional[List[dict]] = None,
     ) -> List[str]:
         """
         Generate up to `n` adversarial paraphrases for `question`.
 
-        Each generated paraphrase is checked for semantic equivalence with the
-        original question before being returned.
+        When `history` is given (later attack rounds), previous attempts and
+        their outcomes are appended to the prompt so the attacker produces new
+        phrasings informed by what did and did not work.
 
-        Non-equivalent paraphrases are discarded and therefore will not be sent
-        to the victim model.
+        Candidates are NOT checked for semantic equivalence here; the caller
+        must validate them before querying the victim.
 
         Returns a deduplicated list that may be shorter than `n`.
         """
@@ -143,6 +168,11 @@ class LLMParaphraser(BaseAttacker):
             answers_str=answers_str,
             n=n,
         )
+        if history:
+            user += HISTORY_TEMPLATE.format(
+                history_str=_format_history(history),
+                n=n,
+            )
         messages = [
             {"role": "system", "content": system},
             {"role": "user", "content": user},
@@ -161,24 +191,7 @@ class LLMParaphraser(BaseAttacker):
                 paraphrases = _extract_string_list(parsed, question)
 
                 if paraphrases:
-                    valid_paraphrases = []
-
-                    for paraphrase in paraphrases:
-                        equivalent = questions_equivalent(
-                            question,
-                            paraphrase,
-                        )
-
-                        if equivalent:
-                            valid_paraphrases.append(paraphrase)
-                        else:
-                            print(
-                                "\n[QUESTION EQUIVALENCE FAILED]"
-                                f"\nOriginal:   {question}"
-                                f"\nParaphrase: {paraphrase}\n"
-                            )
-
-                    return valid_paraphrases
+                    return paraphrases
 
                 logger.warning(
                     "[attacker] Attempt %d/%d: no JSON list found, retrying…",
@@ -201,6 +214,20 @@ class LLMParaphraser(BaseAttacker):
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
+
+def _format_history(history: List[dict]) -> str:
+    """Render previous attempts as a numbered list for the attacker prompt."""
+    lines = []
+    for i, h in enumerate(history, start=1):
+        if h["status"] == "rejected":
+            outcome = "REJECTED (not equivalent)"
+        elif h.get("victim_correct"):
+            outcome = f"VICTIM CORRECT (answered {h['victim_answer']!r})"
+        else:
+            outcome = f"VICTIM WRONG (answered {h['victim_answer']!r})"
+        lines.append(f'{i}. "{h["paraphrase"]}" -> {outcome}')
+    return "\n".join(lines)
+
 
 def _extract_string_list(parsed: object, original_question: str) -> List[str]:
     """

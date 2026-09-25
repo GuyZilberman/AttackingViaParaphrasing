@@ -44,7 +44,9 @@ class ExperimentConfig:
 
     # ---- Attack ----
     attacker_strategy: str = "misleading_entity"
-    n_paraphrases: int = 10  # paraphrases generated per question
+    n_paraphrases: int = 10  # paraphrases generated per attack round
+    max_rounds: int = 5      # iterative attack rounds per question
+    stop_on_success: bool = False  # stop a question's search at its first success
 
     # ---- Dataset ----
     # None → use built-in data/sample_questions.json
@@ -76,6 +78,8 @@ class ExperimentConfig:
             )
         if self.n_paraphrases < 1:
             raise ValueError("n_paraphrases must be >= 1")
+        if self.max_rounds < 1:
+            raise ValueError("max_rounds must be >= 1")
         if self.n_questions < 1:
             raise ValueError("n_questions must be >= 1")
 
@@ -91,7 +95,7 @@ class ExperimentConfig:
             f"attacker_{slug(self.attacker_model)}_{slug(self.attacker_strategy)}"
             f"__victim_{slug(self.victim_model)}"
             f"__judge_{slug(self.judge_model)}"
-            f"__q{self.n_questions}_p{self.n_paraphrases}"
+            f"__q{self.n_questions}_p{self.n_paraphrases}_r{self.max_rounds}"
         )
 
     def to_dict(self) -> dict:
@@ -126,7 +130,11 @@ def parse_args(argv: Optional[List[str]] = None) -> ExperimentConfig:
                         choices=ATTACKER_STRATEGIES,
                         help="Paraphrasing strategy / attack type")
     parser.add_argument("--n-paraphrases", type=int, default=defaults.n_paraphrases,
-                        help="Number of adversarial paraphrases per question")
+                        help="Number of adversarial paraphrases per attack round")
+    parser.add_argument("--max-rounds", type=int, default=defaults.max_rounds,
+                        help="Maximum number of iterative attack rounds per question")
+    parser.add_argument("--stop-on-success", action="store_true",
+                        help="Stop attacking a question after its first successful paraphrase")
 
     # Dataset
     parser.add_argument("--dataset-path", default=None,
@@ -159,6 +167,8 @@ def parse_args(argv: Optional[List[str]] = None) -> ExperimentConfig:
         judge_model=args.judge_model,
         attacker_strategy=args.attacker_strategy,
         n_paraphrases=args.n_paraphrases,
+        max_rounds=args.max_rounds,
+        stop_on_success=args.stop_on_success,
         dataset_path=args.dataset_path,
         n_questions=args.n_questions,
         random_seed=args.random_seed,

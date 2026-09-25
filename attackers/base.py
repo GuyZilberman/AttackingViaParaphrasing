@@ -5,7 +5,7 @@ A new attack strategy only needs to implement `generate_paraphrases`.
 """
 
 from abc import ABC, abstractmethod
-from typing import List
+from typing import List, Optional
 
 
 class BaseAttacker(ABC):
@@ -32,12 +32,17 @@ class BaseAttacker(ABC):
         question: str,
         answers: List[str],
         n: int = 10,
+        history: Optional[List[dict]] = None,
     ) -> List[str]:
         """
         Args:
             question: The original question string.
             answers:  List of acceptable correct answer strings.
             n:        How many paraphrases to generate.
+            history:  Previous attempts for this question (iterative search).
+                      Each dict has "paraphrase" and "status"
+                      ("rejected" | "queried"); queried ones also carry
+                      "victim_answer" and "victim_correct".
 
         Returns:
             List of paraphrase strings (may be shorter than n if the model

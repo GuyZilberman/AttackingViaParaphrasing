@@ -7,6 +7,9 @@ Usage
   # Quick smoke test (default built-in questions, qwen3:4b for everything):
   python3 run_experiment.py --n-questions 3 --n-paraphrases 5
 
+  # Iterative attack: up to 5 rounds of 5 paraphrases each per question:
+  python3 run_experiment.py --n-questions 3 --n-paraphrases 5 --max-rounds 5
+
   # Change the attack strategy:
   python3 run_experiment.py --attacker-strategy temporal_shift --n-questions 3 --n-paraphrases 5
 
@@ -47,7 +50,8 @@ def main() -> None:
     print(f"  Victim model      : {cfg.victim_model}")
     print(f"  Judge model       : {cfg.judge_model}  (evaluator={cfg.evaluator})")
     print(f"  Questions         : {cfg.n_questions}")
-    print(f"  Paraphrases / Q   : {cfg.n_paraphrases}")
+    print(f"  Paraphrases/round : {cfg.n_paraphrases}")
+    print(f"  Max rounds        : {cfg.max_rounds}  (stop_on_success={cfg.stop_on_success})")
     print(f"  Dataset           : {cfg.dataset_path or 'built-in (data/sample_questions.json)'}")
     print(f"  Results dir       : {cfg.results_dir}")
     print("=" * 60 + "\n")
