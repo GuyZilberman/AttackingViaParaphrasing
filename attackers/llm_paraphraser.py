@@ -15,6 +15,7 @@ from typing import Dict, List, Optional, Tuple
 
 from ollama_client import OllamaClient
 from attackers.base import BaseAttacker
+from utils.question_equivalence_judge import questions_equivalent
 
 logger = logging.getLogger(__name__)
 
@@ -103,6 +104,7 @@ class LLMParaphraser(BaseAttacker):
             raise ValueError(
                 f"Unknown strategy {strategy!r}. Available: {list(STRATEGIES)}"
             )
+
         self.client = client
         self.model = model
         self.strategy = strategy
@@ -124,7 +126,14 @@ class LLMParaphraser(BaseAttacker):
     ) -> List[str]:
         """
         Generate up to `n` adversarial paraphrases for `question`.
-        Returns a deduplicated list (may be shorter than n on parse failure).
+
+        Each generated paraphrase is checked for semantic equivalence with the
+        original question before being returned.
+
+        Non-equivalent paraphrases are discarded and therefore will not be sent
+        to the victim model.
+
+        Returns a deduplicated list that may be shorter than `n`.
         """
         answers_str = ", ".join(f'"{a}"' for a in answers)
 
@@ -152,7 +161,25 @@ class LLMParaphraser(BaseAttacker):
                 paraphrases = _extract_string_list(parsed, question)
 
                 if paraphrases:
-                    return paraphrases
+                    valid_paraphrases = []
+
+                    for paraphrase in paraphrases:
+                        equivalent = questions_equivalent(
+                            question,
+                            paraphrase,
+                        )
+
+                        if equivalent:
+                            valid_paraphrases.append(paraphrase)
+                        else:
+                            print(
+                                "\n[QUESTION EQUIVALENCE FAILED]"
+                                f"\nOriginal:   {question}"
+                                f"\nParaphrase: {paraphrase}\n"
+                            )
+
+                    return valid_paraphrases
+
                 logger.warning(
                     "[attacker] Attempt %d/%d: no JSON list found, retrying…",
                     attempt + 1, 1 + self.retries,
