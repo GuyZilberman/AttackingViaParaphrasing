@@ -8,6 +8,10 @@ Result file format
 ------------------
 {
   "metadata": { ...config fields... },
+  "complete": true,                        # false while running / if it crashed
+  "failed_questions": [                    # questions skipped after an error
+    {"question_id": "...", "original_question": "...", "error": "..."}
+  ],
   "results": [
     {
       "question_id": "nq_001",
@@ -45,9 +49,11 @@ Result file format
           "round": 1,
           "parents": ["..."],                # paraphrases evolved (evolutionary search)
           "n_generated": 5, "n_duplicates": 0, "n_rejected": 1, "n_queried": 4,
+          "n_errors": 0,                    # candidates whose model calls failed
           "candidates": [
             {"paraphrase": "...", "status": "rejected", "equivalent": false,
              "rejected_by": "equivalence" | "answer_preservation"},
+            {"paraphrase": "...", "status": "error", "error": "..."},
             {"paraphrase": "...", "status": "duplicate"},
             { ...same fields as a "paraphrases" entry (status "queried")... }
           ]
@@ -146,98 +152,152 @@ def run_experiment(cfg: ExperimentConfig) -> dict:
     )
     logger.info("Loaded %d questions", len(questions))
 
+    # --- Output file: written after every question so a crash loses at most
+    # the question in progress ("complete" is false until the run finishes).
+    results_dir = Path(cfg.results_dir)
+    results_dir.mkdir(parents=True, exist_ok=True)
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    out_path = results_dir / f"{cfg.run_id()}__{timestamp}.json"
+    logger.info("Results file: %s", out_path)
+
     # --- Main loop ---
-    results_per_question = []
+    results_per_question: List[dict] = []
+    failed_questions: List[dict] = []
+    output: dict = {}
     for q_idx, entry in enumerate(questions):
-        qid = entry["id"]
-        question = entry["question"]
-        gts = entry["answers"]
-
         logger.info(
-            "[%d/%d] Q%s: %s", q_idx + 1, len(questions), qid, question
+            "[%d/%d] Q%s: %s", q_idx + 1, len(questions), entry["id"], entry["question"]
         )
-
-        # Victim on original question
-        original_answer = victim.answer(question)
-        logger.info("  Victim (original): %r", original_answer)
-
-        original_correct: Dict[str, bool] = {}
-        for ev in evaluators:
-            res = ev.evaluate(original_answer, gts, question=question)
-            original_correct[ev.name] = res.correct
-            logger.info(
-                "  [%s] original correct=%s", ev.name, res.correct
+        try:
+            results_per_question.append(
+                _run_question(cfg, entry, victim, attacker, evaluators, evaluator_names)
             )
+        except Exception as exc:
+            # e.g. the Ollama server stops responding; keep the other questions.
+            logger.exception("  Question %s failed and is skipped: %s", entry["id"], exc)
+            failed_questions.append({
+                "question_id": entry["id"],
+                "original_question": entry["question"],
+                "error": repr(exc),
+            })
 
-        baseline: Optional[dict] = None
-        if any(original_correct.values()):
-            rounds, paraphrase_records, baseline = _iterative_attack(
-                cfg, attacker, victim, evaluators,
-                question, gts, original_correct,
-            )
-        else:
-            # No paraphrase can count as a successful attack; skip the search.
-            logger.info(
-                "  Victim already wrong on the original (all evaluators); "
-                "skipping attack."
-            )
-            rounds, paraphrase_records = [], []
-
-        # Per-question attack success rate
-        asr: Dict[str, float] = {}
-        for ev_name in evaluator_names:
-            if original_correct.get(ev_name, True) and paraphrase_records:
-                successes = sum(
-                    1 for r in paraphrase_records if r["attack_success"].get(ev_name)
-                )
-                asr[ev_name] = successes / len(paraphrase_records)
-            else:
-                # If victim was already wrong on the original, ASR is undefined (0)
-                asr[ev_name] = 0.0
-
-        successful_attacks = [
-            {
-                "round": r["round"],
-                "paraphrase": r["paraphrase"],
-                "victim_answer": r["victim_answer"],
-                "attack_success": r["attack_success"],
-                "fitness": r["fitness"],
-                "fitness_gain": r["fitness_gain"],
-                "robust_success": r["robust_success"],
-            }
-            for r in paraphrase_records if any(r["attack_success"].values())
-        ]
-        n_robust = sum(1 for r in paraphrase_records if r["robust_success"])
-        n_successes = {
-            ev_name: sum(1 for r in paraphrase_records if r["attack_success"].get(ev_name))
-            for ev_name in evaluator_names
+        output = {
+            "metadata": cfg.to_dict(),
+            "complete": q_idx == len(questions) - 1,
+            "results": results_per_question,
+            "failed_questions": failed_questions,
+            "summary": _summarize(cfg, results_per_question, evaluator_names),
         }
+        _write_json(out_path, output)
+
+    logger.info("Results saved → %s", out_path)
+    print(f"\nResults saved → {out_path}")
+    if failed_questions:
+        print(f"  {len(failed_questions)} question(s) failed and were skipped: "
+              f"{[q['question_id'] for q in failed_questions]}")
+    _print_summary(output["summary"], out_path)
+
+    return output
+
+
+def _run_question(
+    cfg: ExperimentConfig,
+    entry: QuestionEntry,
+    victim: VictimModel,
+    attacker: LLMParaphraser,
+    evaluators: List[BaseEvaluator],
+    evaluator_names: List[str],
+) -> dict:
+    """Baseline + iterative attack for one question; returns its result record."""
+    qid = entry["id"]
+    question = entry["question"]
+    gts = entry["answers"]
+
+    # Victim on original question
+    original_answer = victim.answer(question)
+    logger.info("  Victim (original): %r", original_answer)
+
+    original_correct: Dict[str, bool] = {}
+    for ev in evaluators:
+        res = ev.evaluate(original_answer, gts, question=question)
+        original_correct[ev.name] = res.correct
         logger.info(
-            "  Attack finished after %d round(s): %d valid victim queries, "
-            "successful attacks per evaluator: %s, robust: %d",
-            len(rounds), len(paraphrase_records), n_successes, n_robust,
+            "  [%s] original correct=%s", ev.name, res.correct
         )
 
-        results_per_question.append({
-            "question_id": qid,
-            "original_question": question,
-            "ground_truths": gts,
-            "victim_original_answer": original_answer,
-            "victim_original_correct": original_correct,
-            "victim_original_samples": baseline["sample_answers"] if baseline else [],
-            "original_wrong_rate": baseline["wrong_rate"] if baseline else None,
-            "n_robust_successes": n_robust,
-            "paraphrases": paraphrase_records,
-            "attack_success_rate": asr,
-            "rounds_attempted": len(rounds),
-            "rounds": rounds,
-            "n_valid_victim_queries": len(paraphrase_records),
-            "successful_attacks": successful_attacks,
-            "n_successful_attacks": n_successes,
-            "attack_succeeded": {k: v > 0 for k, v in n_successes.items()},
-        })
+    baseline: Optional[dict] = None
+    if any(original_correct.values()):
+        rounds, paraphrase_records, baseline = _iterative_attack(
+            cfg, attacker, victim, evaluators,
+            question, gts, original_correct,
+        )
+    else:
+        # No paraphrase can count as a successful attack; skip the search.
+        logger.info(
+            "  Victim already wrong on the original (all evaluators); "
+            "skipping attack."
+        )
+        rounds, paraphrase_records = [], []
 
-    # --- Summary ---
+    # Per-question attack success rate
+    asr: Dict[str, float] = {}
+    for ev_name in evaluator_names:
+        if original_correct.get(ev_name, True) and paraphrase_records:
+            successes = sum(
+                1 for r in paraphrase_records if r["attack_success"].get(ev_name)
+            )
+            asr[ev_name] = successes / len(paraphrase_records)
+        else:
+            # If victim was already wrong on the original, ASR is undefined (0)
+            asr[ev_name] = 0.0
+
+    successful_attacks = [
+        {
+            "round": r["round"],
+            "paraphrase": r["paraphrase"],
+            "victim_answer": r["victim_answer"],
+            "attack_success": r["attack_success"],
+            "fitness": r["fitness"],
+            "fitness_gain": r["fitness_gain"],
+            "robust_success": r["robust_success"],
+        }
+        for r in paraphrase_records if any(r["attack_success"].values())
+    ]
+    n_robust = sum(1 for r in paraphrase_records if r["robust_success"])
+    n_successes = {
+        ev_name: sum(1 for r in paraphrase_records if r["attack_success"].get(ev_name))
+        for ev_name in evaluator_names
+    }
+    logger.info(
+        "  Attack finished after %d round(s): %d valid victim queries, "
+        "successful attacks per evaluator: %s, robust: %d",
+        len(rounds), len(paraphrase_records), n_successes, n_robust,
+    )
+
+    return {
+        "question_id": qid,
+        "original_question": question,
+        "ground_truths": gts,
+        "victim_original_answer": original_answer,
+        "victim_original_correct": original_correct,
+        "victim_original_samples": baseline["sample_answers"] if baseline else [],
+        "original_wrong_rate": baseline["wrong_rate"] if baseline else None,
+        "n_robust_successes": n_robust,
+        "paraphrases": paraphrase_records,
+        "attack_success_rate": asr,
+        "rounds_attempted": len(rounds),
+        "rounds": rounds,
+        "n_valid_victim_queries": len(paraphrase_records),
+        "successful_attacks": successful_attacks,
+        "n_successful_attacks": n_successes,
+        "attack_succeeded": {k: v > 0 for k, v in n_successes.items()},
+    }
+
+
+def _summarize(
+    cfg: ExperimentConfig, results_per_question: List[dict], evaluator_names: List[str]
+) -> dict:
+    """Aggregate statistics over the questions completed so far."""
     n_q = len(results_per_question)
     overall_asr: Dict[str, float] = {}
     baseline_acc: Dict[str, float] = {}
@@ -260,7 +320,7 @@ def run_experiment(cfg: ExperimentConfig) -> dict:
         for ev_name in evaluator_names
     }
 
-    summary = {
+    return {
         "n_questions": n_q,
         "n_paraphrases_per_question": cfg.n_paraphrases,
         "max_rounds": cfg.max_rounds,
@@ -286,28 +346,13 @@ def run_experiment(cfg: ExperimentConfig) -> dict:
         ),
     }
 
-    output = {
-        "metadata": cfg.to_dict(),
-        "results": results_per_question,
-        "summary": summary,
-    }
 
-    # --- Save ---
-    results_dir = Path(cfg.results_dir)
-    results_dir.mkdir(parents=True, exist_ok=True)
-
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    filename = f"{cfg.run_id()}__{timestamp}.json"
-    out_path = results_dir / filename
-
-    with open(out_path, "w", encoding="utf-8") as fh:
-        json.dump(output, fh, indent=2, ensure_ascii=False)
-
-    logger.info("Results saved → %s", out_path)
-    print(f"\nResults saved → {out_path}")
-    _print_summary(summary, out_path)
-
-    return output
+def _write_json(path: Path, data: dict) -> None:
+    """Write via a temp file + rename, so a crash never leaves a half-written file."""
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    with open(tmp, "w", encoding="utf-8") as fh:
+        json.dump(data, fh, indent=2, ensure_ascii=False)
+    os.replace(tmp, path)
 
 
 def _normalize(text: str) -> str:
@@ -413,105 +458,115 @@ def _iterative_attack(
                 continue
             seen.add(key)
 
-            if not questions_equivalent(question, cand):
-                print(
-                    "\n[QUESTION EQUIVALENCE FAILED]"
-                    f"\nOriginal:   {question}"
-                    f"\nParaphrase: {cand}\n"
+            # One failed model call (timeout, server error) must not end the
+            # run: record this candidate as an error and move on.
+            try:
+                if not questions_equivalent(question, cand):
+                    print(
+                        "\n[QUESTION EQUIVALENCE FAILED]"
+                        f"\nOriginal:   {question}"
+                        f"\nParaphrase: {cand}\n"
+                    )
+                    record = {"paraphrase": cand, "status": "rejected", "equivalent": False,
+                              "rejected_by": "equivalence"}
+                    round_records.append(record)
+                    history.append(record)
+                    continue
+
+                if cfg.answer_check and not answer_preserved(
+                    question, cand, gts, model_name=cfg.preservation_judge_model
+                ):
+                    print(
+                        "\n[ANSWER PRESERVATION FAILED]"
+                        f"\nOriginal:   {question}"
+                        f"\nAnswer(s):  {gts}"
+                        f"\nParaphrase: {cand}\n"
+                    )
+                    record = {"paraphrase": cand, "status": "rejected", "equivalent": False,
+                              "rejected_by": "answer_preservation"}
+                    round_records.append(record)
+                    history.append(record)
+                    continue
+
+                para_answer = victim.answer(cand)
+                correct_map, rationale_map = evaluate(para_answer)
+                # Attack succeeds when the original was correct but the paraphrase is wrong
+                attack_success_map: Dict[str, bool] = {
+                    name: original_correct.get(name, True) and not ok
+                    for name, ok in correct_map.items()
+                }
+
+                sample_answers = [
+                    victim.answer(cand, temperature=cfg.fitness_temperature)
+                    for _ in range(cfg.fitness_samples)
+                ]
+                n_wrong = sum(
+                    1 for a in [para_answer] + sample_answers
+                    if not evaluate(a)[0][guide]
                 )
-                record = {"paraphrase": cand, "status": "rejected", "equivalent": False,
-                          "rejected_by": "equivalence"}
-                round_records.append(record)
-                history.append(record)
-                continue
+                fitness = n_wrong / (1 + len(sample_answers))
 
-            if cfg.answer_check and not answer_preserved(
-                question, cand, gts, model_name=cfg.preservation_judge_model
-            ):
-                print(
-                    "\n[ANSWER PRESERVATION FAILED]"
-                    f"\nOriginal:   {question}"
-                    f"\nAnswer(s):  {gts}"
-                    f"\nParaphrase: {cand}\n"
-                )
-                record = {"paraphrase": cand, "status": "rejected", "equivalent": False,
-                          "rejected_by": "answer_preservation"}
-                round_records.append(record)
-                history.append(record)
-                continue
-
-            para_answer = victim.answer(cand)
-            correct_map, rationale_map = evaluate(para_answer)
-            # Attack succeeds when the original was correct but the paraphrase is wrong
-            attack_success_map: Dict[str, bool] = {
-                name: original_correct.get(name, True) and not ok
-                for name, ok in correct_map.items()
-            }
-
-            sample_answers = [
-                victim.answer(cand, temperature=cfg.fitness_temperature)
-                for _ in range(cfg.fitness_samples)
-            ]
-            n_wrong = sum(
-                1 for a in [para_answer] + sample_answers
-                if not evaluate(a)[0][guide]
-            )
-            fitness = n_wrong / (1 + len(sample_answers))
-
-            logger.info(
-                "    Paraphrase: %r  →  Victim: %r  correct=%s  fitness=%.2f (%d/%d wrong, %s)",
-                cand, para_answer, correct_map, fitness, n_wrong, 1 + len(sample_answers), guide,
-            )
-            record = {
-                "round": rnd,
-                "paraphrase": cand,
-                "status": "queried",
-                "equivalent": True,
-                "victim_answer": para_answer,
-                "correct": correct_map,
-                "rationale": rationale_map,
-                "attack_success": attack_success_map,
-                "sample_answers": sample_answers,
-                "fitness": fitness,
-                "fitness_gain": fitness - original_wrong_rate,
-                "robust_success": bool(
-                    attack_success_map.get(guide)
-                    and fitness - original_wrong_rate >= cfg.robust_margin
-                ),
-            }
-            round_records.append(record)
-            queried.append(record)
-            history.append({
-                "paraphrase": cand,
-                "status": "queried",
-                "victim_answer": para_answer,
-                "victim_correct": correct_map[guide],
-                "fitness": fitness,
-            })
-
-            if any(attack_success_map.values()):
                 logger.info(
-                    "    *** ATTACK SUCCESS (round %d) ***\n"
-                    "        Paraphrase:    %s\n"
-                    "        Victim answer: %s\n"
-                    "        Per evaluator: %s\n"
-                    "        Wrong rate:    %.2f vs %.2f on the original (%s)",
-                    rnd, cand, para_answer, attack_success_map,
-                    fitness, original_wrong_rate,
-                    "ROBUST" if record["robust_success"] else "not robust",
+                    "    Paraphrase: %r  →  Victim: %r  correct=%s  fitness=%.2f (%d/%d wrong, %s)",
+                    cand, para_answer, correct_map, fitness, n_wrong, 1 + len(sample_answers), guide,
+                )
+                record = {
+                    "round": rnd,
+                    "paraphrase": cand,
+                    "status": "queried",
+                    "equivalent": True,
+                    "victim_answer": para_answer,
+                    "correct": correct_map,
+                    "rationale": rationale_map,
+                    "attack_success": attack_success_map,
+                    "sample_answers": sample_answers,
+                    "fitness": fitness,
+                    "fitness_gain": fitness - original_wrong_rate,
+                    "robust_success": bool(
+                        attack_success_map.get(guide)
+                        and fitness - original_wrong_rate >= cfg.robust_margin
+                    ),
+                }
+                round_records.append(record)
+                queried.append(record)
+                history.append({
+                    "paraphrase": cand,
+                    "status": "queried",
+                    "victim_answer": para_answer,
+                    "victim_correct": correct_map[guide],
+                    "fitness": fitness,
+                })
+
+                if any(attack_success_map.values()):
+                    logger.info(
+                        "    *** ATTACK SUCCESS (round %d) ***\n"
+                        "        Paraphrase:    %s\n"
+                        "        Victim answer: %s\n"
+                        "        Per evaluator: %s\n"
+                        "        Wrong rate:    %.2f vs %.2f on the original (%s)",
+                        rnd, cand, para_answer, attack_success_map,
+                        fitness, original_wrong_rate,
+                        "ROBUST" if record["robust_success"] else "not robust",
+                    )
+            except Exception as exc:
+                logger.warning("    [candidate failed, skipped] %r: %s", cand, exc)
+                round_records.append(
+                    {"paraphrase": cand, "status": "error", "error": repr(exc)}
                 )
 
         n_dup = sum(1 for r in round_records if r["status"] == "duplicate")
         n_rej = sum(1 for r in round_records if r["status"] == "rejected")
         n_q = sum(1 for r in round_records if r["status"] == "queried")
+        n_err = sum(1 for r in round_records if r["status"] == "error")
         n_succ = sum(
             1 for r in round_records
             if r["status"] == "queried" and any(r["attack_success"].values())
         )
         logger.info(
             "    Round %d/%d done: %d generated, %d duplicates, %d rejected, "
-            "%d passed validation (queried), %d successful",
+            "%d passed validation (queried), %d successful%s",
             rnd, cfg.max_rounds, len(candidates), n_dup, n_rej, n_q, n_succ,
+            f", {n_err} failed" if n_err else "",
         )
         rounds.append({
             "round": rnd,
@@ -520,6 +575,7 @@ def _iterative_attack(
             "n_duplicates": n_dup,
             "n_rejected": n_rej,
             "n_queried": n_q,
+            "n_errors": n_err,
             "candidates": round_records,
         })
 
