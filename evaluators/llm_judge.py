@@ -29,9 +29,12 @@ _JUDGE_SYSTEM = (
     "- Score 0 if they refer to different entities or directly contradict.\n"
     "- If both mention geographic/entity qualifiers that conflict, score 0.\n"
     "- Ignore casing, punctuation, whitespace, and articles (the/a/an).\n"
-    "- When a question is given, score 1 only if the prediction answers that "
-    "question the way the ground truth does; an answer of the wrong kind "
-    "(e.g. 'No' when a date is asked) or a merely related entity scores 0.\n"
+    "- When a question is given, use it ONLY to understand what kind of answer "
+    "is expected. An answer of the wrong kind (e.g. 'No' when a date is asked) "
+    "or a merely related entity scores 0.\n"
+    "- The ground truth is authoritative. Do NOT use your own knowledge of the "
+    "answer: if the prediction names a different entity, date, or value than "
+    "the ground truth, score 0, even if you believe the prediction is right.\n"
     "\n"
     'Output ONLY this JSON object: {"score": 0 or 1, "rationale": "one sentence"}'
 )

@@ -48,7 +48,10 @@ class ExperimentConfig:
     # ---- Models ----
     attacker_model: str = "llama3.1:8b"
     victim_model: str = "qwen3:4b"
-    judge_model: str = "qwen3:4b"
+    # Must differ from the victim: a judge that shares the victim's
+    # misconceptions accepts its wrong answers (qwen3:4b judged "Melissa
+    # Fumero" correct for Penny in The Big Bang Theory, as the victim said).
+    judge_model: str = "llama3.1:8b"
 
     # ---- Attack ----
     attacker_strategy: str = "misleading_entity"
