@@ -381,7 +381,9 @@ def _iterative_attack(
                 history.append(record)
                 continue
 
-            if cfg.answer_check and not answer_preserved(question, cand, gts):
+            if cfg.answer_check and not answer_preserved(
+                question, cand, gts, model_name=cfg.preservation_judge_model
+            ):
                 print(
                     "\n[ANSWER PRESERVATION FAILED]"
                     f"\nOriginal:   {question}"

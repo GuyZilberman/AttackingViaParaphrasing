@@ -27,13 +27,18 @@ if str(PROJECT_ROOT) not in sys.path:
 
 from utils.question_equivalence_judge import _extract_score, client
 
-# Chosen on 41 hand-labelled candidates from an evolutionary run (11 drifted):
-#   llama3.1:8b          → 3 drifted accepted, 0 valid rejected
-#   qwen3:4b             → 0 drifted accepted, 8-9 valid rejected
-#   qwen3:4b + thinking  → too slow to use (1-4k reasoning tokens per call)
-# A false reject only costs one candidate; a false accept produces a fake
-# attack success, so the stricter model is the default.
-DEFAULT_MODEL = "qwen3:4b"
+# Scored with tests/eval_judges.py on tests/data/answer_preservation_labels.json
+# (46 paraphrases, 14 drifted):
+#   gemma3:12b        → 2 drifted accepted,  4 valid rejected
+#   mistral-nemo:12b  → 2 drifted accepted,  6 valid rejected
+#   qwen3:4b          → 1 drifted accepted, 12 valid rejected
+#   llama3.1:8b       → accepted most drifts on an earlier set
+# qwen3:4b is the victim: as the gate deciding which paraphrases are tried,
+# it could reject exactly the ones that confuse it, hiding real successes
+# (it rejected every paraphrase of the WW1 question). gemma3:12b is from a
+# different model family. Its known weakness: dropped time qualifiers
+# ("after WW1 started" -> "after WW1") can slip through.
+DEFAULT_MODEL = "gemma3:12b"
 
 
 ANSWER_PRESERVATION_SYSTEM = (

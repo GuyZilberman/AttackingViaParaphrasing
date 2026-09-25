@@ -64,6 +64,7 @@ class ExperimentConfig:
     # Second validation gate after questions_equivalent(): the known answer
     # must still answer the paraphrase (utils/answer_preservation_judge.py).
     answer_check: bool = True
+    preservation_judge_model: str = "gemma3:12b"
 
     # ---- Search strategy ----
     search: str = "evolutionary"
@@ -171,6 +172,8 @@ def parse_args(argv: Optional[List[str]] = None) -> ExperimentConfig:
     parser.add_argument("--stop-on-success", action="store_true",
                         help="Stop attacking a question after its first successful paraphrase")
 
+    parser.add_argument("--preservation-judge-model", default=defaults.preservation_judge_model,
+                        help="Ollama model for the answer-preservation check")
     parser.add_argument("--no-answer-check", dest="answer_check", action="store_false",
                         help="Skip the answer-preservation check (equivalence check only)")
 
@@ -220,6 +223,7 @@ def parse_args(argv: Optional[List[str]] = None) -> ExperimentConfig:
         max_rounds=args.max_rounds,
         stop_on_success=args.stop_on_success,
         answer_check=args.answer_check,
+        preservation_judge_model=args.preservation_judge_model,
         search=args.search,
         n_parents=args.n_parents,
         fitness_samples=args.fitness_samples,

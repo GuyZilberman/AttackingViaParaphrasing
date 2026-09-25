@@ -56,7 +56,8 @@ def main() -> None:
     print(f"  Questions         : {cfg.n_questions}")
     print(f"  Paraphrases/round : {cfg.n_paraphrases}")
     print(f"  Max rounds        : {cfg.max_rounds}  (stop_on_success={cfg.stop_on_success})")
-    print(f"  Answer check      : {'on' if cfg.answer_check else 'off'}")
+    print(f"  Answer check      : "
+          f"{cfg.preservation_judge_model if cfg.answer_check else 'off'}")
     print(f"  Search            : {cfg.search}  (parents={cfg.n_parents}, "
           f"fitness samples={cfg.fitness_samples} @ T={cfg.fitness_temperature})")
     print(f"  Dataset           : {cfg.dataset_path or 'built-in (data/sample_questions.json)'}")
