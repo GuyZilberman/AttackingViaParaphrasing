@@ -1,21 +1,5 @@
 [
   {
-    "id": "nqo_validation_0148",
-    "question": "Where did the dewey decimal system come from?",
-    "answers": [
-      "Melvil Dewey"
-    ]
-  },
-  {
-    "id": "nqo_validation_0448",
-    "question": "All the motor neurons that control the skeletal muscles are?",
-    "answers": [
-      "efferent nerves",
-      "Somatic motor neurons",
-      "Somatic"
-    ]
-  },
-  {
     "id": "nqo_validation_0573",
     "question": "Where in the constitution is the executive branch referenced?",
     "answers": [
@@ -52,15 +36,6 @@
     ]
   },
   {
-    "id": "nqo_validation_1006",
-    "question": "When did the first marvel vs capcom come out?",
-    "answers": [
-      "1998",
-      "in 1996",
-      "1996"
-    ]
-  },
-  {
     "id": "nqo_validation_1197",
     "question": "Who is given credit for inventing the aqua lung?",
     "answers": [
@@ -85,13 +60,6 @@
     ]
   },
   {
-    "id": "nqo_validation_1406",
-    "question": "China in chinese is called zhongguo which means?",
-    "answers": [
-      "Central States"
-    ]
-  },
-  {
     "id": "nqo_validation_1584",
     "question": "Where is the majority of phosphorous stored in the environment?",
     "answers": [
@@ -113,14 +81,6 @@
     "answers": [
       "The Caucasus Mountains",
       "Caucasus Mountains"
-    ]
-  },
-  {
-    "id": "nqo_validation_2330",
-    "question": "Blood alcohol concentration means the parts of alcohol in the blood in relation to what?",
-    "answers": [
-      "volume of blood",
-      "ethanol"
     ]
   },
   {
@@ -170,14 +130,6 @@
     ]
   },
   {
-    "id": "nqo_validation_3000",
-    "question": "What is the name of the skin between your nostrils?",
-    "answers": [
-      "the nasal septum",
-      "septum"
-    ]
-  },
-  {
     "id": "nqo_validation_3007",
     "question": "Is aluminium a ferrous or non ferrous metal?",
     "answers": [
@@ -189,13 +141,6 @@
     "question": "The general term for software that is designed to damage disable or steal data is?",
     "answers": [
       "Malware"
-    ]
-  },
-  {
-    "id": "nqo_validation_3259",
-    "question": "When was catch me if you can made?",
-    "answers": [
-      "2002"
     ]
   },
   {
@@ -221,25 +166,10 @@
     ]
   },
   {
-    "id": "nqo_validation_3430",
-    "question": "What is the minimum number of parties required to enter into a deed?",
-    "answers": [
-      "two parties"
-    ]
-  },
-  {
     "id": "nqo_validation_3438",
     "question": "Who explored waters of cuba the bahamas and hispaniola?",
     "answers": [
       "Christopher Columbus"
-    ]
-  },
-  {
-    "id": "nqo_validation_3530",
-    "question": "When was the us department of homeland security created?",
-    "answers": [
-      "November 25, 2002",
-      "November 25, 2002"
     ]
   }
 ]

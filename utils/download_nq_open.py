@@ -78,6 +78,15 @@ EXCLUDED_IDS = {
     "nqo_validation_1500": "bad gold: incomplete ('living-donor' only)",
     "nqo_validation_2180": "bad gold: 'heaviest of the stable halogens'",
     "nqo_validation_0357": "bad gold: list answer split into separate pieces",
+    "nqo_validation_0148": "asks 'where', gold is a person; several valid answers (Dewey decimal)",
+    "nqo_validation_0448": "not a real question; many valid answers (motor neurons)",
+    "nqo_validation_1006": "gold contradicts itself: 1998 vs 1996 (Marvel vs Capcom)",
+    "nqo_validation_2330": "gold includes a wrong alternative 'ethanol' (blood alcohol)",
+    "nqo_validation_3000": "gold arguably wrong: skin between nostrils is the columella",
+    "nqo_validation_3259": "unnamed work: Catch Me If You Can film, book, or musical",
+    "nqo_validation_3430": "jurisdiction/deed-type dependent: a deed poll has one party",
+    "nqo_validation_1406": "several accepted translations; gold lists one (Zhongguo)",
+    "nqo_validation_3530": "'created' ambiguous: law 2002, operational 2003 (DHS)",
 }
 
 CONTEXT_SYSTEM = (
