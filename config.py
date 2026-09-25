@@ -74,6 +74,10 @@ class ExperimentConfig:
     # 0 → greedy answer only (fitness 0 or 1).
     fitness_samples: int = 4
     fitness_temperature: float = 0.7
+    # A success is "robust" only if the paraphrase's wrong rate exceeds the
+    # original question's wrong rate (same sampling) by at least this much;
+    # otherwise the flip may just reflect the victim's uncertainty.
+    robust_margin: float = 0.5
 
     # ---- Dataset ----
     # None → use built-in data/sample_questions.json
@@ -188,6 +192,9 @@ def parse_args(argv: Optional[List[str]] = None) -> ExperimentConfig:
     parser.add_argument("--fitness-temperature", type=float,
                         default=defaults.fitness_temperature,
                         help="Victim sampling temperature for the fitness estimate")
+    parser.add_argument("--robust-margin", type=float, default=defaults.robust_margin,
+                        help="Min. wrong-rate gain over the original question for a "
+                             "success to count as robust")
 
     # Dataset
     parser.add_argument("--dataset-path", default=None,
@@ -228,6 +235,7 @@ def parse_args(argv: Optional[List[str]] = None) -> ExperimentConfig:
         n_parents=args.n_parents,
         fitness_samples=args.fitness_samples,
         fitness_temperature=args.fitness_temperature,
+        robust_margin=args.robust_margin,
         dataset_path=args.dataset_path,
         n_questions=args.n_questions,
         random_seed=args.random_seed,

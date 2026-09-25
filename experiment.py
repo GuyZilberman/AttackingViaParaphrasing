@@ -26,14 +26,19 @@ Result file format
           "rationale": { "llm_judge": "..." },
           "attack_success": {"llm_judge": true},
           "sample_answers": ["...", ...],   # extra victim answers at fitness_temperature
-          "fitness": 0.4                    # fraction of victim answers judged wrong
+          "fitness": 0.4,                   # fraction of victim answers judged wrong
                                             # (by llm_judge if enabled)
+          "fitness_gain": 0.2,              # fitness - original_wrong_rate
+          "robust_success": false           # success AND gain >= robust_margin
         },
         ...
       ],
       "attack_success_rate": {"llm_judge": 0.3},  # fraction of paraphrases where
                                                   # original was correct AND
                                                   # paraphrase was wrong
+      "victim_original_samples": ["...", ...],  # original asked at fitness_temperature
+      "original_wrong_rate": 0.2,        # same measure as fitness, on the original
+      "n_robust_successes": 1,
       "rounds_attempted": 3,
       "rounds": [                            # full iterative-search trace
         {
@@ -70,6 +75,9 @@ Result file format
                                                           # >= 1 success
       "total_valid_victim_queries": 33,
       "total_successful_attacks": {"llm_judge": 3},
+      "robust_margin": 0.5,
+      "total_robust_successes": 1,
+      "question_robust_success_rate": 0.33,   # questions with >= 1 robust success
       "victim_baseline_accuracy": {"llm_judge": 0.67}
   }
 }
@@ -161,8 +169,9 @@ def run_experiment(cfg: ExperimentConfig) -> dict:
                 "  [%s] original correct=%s", ev.name, res.correct
             )
 
+        baseline: Optional[dict] = None
         if any(original_correct.values()):
-            rounds, paraphrase_records = _iterative_attack(
+            rounds, paraphrase_records, baseline = _iterative_attack(
                 cfg, attacker, victim, evaluators,
                 question, gts, original_correct,
             )
@@ -192,17 +201,21 @@ def run_experiment(cfg: ExperimentConfig) -> dict:
                 "paraphrase": r["paraphrase"],
                 "victim_answer": r["victim_answer"],
                 "attack_success": r["attack_success"],
+                "fitness": r["fitness"],
+                "fitness_gain": r["fitness_gain"],
+                "robust_success": r["robust_success"],
             }
             for r in paraphrase_records if any(r["attack_success"].values())
         ]
+        n_robust = sum(1 for r in paraphrase_records if r["robust_success"])
         n_successes = {
             ev_name: sum(1 for r in paraphrase_records if r["attack_success"].get(ev_name))
             for ev_name in evaluator_names
         }
         logger.info(
             "  Attack finished after %d round(s): %d valid victim queries, "
-            "successful attacks per evaluator: %s",
-            len(rounds), len(paraphrase_records), n_successes,
+            "successful attacks per evaluator: %s, robust: %d",
+            len(rounds), len(paraphrase_records), n_successes, n_robust,
         )
 
         results_per_question.append({
@@ -211,6 +224,9 @@ def run_experiment(cfg: ExperimentConfig) -> dict:
             "ground_truths": gts,
             "victim_original_answer": original_answer,
             "victim_original_correct": original_correct,
+            "victim_original_samples": baseline["sample_answers"] if baseline else [],
+            "original_wrong_rate": baseline["wrong_rate"] if baseline else None,
+            "n_robust_successes": n_robust,
             "paraphrases": paraphrase_records,
             "attack_success_rate": asr,
             "rounds_attempted": len(rounds),
@@ -260,6 +276,14 @@ def run_experiment(cfg: ExperimentConfig) -> dict:
             for ev_name in evaluator_names
         },
         "victim_baseline_accuracy": baseline_acc,
+        "robust_margin": cfg.robust_margin,
+        "total_robust_successes": sum(
+            r["n_robust_successes"] for r in results_per_question
+        ),
+        "question_robust_success_rate": (
+            sum(1 for r in results_per_question if r["n_robust_successes"]) / n_q
+            if n_q else 0.0
+        ),
     }
 
     output = {
@@ -299,7 +323,7 @@ def _iterative_attack(
     question: str,
     gts: List[str],
     original_correct: Dict[str, bool],
-) -> Tuple[List[dict], List[dict]]:
+) -> Tuple[List[dict], List[dict], dict]:
     """
     Run up to cfg.max_rounds attack rounds on one question.
 
@@ -318,7 +342,13 @@ def _iterative_attack(
     mutate / recombine the cfg.n_parents fittest candidates so far; while no
     candidate has fitness > 0 it explores freely instead.
 
-    Returns (rounds, queried_records).
+    Before the first round the victim is also sampled on the ORIGINAL
+    question (same sample count and temperature). Its wrong rate is the
+    baseline: a paraphrase only demonstrates a framing effect if its
+    fitness clearly exceeds it, so each record gets fitness_gain and
+    robust_success (success with gain >= cfg.robust_margin).
+
+    Returns (rounds, queried_records, baseline).
     """
     seen = {_normalize(question)}
     history: List[dict] = []   # feedback given to the attacker
@@ -343,6 +373,20 @@ def _iterative_attack(
                 {name: r.rationale for name, r in results.items()},
             )
         return eval_cache[key]
+
+    # Baseline uncertainty on the original question. The greedy original
+    # answer was judged correct (else we would not attack), so it counts as
+    # one correct answer, mirroring how fitness counts the greedy answer.
+    original_samples = [
+        victim.answer(question, temperature=cfg.fitness_temperature)
+        for _ in range(cfg.fitness_samples)
+    ]
+    n_orig_wrong = sum(1 for a in original_samples if not evaluate(a)[0][guide])
+    original_wrong_rate = n_orig_wrong / (1 + len(original_samples))
+    logger.info(
+        "  Original wrong rate: %.2f (%d/%d sampled answers wrong, %s)",
+        original_wrong_rate, n_orig_wrong, 1 + len(original_samples), guide,
+    )
 
     for rnd in range(1, cfg.max_rounds + 1):
         logger.info("  Attack round %d/%d", rnd, cfg.max_rounds)
@@ -429,6 +473,11 @@ def _iterative_attack(
                 "attack_success": attack_success_map,
                 "sample_answers": sample_answers,
                 "fitness": fitness,
+                "fitness_gain": fitness - original_wrong_rate,
+                "robust_success": bool(
+                    attack_success_map.get(guide)
+                    and fitness - original_wrong_rate >= cfg.robust_margin
+                ),
             }
             round_records.append(record)
             queried.append(record)
@@ -445,8 +494,11 @@ def _iterative_attack(
                     "    *** ATTACK SUCCESS (round %d) ***\n"
                     "        Paraphrase:    %s\n"
                     "        Victim answer: %s\n"
-                    "        Per evaluator: %s",
+                    "        Per evaluator: %s\n"
+                    "        Wrong rate:    %.2f vs %.2f on the original (%s)",
                     rnd, cand, para_answer, attack_success_map,
+                    fitness, original_wrong_rate,
+                    "ROBUST" if record["robust_success"] else "not robust",
                 )
 
         n_dup = sum(1 for r in round_records if r["status"] == "duplicate")
@@ -475,7 +527,10 @@ def _iterative_attack(
             logger.info("    stop_on_success set; ending search after round %d", rnd)
             break
 
-    return rounds, queried
+    return rounds, queried, {
+        "sample_answers": original_samples,
+        "wrong_rate": original_wrong_rate,
+    }
 
 
 def _select_parents(cfg: ExperimentConfig, history: List[dict]) -> List[dict]:
@@ -511,6 +566,9 @@ def _print_summary(summary: dict, out_path: Path) -> None:
               f"{summary['question_attack_success_rate'].get(ev_name, 0):.1%}")
         print(f"    Total successful paraphrases      : "
               f"{summary['total_successful_attacks'].get(ev_name, 0)}")
+    print(f"  Robust successes (gain >= {summary['robust_margin']:.2f} over the "
+          f"original's wrong rate): {summary['total_robust_successes']}, on "
+          f"{summary['question_robust_success_rate']:.1%} of questions")
     print("=" * 60)
     print(f"  Full results at: {out_path}")
     print("=" * 60)
