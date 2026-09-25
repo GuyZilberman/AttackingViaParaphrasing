@@ -29,12 +29,16 @@ _JUDGE_SYSTEM = (
     "- Score 0 if they refer to different entities or directly contradict.\n"
     "- If both mention geographic/entity qualifiers that conflict, score 0.\n"
     "- Ignore casing, punctuation, whitespace, and articles (the/a/an).\n"
+    "- When a question is given, score 1 only if the prediction answers that "
+    "question the way the ground truth does; an answer of the wrong kind "
+    "(e.g. 'No' when a date is asked) or a merely related entity scores 0.\n"
     "\n"
     'Output ONLY this JSON object: {"score": 0 or 1, "rationale": "one sentence"}'
 )
 
 _JUDGE_USER_TMPL = (
     "/no_think\n"
+    "{question_line}"
     'Prediction: "{prediction}"\n'
     'Ground truth: "{ground_truth}"\n\n'
     'Output ONLY: {{"score": 0 or 1, "rationale": "..."}}'
@@ -46,14 +50,17 @@ class LLMJudgeEvaluator(BaseEvaluator):
     Uses an Ollama model to judge whether `prediction` is semantically
     equivalent to any of the `ground_truths`.
 
-    A fast normalisation pre-check (exact / containment) short-circuits
-    obvious matches before hitting the LLM.
+    A fast pre-check accepts predictions that are identical to a ground truth
+    after normalisation, without calling the LLM. Containment is NOT used as
+    a shortcut: it compares characters, so e.g. "No" matched
+    "23 November 1996" ("no" is inside "november").
 
     Args:
         client:      Shared OllamaClient.
         model:       Ollama model tag for the judge.
         temperature: Should be 0 for determinism.
-        use_fast_path: Skip LLM call on obvious exact/containment matches.
+        use_fast_path: Skip the LLM call when prediction == ground truth
+                       after normalisation.
     """
 
     def __init__(
@@ -76,13 +83,14 @@ class LLMJudgeEvaluator(BaseEvaluator):
         self,
         prediction: str,
         ground_truths: List[str],
+        question: Optional[str] = None,
     ) -> EvalResult:
         """
         Returns EvalResult with score=1.0 if any ground truth matches,
         else score=0.0.
         """
         for gt in ground_truths:
-            result = self._score_pair(prediction, gt)
+            result = self._score_pair(prediction, gt, question)
             if result.correct:
                 return result
         return EvalResult(
@@ -91,12 +99,13 @@ class LLMJudgeEvaluator(BaseEvaluator):
             rationale="No ground truth matched.",
         )
 
-    def _score_pair(self, prediction: str, ground_truth: str) -> EvalResult:
-        # Fast path: exact / containment after normalisation
+    def _score_pair(
+        self, prediction: str, ground_truth: str, question: Optional[str] = None
+    ) -> EvalResult:
+        # Fast path: identical after normalisation (never a substring check)
         if self.use_fast_path:
             np_ = normalise_text(prediction)
-            ng = normalise_text(ground_truth)
-            if np_ == ng or ng in np_ or np_ in ng:
+            if np_ and np_ == normalise_text(ground_truth):
                 return EvalResult(
                     correct=True,
                     score=1.0,
@@ -108,7 +117,9 @@ class LLMJudgeEvaluator(BaseEvaluator):
             {
                 "role": "user",
                 "content": _JUDGE_USER_TMPL.format(
-                    prediction=prediction, ground_truth=ground_truth
+                    question_line=f'Question: "{question}"\n' if question else "",
+                    prediction=prediction,
+                    ground_truth=ground_truth,
                 ),
             },
         ]

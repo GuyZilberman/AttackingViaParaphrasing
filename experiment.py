@@ -169,7 +169,7 @@ def run_experiment(cfg: ExperimentConfig) -> dict:
 
         original_correct: Dict[str, bool] = {}
         for ev in evaluators:
-            res = ev.evaluate(original_answer, gts)
+            res = ev.evaluate(original_answer, gts, question=question)
             original_correct[ev.name] = res.correct
             logger.info(
                 "  [%s] original correct=%s", ev.name, res.correct
@@ -347,7 +347,12 @@ def _iterative_attack(
         # Sampled answers repeat a lot; don't re-run (LLM) evaluators on them.
         key = _normalize(answer)
         if key not in eval_cache:
-            results = {ev.name: ev.evaluate(answer, gts) for ev in evaluators}
+            # Always judged against the ORIGINAL question: the ground truths
+            # belong to it, and paraphrases are validated as equivalent.
+            results = {
+                ev.name: ev.evaluate(answer, gts, question=question)
+                for ev in evaluators
+            }
             eval_cache[key] = (
                 {name: r.correct for name, r in results.items()},
                 {name: r.rationale for name, r in results.items()},

@@ -39,11 +39,14 @@ class BaseEvaluator(ABC):
         self,
         prediction: str,
         ground_truths: List[str],
+        question: Optional[str] = None,
     ) -> EvalResult:
         """
         Args:
             prediction:    The model's answer string.
             ground_truths: List of acceptable correct answer strings.
+            question:      The question the ground truths answer. Optional;
+                           evaluators that judge meaning should use it.
 
         Returns:
             EvalResult with at minimum `correct` and `score` filled in.

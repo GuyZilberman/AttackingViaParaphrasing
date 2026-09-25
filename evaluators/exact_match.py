@@ -5,7 +5,7 @@ Fast, zero-cost (no model calls), used as a first-pass filter and
 as a standalone baseline metric.
 """
 
-from typing import List
+from typing import List, Optional
 
 from ollama_client import normalise_text
 from evaluators.base import BaseEvaluator, EvalResult
@@ -30,6 +30,7 @@ class ExactMatchEvaluator(BaseEvaluator):
         self,
         prediction: str,
         ground_truths: List[str],
+        question: Optional[str] = None,  # unused: pure string comparison
     ) -> EvalResult:
         np = normalise_text(prediction)
         for gt in ground_truths:
