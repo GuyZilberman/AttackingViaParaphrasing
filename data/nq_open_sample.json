@@ -805,15 +805,6 @@
     ]
   },
   {
-    "id": "nqo_validation_1584",
-    "question": "Where is the majority of phosphorous stored in the environment?",
-    "answers": [
-      "minerals",
-      "rocks",
-      "in rocks and minerals"
-    ]
-  },
-  {
     "id": "nqo_validation_1596",
     "question": "What is the main use of the eiffel tower in modern times?",
     "answers": [
@@ -1733,13 +1724,6 @@
     "question": "When did i ain't mad at cha come out?",
     "answers": [
       "September 15, 1996"
-    ]
-  },
-  {
-    "id": "nqo_validation_3113",
-    "question": "The general term for software that is designed to damage disable or steal data is?",
-    "answers": [
-      "Malware"
     ]
   },
   {

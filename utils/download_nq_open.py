@@ -87,6 +87,8 @@ EXCLUDED_IDS = {
     "nqo_validation_3430": "jurisdiction/deed-type dependent: a deed poll has one party",
     "nqo_validation_1406": "several accepted translations; gold lists one (Zhongguo)",
     "nqo_validation_3530": "'created' ambiguous: law 2002, operational 2003 (DHS)",
+    "nqo_validation_1584": "several defensible answers: 'sediments' vs gold 'rocks/minerals' (phosphorus storage)",
+    "nqo_validation_3113": "'general term' invites answers at other specificity levels, e.g. 'ransomware' (malware)",
 }
 
 CONTEXT_SYSTEM = (

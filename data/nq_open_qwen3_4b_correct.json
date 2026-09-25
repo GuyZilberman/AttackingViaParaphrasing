@@ -60,15 +60,6 @@
     ]
   },
   {
-    "id": "nqo_validation_1584",
-    "question": "Where is the majority of phosphorous stored in the environment?",
-    "answers": [
-      "minerals",
-      "rocks",
-      "in rocks and minerals"
-    ]
-  },
-  {
     "id": "nqo_validation_1921",
     "question": "Where does the optic nerve cross the midline?",
     "answers": [
@@ -134,13 +125,6 @@
     "question": "Is aluminium a ferrous or non ferrous metal?",
     "answers": [
       "non-ferrous"
-    ]
-  },
-  {
-    "id": "nqo_validation_3113",
-    "question": "The general term for software that is designed to damage disable or steal data is?",
-    "answers": [
-      "Malware"
     ]
   },
   {
