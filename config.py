@@ -48,10 +48,12 @@ class ExperimentConfig:
     # ---- Models ----
     attacker_model: str = "llama3.1:8b"
     victim_model: str = "qwen3:4b"
-    # Must differ from the victim: a judge that shares the victim's
-    # misconceptions accepts its wrong answers (qwen3:4b judged "Melissa
-    # Fumero" correct for Penny in The Big Bang Theory, as the victim said).
-    judge_model: str = "llama3.1:8b"
+    # Ideally a model other than the victim, so it cannot share the victim's
+    # misconceptions. Of the installed models, llama3.1:8b is unusable as a
+    # judge (it accepted 8/8 wrong answers on a labelled check, e.g. "Bashful"
+    # for Donald Duck), so qwen3:4b is used; its prompt makes the gold answer
+    # authoritative to limit self-grading. A stronger third model is better.
+    judge_model: str = "qwen3:4b"
 
     # ---- Attack ----
     attacker_strategy: str = "misleading_entity"

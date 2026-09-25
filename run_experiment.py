@@ -4,7 +4,7 @@ Entry point for the adversarial paraphrasing attack experiment.
 
 Usage
 -----
-  # Quick smoke test (built-in questions; attacker + judge llama3.1:8b, victim qwen3:4b):
+  # Quick smoke test (built-in questions; attacker llama3.1:8b, victim + judge qwen3:4b):
   python3 run_experiment.py --n-questions 3 --n-paraphrases 5
 
   # Iterative attack: up to 5 rounds of 5 paraphrases each per question:
