@@ -52,7 +52,8 @@ Result file format
           "n_errors": 0,                    # candidates whose model calls failed
           "candidates": [
             {"paraphrase": "...", "status": "rejected", "equivalent": false,
-             "rejected_by": "equivalence" | "answer_leak" | "answer_preservation"},
+             "rejected_by": "too_different" | "equivalence" | "answer_leak" |
+                            "answer_preservation"},
             {"paraphrase": "...", "status": "error", "error": "..."},
             {"paraphrase": "...", "status": "duplicate"},
             { ...same fields as a "paraphrases" entry (status "queried")... }
@@ -104,7 +105,9 @@ from victim import VictimModel
 from attackers import LLMParaphraser
 from evaluators import LLMJudgeEvaluator, BaseEvaluator
 from utils.question_equivalence_judge import questions_equivalent
-from utils.answer_preservation_judge import answer_preservation_verdict, leaks_answer
+from utils.answer_preservation_judge import (
+    answer_preservation_verdict, leaks_answer, original_overlap,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -477,7 +480,24 @@ def _iterative_attack(
                     history.append(record)
                     continue
 
-                # Free check first: a paraphrase that names the answer asks
+                # Free checks first. Too big a change: subtle phrasing keeps
+                # most of the original's wording.
+                overlap = original_overlap(question, cand)
+                if overlap < cfg.min_original_overlap:
+                    print(
+                        "\n[TOO DIFFERENT]"
+                        f"\nOriginal:   {question}"
+                        f"\nParaphrase: {cand}"
+                        f"\nKeeps {overlap:.0%} of the original's content words\n"
+                    )
+                    record = {"paraphrase": cand, "status": "rejected", "equivalent": False,
+                              "rejected_by": "too_different",
+                              "rejection_reason": f"keeps only {overlap:.0%} of the original's content words"}
+                    round_records.append(record)
+                    history.append(record)
+                    continue
+
+                # A paraphrase that names the answer asks
                 # a different question ("For what price did Judas ...?").
                 if cfg.answer_check and leaks_answer(question, cand, gts):
                     print(

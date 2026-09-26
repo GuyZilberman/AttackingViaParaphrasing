@@ -23,6 +23,7 @@ ATTACKER_STRATEGIES = [
     "scope_change",        # narrow or widen scope / geographic qualifier
     "presupposition",      # embed a false premise inside the question
     "semantic_preserve",   # genuine paraphrase — control / baseline (should NOT attack)
+    "minimal_edit",        # change only a few words of the original (subtle phrasing)
 ]
 
 # Answer correctness is judged by an LLM only: string matching marked valid
@@ -57,13 +58,17 @@ class ExperimentConfig:
     judge_model: str = "gemma3:12b"
 
     # ---- Attack ----
-    attacker_strategy: str = "misleading_entity"
+    attacker_strategy: str = "minimal_edit"
     n_paraphrases: int = 10  # paraphrases generated per attack round
     max_rounds: int = 5      # iterative attack rounds per question
     stop_on_success: bool = False  # stop a question's search at its first success
     # Second validation gate after questions_equivalent(): the known answer
     # must still answer the paraphrase (utils/answer_preservation_judge.py).
     answer_check: bool = True
+    # Reject paraphrases keeping less than this share of the ORIGINAL
+    # question's content words (0 disables). Measured against the original,
+    # not the parent, so edits cannot accumulate into a different question.
+    min_original_overlap: float = 0.6
     preservation_judge_model: str = "gemma3:12b"
 
     # ---- Search strategy ----
@@ -178,6 +183,9 @@ def parse_args(argv: Optional[List[str]] = None) -> ExperimentConfig:
 
     parser.add_argument("--preservation-judge-model", default=defaults.preservation_judge_model,
                         help="Ollama model for the answer-preservation check")
+    parser.add_argument("--min-overlap", type=float, default=defaults.min_original_overlap,
+                        help="Min. share of the original question's content words a "
+                             "paraphrase must keep (0 = off)")
     parser.add_argument("--no-answer-check", dest="answer_check", action="store_false",
                         help="Skip the answer-preservation check (equivalence check only)")
 
@@ -230,6 +238,7 @@ def parse_args(argv: Optional[List[str]] = None) -> ExperimentConfig:
         max_rounds=args.max_rounds,
         stop_on_success=args.stop_on_success,
         answer_check=args.answer_check,
+        min_original_overlap=args.min_overlap,
         preservation_judge_model=args.preservation_judge_model,
         search=args.search,
         n_parents=args.n_parents,

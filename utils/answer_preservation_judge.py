@@ -151,6 +151,21 @@ _STOPWORDS = {
 }
 
 
+# Function words ignored when measuring how much of the original wording a
+# paraphrase keeps.
+_OVERLAP_STOPWORDS = _STOPWORDS | {
+    "what", "which", "who", "whom", "whose", "where", "when", "how", "why",
+    "does", "do", "did", "that", "this", "these", "those",
+}
+
+
+def original_overlap(original: str, candidate: str) -> float:
+    """Share of the original question's content words that the candidate keeps."""
+    orig = {w for w in normalise_text(original).split() if w not in _OVERLAP_STOPWORDS}
+    cand = {w for w in normalise_text(candidate).split() if w not in _OVERLAP_STOPWORDS}
+    return len(orig & cand) / len(orig) if orig else 1.0
+
+
 def leaks_answer(original: str, candidate: str, answers: List[str]) -> bool:
     """
     True if the candidate reveals a known answer, so it has become a

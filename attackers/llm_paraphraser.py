@@ -59,6 +59,40 @@ STRATEGIES: Dict[str, Tuple[str, str]] = {
         'Output ONLY valid JSON: {{"paraphrases": ["q1", "q2", ...]}}',
     ),
     # ------------------------------------------------------------------
+    # Minimal edits: the brief asks for SUBTLE phrasing changes. Full
+    # rewrites (the attacker kept only ~60% of the original's content words
+    # even in round 1) leave room to drift into a different question.
+    # ------------------------------------------------------------------
+    "minimal_edit": (
+        # System
+        "You are an adversarial paraphrase generator for AI robustness research.\n"
+        "Task: make a MINIMAL edit to a question so that its meaning and correct "
+        "answer stay exactly the same, but its phrasing may cause a black-box LLM "
+        "to answer incorrectly.\n"
+        "A minimal edit changes only a small part of the ORIGINAL question, for example:\n"
+        "- replace one or two words with exact synonyms;\n"
+        "- reorder a clause or phrase;\n"
+        "- switch between active and passive voice;\n"
+        "- change the question word order (e.g. 'X was founded when?' vs 'When was X founded?').\n"
+        "Rules:\n"
+        "- Keep most of the original wording unchanged, especially the key terms.\n"
+        "- Every variant must have exactly the SAME correct answer as the original question.\n"
+        "- Preserve all named entities, dates, quantities, relationships, constraints, "
+        "negations, geographic scope, and temporal scope.\n"
+        "- Do NOT replace a key term with a description or definition of it.\n"
+        "- Do NOT add, remove, weaken, strengthen, or alter any factual assumption.\n"
+        "- The variant must remain natural, grammatical, and unambiguous.\n"
+        "- Do NOT use typos, invisible characters, unusual Unicode tricks, or formatting tricks.\n"
+        "- Every variant must be a complete question.\n"
+        'Output ONLY this JSON object: {"paraphrases": ["q1", "q2", ...]}',
+        # User
+        'Original question: "{question}"\n'
+        "Known correct answer(s): {answers_str}\n\n"
+        "Generate {n} different minimal edits of the original question. Each must "
+        "keep most of its wording and require the SAME answer.\n"
+        'Output ONLY valid JSON: {{"paraphrases": ["q1", "q2", ...]}}',
+    ),
+    # ------------------------------------------------------------------
     # Control / baseline
     # ------------------------------------------------------------------
     "semantic_preserve": (
@@ -111,6 +145,30 @@ EXPLORE_INSTRUCTION = (
     "previous attempt. Use the outcomes above to explore different wording, "
     "syntax, sentence structure, voice, or framing, while preserving EXACTLY "
     "the same meaning, entities, time, scope, factual assumptions, and correct answer."
+    + SAME_QUESTION_RULE
+)
+
+# Minimal-edit variants: new attempts must differ from earlier ones, but
+# stay close to the ORIGINAL wording instead of moving away from everything
+# tried so far.
+MINIMAL_EXPLORE_INSTRUCTION = (
+    "\n\nNow generate {n} NEW minimal edits of the ORIGINAL question. Each must "
+    "differ from every previous attempt, but still keep most of the ORIGINAL "
+    "wording and exactly the same meaning and correct answer. Use the outcomes "
+    "above to choose which small change (synonym, clause order, voice, word "
+    "order) to try."
+    + SAME_QUESTION_RULE
+)
+
+MINIMAL_EVOLVE_INSTRUCTION = (
+    "\n\nThe most promising edits so far (highest rate of wrong victim answers) "
+    "are the PARENTS for this round:\n"
+    "{parents_str}\n\n"
+    "Now generate {n} NEW minimal edits. Each must apply a small change to one "
+    "parent, or combine the changes of two parents, while keeping most of the "
+    "ORIGINAL question's wording. Do NOT output any parent or previous attempt "
+    "verbatim. Every edit must have exactly the same meaning and correct answer "
+    "as the ORIGINAL question."
     + SAME_QUESTION_RULE
 )
 
@@ -205,13 +263,14 @@ class LLMParaphraser(BaseAttacker):
         )
         if history:
             user += HISTORY_TEMPLATE.format(history_str=_format_history(history))
+            minimal = self.strategy == "minimal_edit"
             if parents:
-                user += EVOLVE_INSTRUCTION.format(
+                user += (MINIMAL_EVOLVE_INSTRUCTION if minimal else EVOLVE_INSTRUCTION).format(
                     parents_str=_format_history(parents),
                     n=n,
                 )
             else:
-                user += EXPLORE_INSTRUCTION.format(n=n)
+                user += (MINIMAL_EXPLORE_INSTRUCTION if minimal else EXPLORE_INSTRUCTION).format(n=n)
         messages = [
             {"role": "system", "content": system},
             {"role": "user", "content": user},
@@ -262,6 +321,7 @@ def _format_history(history: List[dict]) -> str:
             outcome = {
                 "answer_preservation": "REJECTED (known answer no longer fits)",
                 "answer_leak": "REJECTED (mentions the answer)",
+                "too_different": "REJECTED (changed too much of the original wording)",
             }.get(h.get("rejected_by"), "REJECTED (not equivalent)")
             if h.get("rejection_reason"):
                 outcome += f" - {h['rejection_reason'][:150]}"
