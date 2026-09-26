@@ -10,6 +10,9 @@ Usage
   # Iterative attack: up to 5 rounds of 5 paraphrases each per question:
   python3 run_experiment.py --n-questions 3 --n-paraphrases 5 --max-rounds 5
 
+  # The curated question set (hand-reviewed NQ-Open questions, minimally amended):
+  python3 run_experiment.py --dataset-path data/accepted_questions.json --n-questions 10
+
   # Harder questions (real search queries from NQ-Open; build once with
   # python3 utils/download_nq_open.py):
   python3 run_experiment.py --dataset-path data/nq_open_sample.json --n-questions 10
