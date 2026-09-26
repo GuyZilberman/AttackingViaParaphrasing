@@ -17,6 +17,7 @@ to the victim.
 """
 
 import json
+import re
 import sys
 from pathlib import Path
 from typing import List
@@ -25,14 +26,17 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
+from ollama_client import normalise_text
 from utils.question_equivalence_judge import _extract_score, client
 
-# Scored with tests/eval_judges.py on tests/data/answer_preservation_labels.json
-# (46 paraphrases, 14 drifted):
+# Scored with tests/eval_judges.py on tests/data/answer_preservation_labels.json.
+# On the first 46 paraphrases (14 drifted), direct prompt:
 #   gemma3:12b        → 2 drifted accepted,  4 valid rejected
 #   mistral-nemo:12b  → 2 drifted accepted,  6 valid rejected
 #   qwen3:4b          → 1 drifted accepted, 12 valid rejected
-#   llama3.1:8b       → accepted most drifts on an earlier set
+# After adding the drift the evolutionary search actually found, gemma3:12b:
+#   direct prompt (82 items, 29 drifted)                → 17 drifted accepted, 4 valid rejected
+#   structured prompt + leaks_answer() (86 items, 33)   →  4 drifted accepted, 9 valid rejected
 # qwen3:4b is the victim: as the gate deciding which paraphrases are tried,
 # it could reject exactly the ones that confuse it, hiding real successes
 # (it rejected every paraphrase of the WW1 question). gemma3:12b is from a
@@ -86,11 +90,93 @@ ANSWER_PRESERVATION_SYSTEM = (
     'Output format: {"score": 0 or 1, "rationale": "one short sentence"}\n'
 )
 
+# Structured variant: small models miss drift when asked for a verdict
+# directly, but catch much more of it when they must first spell out what
+# each question asks for. Examples are deliberately unrelated to the
+# hand-labelled test data (tests/data/answer_preservation_labels.json).
+STRUCTURED_SYSTEM = (
+    "You check whether a CANDIDATE is a faithful rephrasing of an ORIGINAL "
+    "question. You also get the ORIGINAL's known correct answer. Output ONLY a "
+    "JSON object with these keys, in this order:\n"
+    '  "original_asks": what the ORIGINAL asks for, as a short noun phrase that '
+    "keeps EVERY detail narrowing it down (which entity, which attribute, time, "
+    "place, scope),\n"
+    '  "candidate_asks": the same for the CANDIDATE,\n'
+    '  "differences": a list of the differences that could make a DIFFERENT '
+    "answer correct: a detail present in one but not the other that changes "
+    "which answer fits, or a different kind of answer asked for (person vs. "
+    "price, name vs. reason, open question vs. yes/no); [] if none. Extra "
+    "wording that the known answer still satisfies is not a difference,\n"
+    '  "answer_fits": true only if the known answer is still the natural, '
+    "complete answer to the CANDIDATE,\n"
+    '  "score": 1 only if "differences" is empty AND "answer_fits" is true; otherwise 0.\n'
+    "\n"
+    "Watch for these changes, which all make score 0:\n"
+    "- asking about a different attribute (who -> for how much, what -> why);\n"
+    "- dropping or changing a detail that identifies the answer ('the tallest "
+    "mountain' -> 'the most famous mountain');\n"
+    "- replacing the key term with a description that is not exactly the same "
+    "thing ('sofa' -> 'a piece of furniture with cushions');\n"
+    "- dropping or changing a time qualifier ('after the war began' -> 'after the war');\n"
+    "- mentioning the known answer inside the candidate.\n"
+    "Pure rewording, synonyms, word order, voice, fill-in-the-blank vs. "
+    "question form, or an added detail that is simply true of the known "
+    "answer are fine.\n"
+    "\n"
+    "Example:\n"
+    'ORIGINAL: "Who painted the Mona Lisa?"  ANSWER: "Leonardo da Vinci"\n'
+    'CANDIDATE: "For how much was Leonardo da Vinci\'s Mona Lisa insured?"\n'
+    '{"original_asks": "the painter of the Mona Lisa", "candidate_asks": "the '
+    'insured value of the Mona Lisa", "differences": ["asks for a value, not a '
+    'person", "mentions the answer"], "answer_fits": false, "score": 0}\n'
+    "\n"
+    'ORIGINAL: "What is the tallest mountain in Africa?"  ANSWER: "Kilimanjaro"\n'
+    'CANDIDATE: "Which dormant African volcano rises higher than any other mountain there?"\n'
+    '{"original_asks": "the tallest mountain in Africa", "candidate_asks": "the '
+    'tallest mountain in Africa, described as a dormant volcano", "differences": [], '
+    '"answer_fits": true, "score": 1}'
+)
+
 ANSWER_PRESERVATION_TEMPLATE = (
     'ORIGINAL: "{original}"\n'
     "ANSWER: {answers}\n"
     'CANDIDATE: "{candidate}"'
 )
+
+
+# Words too common to count as "the answer leaking into the paraphrase".
+_STOPWORDS = {
+    "a", "an", "the", "of", "in", "on", "at", "to", "for", "and", "or", "by",
+    "with", "from", "is", "was", "are", "were", "be", "its", "it", "as",
+}
+
+
+def leaks_answer(original: str, candidate: str, answers: List[str]) -> bool:
+    """
+    True if the candidate reveals a known answer, so it has become a
+    different question ("For what price did Judas Iscariot ...?" for "Who
+    sold out Jesus ...?"). Two cases, both ignoring words already in the
+    original ("Is Greenland part of Europe or North America?" is fine):
+      - every remaining word of an answer appears in the candidate, or
+      - a capitalised name from an answer appears capitalised in the
+        candidate ("... for Judas' actions ..."). Lower-case answer-type
+        words like "article" in "In what article ...?" (gold "Article Two")
+        do not count.
+    """
+    orig_words = set(normalise_text(original).split())
+    cand_words = set(normalise_text(candidate).split())
+    cand_names = {normalise_text(w) for w in candidate.split()[1:] if w[:1].isupper()}
+    for answer in answers:
+        new_words = [
+            w for w in normalise_text(answer).split()
+            if w not in _STOPWORDS and len(w) > 1 and w not in orig_words
+        ]
+        if new_words and all(w in cand_words for w in new_words):
+            return True
+        names = {normalise_text(w) for w in answer.split() if w[:1].isupper()}
+        if any(n in cand_names and n not in orig_words for n in names):
+            return True
+    return False
 
 
 def answer_preserved(
@@ -99,14 +185,20 @@ def answer_preserved(
     answers: List[str],
     model_name: str = DEFAULT_MODEL,
     think: bool = False,
+    structured: bool = True,
 ) -> int:
     """
     Return:
         1 -> the known answer(s) still correctly answer `candidate`
         0 -> otherwise (including unparseable judge output)
+
+    `structured` selects the prompt that makes the model spell out what each
+    question asks for before scoring (STRUCTURED_SYSTEM); False uses the
+    original direct prompt (ANSWER_PRESERVATION_SYSTEM).
     """
     messages = [
-        {"role": "system", "content": ANSWER_PRESERVATION_SYSTEM},
+        {"role": "system",
+         "content": STRUCTURED_SYSTEM if structured else ANSWER_PRESERVATION_SYSTEM},
         {
             "role": "user",
             "content": ANSWER_PRESERVATION_TEMPLATE.format(
@@ -121,7 +213,7 @@ def answer_preserved(
             model=model_name,
             messages=messages,
             temperature=0.0,
-            max_tokens=4096 if think else 512,
+            max_tokens=4096 if think else 768,
             think=think,
         ))
     except Exception as exc:

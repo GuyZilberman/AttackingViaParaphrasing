@@ -396,5 +396,365 @@
    "neutrality"
   ],
   "preserved": true
+ },
+ {
+  "original": "Where in the constitution is the executive branch referenced?",
+  "candidate": "In what article of the constitution is the executive branch defined?",
+  "gold": [
+   "Article Two"
+  ],
+  "preserved": true,
+  "source": "run10x8"
+ },
+ {
+  "original": "Where in the constitution is the executive branch referenced?",
+  "candidate": "Where in the constitution does it describe the executive branch?",
+  "gold": [
+   "Article Two"
+  ],
+  "preserved": true,
+  "source": "run10x8"
+ },
+ {
+  "original": "Where in the constitution is the executive branch referenced?",
+  "candidate": "What article in the constitution provides information about the executive branch?",
+  "gold": [
+   "Article Two"
+  ],
+  "preserved": true,
+  "source": "run10x8"
+ },
+ {
+  "original": "Where in the constitution is the executive branch referenced?",
+  "candidate": "What article of the US Constitution defines the executive branch?",
+  "gold": [
+   "Article Two"
+  ],
+  "preserved": true,
+  "source": "run10x8"
+ },
+ {
+  "original": "Where in the constitution is the executive branch referenced?",
+  "candidate": "In what constitutional article is the executive branch clearly defined?",
+  "gold": [
+   "Article Two"
+  ],
+  "preserved": true,
+  "source": "run10x8"
+ },
+ {
+  "original": "What was the united states foreign policy after ww1 started?",
+  "candidate": "what was the policy adopted by the united states when ww1 began?",
+  "gold": [
+   "neutrality"
+  ],
+  "preserved": true,
+  "source": "run10x8"
+ },
+ {
+  "original": "What was the united states foreign policy after ww1 started?",
+  "candidate": "What foreign policy was adopted by the United States during the initial phase of WW1?",
+  "gold": [
+   "neutrality"
+  ],
+  "preserved": true,
+  "source": "run10x8"
+ },
+ {
+  "original": "What was the united states foreign policy after ww1 started?",
+  "candidate": "what posture did the united states maintain upon the outbreak of ww1?",
+  "gold": [
+   "neutrality"
+  ],
+  "preserved": true,
+  "source": "run10x8"
+ },
+ {
+  "original": "What was the united states foreign policy after ww1 started?",
+  "candidate": "what was the united states' posture in its opening response to ww1?",
+  "gold": [
+   "neutrality"
+  ],
+  "preserved": true,
+  "source": "run10x8"
+ },
+ {
+  "original": "What was the united states foreign policy after ww1 started?",
+  "candidate": "what approach did the united states take in its opening reaction to ww1?",
+  "gold": [
+   "neutrality"
+  ],
+  "preserved": true,
+  "source": "run10x8"
+ },
+ {
+  "original": "Who sold out jesus for 30 pieces of silver?",
+  "candidate": "Who betrayed Jesus for a sum of 30 silver coins?",
+  "gold": [
+   "Judas Iscariot"
+  ],
+  "preserved": true,
+  "source": "run10x8"
+ },
+ {
+  "original": "Who sold out jesus for 30 pieces of silver?",
+  "candidate": "What disciple sold Jesus out to the authorities for thirty pieces of silver?",
+  "gold": [
+   "Judas Iscariot"
+  ],
+  "preserved": true,
+  "source": "run10x8"
+ },
+ {
+  "original": "Who sold out jesus for 30 pieces of silver?",
+  "candidate": "Which of Jesus' followers was bribed with thirty pieces of silver to turn him in?",
+  "gold": [
+   "Judas Iscariot"
+  ],
+  "preserved": true,
+  "source": "run10x8"
+ },
+ {
+  "original": "Who sold out jesus for 30 pieces of silver?",
+  "candidate": "Who handed Jesus over to his captors for a specified price?",
+  "gold": [
+   "Judas Iscariot"
+  ],
+  "preserved": true,
+  "source": "run10x8"
+ },
+ {
+  "original": "What is the big gold dome in jerusalem?",
+  "candidate": "What is the gold-domed building known as in the heart of jerusalem?",
+  "gold": [
+   "Dome of the Rock"
+  ],
+  "preserved": true,
+  "source": "run10x8"
+ },
+ {
+  "original": "What is the big gold dome in jerusalem?",
+  "candidate": "What is the gold-domed structure known as in Jerusalem?",
+  "gold": [
+   "Dome of the Rock"
+  ],
+  "preserved": true,
+  "source": "run10x8"
+ },
+ {
+  "original": "What is the big gold dome in jerusalem?",
+  "candidate": "Which Jerusalem landmark is most renowned for its gold dome?",
+  "gold": [
+   "Dome of the Rock"
+  ],
+  "preserved": true,
+  "source": "run10x8"
+ },
+ {
+  "original": "What is the big gold dome in jerusalem?",
+  "candidate": "What landmark in Jerusalem stands out due to its large gold dome?",
+  "gold": [
+   "Dome of the Rock"
+  ],
+  "preserved": true,
+  "source": "run10x8"
+ },
+ {
+  "original": "Another name for the torso is the blank region of the body?",
+  "candidate": "A synonym for the torso is the blank area of the human anatomy.",
+  "gold": [
+   "trunk"
+  ],
+  "preserved": true,
+  "source": "run10x8"
+ },
+ {
+  "original": "Another name for the torso is the blank region of the body?",
+  "candidate": "The torso, which includes both the chest and abdomen, is also referred to as the blank region of the body.",
+  "gold": [
+   "trunk"
+  ],
+  "preserved": true,
+  "source": "run10x8"
+ },
+ {
+  "original": "Another name for the torso is the blank region of the body?",
+  "candidate": "The torso, encompassing both the chest and abdomen, is also called the blank region of the body.",
+  "gold": [
+   "trunk"
+  ],
+  "preserved": true,
+  "source": "run10x8"
+ },
+ {
+  "original": "Who sold out jesus for 30 pieces of silver?",
+  "candidate": "For what price did Judas Iscariot hand Jesus over to his captors?",
+  "gold": [
+   "Judas Iscariot"
+  ],
+  "preserved": false,
+  "source": "run10x8"
+ },
+ {
+  "original": "Who sold out jesus for 30 pieces of silver?",
+  "candidate": "What sum did Judas Iscariot receive for handing over Jesus?",
+  "gold": [
+   "Judas Iscariot"
+  ],
+  "preserved": false,
+  "source": "run10x8"
+ },
+ {
+  "original": "Who sold out jesus for 30 pieces of silver?",
+  "candidate": "Judas Iscariot gave Jesus over to his captors for a certain sum of money.",
+  "gold": [
+   "Judas Iscariot"
+  ],
+  "preserved": false,
+  "source": "run10x8"
+ },
+ {
+  "original": "Who sold out jesus for 30 pieces of silver?",
+  "candidate": "What price did Judas Iscariot ultimately foot for having Jesus handed over?",
+  "gold": [
+   "Judas Iscariot"
+  ],
+  "preserved": false,
+  "source": "run10x8"
+ },
+ {
+  "original": "Who sold out jesus for 30 pieces of silver?",
+  "candidate": "Who did Judas Iscariot hand over to his captors for a sum of money?",
+  "gold": [
+   "Judas Iscariot"
+  ],
+  "preserved": false,
+  "source": "run10x8"
+ },
+ {
+  "original": "What is the big gold dome in jerusalem?",
+  "candidate": "What prominent landmark is Jerusalem most famous for?",
+  "gold": [
+   "Dome of the Rock"
+  ],
+  "preserved": false,
+  "source": "run10x8"
+ },
+ {
+  "original": "What is the big gold dome in jerusalem?",
+  "candidate": "What Jerusalem landmark is most well-known?",
+  "gold": [
+   "Dome of the Rock"
+  ],
+  "preserved": false,
+  "source": "run10x8"
+ },
+ {
+  "original": "What is the big gold dome in jerusalem?",
+  "candidate": "What does Jerusalem's skyline most prominently feature?",
+  "gold": [
+   "Dome of the Rock"
+  ],
+  "preserved": false,
+  "source": "run10x8"
+ },
+ {
+  "original": "What is the big gold dome in jerusalem?",
+  "candidate": "What famous landmark does Jerusalem feature?",
+  "gold": [
+   "Dome of the Rock"
+  ],
+  "preserved": false,
+  "source": "run10x8"
+ },
+ {
+  "original": "What is the big gold dome in jerusalem?",
+  "candidate": "What landmark stands out as Jerusalem's most prominent feature?",
+  "gold": [
+   "Dome of the Rock"
+  ],
+  "preserved": false,
+  "source": "run10x8"
+ },
+ {
+  "original": "Another name for the torso is the blank region of the body?",
+  "candidate": "The region containing the chest and abdomen is also referred to as the blank area.",
+  "gold": [
+   "trunk"
+  ],
+  "preserved": false,
+  "source": "run10x8"
+ },
+ {
+  "original": "Another name for the torso is the blank region of the body?",
+  "candidate": "The chest and abdomen form the blank area of the body.",
+  "gold": [
+   "trunk"
+  ],
+  "preserved": false,
+  "source": "run10x8"
+ },
+ {
+  "original": "Another name for the torso is the blank region of the body?",
+  "candidate": "The blank area includes the chest and abdomen.",
+  "gold": [
+   "trunk"
+  ],
+  "preserved": false,
+  "source": "run10x8"
+ },
+ {
+  "original": "Another name for the torso is the blank region of the body?",
+  "candidate": "The chest and abdomen constitute the blank area.",
+  "gold": [
+   "trunk"
+  ],
+  "preserved": false,
+  "source": "run10x8"
+ },
+ {
+  "original": "Another name for the torso is the blank region of the body?",
+  "candidate": "Both the chest and abdomen are part of the blank region of the body.",
+  "gold": [
+   "trunk"
+  ],
+  "preserved": false,
+  "source": "run10x8"
+ },
+ {
+  "original": "Who sold out jesus for 30 pieces of silver?",
+  "candidate": "Who was it that accepted thirty pieces of silver for Judas' actions against Jesus?",
+  "gold": [
+   "Judas Iscariot"
+  ],
+  "preserved": false,
+  "source": "smoke run after structured prompt"
+ },
+ {
+  "original": "Who sold out jesus for 30 pieces of silver?",
+  "candidate": "In exchange for thirty pieces of silver, who was it that facilitated Judas' actions against Jesus?",
+  "gold": [
+   "Judas Iscariot"
+  ],
+  "preserved": false,
+  "source": "smoke run after structured prompt"
+ },
+ {
+  "original": "Who sold out jesus for 30 pieces of silver?",
+  "candidate": "What price was exacted for Jesus' betrayal?",
+  "gold": [
+   "Judas Iscariot"
+  ],
+  "preserved": false,
+  "source": "smoke run after structured prompt"
+ },
+ {
+  "original": "What is the big gold dome in jerusalem?",
+  "candidate": "What is the most iconic gold architectural feature in Jerusalem?",
+  "gold": [
+   "Dome of the Rock"
+  ],
+  "preserved": false,
+  "source": "smoke run after structured prompt"
  }
 ]

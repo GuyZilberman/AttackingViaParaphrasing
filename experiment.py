@@ -52,7 +52,7 @@ Result file format
           "n_errors": 0,                    # candidates whose model calls failed
           "candidates": [
             {"paraphrase": "...", "status": "rejected", "equivalent": false,
-             "rejected_by": "equivalence" | "answer_preservation"},
+             "rejected_by": "equivalence" | "answer_leak" | "answer_preservation"},
             {"paraphrase": "...", "status": "error", "error": "..."},
             {"paraphrase": "...", "status": "duplicate"},
             { ...same fields as a "paraphrases" entry (status "queried")... }
@@ -103,7 +103,7 @@ from victim import VictimModel
 from attackers import LLMParaphraser
 from evaluators import LLMJudgeEvaluator, BaseEvaluator
 from utils.question_equivalence_judge import questions_equivalent
-from utils.answer_preservation_judge import answer_preserved
+from utils.answer_preservation_judge import answer_preserved, leaks_answer
 
 logger = logging.getLogger(__name__)
 
@@ -469,6 +469,21 @@ def _iterative_attack(
                     )
                     record = {"paraphrase": cand, "status": "rejected", "equivalent": False,
                               "rejected_by": "equivalence"}
+                    round_records.append(record)
+                    history.append(record)
+                    continue
+
+                # Free check first: a paraphrase that names the answer asks
+                # a different question ("For what price did Judas ...?").
+                if cfg.answer_check and leaks_answer(question, cand, gts):
+                    print(
+                        "\n[ANSWER LEAK]"
+                        f"\nOriginal:   {question}"
+                        f"\nAnswer(s):  {gts}"
+                        f"\nParaphrase: {cand}\n"
+                    )
+                    record = {"paraphrase": cand, "status": "rejected", "equivalent": False,
+                              "rejected_by": "answer_leak"}
                     round_records.append(record)
                     history.append(record)
                     continue

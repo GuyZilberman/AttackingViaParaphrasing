@@ -259,11 +259,10 @@ def _format_history(history: List[dict]) -> str:
     lines = []
     for i, h in enumerate(history, start=1):
         if h["status"] == "rejected":
-            outcome = (
-                "REJECTED (known answer no longer fits)"
-                if h.get("rejected_by") == "answer_preservation"
-                else "REJECTED (not equivalent)"
-            )
+            outcome = {
+                "answer_preservation": "REJECTED (known answer no longer fits)",
+                "answer_leak": "REJECTED (mentions the answer)",
+            }.get(h.get("rejected_by"), "REJECTED (not equivalent)")
         elif h.get("victim_correct"):
             outcome = f"VICTIM CORRECT (answered {h['victim_answer']!r})"
         else:

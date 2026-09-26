@@ -17,6 +17,7 @@ how many right items were rejected (false rejects), listing every mistake.
 Run from the project root, e.g.:
     python3 tests/eval_judges.py --answer-judge gemma3:12b qwen3:4b
     python3 tests/eval_judges.py --preservation-judge qwen3:4b gemma3:12b
+    python3 tests/eval_judges.py --preservation-judge gemma3:12b --prompt direct --leak-check
 
 The labels were written by hand from real pipeline outputs; they are small
 (tens of items), so differences of one or two errors are not conclusive.
@@ -34,7 +35,7 @@ if str(PROJECT_ROOT) not in sys.path:
 
 from evaluators import LLMJudgeEvaluator
 from ollama_client import OllamaClient
-from utils.answer_preservation_judge import answer_preserved
+from utils.answer_preservation_judge import answer_preserved, leaks_answer
 
 DATA = Path(__file__).parent / "data"
 
@@ -50,11 +51,18 @@ def eval_answer_judge(client: OllamaClient, model: str) -> None:
     )
 
 
-def eval_preservation_judge(model: str) -> None:
+def eval_preservation_judge(model: str, prompt: str, leak_check: bool) -> None:
     items = json.load(open(DATA / "answer_preservation_labels.json", encoding="utf-8"))
+
+    def predict(it) -> bool:
+        if leak_check and leaks_answer(it["original"], it["candidate"], it["gold"]):
+            return False
+        return bool(answer_preserved(it["original"], it["candidate"], it["gold"],
+                                     model_name=model, structured=prompt == "structured"))
+
     _report(
-        f"answer preservation {model}", items,
-        lambda it: bool(answer_preserved(it["original"], it["candidate"], it["gold"], model_name=model)),
+        f"answer preservation {model} ({prompt} prompt{', + leak check' if leak_check else ''})",
+        items, predict,
         label=lambda it: it["preserved"],
         show=lambda it: f"{it['candidate']!r}  (original: {it['original']})",
     )
@@ -83,6 +91,10 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("--answer-judge", nargs="*", default=[], metavar="MODEL")
     parser.add_argument("--preservation-judge", nargs="*", default=[], metavar="MODEL")
+    parser.add_argument("--prompt", choices=["structured", "direct"], default="structured",
+                        help="answer-preservation prompt variant")
+    parser.add_argument("--leak-check", action="store_true",
+                        help="also reject paraphrases that contain the answer (as the pipeline does)")
     args = parser.parse_args()
     if not args.answer_judge and not args.preservation_judge:
         parser.error("give --answer-judge and/or --preservation-judge models")
@@ -92,7 +104,7 @@ def main() -> None:
     for model in args.answer_judge:
         eval_answer_judge(client, model)
     for model in args.preservation_judge:
-        eval_preservation_judge(model)
+        eval_preservation_judge(model, args.prompt, args.leak_check)
 
 
 if __name__ == "__main__":
