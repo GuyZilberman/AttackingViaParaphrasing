@@ -20,7 +20,7 @@ import json
 import re
 import sys
 from pathlib import Path
-from typing import List
+from typing import List, Tuple
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
@@ -196,6 +196,20 @@ def answer_preserved(
     question asks for before scoring (STRUCTURED_SYSTEM); False uses the
     original direct prompt (ANSWER_PRESERVATION_SYSTEM).
     """
+    return answer_preservation_verdict(
+        original, candidate, answers, model_name, think, structured
+    )[0]
+
+
+def answer_preservation_verdict(
+    original: str,
+    candidate: str,
+    answers: List[str],
+    model_name: str = DEFAULT_MODEL,
+    think: bool = False,
+    structured: bool = True,
+) -> Tuple[int, str]:
+    """Like answer_preserved(), but also returns the judge's short reason."""
     messages = [
         {"role": "system",
          "content": STRUCTURED_SYSTEM if structured else ANSWER_PRESERVATION_SYSTEM},
@@ -218,13 +232,26 @@ def answer_preserved(
         ))
     except Exception as exc:
         print(f"[answer-judge-error] {exc}")
-        return 0
+        return 0, "judge call failed"
     score = _extract_score(raw)
     if score is None:
         print(f"[answer-judge-parse-error] RAW_TAIL: {raw[-400:]}")
-        return 0
+        return 0, "judge output unreadable"
     try:
-        return 1 if int(round(float(score))) >= 1 else 0
+        verdict = 1 if int(round(float(score))) >= 1 else 0
     except Exception:
         print(f"[answer-judge-bad-score] {score!r}. RAW_TAIL: {raw[-400:]}")
-        return 0
+        return 0, "judge output unreadable"
+    return verdict, _reason(json.loads(raw))
+
+
+def _reason(parsed: object) -> str:
+    """Short human-readable reason from either prompt's JSON output."""
+    if not isinstance(parsed, dict):
+        return ""
+    diffs = parsed.get("differences")
+    if isinstance(diffs, list) and diffs:
+        return "; ".join(str(d) for d in diffs)
+    if parsed.get("candidate_asks") and parsed.get("original_asks"):
+        return f"asks for {parsed['candidate_asks']}, not {parsed['original_asks']}"
+    return str(parsed.get("rationale") or "")

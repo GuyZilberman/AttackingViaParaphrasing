@@ -92,6 +92,7 @@ Result file format
 import json
 import logging
 import os
+from collections import Counter
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
@@ -103,7 +104,7 @@ from victim import VictimModel
 from attackers import LLMParaphraser
 from evaluators import LLMJudgeEvaluator, BaseEvaluator
 from utils.question_equivalence_judge import questions_equivalent
-from utils.answer_preservation_judge import answer_preserved, leaks_answer
+from utils.answer_preservation_judge import answer_preservation_verdict, leaks_answer
 
 logger = logging.getLogger(__name__)
 
@@ -426,7 +427,10 @@ def _iterative_attack(
         victim.answer(question, temperature=cfg.fitness_temperature)
         for _ in range(cfg.fitness_samples)
     ]
-    n_orig_wrong = sum(1 for a in original_samples if not evaluate(a)[0][guide])
+    n_orig_wrong = sum(
+        1 for a in original_samples
+        if not _is_non_answer(a) and not evaluate(a)[0][guide]
+    )
     original_wrong_rate = n_orig_wrong / (1 + len(original_samples))
     logger.info(
         "  Original wrong rate: %.2f (%d/%d sampled answers wrong, %s)",
@@ -483,14 +487,19 @@ def _iterative_attack(
                         f"\nParaphrase: {cand}\n"
                     )
                     record = {"paraphrase": cand, "status": "rejected", "equivalent": False,
-                              "rejected_by": "answer_leak"}
+                              "rejected_by": "answer_leak",
+                              "rejection_reason": f"names the answer ({' / '.join(gts)})"}
                     round_records.append(record)
                     history.append(record)
                     continue
 
-                if cfg.answer_check and not answer_preserved(
-                    question, cand, gts, model_name=cfg.preservation_judge_model
-                ):
+                preserved, reason = (
+                    answer_preservation_verdict(
+                        question, cand, gts, model_name=cfg.preservation_judge_model
+                    )
+                    if cfg.answer_check else (1, "")
+                )
+                if not preserved:
                     print(
                         "\n[ANSWER PRESERVATION FAILED]"
                         f"\nOriginal:   {question}"
@@ -498,16 +507,19 @@ def _iterative_attack(
                         f"\nParaphrase: {cand}\n"
                     )
                     record = {"paraphrase": cand, "status": "rejected", "equivalent": False,
-                              "rejected_by": "answer_preservation"}
+                              "rejected_by": "answer_preservation",
+                              "rejection_reason": reason}
                     round_records.append(record)
                     history.append(record)
                     continue
 
                 para_answer = victim.answer(cand)
                 correct_map, rationale_map = evaluate(para_answer)
-                # Attack succeeds when the original was correct but the paraphrase is wrong
+                non_answer = _is_non_answer(para_answer)
+                # Attack succeeds when the original was correct but the paraphrase
+                # got a wrong ANSWER (a non-answer is not a factual error).
                 attack_success_map: Dict[str, bool] = {
-                    name: original_correct.get(name, True) and not ok
+                    name: original_correct.get(name, True) and not ok and not non_answer
                     for name, ok in correct_map.items()
                 }
 
@@ -515,15 +527,22 @@ def _iterative_attack(
                     victim.answer(cand, temperature=cfg.fitness_temperature)
                     for _ in range(cfg.fitness_samples)
                 ]
-                n_wrong = sum(
-                    1 for a in [para_answer] + sample_answers
-                    if not evaluate(a)[0][guide]
-                )
+                wrong_answers = [
+                    _normalize(a) for a in [para_answer] + sample_answers
+                    if not _is_non_answer(a) and not evaluate(a)[0][guide]
+                ]
+                n_wrong = len(wrong_answers)
                 fitness = n_wrong / (1 + len(sample_answers))
+                # The wrong answer this paraphrase most often triggers; parents
+                # are picked one per such answer (see _select_parents).
+                wrong_answer_key = (
+                    Counter(wrong_answers).most_common(1)[0][0] if wrong_answers else None
+                )
 
                 logger.info(
-                    "    Paraphrase: %r  →  Victim: %r  correct=%s  fitness=%.2f (%d/%d wrong, %s)",
-                    cand, para_answer, correct_map, fitness, n_wrong, 1 + len(sample_answers), guide,
+                    "    Paraphrase: %r  →  Victim: %r%s  correct=%s  fitness=%.2f (%d/%d wrong, %s)",
+                    cand, para_answer, " (non-answer)" if non_answer else "",
+                    correct_map, fitness, n_wrong, 1 + len(sample_answers), guide,
                 )
                 record = {
                     "round": rnd,
@@ -535,6 +554,8 @@ def _iterative_attack(
                     "rationale": rationale_map,
                     "attack_success": attack_success_map,
                     "sample_answers": sample_answers,
+                    "victim_non_answer": non_answer,
+                    "wrong_answer_key": wrong_answer_key,
                     "fitness": fitness,
                     "fitness_gain": fitness - original_wrong_rate,
                     "robust_success": bool(
@@ -548,8 +569,10 @@ def _iterative_attack(
                     "paraphrase": cand,
                     "status": "queried",
                     "victim_answer": para_answer,
-                    "victim_correct": correct_map[guide],
+                    "victim_correct": correct_map[guide] and not non_answer,
+                    "victim_non_answer": non_answer,
                     "fitness": fitness,
+                    "wrong_answer_key": wrong_answer_key,
                 })
 
                 if any(attack_success_map.values()):
@@ -606,16 +629,41 @@ def _iterative_attack(
 
 def _select_parents(cfg: ExperimentConfig, history: List[dict]) -> List[dict]:
     """
-    Pick the cfg.n_parents fittest queried candidates so far (elitist
-    selection over all previous rounds). Returns [] for reflective search or
-    while no candidate has fooled the victim even once (no signal to follow).
+    Pick up to cfg.n_parents fittest queried candidates so far, at most ONE
+    per wrong answer they trigger (wrong_answer_key). Paraphrases that make
+    the victim give the same wrong answer exploit the same weakness; without
+    this, one high-scoring idea (often a drift to a different question)
+    fills every parent slot and the search collapses onto it, as GEPA's
+    Pareto selection is designed to avoid. Returns [] for reflective search
+    or while no candidate has fooled the victim even once.
     """
     if cfg.search != "evolutionary":
         return []
     scored = [h for h in history if h.get("fitness", 0) > 0]
     # Stable sort: ties keep the earlier candidate first.
     scored.sort(key=lambda h: h["fitness"], reverse=True)
-    return scored[:cfg.n_parents]
+    parents: List[dict] = []
+    used_keys = set()
+    for h in scored:
+        key = h.get("wrong_answer_key")
+        if key in used_keys:
+            continue
+        used_keys.add(key)
+        parents.append(h)
+        if len(parents) == cfg.n_parents:
+            break
+    return parents
+
+
+# Victim replies longer than this are unfinished reasoning (qwen3 ran out of
+# tokens before its final answer), not answers: the victim is told to give
+# only the shortest answer, and real answers are a few words.
+_MAX_ANSWER_WORDS = 40
+
+
+def _is_non_answer(answer: str) -> bool:
+    """True for empty replies and truncated reasoning dumps."""
+    return not _normalize(answer) or len(answer.split()) > _MAX_ANSWER_WORDS
 
 
 def _print_summary(summary: dict, out_path: Path) -> None:
