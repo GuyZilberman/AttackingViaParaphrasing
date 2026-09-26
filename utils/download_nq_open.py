@@ -72,7 +72,7 @@ EXCLUDED_IDS = {
     "nqo_validation_2608": "vague gold 'giant'; 'gas giant' accepted (Neptune is an ice giant)",
     "nqo_validation_1426": "judge accepted wrong answer (Lori's death episode)",
     "nqo_validation_3327": "judge accepted wrong answer (dishwasher air gap)",
-    "nqo_validation_0943": "context-dependent: Habsburg capital depends on period",
+    "nqo_validation_0943": "context-dependent: Habsburg capital depends on period; restored once, then 'where' drifted to 'which territory' (answer: Austria)",
     "nqo_validation_0112": "context-dependent: whom Demetrius loves depends on the act",
     "nqo_validation_2576": "bad gold: 'peptide bond' is not a reaction type",
     "nqo_validation_1500": "bad gold: incomplete ('living-donor' only)",
