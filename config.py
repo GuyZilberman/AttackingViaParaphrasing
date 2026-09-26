@@ -69,6 +69,10 @@ class ExperimentConfig:
     # question's content words (0 disables). Measured against the original,
     # not the parent, so edits cannot accumulate into a different question.
     min_original_overlap: float = 0.6
+    # Stop the run after this many questions IN A ROW fail (e.g. the model
+    # server went down); 0 = never stop. Without it, a dead server makes the
+    # run skip every remaining question in 5-minute timeouts.
+    max_consecutive_failures: int = 2
     preservation_judge_model: str = "gemma3:12b"
 
     # ---- Search strategy ----
@@ -183,6 +187,8 @@ def parse_args(argv: Optional[List[str]] = None) -> ExperimentConfig:
 
     parser.add_argument("--preservation-judge-model", default=defaults.preservation_judge_model,
                         help="Ollama model for the answer-preservation check")
+    parser.add_argument("--max-failures", type=int, default=defaults.max_consecutive_failures,
+                        help="Stop the run after this many consecutive failed questions (0 = never)")
     parser.add_argument("--min-overlap", type=float, default=defaults.min_original_overlap,
                         help="Min. share of the original question's content words a "
                              "paraphrase must keep (0 = off)")
@@ -239,6 +245,7 @@ def parse_args(argv: Optional[List[str]] = None) -> ExperimentConfig:
         stop_on_success=args.stop_on_success,
         answer_check=args.answer_check,
         min_original_overlap=args.min_overlap,
+        max_consecutive_failures=args.max_failures,
         preservation_judge_model=args.preservation_judge_model,
         search=args.search,
         n_parents=args.n_parents,

@@ -9,6 +9,8 @@ Result file format
 {
   "metadata": { ...config fields... },
   "complete": true,                        # false while running / if it crashed
+  "aborted": null,                         # reason, if stopped after repeated failures
+  "not_attempted": [],                     # question ids skipped by that stop
   "failed_questions": [                    # questions skipped after an error
     {"question_id": "...", "original_question": "...", "error": "..."}
   ],
@@ -168,6 +170,8 @@ def run_experiment(cfg: ExperimentConfig) -> dict:
     results_per_question: List[dict] = []
     failed_questions: List[dict] = []
     output: dict = {}
+    consecutive_failures = 0
+    aborted: Optional[str] = None
     for q_idx, entry in enumerate(questions):
         logger.info(
             "[%d/%d] Q%s: %s", q_idx + 1, len(questions), entry["id"], entry["question"]
@@ -176,7 +180,9 @@ def run_experiment(cfg: ExperimentConfig) -> dict:
             results_per_question.append(
                 _run_question(cfg, entry, victim, attacker, evaluators, evaluator_names)
             )
+            consecutive_failures = 0
         except Exception as exc:
+            consecutive_failures += 1
             # e.g. the Ollama server stops responding; keep the other questions.
             logger.exception("  Question %s failed and is skipped: %s", entry["id"], exc)
             failed_questions.append({
@@ -185,20 +191,43 @@ def run_experiment(cfg: ExperimentConfig) -> dict:
                 "error": repr(exc),
             })
 
+        if cfg.max_consecutive_failures and consecutive_failures >= cfg.max_consecutive_failures:
+            aborted = (
+                f"{consecutive_failures} questions in a row failed "
+                f"(last error: {failed_questions[-1]['error'][:200]})"
+            )
+
         output = {
             "metadata": cfg.to_dict(),
-            "complete": q_idx == len(questions) - 1,
+            "complete": q_idx == len(questions) - 1 and not aborted,
+            "aborted": aborted,
+            "not_attempted": (
+                [e["id"] for e in questions[q_idx + 1:]] if aborted else []
+            ),
             "results": results_per_question,
             "failed_questions": failed_questions,
             "summary": _summarize(cfg, results_per_question, evaluator_names),
         }
         _write_json(out_path, output)
 
+        if aborted:
+            logger.error(
+                "Stopping the run: %s. %d question(s) not attempted. "
+                "Check that the Ollama server and GPUs are working, then re-run.",
+                aborted, len(output["not_attempted"]),
+            )
+            break
+
     logger.info("Results saved → %s", out_path)
     print(f"\nResults saved → {out_path}")
     if failed_questions:
         print(f"  {len(failed_questions)} question(s) failed and were skipped: "
               f"{[q['question_id'] for q in failed_questions]}")
+    if aborted:
+        print(f"\n  RUN STOPPED EARLY: {aborted}.\n"
+              f"  {len(output['not_attempted'])} question(s) not attempted: "
+              f"{output['not_attempted']}\n"
+              f"  Check that the Ollama server and GPUs work (nvidia-smi), then re-run.")
     _print_summary(output["summary"], out_path)
 
     return output
