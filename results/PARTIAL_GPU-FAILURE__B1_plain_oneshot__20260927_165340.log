@@ -1,0 +1,1378 @@
+
+============================================================
+ADVERSARIAL PARAPHRASING EXPERIMENT
+============================================================
+  Attacker model    : llama3.1:8b
+  Attack strategy   : semantic_preserve
+  Victim model      : qwen3:4b-instruct
+  Judge model       : gemma3:12b  (evaluator=llm_judge)
+  Questions         : 16
+  Paraphrases/round : 40
+  Max rounds        : 1  (stop_on_success=False)
+  Answer check      : gemma3:12b
+  Search            : evolutionary  (parents=3, fitness samples=4 @ T=0.7)
+  Dataset           : data/accepted_questions_qwen3_4b_instruct.json
+  Results dir       : /tmp/avp_runs/results
+============================================================
+
+16:53:40  INFO     Loaded 16 questions
+16:53:40  INFO     Results file: /tmp/avp_runs/results/attacker_llama3_1_8b_semantic_preserve__victim_qwen3_4b_instruct__judge_gemma3_12b__q16_p40_r1_evolutionary__20260927_165340.json
+16:53:40  INFO     [1/16] Qnqo_validation_0573: Where in the American constitution is the executive branch referenced?
+16:54:01  INFO       Victim (original): 'Article II'
+16:54:27  INFO       [llm_judge] original correct=True
+16:54:29  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+16:54:29  INFO       Attack round 1/1
+16:54:50  INFO         Generated 33 candidates
+16:54:58  INFO         Paraphrase: 'Where is the executive branch mentioned in the American constitution?'  →  Victim: 'Article II of the U.S. Constitution.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:55:02  INFO         Paraphrase: 'What article of the American constitution describes the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: In what part of the American constitution is the executive branch defined?
+
+16:55:17  INFO         Paraphrase: 'What document outlines the executive branch in the American constitution?'  →  Victim: 'The U.S. Constitution does not contain a single document that outlines the executive branch in detail; instead, the executive branch is established by the Constitution through specific articles and clauses. Article II outlines the executive branch.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:55:21  INFO         Paraphrase: 'What section of the American constitution establishes the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: In which clause of the American constitution is the executive branch recognized?
+
+16:55:29  INFO         Paraphrase: 'Where can one find a description of the executive branch in the American constitution?'  →  Victim: 'Article II of the U.S. Constitution.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:55:32  INFO         Paraphrase: 'What part of the American constitution addresses the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:55:36  INFO         Paraphrase: 'What article of the American constitution refers to the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:55:40  INFO         Paraphrase: 'What is the location of the executive branch in the American constitution?'  →  Victim: 'Article II of the U.S. Constitution.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:55:44  INFO         Paraphrase: 'In what section of the American constitution is the executive branch mentioned?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: What is the clause in the American constitution that defines the executive branch?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: What is the document that mentions the executive branch in the American constitution?
+
+16:55:58  INFO         Paraphrase: 'What is the location of the description of the executive branch in the American constitution?'  →  Victim: 'Article II of the U.S. Constitution.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:56:01  INFO         Paraphrase: 'What part of the American constitution defines the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:56:05  INFO         Paraphrase: 'In what article of the American constitution is the executive branch established?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: What is the clause in the American constitution that outlines the executive branch?
+
+16:56:12  INFO         Paraphrase: 'In which part of the American constitution is the executive branch described?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:56:16  INFO         Paraphrase: 'What section of the American constitution recognizes the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: What is the document that contains the description of the executive branch in the American constitution?
+
+16:56:24  INFO         Paraphrase: 'What is the part of the American constitution that mentions the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: In what clause of the American constitution is the executive branch defined?
+
+16:56:31  INFO         Paraphrase: 'What article of the American constitution mentions the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:56:35  INFO         Paraphrase: 'What is the location of the clause that defines the executive branch in the American constitution?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:56:44  INFO         Paraphrase: 'In what document of the American constitution is the executive branch established?'  →  Victim: "The U.S. Constitution's Article II establishes the executive branch."  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:56:48  INFO         Paraphrase: 'In which section of the American constitution is the executive branch recognized?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: What is the description of the executive branch in the American constitution located?
+
+16:56:55  INFO         Paraphrase: 'In what part of the American constitution is the executive branch established?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: In which clause of the American constitution is the executive branch mentioned?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: What is the document that defines the executive branch in the American constitution?
+
+16:57:07  INFO         Paraphrase: 'What is the section of the American constitution that describes the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:57:10  INFO         Paraphrase: 'In what article of the American constitution is the executive branch recognized?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:57:14  INFO         Paraphrase: 'In which part of the American constitution is the executive branch mentioned?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:57:14  INFO         Round 1/1 done: 33 generated, 0 duplicates, 10 rejected, 23 passed validation (queried), 0 successful
+16:57:14  INFO       Attack finished after 1 round(s): 23 valid victim queries, successful attacks per evaluator: {'llm_judge': 0}, robust: 0
+16:57:14  INFO     [2/16] Qnqo_validation_0615: Which organelle is the site of atp production and storage?
+16:57:14  INFO       Victim (original): 'Mitochondria'
+16:57:16  INFO       [llm_judge] original correct=True
+16:57:18  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+16:57:18  INFO       Attack round 1/1
+16:57:27  INFO         Generated 30 candidates
+16:57:32  INFO         Paraphrase: 'Which part of the cell is the site of ATP production and storage?'  →  Victim: 'Mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:57:36  INFO         Paraphrase: 'In which organelle does ATP production and storage occur?'  →  Victim: 'Mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: What organelle is responsible for generating and storing ATP?
+Keeps 40% of the original's content words
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Which organelle is the site of atp production and storage?
+Answer(s):  ['mitochondrion']
+Paraphrase: Where is ATP production and storage primarily located in the cell?
+
+16:57:44  INFO         Paraphrase: 'What organelle serves as the site for both ATP production and storage?'  →  Victim: 'Mitochondrion'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Which organelle is the site of atp production and storage?
+Answer(s):  ['mitochondrion']
+Paraphrase: In which cellular component is ATP production and storage typically found?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Which organelle is the site of atp production and storage?
+Answer(s):  ['mitochondrion']
+Paraphrase: Which organelle functions as the site for energy production and storage?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Which organelle is the site of atp production and storage?
+Answer(s):  ['mitochondrion']
+Paraphrase: What is the location of ATP production and storage within the cell?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Which organelle is the site of atp production and storage?
+Answer(s):  ['mitochondrion']
+Paraphrase: Where does ATP production and storage primarily take place in the cell?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Which organelle is the site of atp production and storage?
+Answer(s):  ['mitochondrion']
+Paraphrase: In which part of the cell do we find ATP production and storage?
+
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: What cellular organelle is responsible for producing and storing ATP?
+Keeps 40% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Which organelle is the site of atp production and storage?
+Answer(s):  ['mitochondrion']
+Paraphrase: Which cellular structure serves as the site for ATP production and storage?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Which organelle is the site of atp production and storage?
+Answer(s):  ['mitochondrion']
+Paraphrase: In which organelle is ATP production and storage concentrated?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Which organelle is the site of atp production and storage?
+Answer(s):  ['mitochondrion']
+Paraphrase: What organelle functions as the primary site for ATP production and storage?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Which organelle is the site of atp production and storage?
+Answer(s):  ['mitochondrion']
+Paraphrase: Where is ATP production and storage primarily occurring in the cell?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Which organelle is the site of atp production and storage?
+Answer(s):  ['mitochondrion']
+Paraphrase: Which cellular organelle is the primary site for energy production and storage?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Which organelle is the site of atp production and storage?
+Answer(s):  ['mitochondrion']
+Paraphrase: What is the site of ATP production and storage within the cell?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Which organelle is the site of atp production and storage?
+Answer(s):  ['mitochondrion']
+Paraphrase: In which cellular organelle does energy production and storage primarily occur?
+
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: What cellular component is responsible for generating and storing ATP?
+Keeps 20% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: Where does the cell store and produce ATP?
+Keeps 20% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Which organelle is the site of atp production and storage?
+Answer(s):  ['mitochondrion']
+Paraphrase: Which organelle is the primary location of ATP production and storage?
+
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: In which part of the cell do we find energy production and storage?
+Keeps 40% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Which organelle is the site of atp production and storage?
+Answer(s):  ['mitochondrion']
+Paraphrase: What organelle functions as the primary site for ATP generation and storage?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Which organelle is the site of atp production and storage?
+Answer(s):  ['mitochondrion']
+Paraphrase: In which cellular organelle is ATP production and storage taking place?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Which organelle is the site of atp production and storage?
+Answer(s):  ['mitochondrion']
+Paraphrase: Where is the cell's ATP production and storage located?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Which organelle is the site of atp production and storage?
+Answer(s):  ['mitochondrion']
+Paraphrase: What is the site of energy production and storage in the cell?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Which organelle is the site of atp production and storage?
+Answer(s):  ['mitochondrion']
+Paraphrase: In which organelle is energy production and storage primarily found?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Which organelle is the site of atp production and storage?
+Answer(s):  ['mitochondrion']
+Paraphrase: Which cellular organelle is the site of ATP generation and storage?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Which organelle is the site of atp production and storage?
+Answer(s):  ['mitochondrion']
+Paraphrase: In which cellular component is ATP production and storage typically located?
+
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: Where does the cell produce and store its energy in the form of ATP?
+Keeps 20% of the original's content words
+
+18:39:56  INFO         Round 1/1 done: 30 generated, 0 duplicates, 27 rejected, 3 passed validation (queried), 0 successful
+18:39:56  INFO       Attack finished after 1 round(s): 3 valid victim queries, successful attacks per evaluator: {'llm_judge': 0}, robust: 0
+18:39:56  INFO     [3/16] Qnqo_validation_0773: Islamic term for the community of the faithful?
+18:40:07  INFO       Victim (original): 'Ummah'
+18:45:07  WARNING  [judge] LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+18:45:07  INFO       [llm_judge] original correct=True
+18:50:23  WARNING  [judge] LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+18:50:23  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+18:50:23  INFO       Attack round 1/1
+18:50:48  INFO         Generated 33 candidates
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: Term describing the Muslim community in Islam.
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: Concept defining the collective body of Muslims.
+Keeps 0% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Islamic term for the community of the faithful?
+Answer(s):  ['ummat al-Islamiyah', 'Ummah']
+Paraphrase: What is the Islamic term for the community of believers?
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: The Islamic word for a unified group of Muslims.
+Keeps 25% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: Definition of the community bound together by faith in Islam.
+Keeps 25% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Islamic term for the community of the faithful?
+Answer(s):  ['ummat al-Islamiyah', 'Ummah']
+Paraphrase: A term in Islam referring to a community of the faithful.
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: The Islamic concept for a body of people sharing the same faith.
+Keeps 25% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: What does Islam call a group of believers united by faith?
+Keeps 0% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: The community of Muslims as described in Islamic terms.
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: Definition of the Islamic term for a group of believers.
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: The collective group of Muslims as described in Islamic terminology.
+Keeps 25% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: A term used in Islam to describe a group of people who share the same faith.
+Keeps 25% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: Concept for a unified community of believers in Islam.
+Keeps 25% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: Term in Islam that describes the collective group of Muslims.
+Keeps 25% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: The definition of the Islamic term for a body of believers.
+Keeps 50% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Islamic term for the community of the faithful?
+Answer(s):  ['ummat al-Islamiyah', 'Ummah']
+Paraphrase: What is the term in Islam for a community of faithful people?
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: A concept that describes the collective body of Muslims in Islam.
+Keeps 0% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: The Islamic term used to describe a unified group of believers.
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: The collective term in Islam for a group of people who share the faith.
+Keeps 25% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Islamic term for the community of the faithful?
+Answer(s):  ['ummat al-Islamiyah', 'Ummah']
+Paraphrase: Definition of the Islamic term for the community of the faithful.
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: The term in Islam that describes a group of people bound together by faith.
+Keeps 25% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: Concept used in Islam to describe a community of believers.
+Keeps 25% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: A term in Islam referring to a group of people who share the same faith.
+Keeps 25% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: The collective term for the community of Muslims in Islam.
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: What is the Islamic term for a body of believers united by faith?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: A concept that defines the collective group of Muslims in Islam.
+Keeps 0% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: The definition of the term in Islam for a group of people who share the same faith.
+Keeps 25% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: Term used in Islam to describe a community of people who share the same faith.
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: The Islamic concept for a collective body of people who share the same faith.
+Keeps 25% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: The term in Islam that describes a group of people united by faith.
+Keeps 25% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Islamic term for the community of the faithful?
+Answer(s):  ['ummat al-Islamiyah', 'Ummah']
+Paraphrase: A definition of the Islamic term for a unified community of believers.
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: The collective term for a group of people who share the same faith in Islam.
+Keeps 25% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: The term in Islam that describes a community of people bound together by faith.
+Keeps 50% of the original's content words
+
+19:17:16  INFO         Round 1/1 done: 33 generated, 0 duplicates, 33 rejected, 0 passed validation (queried), 0 successful
+19:17:16  INFO       Attack finished after 1 round(s): 0 valid victim queries, successful attacks per evaluator: {'llm_judge': 0}, robust: 0
+19:17:16  INFO     [4/16] Qnqo_validation_0964: What is the name of the big gold dome in jerusalem?
+19:17:28  INFO       Victim (original): 'Dome of the Rock'
+19:17:28  INFO       [llm_judge] original correct=True
+19:22:29  WARNING  [judge] LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+19:22:29  INFO       Original wrong rate: 0.40 (2/5 sampled answers wrong, llm_judge)
+19:22:29  INFO       Attack round 1/1
+19:23:03  INFO         Generated 36 candidates
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: what is the name of the large golden dome in jerusalem?
+
+
+[TOO DIFFERENT]
+Original:   What is the name of the big gold dome in jerusalem?
+Paraphrase: what is the title of the prominent golden dome in jerusalem?
+Keeps 40% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   What is the name of the big gold dome in jerusalem?
+Paraphrase: what is the designation of the notable golden dome in jerusalem?
+Keeps 40% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: what is the official name of the enormous golden dome in jerusalem?
+
+
+[TOO DIFFERENT]
+Original:   What is the name of the big gold dome in jerusalem?
+Paraphrase: what is the large golden dome in jerusalem called?
+Keeps 40% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   What is the name of the big gold dome in jerusalem?
+Paraphrase: what is the prominent golden dome in jerusalem known as?
+Keeps 40% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   What is the name of the big gold dome in jerusalem?
+Paraphrase: what is the title of the golden dome in jerusalem?
+Keeps 40% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: what is the name of the prominent gold dome in jerusalem?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: what is the official name of the large gold dome in jerusalem?
+
+
+[TOO DIFFERENT]
+Original:   What is the name of the big gold dome in jerusalem?
+Paraphrase: what is the golden dome in jerusalem officially known as?
+Keeps 40% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: what is the name of the gold dome in jerusalem?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: what is the name of the large gold dome in jerusalem?
+
+
+[TOO DIFFERENT]
+Original:   What is the name of the big gold dome in jerusalem?
+Paraphrase: what is the prominent golden dome in jerusalem's name?
+Keeps 40% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: what is the name of the golden dome in jerusalem?
+
+
+[TOO DIFFERENT]
+Original:   What is the name of the big gold dome in jerusalem?
+Paraphrase: what is the large golden dome in jerusalem's name?
+Keeps 40% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: what is the name of the gold dome in jerusalem that is very big?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: what is the name of the big golden dome in jerusalem's capital?
+
+
+[TOO DIFFERENT]
+Original:   What is the name of the big gold dome in jerusalem?
+Paraphrase: what is the golden dome in jerusalem's name?
+Keeps 40% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: what is the name of the gold dome in jerusalem that is a prominent landmark?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: what is the title of the large gold dome in jerusalem?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: what is the name of the golden dome in jerusalem that is gold?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: what is the name of the big gold dome in jerusalem city?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: what is the name of the notable gold dome in jerusalem?
+
+
+[TOO DIFFERENT]
+Original:   What is the name of the big gold dome in jerusalem?
+Paraphrase: what is the official title of the golden dome in jerusalem?
+Keeps 40% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: what is the name of the prominent gold dome in jerusalem's heart?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: what is the name of the golden dome in jerusalem that is large?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: what is the designation of the gold dome in jerusalem?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: what is the name of the big golden dome in jerusalem land?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: what is the name of the gold dome in jerusalem that is a major tourist attraction?
+
+
+[TOO DIFFERENT]
+Original:   What is the name of the big gold dome in jerusalem?
+Paraphrase: what is the name of the large golden dome in jerusalem's center?
+Keeps 40% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: what is the name of the gold dome in jerusalem that is easily visible?
+
+
+[TOO DIFFERENT]
+Original:   What is the name of the big gold dome in jerusalem?
+Paraphrase: what is the title of the large gold dome in jerusalem's landscape?
+Keeps 40% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: what is the name of the golden dome in jerusalem that is gold in color?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: what is the name of the gold dome in jerusalem's urban area?
+
+
+[TOO DIFFERENT]
+Original:   What is the name of the big gold dome in jerusalem?
+Paraphrase: what is the official name of the golden dome in jerusalem's heart?
+Keeps 40% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: what is the name of the prominent gold dome in jerusalem's skyline?
+
+21:20:00  INFO         Round 1/1 done: 36 generated, 0 duplicates, 36 rejected, 0 passed validation (queried), 0 successful
+21:20:00  INFO       Attack finished after 1 round(s): 0 valid victim queries, successful attacks per evaluator: {'llm_judge': 0}, robust: 0
+21:20:00  INFO     [5/16] Qnqo_validation_0990: Another name for the torso is the blank region of the body?
+21:20:09  INFO       Victim (original): 'trunk'
+21:20:09  INFO       [llm_judge] original correct=True
+21:20:09  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+21:20:09  INFO       Attack round 1/1
+21:20:40  INFO         Generated 30 candidates
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Another name for the torso is the blank region of the body?
+Answer(s):  ['trunk']
+Paraphrase: Another name for the torso is the empty space of the body?
+
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: What is another term for the torso of the body?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: What do you call the torso of the body?
+Keeps 33% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: The torso is also known as the blank space of the body?
+Keeps 50% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Another name for the torso is the blank region of the body?
+Answer(s):  ['trunk']
+Paraphrase: The torso is an alternative name for the empty region of the body?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Another name for the torso is the blank region of the body?
+Answer(s):  ['trunk']
+Paraphrase: What's another name for the torso area of the body?
+
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: The torso can be referred to as the vacant area of the body?
+Keeps 33% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: What's another word for the torso part of the body?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: The torso of the body is often called the blank part?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: An alternative name for the torso of the body is the empty section?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: The torso is also called the blank part of the body?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: The torso has a synonym, what is it?
+Keeps 17% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: The empty space of the body is also known as the torso?
+Keeps 33% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Another name for the torso is the blank region of the body?
+Answer(s):  ['trunk']
+Paraphrase: Another term for the torso of the body is the blank area?
+
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: What is the synonym for the torso area?
+Keeps 17% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: The vacant space of the body is often called the torso?
+Keeps 33% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Another name for the torso is the blank region of the body?
+Answer(s):  ['trunk']
+Paraphrase: Another name for the torso of the body is the empty zone?
+
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: What do you call the torso of the human body?
+Keeps 33% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: The torso can be referred to as the empty part of the body?
+Keeps 33% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Another name for the torso is the blank region of the body?
+Answer(s):  ['trunk']
+Paraphrase: An alternative name for the torso of the body is the blank region?
+
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: What's another word for the torso of the human body?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: The torso is often referred to as the empty space?
+Keeps 17% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: Another term for the torso of the body is the vacant area?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: The empty area of the body is also known as the torso?
+Keeps 33% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Another name for the torso is the blank region of the body?
+Answer(s):  ['trunk']
+Paraphrase: The blank space of the body is another name for the torso?
+
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: The torso has an alternative name, what is it?
+Keeps 33% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: The torso of the body is also called the empty area?
+Keeps 33% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: The vacant space of the body is also known as the torso of the body?
+Keeps 33% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: What is the synonym for the torso part?
+Keeps 17% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: The torso can be referred to as the blank section of the body?
+Keeps 50% of the original's content words
+
+21:56:49  INFO         Round 1/1 done: 30 generated, 0 duplicates, 30 rejected, 0 passed validation (queried), 0 successful
+21:56:49  INFO       Attack finished after 1 round(s): 0 valid victim queries, successful attacks per evaluator: {'llm_judge': 0}, robust: 0
+21:56:49  INFO     [6/16] Qnqo_validation_1197: Who is given credit for inventing the aqua lung?
+21:57:11  INFO       Victim (original): 'Jacques Cousteau and Emile Gagnan.'
+22:02:11  WARNING  [judge] LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+22:07:11  WARNING  [judge] LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+22:12:11  WARNING  [judge] LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+22:12:11  INFO       [llm_judge] original correct=False
+22:12:11  INFO       Victim already wrong on the original (all evaluators); skipping attack.
+22:12:11  INFO       Attack finished after 0 round(s): 0 valid victim queries, successful attacks per evaluator: {'llm_judge': 0}, robust: 0
+22:12:11  INFO     [7/16] Qnqo_validation_1243: The first element on the periodic table is?
+22:12:31  INFO       Victim (original): 'Hydrogen'
+22:12:31  INFO       [llm_judge] original correct=True
+22:12:31  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+22:12:31  INFO       Attack round 1/1
+22:13:12  INFO         Generated 40 candidates
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   The first element on the periodic table is?
+Answer(s):  ['Hydrogen']
+Paraphrase: What is the initial element on the periodic table?
+
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The periodic table's first entry is?
+Keeps 50% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   The first element on the periodic table is?
+Answer(s):  ['Hydrogen']
+Paraphrase: Which element is listed first on the periodic table?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   The first element on the periodic table is?
+Answer(s):  ['Hydrogen']
+Paraphrase: The first placement on the periodic table is occupied by?
+
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: Which of the periodic table's elements is the initial one?
+Keeps 25% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   The first element on the periodic table is?
+Answer(s):  ['Hydrogen']
+Paraphrase: What element comes first on the periodic table?
+
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The periodic table starts with?
+Keeps 50% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   The first element on the periodic table is?
+Answer(s):  ['Hydrogen']
+Paraphrase: The beginning element on the periodic table is?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   The first element on the periodic table is?
+Answer(s):  ['Hydrogen']
+Paraphrase: The first position on the periodic table is held by?
+
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The starting point on the periodic table is?
+Keeps 50% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   The first element on the periodic table is?
+Answer(s):  ['Hydrogen']
+Paraphrase: The first element on the periodic table is what?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   The first element on the periodic table is?
+Answer(s):  ['Hydrogen']
+Paraphrase: The first entry on the periodic table belongs to?
+
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The periodic table's first spot is occupied by?
+Keeps 50% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   The first element on the periodic table is?
+Answer(s):  ['Hydrogen']
+Paraphrase: The initial element on the periodic table is identified as?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   The first element on the periodic table is?
+Answer(s):  ['Hydrogen']
+Paraphrase: What is the first element in the periodic table's sequence?
+
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The periodic table's initial placement is reserved for?
+Keeps 25% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The first of the periodic table's elements is?
+Keeps 50% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   The first element on the periodic table is?
+Answer(s):  ['Hydrogen']
+Paraphrase: The starting element on the periodic table is identified as?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   The first element on the periodic table is?
+Answer(s):  ['Hydrogen']
+Paraphrase: The first element on the periodic table is known as?
+
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The periodic table's first entry is denoted by?
+Keeps 50% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   The first element on the periodic table is?
+Answer(s):  ['Hydrogen']
+Paraphrase: The first element on the periodic table's chart is?
+
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The initial element on the periodic table's chart is?
+Keeps 50% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   The first element on the periodic table is?
+Answer(s):  ['Hydrogen']
+Paraphrase: The first spot on the periodic table is held by?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   The first element on the periodic table is?
+Answer(s):  ['Hydrogen']
+Paraphrase: The first element on the periodic table's list is?
+
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The periodic table's starting point is occupied by?
+Keeps 25% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   The first element on the periodic table is?
+Answer(s):  ['Hydrogen']
+Paraphrase: The first element in the periodic table's sequence is?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   The first element on the periodic table is?
+Answer(s):  ['Hydrogen']
+Paraphrase: The first element on the periodic table's table is?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   The first element on the periodic table is?
+Answer(s):  ['Hydrogen']
+Paraphrase: The periodic table's first element is?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   The first element on the periodic table is?
+Answer(s):  ['Hydrogen']
+Paraphrase: The first entry on the periodic table is designated by?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   The first element on the periodic table is?
+Answer(s):  ['Hydrogen']
+Paraphrase: The first element on the periodic table is determined to be?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   The first element on the periodic table is?
+Answer(s):  ['Hydrogen']
+Paraphrase: The periodic table's first placement is reserved for which element?
+
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The first of the periodic table's elements is what?
+Keeps 50% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   The first element on the periodic table is?
+Answer(s):  ['Hydrogen']
+Paraphrase: The first element on the periodic table's chart is what?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   The first element on the periodic table is?
+Answer(s):  ['Hydrogen']
+Paraphrase: The periodic table's first element is identified as?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   The first element on the periodic table is?
+Answer(s):  ['Hydrogen']
+Paraphrase: The first entry on the periodic table is what?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   The first element on the periodic table is?
+Answer(s):  ['Hydrogen']
+Paraphrase: The first element on the periodic table's sequence is what?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   The first element on the periodic table is?
+Answer(s):  ['Hydrogen']
+Paraphrase: The first element on the periodic table is designated as?
+
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The periodic table's starting element is?
+Keeps 50% of the original's content words
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   The first element on the periodic table is?
+Answer(s):  ['Hydrogen']
+Paraphrase: The periodic table's first element is what?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   The first element on the periodic table is?
+Answer(s):  ['Hydrogen']
+Paraphrase: The first element on the periodic table's list is what?
+
+00:35:27  INFO         Round 1/1 done: 40 generated, 0 duplicates, 40 rejected, 0 passed validation (queried), 0 successful
+00:35:27  INFO       Attack finished after 1 round(s): 0 valid victim queries, successful attacks per evaluator: {'llm_judge': 0}, robust: 0
+00:35:27  INFO     [8/16] Qnqo_validation_1337: What was the united states foreign policy after ww1 started?
+00:35:46  INFO       Victim (original): 'The United States did not have a formal foreign policy during World War I because it had not yet entered the war. It remained neutral until 1917.'
+00:40:46  WARNING  [judge] LLM call failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+00:40:46  INFO       [llm_judge] original correct=False
+00:40:46  INFO       Victim already wrong on the original (all evaluators); skipping attack.
+00:40:46  INFO       Attack finished after 0 round(s): 0 valid victim queries, successful attacks per evaluator: {'llm_judge': 0}, robust: 0
+00:40:46  INFO     [9/16] Qnqo_validation_1921: Where does the optic nerve cross the midline?
+00:40:48  INFO       Victim (original): 'Optic chiasm.'
+00:40:48  INFO       [llm_judge] original correct=True
+00:40:49  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+00:40:49  INFO       Attack round 1/1
+00:41:20  INFO         Generated 30 candidates
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where does the optic nerve cross the midline?
+Answer(s):  ['optic chiasm']
+Paraphrase: At what point does the optic nerve intersect the midline?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where does the optic nerve cross the midline?
+Answer(s):  ['optic chiasm']
+Paraphrase: Through which anatomical location does the optic nerve traverse the midline?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where does the optic nerve cross the midline?
+Answer(s):  ['optic chiasm']
+Paraphrase: Where exactly does the optic nerve cross over the midline?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where does the optic nerve cross the midline?
+Answer(s):  ['optic chiasm']
+Paraphrase: At which anatomical site does the optic nerve intersect the midline?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where does the optic nerve cross the midline?
+Answer(s):  ['optic chiasm']
+Paraphrase: Where does the optic nerve meet the midline?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where does the optic nerve cross the midline?
+Answer(s):  ['optic chiasm']
+Paraphrase: At what position does the optic nerve cross the midline?
+
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   Where does the optic nerve cross the midline?
+Paraphrase: How does the optic nerve interact with the midline?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where does the optic nerve cross the midline?
+Answer(s):  ['optic chiasm']
+Paraphrase: Where does the optic nerve span the midline?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where does the optic nerve cross the midline?
+Answer(s):  ['optic chiasm']
+Paraphrase: Where is the optic nerve positioned relative to the midline?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where does the optic nerve cross the midline?
+Answer(s):  ['optic chiasm']
+Paraphrase: Where does the optic nerve encroach upon the midline?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where does the optic nerve cross the midline?
+Answer(s):  ['optic chiasm']
+Paraphrase: In what location does the optic nerve intersect the midline?
+
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   Where does the optic nerve cross the midline?
+Paraphrase: How does the optic nerve relate to the midline?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where does the optic nerve cross the midline?
+Answer(s):  ['optic chiasm']
+Paraphrase: What is the location where the optic nerve crosses the midline?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where does the optic nerve cross the midline?
+Answer(s):  ['optic chiasm']
+Paraphrase: Where does the optic nerve make contact with the midline?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where does the optic nerve cross the midline?
+Answer(s):  ['optic chiasm']
+Paraphrase: Where is the optic nerve situated relative to the midline?
+
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   Where does the optic nerve cross the midline?
+Paraphrase: Where does the optic nerve converge with the midline?
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where does the optic nerve cross the midline?
+Answer(s):  ['optic chiasm']
+Paraphrase: What is the position of the optic nerve in relation to the midline?
+
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   Where does the optic nerve cross the midline?
+Paraphrase: Where does the optic nerve diverge from the midline?
+
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   Where does the optic nerve cross the midline?
+Paraphrase: Where does the optic nerve originate in relation to the midline?
+

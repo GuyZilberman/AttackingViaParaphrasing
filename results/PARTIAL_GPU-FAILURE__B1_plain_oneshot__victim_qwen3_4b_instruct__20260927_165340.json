@@ -1,0 +1,3027 @@
+{
+  "metadata": {
+    "ollama_base_url": "http://127.0.0.1:11434",
+    "attacker_model": "llama3.1:8b",
+    "victim_model": "qwen3:4b-instruct",
+    "judge_model": "gemma3:12b",
+    "attacker_strategy": "semantic_preserve",
+    "n_paraphrases": 40,
+    "max_rounds": 1,
+    "stop_on_success": false,
+    "answer_check": true,
+    "min_original_overlap": 0.6,
+    "max_consecutive_failures": 2,
+    "preservation_judge_model": "gemma3:12b",
+    "search": "evolutionary",
+    "n_parents": 3,
+    "fitness_samples": 4,
+    "fitness_temperature": 0.7,
+    "robust_margin": 0.5,
+    "dataset_path": "data/accepted_questions_qwen3_4b_instruct.json",
+    "n_questions": 16,
+    "random_seed": 42,
+    "evaluator": "llm_judge",
+    "results_dir": "/tmp/avp_runs/results",
+    "attacker_temperature": 0.9,
+    "victim_temperature": 0.0,
+    "judge_temperature": 0.0
+  },
+  "complete": false,
+  "aborted": null,
+  "not_attempted": [],
+  "results": [
+    {
+      "question_id": "nqo_validation_0573",
+      "original_question": "Where in the American constitution is the executive branch referenced?",
+      "ground_truths": [
+        "Article Two"
+      ],
+      "victim_original_answer": "Article II",
+      "victim_original_correct": {
+        "llm_judge": true
+      },
+      "victim_original_samples": [
+        "Article II",
+        "Article II",
+        "Article II",
+        "Article II"
+      ],
+      "original_wrong_rate": 0.0,
+      "n_robust_successes": 0,
+      "paraphrases": [
+        {
+          "round": 1,
+          "paraphrase": "Where is the executive branch mentioned in the American constitution?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II of the U.S. Constitution.",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "The prediction and ground truth both refer to the same section of the U.S. Constitution, differing only in the level of detail."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II of the U.S. Constitution.",
+            "Article II of the U.S. Constitution.",
+            "Article II",
+            "Article II of the U.S. Constitution."
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 1,
+          "paraphrase": "What article of the American constitution describes the executive branch?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 1,
+          "paraphrase": "What document outlines the executive branch in the American constitution?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "The U.S. Constitution does not contain a single document that outlines the executive branch in detail; instead, the executive branch is established by the Constitution through specific articles and clauses. Article II outlines the executive branch.",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "The prediction accurately identifies Article II as referencing the executive branch, which aligns with the ground truth 'Article Two'."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "The U.S. Constitution does not contain a single document that outlines the executive branch in detail. The executive branch is established by the Constitution through specific provisions, primarily Article II.",
+            "The U.S. Constitution does not contain a single document that outlines the executive branch in detail. Instead, the executive branch is established by the Constitution through specific articles and amendments. The relevant part is Article II, which outlines the powers and structure of the executive branch.",
+            "The U.S. Constitution does not contain a single document that outlines the executive branch; it establishes the executive branch through the provision that creates the office of the President. The Constitution, specifically Article II, outlines the powers and responsibilities of the executive branch.",
+            "The U.S. Constitution does not contain a single document that outlines the executive branch in detail; rather, the executive branch is established by the Constitution through specific articles and clauses. Article II outlines the executive branch."
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 1,
+          "paraphrase": "What section of the American constitution establishes the executive branch?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 1,
+          "paraphrase": "Where can one find a description of the executive branch in the American constitution?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II of the U.S. Constitution.",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "The prediction and ground truth both refer to the same section of the U.S. Constitution, differing only in the level of detail."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II of the U.S. Constitution.",
+            "Article II of the U.S. Constitution.",
+            "Article II of the U.S. Constitution.",
+            "Article II of the U.S. Constitution."
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 1,
+          "paraphrase": "What part of the American constitution addresses the executive branch?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 1,
+          "paraphrase": "What article of the American constitution refers to the executive branch?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 1,
+          "paraphrase": "What is the location of the executive branch in the American constitution?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II of the U.S. Constitution.",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "The prediction and ground truth both refer to the same section of the U.S. Constitution, differing only in the level of detail."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II of the U.S. Constitution.",
+            "Article II of the U.S. Constitution.",
+            "Article II of the U.S. Constitution.",
+            "Article II of the U.S. Constitution."
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 1,
+          "paraphrase": "In what section of the American constitution is the executive branch mentioned?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 1,
+          "paraphrase": "What is the location of the description of the executive branch in the American constitution?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II of the U.S. Constitution.",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "The prediction and ground truth both refer to the same section of the U.S. Constitution, differing only in the level of detail."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II of the U.S. Constitution.",
+            "Article II of the U.S. Constitution.",
+            "Article II of the United States Constitution.",
+            "Article II of the U.S. Constitution."
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 1,
+          "paraphrase": "What part of the American constitution defines the executive branch?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 1,
+          "paraphrase": "In what article of the American constitution is the executive branch established?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 1,
+          "paraphrase": "In which part of the American constitution is the executive branch described?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 1,
+          "paraphrase": "What section of the American constitution recognizes the executive branch?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 1,
+          "paraphrase": "What is the part of the American constitution that mentions the executive branch?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 1,
+          "paraphrase": "What article of the American constitution mentions the executive branch?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 1,
+          "paraphrase": "What is the location of the clause that defines the executive branch in the American constitution?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 1,
+          "paraphrase": "In what document of the American constitution is the executive branch established?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "The U.S. Constitution's Article II establishes the executive branch.",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "The prediction accurately identifies Article II of the U.S. Constitution as establishing the executive branch, which is semantically equivalent to the ground truth 'Article Two'."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "The U.S. Constitution, Article II.",
+            "The U.S. Constitution's Article II establishes the executive branch.",
+            "The U.S. Constitution's Article II establishes the executive branch.",
+            "The U.S. Constitution's Article II establishes the executive branch."
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 1,
+          "paraphrase": "In which section of the American constitution is the executive branch recognized?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 1,
+          "paraphrase": "In what part of the American constitution is the executive branch established?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 1,
+          "paraphrase": "What is the section of the American constitution that describes the executive branch?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 1,
+          "paraphrase": "In what article of the American constitution is the executive branch recognized?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 1,
+          "paraphrase": "In which part of the American constitution is the executive branch mentioned?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        }
+      ],
+      "attack_success_rate": {
+        "llm_judge": 0.0
+      },
+      "rounds_attempted": 1,
+      "rounds": [
+        {
+          "round": 1,
+          "parents": [],
+          "n_generated": 33,
+          "n_duplicates": 0,
+          "n_rejected": 10,
+          "n_queried": 23,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "round": 1,
+              "paraphrase": "Where is the executive branch mentioned in the American constitution?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II of the U.S. Constitution.",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "The prediction and ground truth both refer to the same section of the U.S. Constitution, differing only in the level of detail."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II of the U.S. Constitution.",
+                "Article II of the U.S. Constitution.",
+                "Article II",
+                "Article II of the U.S. Constitution."
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 1,
+              "paraphrase": "What article of the American constitution describes the executive branch?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "paraphrase": "In what part of the American constitution is the executive branch defined?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "asks for the 'definition' instead of the 'reference'"
+            },
+            {
+              "round": 1,
+              "paraphrase": "What document outlines the executive branch in the American constitution?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "The U.S. Constitution does not contain a single document that outlines the executive branch in detail; instead, the executive branch is established by the Constitution through specific articles and clauses. Article II outlines the executive branch.",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "The prediction accurately identifies Article II as referencing the executive branch, which aligns with the ground truth 'Article Two'."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "The U.S. Constitution does not contain a single document that outlines the executive branch in detail. The executive branch is established by the Constitution through specific provisions, primarily Article II.",
+                "The U.S. Constitution does not contain a single document that outlines the executive branch in detail. Instead, the executive branch is established by the Constitution through specific articles and amendments. The relevant part is Article II, which outlines the powers and structure of the executive branch.",
+                "The U.S. Constitution does not contain a single document that outlines the executive branch; it establishes the executive branch through the provision that creates the office of the President. The Constitution, specifically Article II, outlines the powers and responsibilities of the executive branch.",
+                "The U.S. Constitution does not contain a single document that outlines the executive branch in detail; rather, the executive branch is established by the Constitution through specific articles and clauses. Article II outlines the executive branch."
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 1,
+              "paraphrase": "What section of the American constitution establishes the executive branch?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "paraphrase": "In which clause of the American constitution is the executive branch recognized?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "asks for a clause instead of a broader location"
+            },
+            {
+              "round": 1,
+              "paraphrase": "Where can one find a description of the executive branch in the American constitution?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II of the U.S. Constitution.",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "The prediction and ground truth both refer to the same section of the U.S. Constitution, differing only in the level of detail."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II of the U.S. Constitution.",
+                "Article II of the U.S. Constitution.",
+                "Article II of the U.S. Constitution.",
+                "Article II of the U.S. Constitution."
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 1,
+              "paraphrase": "What part of the American constitution addresses the executive branch?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 1,
+              "paraphrase": "What article of the American constitution refers to the executive branch?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 1,
+              "paraphrase": "What is the location of the executive branch in the American constitution?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II of the U.S. Constitution.",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "The prediction and ground truth both refer to the same section of the U.S. Constitution, differing only in the level of detail."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II of the U.S. Constitution.",
+                "Article II of the U.S. Constitution.",
+                "Article II of the U.S. Constitution.",
+                "Article II of the U.S. Constitution."
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 1,
+              "paraphrase": "In what section of the American constitution is the executive branch mentioned?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "paraphrase": "What is the clause in the American constitution that defines the executive branch?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "asks for a clause, not a location"
+            },
+            {
+              "paraphrase": "What is the document that mentions the executive branch in the American constitution?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "asks for the document, not the location"
+            },
+            {
+              "round": 1,
+              "paraphrase": "What is the location of the description of the executive branch in the American constitution?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II of the U.S. Constitution.",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "The prediction and ground truth both refer to the same section of the U.S. Constitution, differing only in the level of detail."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II of the U.S. Constitution.",
+                "Article II of the U.S. Constitution.",
+                "Article II of the United States Constitution.",
+                "Article II of the U.S. Constitution."
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 1,
+              "paraphrase": "What part of the American constitution defines the executive branch?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 1,
+              "paraphrase": "In what article of the American constitution is the executive branch established?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "paraphrase": "What is the clause in the American constitution that outlines the executive branch?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "asks for a clause, not a location"
+            },
+            {
+              "round": 1,
+              "paraphrase": "In which part of the American constitution is the executive branch described?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 1,
+              "paraphrase": "What section of the American constitution recognizes the executive branch?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "paraphrase": "What is the document that contains the description of the executive branch in the American constitution?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "asks for a document, not a location"
+            },
+            {
+              "round": 1,
+              "paraphrase": "What is the part of the American constitution that mentions the executive branch?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "paraphrase": "In what clause of the American constitution is the executive branch defined?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "asks for a clause, not a general location; implies definition rather than reference"
+            },
+            {
+              "round": 1,
+              "paraphrase": "What article of the American constitution mentions the executive branch?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 1,
+              "paraphrase": "What is the location of the clause that defines the executive branch in the American constitution?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 1,
+              "paraphrase": "In what document of the American constitution is the executive branch established?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "The U.S. Constitution's Article II establishes the executive branch.",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "The prediction accurately identifies Article II of the U.S. Constitution as establishing the executive branch, which is semantically equivalent to the ground truth 'Article Two'."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "The U.S. Constitution, Article II.",
+                "The U.S. Constitution's Article II establishes the executive branch.",
+                "The U.S. Constitution's Article II establishes the executive branch.",
+                "The U.S. Constitution's Article II establishes the executive branch."
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 1,
+              "paraphrase": "In which section of the American constitution is the executive branch recognized?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "paraphrase": "What is the description of the executive branch in the American constitution located?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "asks for the location of a *description* rather than a *reference*"
+            },
+            {
+              "round": 1,
+              "paraphrase": "In what part of the American constitution is the executive branch established?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "paraphrase": "In which clause of the American constitution is the executive branch mentioned?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "asks for a clause instead of a broader location"
+            },
+            {
+              "paraphrase": "What is the document that defines the executive branch in the American constitution?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "asks for a document, not a location"
+            },
+            {
+              "round": 1,
+              "paraphrase": "What is the section of the American constitution that describes the executive branch?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 1,
+              "paraphrase": "In what article of the American constitution is the executive branch recognized?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 1,
+              "paraphrase": "In which part of the American constitution is the executive branch mentioned?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            }
+          ]
+        }
+      ],
+      "n_valid_victim_queries": 23,
+      "successful_attacks": [],
+      "n_successful_attacks": {
+        "llm_judge": 0
+      },
+      "attack_succeeded": {
+        "llm_judge": false
+      }
+    },
+    {
+      "question_id": "nqo_validation_0615",
+      "original_question": "Which organelle is the site of atp production and storage?",
+      "ground_truths": [
+        "mitochondrion"
+      ],
+      "victim_original_answer": "Mitochondria",
+      "victim_original_correct": {
+        "llm_judge": true
+      },
+      "victim_original_samples": [
+        "Mitochondria",
+        "Mitochondrion",
+        "Mitochondrion",
+        "Mitochondria"
+      ],
+      "original_wrong_rate": 0.0,
+      "n_robust_successes": 0,
+      "paraphrases": [
+        {
+          "round": 1,
+          "paraphrase": "Which part of the cell is the site of ATP production and storage?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Mitochondria",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "The prediction and ground truth refer to the same entity, differing only in pluralization."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Mitochondria",
+            "Mitochondria",
+            "Mitochondria",
+            "Mitochondria"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 1,
+          "paraphrase": "In which organelle does ATP production and storage occur?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Mitochondria",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "The prediction and ground truth refer to the same entity, differing only in pluralization."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Mitochondria",
+            "Mitochondria",
+            "Mitochondria",
+            "Mitochondria"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 1,
+          "paraphrase": "What organelle serves as the site for both ATP production and storage?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Mitochondrion",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Mitochondrion",
+            "Mitochondrion",
+            "Mitochondrion",
+            "Mitochondrion"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        }
+      ],
+      "attack_success_rate": {
+        "llm_judge": 0.0
+      },
+      "rounds_attempted": 1,
+      "rounds": [
+        {
+          "round": 1,
+          "parents": [],
+          "n_generated": 30,
+          "n_duplicates": 0,
+          "n_rejected": 27,
+          "n_queried": 3,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "round": 1,
+              "paraphrase": "Which part of the cell is the site of ATP production and storage?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Mitochondria",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "The prediction and ground truth refer to the same entity, differing only in pluralization."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Mitochondria",
+                "Mitochondria",
+                "Mitochondria",
+                "Mitochondria"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 1,
+              "paraphrase": "In which organelle does ATP production and storage occur?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Mitochondria",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "The prediction and ground truth refer to the same entity, differing only in pluralization."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Mitochondria",
+                "Mitochondria",
+                "Mitochondria",
+                "Mitochondria"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "paraphrase": "What organelle is responsible for generating and storing ATP?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 40% of the original's content words"
+            },
+            {
+              "paraphrase": "Where is ATP production and storage primarily located in the cell?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "candidate asks about location, original asks about organelle"
+            },
+            {
+              "round": 1,
+              "paraphrase": "What organelle serves as the site for both ATP production and storage?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Mitochondrion",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Mitochondrion",
+                "Mitochondrion",
+                "Mitochondrion",
+                "Mitochondrion"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "paraphrase": "In which cellular component is ATP production and storage typically found?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "Which organelle functions as the site for energy production and storage?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "What is the location of ATP production and storage within the cell?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "Where does ATP production and storage primarily take place in the cell?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "In which part of the cell do we find ATP production and storage?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "What cellular organelle is responsible for producing and storing ATP?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 40% of the original's content words"
+            },
+            {
+              "paraphrase": "Which cellular structure serves as the site for ATP production and storage?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "In which organelle is ATP production and storage concentrated?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "What organelle functions as the primary site for ATP production and storage?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "Where is ATP production and storage primarily occurring in the cell?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "Which cellular organelle is the primary site for energy production and storage?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "What is the site of ATP production and storage within the cell?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "In which cellular organelle does energy production and storage primarily occur?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "What cellular component is responsible for generating and storing ATP?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 20% of the original's content words"
+            },
+            {
+              "paraphrase": "Where does the cell store and produce ATP?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 20% of the original's content words"
+            },
+            {
+              "paraphrase": "Which organelle is the primary location of ATP production and storage?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "In which part of the cell do we find energy production and storage?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 40% of the original's content words"
+            },
+            {
+              "paraphrase": "What organelle functions as the primary site for ATP generation and storage?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "In which cellular organelle is ATP production and storage taking place?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "Where is the cell's ATP production and storage located?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "What is the site of energy production and storage in the cell?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "In which organelle is energy production and storage primarily found?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "Which cellular organelle is the site of ATP generation and storage?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "In which cellular component is ATP production and storage typically located?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "Where does the cell produce and store its energy in the form of ATP?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 20% of the original's content words"
+            }
+          ]
+        }
+      ],
+      "n_valid_victim_queries": 3,
+      "successful_attacks": [],
+      "n_successful_attacks": {
+        "llm_judge": 0
+      },
+      "attack_succeeded": {
+        "llm_judge": false
+      }
+    },
+    {
+      "question_id": "nqo_validation_0773",
+      "original_question": "Islamic term for the community of the faithful?",
+      "ground_truths": [
+        "ummat al-Islamiyah",
+        "Ummah"
+      ],
+      "victim_original_answer": "Ummah",
+      "victim_original_correct": {
+        "llm_judge": true
+      },
+      "victim_original_samples": [
+        "Ummah",
+        "Ummah",
+        "Ummah",
+        "Ummah"
+      ],
+      "original_wrong_rate": 0.0,
+      "n_robust_successes": 0,
+      "paraphrases": [],
+      "attack_success_rate": {
+        "llm_judge": 0.0
+      },
+      "rounds_attempted": 1,
+      "rounds": [
+        {
+          "round": 1,
+          "parents": [],
+          "n_generated": 33,
+          "n_duplicates": 0,
+          "n_rejected": 33,
+          "n_queried": 0,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "paraphrase": "Term describing the Muslim community in Islam.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            },
+            {
+              "paraphrase": "Concept defining the collective body of Muslims.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 0% of the original's content words"
+            },
+            {
+              "paraphrase": "What is the Islamic term for the community of believers?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "The Islamic word for a unified group of Muslims.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 25% of the original's content words"
+            },
+            {
+              "paraphrase": "Definition of the community bound together by faith in Islam.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 25% of the original's content words"
+            },
+            {
+              "paraphrase": "A term in Islam referring to a community of the faithful.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "The Islamic concept for a body of people sharing the same faith.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 25% of the original's content words"
+            },
+            {
+              "paraphrase": "What does Islam call a group of believers united by faith?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 0% of the original's content words"
+            },
+            {
+              "paraphrase": "The community of Muslims as described in Islamic terms.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            },
+            {
+              "paraphrase": "Definition of the Islamic term for a group of believers.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            },
+            {
+              "paraphrase": "The collective group of Muslims as described in Islamic terminology.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 25% of the original's content words"
+            },
+            {
+              "paraphrase": "A term used in Islam to describe a group of people who share the same faith.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 25% of the original's content words"
+            },
+            {
+              "paraphrase": "Concept for a unified community of believers in Islam.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 25% of the original's content words"
+            },
+            {
+              "paraphrase": "Term in Islam that describes the collective group of Muslims.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 25% of the original's content words"
+            },
+            {
+              "paraphrase": "The definition of the Islamic term for a body of believers.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            },
+            {
+              "paraphrase": "What is the term in Islam for a community of faithful people?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "A concept that describes the collective body of Muslims in Islam.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 0% of the original's content words"
+            },
+            {
+              "paraphrase": "The Islamic term used to describe a unified group of believers.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            },
+            {
+              "paraphrase": "The collective term in Islam for a group of people who share the faith.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 25% of the original's content words"
+            },
+            {
+              "paraphrase": "Definition of the Islamic term for the community of the faithful.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "The term in Islam that describes a group of people bound together by faith.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 25% of the original's content words"
+            },
+            {
+              "paraphrase": "Concept used in Islam to describe a community of believers.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 25% of the original's content words"
+            },
+            {
+              "paraphrase": "A term in Islam referring to a group of people who share the same faith.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 25% of the original's content words"
+            },
+            {
+              "paraphrase": "The collective term for the community of Muslims in Islam.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            },
+            {
+              "paraphrase": "What is the Islamic term for a body of believers united by faith?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            },
+            {
+              "paraphrase": "A concept that defines the collective group of Muslims in Islam.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 0% of the original's content words"
+            },
+            {
+              "paraphrase": "The definition of the term in Islam for a group of people who share the same faith.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 25% of the original's content words"
+            },
+            {
+              "paraphrase": "Term used in Islam to describe a community of people who share the same faith.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            },
+            {
+              "paraphrase": "The Islamic concept for a collective body of people who share the same faith.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 25% of the original's content words"
+            },
+            {
+              "paraphrase": "The term in Islam that describes a group of people united by faith.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 25% of the original's content words"
+            },
+            {
+              "paraphrase": "A definition of the Islamic term for a unified community of believers.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "The collective term for a group of people who share the same faith in Islam.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 25% of the original's content words"
+            },
+            {
+              "paraphrase": "The term in Islam that describes a community of people bound together by faith.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            }
+          ]
+        }
+      ],
+      "n_valid_victim_queries": 0,
+      "successful_attacks": [],
+      "n_successful_attacks": {
+        "llm_judge": 0
+      },
+      "attack_succeeded": {
+        "llm_judge": false
+      }
+    },
+    {
+      "question_id": "nqo_validation_0964",
+      "original_question": "What is the name of the big gold dome in jerusalem?",
+      "ground_truths": [
+        "Dome of the Rock"
+      ],
+      "victim_original_answer": "Dome of the Rock",
+      "victim_original_correct": {
+        "llm_judge": true
+      },
+      "victim_original_samples": [
+        "The Dome of the Rock.",
+        "The Dome of the Rock.",
+        "Dome of the Rock",
+        "Dome of the Rock"
+      ],
+      "original_wrong_rate": 0.4,
+      "n_robust_successes": 0,
+      "paraphrases": [],
+      "attack_success_rate": {
+        "llm_judge": 0.0
+      },
+      "rounds_attempted": 1,
+      "rounds": [
+        {
+          "round": 1,
+          "parents": [],
+          "n_generated": 36,
+          "n_duplicates": 0,
+          "n_rejected": 36,
+          "n_queried": 0,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "paraphrase": "what is the name of the large golden dome in jerusalem?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "what is the title of the prominent golden dome in jerusalem?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 40% of the original's content words"
+            },
+            {
+              "paraphrase": "what is the designation of the notable golden dome in jerusalem?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 40% of the original's content words"
+            },
+            {
+              "paraphrase": "what is the official name of the enormous golden dome in jerusalem?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "what is the large golden dome in jerusalem called?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 40% of the original's content words"
+            },
+            {
+              "paraphrase": "what is the prominent golden dome in jerusalem known as?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 40% of the original's content words"
+            },
+            {
+              "paraphrase": "what is the title of the golden dome in jerusalem?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 40% of the original's content words"
+            },
+            {
+              "paraphrase": "what is the name of the prominent gold dome in jerusalem?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "what is the official name of the large gold dome in jerusalem?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "what is the golden dome in jerusalem officially known as?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 40% of the original's content words"
+            },
+            {
+              "paraphrase": "what is the name of the gold dome in jerusalem?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "what is the name of the large gold dome in jerusalem?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "what is the prominent golden dome in jerusalem's name?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 40% of the original's content words"
+            },
+            {
+              "paraphrase": "what is the name of the golden dome in jerusalem?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "what is the large golden dome in jerusalem's name?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 40% of the original's content words"
+            },
+            {
+              "paraphrase": "what is the name of the gold dome in jerusalem that is very big?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "what is the name of the big golden dome in jerusalem's capital?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "what is the golden dome in jerusalem's name?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 40% of the original's content words"
+            },
+            {
+              "paraphrase": "what is the name of the gold dome in jerusalem that is a prominent landmark?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "what is the title of the large gold dome in jerusalem?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "what is the name of the golden dome in jerusalem that is gold?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "what is the name of the big gold dome in jerusalem city?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "what is the name of the notable gold dome in jerusalem?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "what is the official title of the golden dome in jerusalem?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 40% of the original's content words"
+            },
+            {
+              "paraphrase": "what is the name of the prominent gold dome in jerusalem's heart?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "what is the name of the golden dome in jerusalem that is large?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "what is the designation of the gold dome in jerusalem?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "what is the name of the big golden dome in jerusalem land?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "what is the name of the gold dome in jerusalem that is a major tourist attraction?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "what is the name of the large golden dome in jerusalem's center?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 40% of the original's content words"
+            },
+            {
+              "paraphrase": "what is the name of the gold dome in jerusalem that is easily visible?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "what is the title of the large gold dome in jerusalem's landscape?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 40% of the original's content words"
+            },
+            {
+              "paraphrase": "what is the name of the golden dome in jerusalem that is gold in color?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "what is the name of the gold dome in jerusalem's urban area?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "what is the official name of the golden dome in jerusalem's heart?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 40% of the original's content words"
+            },
+            {
+              "paraphrase": "what is the name of the prominent gold dome in jerusalem's skyline?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            }
+          ]
+        }
+      ],
+      "n_valid_victim_queries": 0,
+      "successful_attacks": [],
+      "n_successful_attacks": {
+        "llm_judge": 0
+      },
+      "attack_succeeded": {
+        "llm_judge": false
+      }
+    },
+    {
+      "question_id": "nqo_validation_0990",
+      "original_question": "Another name for the torso is the blank region of the body?",
+      "ground_truths": [
+        "trunk"
+      ],
+      "victim_original_answer": "trunk",
+      "victim_original_correct": {
+        "llm_judge": true
+      },
+      "victim_original_samples": [
+        "trunk",
+        "trunk",
+        "trunk",
+        "trunk"
+      ],
+      "original_wrong_rate": 0.0,
+      "n_robust_successes": 0,
+      "paraphrases": [],
+      "attack_success_rate": {
+        "llm_judge": 0.0
+      },
+      "rounds_attempted": 1,
+      "rounds": [
+        {
+          "round": 1,
+          "parents": [],
+          "n_generated": 30,
+          "n_duplicates": 0,
+          "n_rejected": 30,
+          "n_queried": 0,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "paraphrase": "Another name for the torso is the empty space of the body?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "What is another term for the torso of the body?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            },
+            {
+              "paraphrase": "What do you call the torso of the body?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 33% of the original's content words"
+            },
+            {
+              "paraphrase": "The torso is also known as the blank space of the body?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            },
+            {
+              "paraphrase": "The torso is an alternative name for the empty region of the body?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "What's another name for the torso area of the body?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "The torso can be referred to as the vacant area of the body?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 33% of the original's content words"
+            },
+            {
+              "paraphrase": "What's another word for the torso part of the body?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            },
+            {
+              "paraphrase": "The torso of the body is often called the blank part?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            },
+            {
+              "paraphrase": "An alternative name for the torso of the body is the empty section?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            },
+            {
+              "paraphrase": "The torso is also called the blank part of the body?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            },
+            {
+              "paraphrase": "The torso has a synonym, what is it?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 17% of the original's content words"
+            },
+            {
+              "paraphrase": "The empty space of the body is also known as the torso?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 33% of the original's content words"
+            },
+            {
+              "paraphrase": "Another term for the torso of the body is the blank area?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "What is the synonym for the torso area?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 17% of the original's content words"
+            },
+            {
+              "paraphrase": "The vacant space of the body is often called the torso?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 33% of the original's content words"
+            },
+            {
+              "paraphrase": "Another name for the torso of the body is the empty zone?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "What do you call the torso of the human body?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 33% of the original's content words"
+            },
+            {
+              "paraphrase": "The torso can be referred to as the empty part of the body?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 33% of the original's content words"
+            },
+            {
+              "paraphrase": "An alternative name for the torso of the body is the blank region?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "What's another word for the torso of the human body?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            },
+            {
+              "paraphrase": "The torso is often referred to as the empty space?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 17% of the original's content words"
+            },
+            {
+              "paraphrase": "Another term for the torso of the body is the vacant area?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            },
+            {
+              "paraphrase": "The empty area of the body is also known as the torso?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 33% of the original's content words"
+            },
+            {
+              "paraphrase": "The blank space of the body is another name for the torso?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "The torso has an alternative name, what is it?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 33% of the original's content words"
+            },
+            {
+              "paraphrase": "The torso of the body is also called the empty area?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 33% of the original's content words"
+            },
+            {
+              "paraphrase": "The vacant space of the body is also known as the torso of the body?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 33% of the original's content words"
+            },
+            {
+              "paraphrase": "What is the synonym for the torso part?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 17% of the original's content words"
+            },
+            {
+              "paraphrase": "The torso can be referred to as the blank section of the body?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            }
+          ]
+        }
+      ],
+      "n_valid_victim_queries": 0,
+      "successful_attacks": [],
+      "n_successful_attacks": {
+        "llm_judge": 0
+      },
+      "attack_succeeded": {
+        "llm_judge": false
+      }
+    },
+    {
+      "question_id": "nqo_validation_1197",
+      "original_question": "Who is given credit for inventing the aqua lung?",
+      "ground_truths": [
+        "Jacques Cousteau",
+        "engineer Émile Gagnan",
+        "Émile Gagnan"
+      ],
+      "victim_original_answer": "Jacques Cousteau and Emile Gagnan.",
+      "victim_original_correct": {
+        "llm_judge": false
+      },
+      "victim_original_samples": [],
+      "original_wrong_rate": null,
+      "n_robust_successes": 0,
+      "paraphrases": [],
+      "attack_success_rate": {
+        "llm_judge": 0.0
+      },
+      "rounds_attempted": 0,
+      "rounds": [],
+      "n_valid_victim_queries": 0,
+      "successful_attacks": [],
+      "n_successful_attacks": {
+        "llm_judge": 0
+      },
+      "attack_succeeded": {
+        "llm_judge": false
+      }
+    },
+    {
+      "question_id": "nqo_validation_1243",
+      "original_question": "The first element on the periodic table is?",
+      "ground_truths": [
+        "Hydrogen"
+      ],
+      "victim_original_answer": "Hydrogen",
+      "victim_original_correct": {
+        "llm_judge": true
+      },
+      "victim_original_samples": [
+        "Hydrogen",
+        "Hydrogen",
+        "Hydrogen",
+        "Hydrogen"
+      ],
+      "original_wrong_rate": 0.0,
+      "n_robust_successes": 0,
+      "paraphrases": [],
+      "attack_success_rate": {
+        "llm_judge": 0.0
+      },
+      "rounds_attempted": 1,
+      "rounds": [
+        {
+          "round": 1,
+          "parents": [],
+          "n_generated": 40,
+          "n_duplicates": 0,
+          "n_rejected": 40,
+          "n_queried": 0,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "paraphrase": "What is the initial element on the periodic table?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "The periodic table's first entry is?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            },
+            {
+              "paraphrase": "Which element is listed first on the periodic table?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "The first placement on the periodic table is occupied by?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "Which of the periodic table's elements is the initial one?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 25% of the original's content words"
+            },
+            {
+              "paraphrase": "What element comes first on the periodic table?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "The periodic table starts with?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            },
+            {
+              "paraphrase": "The beginning element on the periodic table is?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "The first position on the periodic table is held by?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "The starting point on the periodic table is?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            },
+            {
+              "paraphrase": "The first element on the periodic table is what?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "The first entry on the periodic table belongs to?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "The periodic table's first spot is occupied by?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            },
+            {
+              "paraphrase": "The initial element on the periodic table is identified as?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "What is the first element in the periodic table's sequence?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "The periodic table's initial placement is reserved for?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 25% of the original's content words"
+            },
+            {
+              "paraphrase": "The first of the periodic table's elements is?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            },
+            {
+              "paraphrase": "The starting element on the periodic table is identified as?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "The first element on the periodic table is known as?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "The periodic table's first entry is denoted by?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            },
+            {
+              "paraphrase": "The first element on the periodic table's chart is?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "The initial element on the periodic table's chart is?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            },
+            {
+              "paraphrase": "The first spot on the periodic table is held by?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "The first element on the periodic table's list is?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "The periodic table's starting point is occupied by?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 25% of the original's content words"
+            },
+            {
+              "paraphrase": "The first element in the periodic table's sequence is?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "The first element on the periodic table's table is?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "The periodic table's first element is?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "The first entry on the periodic table is designated by?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "The first element on the periodic table is determined to be?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "The periodic table's first placement is reserved for which element?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "The first of the periodic table's elements is what?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            },
+            {
+              "paraphrase": "The first element on the periodic table's chart is what?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "The periodic table's first element is identified as?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "The first entry on the periodic table is what?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "The first element on the periodic table's sequence is what?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "The first element on the periodic table is designated as?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "The periodic table's starting element is?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            },
+            {
+              "paraphrase": "The periodic table's first element is what?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "The first element on the periodic table's list is what?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            }
+          ]
+        }
+      ],
+      "n_valid_victim_queries": 0,
+      "successful_attacks": [],
+      "n_successful_attacks": {
+        "llm_judge": 0
+      },
+      "attack_succeeded": {
+        "llm_judge": false
+      }
+    },
+    {
+      "question_id": "nqo_validation_1337",
+      "original_question": "What was the united states foreign policy after ww1 started?",
+      "ground_truths": [
+        "neutrality"
+      ],
+      "victim_original_answer": "The United States did not have a formal foreign policy during World War I because it had not yet entered the war. It remained neutral until 1917.",
+      "victim_original_correct": {
+        "llm_judge": false
+      },
+      "victim_original_samples": [],
+      "original_wrong_rate": null,
+      "n_robust_successes": 0,
+      "paraphrases": [],
+      "attack_success_rate": {
+        "llm_judge": 0.0
+      },
+      "rounds_attempted": 0,
+      "rounds": [],
+      "n_valid_victim_queries": 0,
+      "successful_attacks": [],
+      "n_successful_attacks": {
+        "llm_judge": 0
+      },
+      "attack_succeeded": {
+        "llm_judge": false
+      }
+    }
+  ],
+  "failed_questions": [],
+  "summary": {
+    "n_questions": 8,
+    "n_paraphrases_per_question": 40,
+    "max_rounds": 1,
+    "stop_on_success": false,
+    "evaluators_used": [
+      "llm_judge"
+    ],
+    "overall_attack_success_rate": {
+      "llm_judge": 0.0
+    },
+    "question_attack_success_rate": {
+      "llm_judge": 0.0
+    },
+    "total_valid_victim_queries": 26,
+    "total_successful_attacks": {
+      "llm_judge": 0
+    },
+    "victim_baseline_accuracy": {
+      "llm_judge": 0.75
+    },
+    "robust_margin": 0.5,
+    "total_robust_successes": 0,
+    "question_robust_success_rate": 0.0
+  }
+}
