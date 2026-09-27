@@ -1,0 +1,1614 @@
+
+============================================================
+ADVERSARIAL PARAPHRASING EXPERIMENT
+============================================================
+  Attacker model    : llama3.1:8b
+  Attack strategy   : minimal_edit
+  Victim model      : qwen3:4b
+  Judge model       : gemma3:12b  (evaluator=llm_judge)
+  Questions         : 22
+  Paraphrases/round : 5
+  Max rounds        : 8  (stop_on_success=False)
+  Answer check      : gemma3:12b
+  Search            : evolutionary  (parents=3, fitness samples=4 @ T=0.7)
+  Dataset           : data/accepted_questions.json
+  Results dir       : results
+============================================================
+
+16:06:58  INFO     Loaded 22 questions
+16:06:58  INFO     Results file: results/attacker_llama3_1_8b_minimal_edit__victim_qwen3_4b__judge_gemma3_12b__q22_p5_r8_evolutionary__20260926_160658.json
+16:06:58  INFO     [1/22] Qnqo_validation_0573: Where in the American constitution is the executive branch referenced?
+16:07:05  INFO       Victim (original): 'Article II'
+16:07:21  INFO       [llm_judge] original correct=True
+16:07:45  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+16:07:45  INFO       Attack round 1/8
+16:07:57  INFO         Generated 5 candidates
+16:09:34  INFO         Paraphrase: 'Where in the United States Constitution is the executive branch referenced?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:10:09  INFO         Paraphrase: 'In which article of the American Constitution is the executive branch referenced?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:11:02  INFO         Paraphrase: 'Where in the American constitution does it mention the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:12:50  INFO         Paraphrase: 'Where in the US constitution is the reference to the executive branch found?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:13:28  INFO         Paraphrase: 'In which part of the American Constitution is the executive branch mentioned?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:13:28  INFO         Round 1/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+16:13:28  INFO       Attack round 2/8
+16:13:38  INFO         Generated 5 candidates
+16:14:37  INFO         Paraphrase: 'What article of the American Constitution references the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:16:24  INFO         Paraphrase: 'Where in the American constitution is the executive branch branch mentioned?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:17:03  INFO         Paraphrase: 'In which article of the US constitution is the executive branch referenced?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:17:58  INFO         Paraphrase: 'What part of the American Constitution mentions the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Paraphrase: Where in the American constitution is the executive branch located?
+
+16:18:14  INFO         Round 2/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+16:18:14  INFO       Attack round 3/8
+16:18:29  INFO         Generated 5 candidates
+16:20:10  INFO         Paraphrase: 'Where in the American Constitution is the executive branch mentioned?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:20:51  INFO         Paraphrase: 'In which part of the American Constitution is the executive branch referenced?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:21:49  INFO         Paraphrase: 'What is the article of the American Constitution that references the executive branch?'  →  Victim: '2'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:23:25  INFO         Paraphrase: 'Where in the American Constitution is the executive branch mentioned to be?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:24:07  INFO         Paraphrase: "In which article of the American Constitution is the executive branch's reference found?"  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:24:07  INFO         Round 3/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+16:24:07  INFO       Attack round 4/8
+16:24:18  INFO         Generated 5 candidates
+16:25:16  INFO         Paraphrase: 'Where in the American constitution is the executive branch part referenced?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:27:00  INFO         Paraphrase: 'In which article of the American Constitution does the executive branch come into effect?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:27:59  INFO         Paraphrase: 'What section of the American Constitution defines the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:28:53  INFO         Paraphrase: 'In which part of the American constitution is the executive branch established?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: Where in the American Constitution is the role of the executive branch defined?
+
+16:29:20  INFO         Round 4/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+16:29:20  INFO       Attack round 5/8
+16:29:26  INFO         Generated 5 candidates
+16:29:26  INFO         [duplicate, skipped] 'Where in the American Constitution is the executive branch mentioned?'
+16:29:26  INFO         [duplicate, skipped] 'In which part of the American Constitution is the executive branch referenced?'
+16:29:26  INFO         [duplicate, skipped] 'What article of the American Constitution references the executive branch?'
+16:31:13  INFO         Paraphrase: "Where in the American Constitution is the executive branch's reference found?"  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:31:13  INFO         [duplicate, skipped] 'Where in the American Constitution is the executive branch branch mentioned?'
+16:31:13  INFO         Round 5/8 done: 5 generated, 4 duplicates, 0 rejected, 1 passed validation (queried), 0 successful
+16:31:13  INFO       Attack round 6/8
+16:31:19  INFO         Generated 5 candidates
+16:33:07  INFO         Paraphrase: 'Where in the US Constitution is the executive branch referenced?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:33:07  INFO         [duplicate, skipped] 'In which article of the American Constitution is the executive branch referenced?'
+16:33:07  INFO         [duplicate, skipped] 'What article of the American Constitution references the executive branch?'
+16:33:07  INFO         [duplicate, skipped] 'Where in the American Constitution is the executive branch mentioned?'
+16:33:07  INFO         [duplicate, skipped] 'In which part of the American Constitution is the executive branch referenced?'
+16:33:07  INFO         Round 6/8 done: 5 generated, 4 duplicates, 0 rejected, 1 passed validation (queried), 0 successful
+16:33:07  INFO       Attack round 7/8
+16:33:13  INFO         Generated 5 candidates
+16:35:05  INFO         Paraphrase: 'Where in the American Constitution is the executive power referenced?'  →  Victim: 'Article II, Section 1'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:35:05  INFO         [duplicate, skipped] 'Where in the US Constitution is the executive branch referenced?'
+16:35:44  INFO         Paraphrase: 'In which part of the American Constitution is the executive branch located?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:36:40  INFO         Paraphrase: 'Where in the American Constitution does the executive branch get mentioned?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:36:40  INFO         [duplicate, skipped] 'Where in the US Constitution is the reference to the executive branch found?'
+16:36:40  INFO         Round 7/8 done: 5 generated, 2 duplicates, 0 rejected, 3 passed validation (queried), 0 successful
+16:36:40  INFO       Attack round 8/8
+16:36:59  INFO         Generated 5 candidates
+16:38:35  INFO         Paraphrase: 'Where in the U.S. Constitution is the executive branch referenced?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:39:19  INFO         Paraphrase: 'Where in the American Constitution does the executive branch get referenced?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:40:16  INFO         Paraphrase: 'Where in the U.S. Constitution is the executive branch mentioned?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:40:16  INFO         [duplicate, skipped] 'In which part of the American Constitution is the executive branch referenced?'
+16:41:59  INFO         Paraphrase: 'Where in the American Constitution is the executive branch referenced in?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:41:59  INFO         Round 8/8 done: 5 generated, 1 duplicates, 0 rejected, 4 passed validation (queried), 0 successful
+16:41:59  INFO       Attack finished after 8 round(s): 27 valid victim queries, successful attacks per evaluator: {'llm_judge': 0}, robust: 0
+16:41:59  INFO     [2/22] Qnqo_validation_0615: Which organelle is the site of atp production and storage?
+16:42:39  INFO       Victim (original): 'mitochondria'
+16:42:41  INFO       [llm_judge] original correct=True
+16:45:23  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+16:45:23  INFO       Attack round 1/8
+16:45:29  INFO         Generated 5 candidates
+16:47:21  INFO         Paraphrase: 'Which organelle is primarily responsible for atp production and storage?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: In which organelle is atp produced and stored?
+Keeps 40% of the original's content words
+
+16:50:52  INFO         Paraphrase: 'What organelle is involved in the production and storage of atp?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:52:20  INFO         Paraphrase: 'Which organelle serves as the site for atp production and storage?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: In what organelle is atp generated and stored?
+Keeps 40% of the original's content words
+
+16:52:30  INFO         Round 1/8 done: 5 generated, 0 duplicates, 2 rejected, 3 passed validation (queried), 0 successful
+16:52:30  INFO       Attack round 2/8
+16:52:45  INFO         Generated 5 candidates
+16:54:07  INFO         Paraphrase: 'Which organelle acts as the site of ATP production and storage?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:54:07  INFO         [duplicate, skipped] 'In which organelle is ATP produced and stored?'
+16:57:10  INFO         Paraphrase: 'What organelle is the site of ATP production and storage?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+16:58:51  INFO         Paraphrase: 'Which organelle is the primary site for ATP production and storage?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+17:00:11  INFO         Paraphrase: 'The organelle that is the site of ATP production and storage is which?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+17:00:11  INFO         Round 2/8 done: 5 generated, 1 duplicates, 0 rejected, 4 passed validation (queried), 0 successful
+17:00:11  INFO       Attack round 3/8
+17:00:14  INFO         Generated 4 candidates
+17:01:21  INFO         Paraphrase: 'What organelle serves as the site for atp production and storage?'  →  Victim: 'mitochondrion'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+17:03:03  INFO         Paraphrase: 'The organelle which is the site of ATP production and storage is which?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+17:03:03  INFO         [duplicate, skipped] 'In which organelle is ATP produced and stored?'
+17:03:03  INFO         [duplicate, skipped] 'Which organelle acts as the site of atp production and storage?'
+17:03:03  INFO         Round 3/8 done: 4 generated, 2 duplicates, 0 rejected, 2 passed validation (queried), 0 successful
+17:03:03  INFO       Attack round 4/8
+17:03:05  INFO         Generated 5 candidates
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: What organelle stores and generates atp?
+Keeps 40% of the original's content words
+
+17:04:12  INFO         Paraphrase: 'The site of atp production and storage is which organelle?'  →  Victim: 'Mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+17:06:07  INFO         Paraphrase: 'In which organelle are atp production and storage located?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+17:12:01  WARNING      [candidate failed, skipped] 'What organelle is the site for the storage and production of atp?': HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+17:17:01  WARNING      [candidate failed, skipped] 'The organelle in which atp is produced and stored is which?': HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+17:17:01  INFO         Round 4/8 done: 5 generated, 0 duplicates, 1 rejected, 2 passed validation (queried), 0 successful, 2 failed
+17:17:01  INFO       Attack round 5/8
+17:22:01  WARNING  [attacker] Attempt 1/2 failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+17:27:01  WARNING  [attacker] Attempt 2/2 failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+17:27:01  ERROR    [attacker] All attempts exhausted for question 'Which organelle is the site of atp production and storage?'. Last error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+17:27:01  INFO         Generated 0 candidates
+17:27:01  INFO         Round 5/8 done: 0 generated, 0 duplicates, 0 rejected, 0 passed validation (queried), 0 successful
+17:27:01  INFO       Attack round 6/8
+17:32:01  WARNING  [attacker] Attempt 1/2 failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+17:37:01  WARNING  [attacker] Attempt 2/2 failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+17:37:01  ERROR    [attacker] All attempts exhausted for question 'Which organelle is the site of atp production and storage?'. Last error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+17:37:01  INFO         Generated 0 candidates
+17:37:01  INFO         Round 6/8 done: 0 generated, 0 duplicates, 0 rejected, 0 passed validation (queried), 0 successful
+17:37:01  INFO       Attack round 7/8
+17:42:01  WARNING  [attacker] Attempt 1/2 failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+17:47:01  WARNING  [attacker] Attempt 2/2 failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+17:47:01  ERROR    [attacker] All attempts exhausted for question 'Which organelle is the site of atp production and storage?'. Last error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+17:47:01  INFO         Generated 0 candidates
+17:47:01  INFO         Round 7/8 done: 0 generated, 0 duplicates, 0 rejected, 0 passed validation (queried), 0 successful
+17:47:01  INFO       Attack round 8/8
+17:52:01  WARNING  [attacker] Attempt 1/2 failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+17:57:01  WARNING  [attacker] Attempt 2/2 failed: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+17:57:01  ERROR    [attacker] All attempts exhausted for question 'Which organelle is the site of atp production and storage?'. Last error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+17:57:01  INFO         Generated 0 candidates
+17:57:01  INFO         Round 8/8 done: 0 generated, 0 duplicates, 0 rejected, 0 passed validation (queried), 0 successful
+17:57:01  INFO       Attack finished after 8 round(s): 11 valid victim queries, successful attacks per evaluator: {'llm_judge': 0}, robust: 0
+17:57:01  INFO     [3/22] Qnqo_validation_0773: Islamic term for the community of the faithful?
+18:02:02  ERROR      Question nqo_validation_0773 failed and is skipped: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 1457, in getresponse
+    response.begin()
+  File "/usr/lib/python3.12/http/client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 297, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 498, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 177, in run_experiment
+    _run_question(cfg, entry, victim, attacker, evaluators, evaluator_names)
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 221, in _run_question
+    original_answer = victim.answer(question)
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/victim.py", line 60, in answer
+    raw = self.client.chat(
+          ^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/ollama_client.py", line 98, in chat
+    r = self._session.post(
+        ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 712, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 742, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+18:02:02  INFO     [4/22] Qnqo_validation_0964: What is the name of the big gold dome in jerusalem?
+18:07:02  ERROR      Question nqo_validation_0964 failed and is skipped: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 1457, in getresponse
+    response.begin()
+  File "/usr/lib/python3.12/http/client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 297, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 498, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 177, in run_experiment
+    _run_question(cfg, entry, victim, attacker, evaluators, evaluator_names)
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 221, in _run_question
+    original_answer = victim.answer(question)
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/victim.py", line 60, in answer
+    raw = self.client.chat(
+          ^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/ollama_client.py", line 98, in chat
+    r = self._session.post(
+        ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 712, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 742, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+18:07:02  INFO     [5/22] Qnqo_validation_0990: Another name for the torso is the blank region of the body?
+18:12:02  ERROR      Question nqo_validation_0990 failed and is skipped: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 1457, in getresponse
+    response.begin()
+  File "/usr/lib/python3.12/http/client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 297, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 498, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 177, in run_experiment
+    _run_question(cfg, entry, victim, attacker, evaluators, evaluator_names)
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 221, in _run_question
+    original_answer = victim.answer(question)
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/victim.py", line 60, in answer
+    raw = self.client.chat(
+          ^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/ollama_client.py", line 98, in chat
+    r = self._session.post(
+        ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 712, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 742, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+18:12:02  INFO     [6/22] Qnqo_validation_1197: Who is given credit for inventing the aqua lung?
+18:17:02  ERROR      Question nqo_validation_1197 failed and is skipped: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 1457, in getresponse
+    response.begin()
+  File "/usr/lib/python3.12/http/client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 297, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 498, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 177, in run_experiment
+    _run_question(cfg, entry, victim, attacker, evaluators, evaluator_names)
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 221, in _run_question
+    original_answer = victim.answer(question)
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/victim.py", line 60, in answer
+    raw = self.client.chat(
+          ^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/ollama_client.py", line 98, in chat
+    r = self._session.post(
+        ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 712, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 742, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+18:17:02  INFO     [7/22] Qnqo_validation_1243: The first element on the periodic table is?
+18:22:02  ERROR      Question nqo_validation_1243 failed and is skipped: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 1457, in getresponse
+    response.begin()
+  File "/usr/lib/python3.12/http/client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 297, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 498, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 177, in run_experiment
+    _run_question(cfg, entry, victim, attacker, evaluators, evaluator_names)
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 221, in _run_question
+    original_answer = victim.answer(question)
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/victim.py", line 60, in answer
+    raw = self.client.chat(
+          ^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/ollama_client.py", line 98, in chat
+    r = self._session.post(
+        ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 712, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 742, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+18:22:02  INFO     [8/22] Qnqo_validation_1337: What was the united states foreign policy after ww1 started?
+18:27:02  ERROR      Question nqo_validation_1337 failed and is skipped: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 1457, in getresponse
+    response.begin()
+  File "/usr/lib/python3.12/http/client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 297, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 498, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 177, in run_experiment
+    _run_question(cfg, entry, victim, attacker, evaluators, evaluator_names)
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 221, in _run_question
+    original_answer = victim.answer(question)
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/victim.py", line 60, in answer
+    raw = self.client.chat(
+          ^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/ollama_client.py", line 98, in chat
+    r = self._session.post(
+        ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 712, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 742, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+18:27:02  INFO     [9/22] Qnqo_validation_1921: Where does the optic nerve cross the midline?
+18:32:02  ERROR      Question nqo_validation_1921 failed and is skipped: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 1457, in getresponse
+    response.begin()
+  File "/usr/lib/python3.12/http/client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 297, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 498, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 177, in run_experiment
+    _run_question(cfg, entry, victim, attacker, evaluators, evaluator_names)
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 221, in _run_question
+    original_answer = victim.answer(question)
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/victim.py", line 60, in answer
+    raw = self.client.chat(
+          ^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/ollama_client.py", line 98, in chat
+    r = self._session.post(
+        ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 712, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 742, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+18:32:02  INFO     [10/22] Qnqo_validation_2000: The region that stretches between the black and caspian seas?
+18:37:02  ERROR      Question nqo_validation_2000 failed and is skipped: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 1457, in getresponse
+    response.begin()
+  File "/usr/lib/python3.12/http/client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 297, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 498, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 177, in run_experiment
+    _run_question(cfg, entry, victim, attacker, evaluators, evaluator_names)
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 221, in _run_question
+    original_answer = victim.answer(question)
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/victim.py", line 60, in answer
+    raw = self.client.chat(
+          ^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/ollama_client.py", line 98, in chat
+    r = self._session.post(
+        ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 712, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 742, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+18:37:02  INFO     [11/22] Qnqo_validation_2577: Where does the un security council get troops for military actions?
+18:42:02  ERROR      Question nqo_validation_2577 failed and is skipped: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 1457, in getresponse
+    response.begin()
+  File "/usr/lib/python3.12/http/client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 297, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 498, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 177, in run_experiment
+    _run_question(cfg, entry, victim, attacker, evaluators, evaluator_names)
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 221, in _run_question
+    original_answer = victim.answer(question)
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/victim.py", line 60, in answer
+    raw = self.client.chat(
+          ^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/ollama_client.py", line 98, in chat
+    r = self._session.post(
+        ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 712, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 742, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+18:42:02  INFO     [12/22] Qnqo_validation_2776: When did the usa join world war one?
+18:47:03  ERROR      Question nqo_validation_2776 failed and is skipped: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 1457, in getresponse
+    response.begin()
+  File "/usr/lib/python3.12/http/client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 297, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 498, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 177, in run_experiment
+    _run_question(cfg, entry, victim, attacker, evaluators, evaluator_names)
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 221, in _run_question
+    original_answer = victim.answer(question)
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/victim.py", line 60, in answer
+    raw = self.client.chat(
+          ^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/ollama_client.py", line 98, in chat
+    r = self._session.post(
+        ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 712, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 742, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+18:47:03  INFO     [13/22] Qnqo_validation_2836: Who wrote the music phantom of the opera?
+18:52:03  ERROR      Question nqo_validation_2836 failed and is skipped: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 1457, in getresponse
+    response.begin()
+  File "/usr/lib/python3.12/http/client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 297, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 498, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 177, in run_experiment
+    _run_question(cfg, entry, victim, attacker, evaluators, evaluator_names)
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 221, in _run_question
+    original_answer = victim.answer(question)
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/victim.py", line 60, in answer
+    raw = self.client.chat(
+          ^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/ollama_client.py", line 98, in chat
+    r = self._session.post(
+        ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 712, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 742, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+18:52:03  INFO     [14/22] Qnqo_validation_2845: Dogs name in the grinch who stole christmas?
+18:57:03  ERROR      Question nqo_validation_2845 failed and is skipped: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 1457, in getresponse
+    response.begin()
+  File "/usr/lib/python3.12/http/client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 297, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 498, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 177, in run_experiment
+    _run_question(cfg, entry, victim, attacker, evaluators, evaluator_names)
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 221, in _run_question
+    original_answer = victim.answer(question)
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/victim.py", line 60, in answer
+    raw = self.client.chat(
+          ^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/ollama_client.py", line 98, in chat
+    r = self._session.post(
+        ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 712, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 742, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+18:57:03  INFO     [15/22] Qnqo_validation_2985: A request to the supreme court that it review a case that was already decided is made via a(n)?
+19:02:03  ERROR      Question nqo_validation_2985 failed and is skipped: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 1457, in getresponse
+    response.begin()
+  File "/usr/lib/python3.12/http/client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 297, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 498, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 177, in run_experiment
+    _run_question(cfg, entry, victim, attacker, evaluators, evaluator_names)
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 221, in _run_question
+    original_answer = victim.answer(question)
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/victim.py", line 60, in answer
+    raw = self.client.chat(
+          ^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/ollama_client.py", line 98, in chat
+    r = self._session.post(
+        ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 712, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 742, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+19:02:03  INFO     [16/22] Qnqo_validation_3267: When did cybermen first appear in doctor who?
+19:07:03  ERROR      Question nqo_validation_3267 failed and is skipped: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 1457, in getresponse
+    response.begin()
+  File "/usr/lib/python3.12/http/client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 297, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 498, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 177, in run_experiment
+    _run_question(cfg, entry, victim, attacker, evaluators, evaluator_names)
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 221, in _run_question
+    original_answer = victim.answer(question)
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/victim.py", line 60, in answer
+    raw = self.client.chat(
+          ^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/ollama_client.py", line 98, in chat
+    r = self._session.post(
+        ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 712, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 742, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+19:07:03  INFO     [17/22] Qnqo_validation_3283: Who sold out jesus for 30 pieces of silver?
+19:12:03  ERROR      Question nqo_validation_3283 failed and is skipped: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 1457, in getresponse
+    response.begin()
+  File "/usr/lib/python3.12/http/client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 297, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 498, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 177, in run_experiment
+    _run_question(cfg, entry, victim, attacker, evaluators, evaluator_names)
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 221, in _run_question
+    original_answer = victim.answer(question)
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/victim.py", line 60, in answer
+    raw = self.client.chat(
+          ^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/ollama_client.py", line 98, in chat
+    r = self._session.post(
+        ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 712, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 742, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+19:12:03  INFO     [18/22] Qnqo_validation_3388: Where was the louisiana purchase signed in 1803?
+19:17:03  ERROR      Question nqo_validation_3388 failed and is skipped: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 1457, in getresponse
+    response.begin()
+  File "/usr/lib/python3.12/http/client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 297, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 498, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 177, in run_experiment
+    _run_question(cfg, entry, victim, attacker, evaluators, evaluator_names)
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 221, in _run_question
+    original_answer = victim.answer(question)
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/victim.py", line 60, in answer
+    raw = self.client.chat(
+          ^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/ollama_client.py", line 98, in chat
+    r = self._session.post(
+        ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 712, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 742, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+19:17:03  INFO     [19/22] Qnqo_validation_3438: Who was the first European to explore the waters of Cuba, the Bahamas, and Hispaniola?
+19:22:03  ERROR      Question nqo_validation_3438 failed and is skipped: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 1457, in getresponse
+    response.begin()
+  File "/usr/lib/python3.12/http/client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 297, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 498, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 177, in run_experiment
+    _run_question(cfg, entry, victim, attacker, evaluators, evaluator_names)
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 221, in _run_question
+    original_answer = victim.answer(question)
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/victim.py", line 60, in answer
+    raw = self.client.chat(
+          ^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/ollama_client.py", line 98, in chat
+    r = self._session.post(
+        ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 712, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 742, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+19:22:03  INFO     [20/22] Qnqo_validation_3259: When was catch me if you can made?
+19:27:03  ERROR      Question nqo_validation_3259 failed and is skipped: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 1457, in getresponse
+    response.begin()
+  File "/usr/lib/python3.12/http/client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 297, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 498, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 177, in run_experiment
+    _run_question(cfg, entry, victim, attacker, evaluators, evaluator_names)
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 221, in _run_question
+    original_answer = victim.answer(question)
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/victim.py", line 60, in answer
+    raw = self.client.chat(
+          ^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/ollama_client.py", line 98, in chat
+    r = self._session.post(
+        ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 712, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 742, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+19:27:03  INFO     [21/22] Qnqo_validation_1006: When did the first marvel vs capcom come out?
+19:32:04  ERROR      Question nqo_validation_1006 failed and is skipped: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 1457, in getresponse
+    response.begin()
+  File "/usr/lib/python3.12/http/client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 297, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 498, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 177, in run_experiment
+    _run_question(cfg, entry, victim, attacker, evaluators, evaluator_names)
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 221, in _run_question
+    original_answer = victim.answer(question)
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/victim.py", line 60, in answer
+    raw = self.client.chat(
+          ^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/ollama_client.py", line 98, in chat
+    r = self._session.post(
+        ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 712, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 742, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+19:32:04  INFO     [22/22] Qnqo_validation_3530: When was the us department of homeland security created?
+19:37:04  ERROR      Question nqo_validation_3530 failed and is skipped: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 1457, in getresponse
+    response.begin()
+  File "/usr/lib/python3.12/http/client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 297, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 498, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 177, in run_experiment
+    _run_question(cfg, entry, victim, attacker, evaluators, evaluator_names)
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 221, in _run_question
+    original_answer = victim.answer(question)
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/victim.py", line 60, in answer
+    raw = self.client.chat(
+          ^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/ollama_client.py", line 98, in chat
+    r = self._session.post(
+        ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 712, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 742, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+19:37:04  INFO     Results saved → results/attacker_llama3_1_8b_minimal_edit__victim_qwen3_4b__judge_gemma3_12b__q22_p5_r8_evolutionary__20260926_160658.json
+
+Results saved → results/attacker_llama3_1_8b_minimal_edit__victim_qwen3_4b__judge_gemma3_12b__q22_p5_r8_evolutionary__20260926_160658.json
+  20 question(s) failed and were skipped: ['nqo_validation_0773', 'nqo_validation_0964', 'nqo_validation_0990', 'nqo_validation_1197', 'nqo_validation_1243', 'nqo_validation_1337', 'nqo_validation_1921', 'nqo_validation_2000', 'nqo_validation_2577', 'nqo_validation_2776', 'nqo_validation_2836', 'nqo_validation_2845', 'nqo_validation_2985', 'nqo_validation_3267', 'nqo_validation_3283', 'nqo_validation_3388', 'nqo_validation_3438', 'nqo_validation_3259', 'nqo_validation_1006', 'nqo_validation_3530']
+
+============================================================
+EXPERIMENT SUMMARY
+============================================================
+  Questions evaluated : 2
+  Paraphrases / round : 5
+  Max rounds          : 8
+  Valid victim queries: 38
+
+  [llm_judge]
+    Victim baseline accuracy : 100.0%
+    Overall Attack Success Rate (ASR) : 0.0%
+    Questions with >= 1 success       : 0.0%
+    Total successful paraphrases      : 0
+  Robust successes (gain >= 0.50 over the original's wrong rate): 0, on 0.0% of questions
+============================================================
+  Full results at: results/attacker_llama3_1_8b_minimal_edit__victim_qwen3_4b__judge_gemma3_12b__q22_p5_r8_evolutionary__20260926_160658.json
+============================================================

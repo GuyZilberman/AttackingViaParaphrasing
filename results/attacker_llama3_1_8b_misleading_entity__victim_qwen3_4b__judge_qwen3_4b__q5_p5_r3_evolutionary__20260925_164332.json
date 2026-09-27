@@ -1,0 +1,3202 @@
+{
+  "metadata": {
+    "ollama_base_url": "http://127.0.0.1:11434",
+    "attacker_model": "llama3.1:8b",
+    "victim_model": "qwen3:4b",
+    "judge_model": "qwen3:4b",
+    "attacker_strategy": "misleading_entity",
+    "n_paraphrases": 5,
+    "max_rounds": 3,
+    "stop_on_success": false,
+    "answer_check": true,
+    "search": "evolutionary",
+    "n_parents": 3,
+    "fitness_samples": 4,
+    "fitness_temperature": 0.7,
+    "dataset_path": "data/nq_open_qwen3_4b_correct.json",
+    "n_questions": 5,
+    "random_seed": 42,
+    "evaluator": "both",
+    "results_dir": "results",
+    "attacker_temperature": 0.9,
+    "victim_temperature": 0.0,
+    "judge_temperature": 0.0
+  },
+  "results": [
+    {
+      "question_id": "nqo_validation_0448",
+      "original_question": "All the motor neurons that control the skeletal muscles are?",
+      "ground_truths": [
+        "efferent nerves",
+        "Somatic motor neurons",
+        "Somatic"
+      ],
+      "victim_original_answer": "somatic motor neurons",
+      "victim_original_correct": {
+        "exact_match": true,
+        "llm_judge": true
+      },
+      "paraphrases": [
+        {
+          "round": 1,
+          "paraphrase": "Which nerves control the skeletal muscles?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "somatic motor nerves",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'somatic motor nerves' ≈ 'somatic'",
+            "llm_judge": "Somatic motor nerves and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles, with efferent nerves being a subset of somatic motor nerves."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "somatic motor nerves",
+            "somatic motor nerves",
+            "somatic motor nerves",
+            "somatic motor nerves"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 1,
+          "paraphrase": "What type of neurons are responsible for controlling the skeletal muscles?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "motor neurons",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'motor neurons' ≈ 'somatic motor neurons'",
+            "llm_judge": "Motor neurons and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles or glands, with 'efferent' being a synonym for 'motor' in neuroanatomy."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "motor neurons",
+            "motor neurons",
+            "alpha motor neurons",
+            "somatic motor neurons"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 1,
+          "paraphrase": "What kind of nerves are involved in controlling the skeletal muscles?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "somatic motor nerves",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'somatic motor nerves' ≈ 'somatic'",
+            "llm_judge": "Somatic motor nerves and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles, with efferent nerves being a subset of somatic motor nerves."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "somatic motor neurons",
+            "somatic nerves",
+            "somatic nerves",
+            "somatic nerves"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 1,
+          "paraphrase": "What neurons are in charge of controlling the skeletal muscles?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "motor neurons",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'motor neurons' ≈ 'somatic motor neurons'",
+            "llm_judge": "Motor neurons and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles or glands, with 'efferent' being a synonym for 'motor' in neuroanatomy."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "motor neurons",
+            "motor neurons",
+            "somatic motor neurons",
+            "motor neurons"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 2,
+          "paraphrase": "Identify the neurons that are in charge of controlling the skeletal muscles.",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "motor neurons",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'motor neurons' ≈ 'somatic motor neurons'",
+            "llm_judge": "Motor neurons and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles or glands, with 'efferent' being a synonym for 'motor' in neuroanatomy."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "motor neurons",
+            "somatic motor neurons",
+            "somatic motor neurons",
+            "motor neurons"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 2,
+          "paraphrase": "Name the neurons that are responsible for the control of skeletal muscles.",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "motor neurons",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'motor neurons' ≈ 'somatic motor neurons'",
+            "llm_judge": "Motor neurons and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles or glands, with 'efferent' being a synonym for 'motor' in neuroanatomy."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "motor neurons",
+            "motor neurons",
+            "motor neurons",
+            "motor neurons"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 3,
+          "paraphrase": "Which motor neurons are responsible for the control of skeletal muscles?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Alpha motor neurons",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'alpha motor neurons'",
+            "llm_judge": "Alpha motor neurons are a type of efferent nerve that carry motor signals from the central nervous system to skeletal muscles, so they are semantically equivalent despite different terminology."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "alpha motor neurons",
+            "alpha motor neurons",
+            "somatic motor neurons",
+            "somatic motor neurons"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 3,
+          "paraphrase": "What kind of motor neurons are in charge of controlling skeletal muscles?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "somatic motor neurons",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'somatic motor neurons' ≈ 'somatic motor neurons'",
+            "llm_judge": "Somatic motor neurons are a type of efferent nerve that control voluntary muscle movements, so they refer to the same concept with different terminology."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "somatic motor neurons",
+            "alpha motor neurons",
+            "somatic motor neurons",
+            "alpha motor neurons"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 3,
+          "paraphrase": "The motor neurons that control skeletal muscles are referred to as?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "somatic motor neurons",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'somatic motor neurons' ≈ 'somatic motor neurons'",
+            "llm_judge": "Somatic motor neurons are a type of efferent nerve that control voluntary muscle movements, so they refer to the same concept with different terminology."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "somatic motor neurons",
+            "somatic motor neurons",
+            "somatic motor neurons",
+            "somatic motor neurons"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 3,
+          "paraphrase": "The efferent nerves that control skeletal muscles are also known as?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "somatic motor nerves",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'somatic motor nerves' ≈ 'somatic'",
+            "llm_judge": "Somatic motor nerves and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles, with efferent nerves being a subset of somatic motor nerves."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "somatic motor nerves",
+            "somatic",
+            "We are to find the name for the efferent nerves that control skeletal muscles.\n\nEfferent nerves carry signals away from the central nervous system to the effectors (muscles or glands). In the context of skeletal muscles, the efferent nerves that control them are part of the somatic nervous system.\n\nSpecifically, the nerves that innervate skeletal muscles are called the somatic motor nerves. However, the question asks for the name of the e as the efferent nerves that control skeletal muscles.\n\nIn the somatic nervous system, the efferent (motor) nerves that control skeletal muscles are known as the \"somatic motor neurons\" or \"somatic efferent nerves\". But the question might be looking for a more specific term.\n\nAlternatively, note that the entire system that controls skeletal muscles is the somatic nervous system, and the efferent part is the somatic motor division.\n\nBut the question says \"efferent nerves\". So the nerves themselves are called the somatic motor nerves.\n\nHowever, there is a common term: the efferent nerves that control skeletal muscles are the \"somatic nerves\" or more precisely, they are part of the somatic motor system.\n\nWait, let's think about the answer. In neuroanatomy, the nerves that carry motor signals to skeletal muscles are called the \"motor nerves\" or \"efferent nerves of the somatic nervous system\".\n\nBut the question might expect the term \"somatic motor nerves\".\n\nHowever, note that the question says: \"The efferent nerves that control skeletal muscles are also known as?\"\n\nI recall that in some contexts, they are called the \"somatic efferent nerves\".\n\nBut the most direct answer that is commonly used is \"somatic motor nerves\".\n\nAlternatively, the entire system is the somatic nervous system, but the nerves that control skeletal muscles specifically are the motor nerves of the somatic system.\n\nWait, there's a standard answer: the efferent nerves that control skeletal muscles are called the \"somatic nerves\".\n\nBut let me check: in the somatic nervous system, the efferent division is the motor division. So the nerves are the somatic motor nerves.\n\nHowever, the question says \"also known as\". So what is the alternative name?\n\nI think the answer is \"somatic motor nerves\".\n\nBut wait, there's another possibility: the nerves that control skeletal muscles are the \"neuromuscular nerves\" but that's not standard.\n\nLet me think about the answer that is typically expected.\n\nIn many textbooks, the efferent nerves that control skeletal muscles are called the \"somatic efferent nerves\". But that might be too long.\n\nAlternatively, they are simply called \"motor nerves\".\n\nBut the question specifies \"efferent nerves that control skeletal muscles\", so the answer might be \"somatic motor nerves\".\n\nHowever, note that the question says \"also known as\". So we are to give a name that is an alternative.\n\nI remember: in the context of the autonomic nervous system, the efferent nerves are divided into sympathetic and parasympathetic. But the efferent nerves for skeletal muscles are not part of the autonomic system.\n\nSo the answer should be the somatic motor nerves.\n\nBut let's see if there's a more concise term.\n\nI think the standard answer is \"somatic nerves\" but that might be ambiguous.\n\nWait, the somatic nervous system includes both afferent and efferent. The efferent part is the motor nerves.\n\nSo the efferent nerves that control skeletal muscles are the somatic motor nerves.\n\nBut the question might be looking for the term \"somatic efferent nerves\".\n\nHowever, the instruction says: return only the answer itself, and the shortest direct answer.\n\nI have found that in some multiple-choice questions, the answer is \"somatic motor nerves\".\n\nBut let's try to recall: the efferent nerves for skeletal muscles are part of the somatic nervous system and are called the somatic motor neurons (but the question says nerves, not neurons).\n\nThe nerves are the axons of the motor neurons that run to the skeletal muscles.\n\nSo the nerves are called the somatic motor nerves.\n\nAlternatively, they are known as the \"efferent nerves of the somatic system\".\n\nBut the question says \"also known as\", so we want a term that is an alternative name.\n\nI think the answer is \"somatic motor nerves\".\n\nHowever, I remember that in some contexts, they are called the \"neuromuscular nerves\" but that is not standard.\n\nLet me check online? But I can't. So I'll go with the standard.\n\nWait, the question might be expecting \"somatic nerves\" because the somatic nervous system is the system that controls skeletal muscles.\n\nBut note: the somatic nervous system includes sensory nerves as well. So the efferent part is the motor part.\n\nSo the efferent nerves that control skeletal muscles are the somatic motor nerves.\n\nI think the answer is \"somatic motor nerves\".\n\nBut let's see if there's a shorter term. In some texts, they are called \"voluntary nerves\" because skeletal muscles are under voluntary control.\n\nYes! The efferent nerves that control skeletal muscles are part of the voluntary nervous system. So they are also known as voluntary nerves.\n\nBut the term \"voluntary nerves\" is not commonly used. The term \"somatic motor nerves\" is more standard.\n\nWait, the question says \"also known as\". So what is the common alternative name?\n\nI found a source in my memory: in some contexts, they are called the \"somatic efferent nerves\".\n\nBut I think the expected answer in many educational contexts is \"somatic motor nerves\".\n\nHowever, let's try to be precise.\n\nAnother thought: the efferent nerves that control skeletal muscles are the same as the nerves of the somatic motor system.\n\nBut the question asks for the name.\n\nI recall that in the autonomic nervous system, the efferent nerves are the preganglionic and postganglionic nerves, but for skeletal muscles, it's not autonomic.\n\nSo for skeletal muscles, it's somatic.\n\nI think the answer is \"somatic motor nerves\".\n\nBut the problem says: \"return only the answer itself\". And we want the shortest direct answer.\n\nLet me see if there's a one-word answer? The question says \"efferent nerves that control skeletal muscles\". They are also known as the motor nerves? But that's not specific because motor nerves can also be for smooth and cardiac muscles? No, motor nerves for skeletal muscles are somatic.\n\nWait, the motor nerves for skeletal muscles are specifically the somatic motor nerves.\n\nBut the question might expect \"somatic nerves\" as a short answer? However, that is not precise because somatic nerves include sensory.\n\nI found a better idea: in some textbooks, they are called the \"efferent nerves of the somatic nervous system\".\n\nBut the question asks for the shortest direct answer.\n\nI remember that the answer is \"somatic nerves\" but that's not entirely accurate.\n\nWait, let's think about the term used in the context of the question. The question says \"efferent nerves that control skeletal muscles\". The efferent nerves for skeletal muscles are part of the somatic nervous system and are called the somatic motor nerves.\n\nBut the term \"somatic motor nerves\" is two words.\n\nI think the answer they are looking for is \"somatic nerves\" but that might be misleading.\n\nAlternatively, the answer could be \"voluntary nerves\". Because skeletal muscles are under voluntary control.\n\nYes, that's a possibility. In common language, the nerves that control skeletal muscles are voluntary nerves.\n\nBut in scientific terms, it's somatic motor nerves.\n\nHowever, the question says \"also known as\", so it might be \"voluntary nerves\".\n\nLet me see: the efferent nerves that control skeletal muscles are voluntary because we can choose to move.\n\nSo they are also known as voluntary nerves.\n\nBut I think the more precise scientific term is \"somatic motor nerves\".\n\nGiven the instructions for the shortest direct answer, I'll go with \"somatic motor nerves\".\n\nBut wait, the problem says: \"return only the answer itself\". And we have to be the shortest.\n\nI recall that in some multiple-choice questions, the answer is \"somatic\".\n\nBut that's not the full term.\n\nAnother thought: the efferent nerves that control skeletal muscles are called the \"skeletal nerves\"? No, that's not a term.\n\nI think the best answer is \"somatic motor nerves\".\n\nBut let's try to see if there's a standard abbreviation or common name.\n\nI found online in my mind: they are part of the somatic nervous system and are called the somatic efferent nerves.\n\nBut the question says \"also known as\", so perhaps \"somatic efferent nerves\".\n\nHowever, the question might be from a context where the answer is \"motor nerves\".\n\nBut to be safe, I think the answer is \"somatic motor nerves\".\n\nBut the problem says: \"the shortest direct answer\". So we can try to make it short.\n\nWhat about \"somatic nerves\"? But that's not specific.\n\nI remember that in some contexts, the efferent nerves for skeletal muscles are called the \"neuromuscular nerves\", but that's not standard.\n\nLet me make a decision.\n\nI think the answer they expect is \"somatic nerves\", but I'm not sure.\n\nWait, the question says: \"efferent nerves that control skeletal muscles\". The efferent nerves for skeletal muscles are the motor nerves of the somatic nervous system.\n\nIn many textbooks, they are simply called \"motor nerves\" (for skeletal muscles).\n\nBut the question says \"also known as\", so maybe \"motor nerves\".\n\nHowever, the motor nerves can be for autonomic as well? No, the autonomic nervous system has motor nerves for smooth and cardiac muscles, but skeletal muscles",
+            "somatic motor nerves"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 3,
+          "paraphrase": "What are the primary motor neurons responsible for controlling skeletal muscles?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "alpha motor neurons",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'alpha motor neurons'",
+            "llm_judge": "Alpha motor neurons are a type of efferent nerve that carry motor signals from the central nervous system to skeletal muscles, so they are semantically equivalent despite different terminology."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "alpha motor neurons",
+            "alpha motor neurons",
+            "alpha motor neurons",
+            "alpha motor neurons"
+          ],
+          "fitness": 0.0
+        }
+      ],
+      "attack_success_rate": {
+        "exact_match": 0.18181818181818182,
+        "llm_judge": 0.0
+      },
+      "rounds_attempted": 3,
+      "rounds": [
+        {
+          "round": 1,
+          "parents": [],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 1,
+          "n_queried": 4,
+          "candidates": [
+            {
+              "round": 1,
+              "paraphrase": "Which nerves control the skeletal muscles?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "somatic motor nerves",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'somatic motor nerves' ≈ 'somatic'",
+                "llm_judge": "Somatic motor nerves and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles, with efferent nerves being a subset of somatic motor nerves."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "somatic motor nerves",
+                "somatic motor nerves",
+                "somatic motor nerves",
+                "somatic motor nerves"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 1,
+              "paraphrase": "What type of neurons are responsible for controlling the skeletal muscles?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "motor neurons",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'motor neurons' ≈ 'somatic motor neurons'",
+                "llm_judge": "Motor neurons and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles or glands, with 'efferent' being a synonym for 'motor' in neuroanatomy."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "motor neurons",
+                "motor neurons",
+                "alpha motor neurons",
+                "somatic motor neurons"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "paraphrase": "Where are the motor neurons that control the skeletal muscles located?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "equivalence"
+            },
+            {
+              "round": 1,
+              "paraphrase": "What kind of nerves are involved in controlling the skeletal muscles?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "somatic motor nerves",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'somatic motor nerves' ≈ 'somatic'",
+                "llm_judge": "Somatic motor nerves and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles, with efferent nerves being a subset of somatic motor nerves."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "somatic motor neurons",
+                "somatic nerves",
+                "somatic nerves",
+                "somatic nerves"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 1,
+              "paraphrase": "What neurons are in charge of controlling the skeletal muscles?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "motor neurons",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'motor neurons' ≈ 'somatic motor neurons'",
+                "llm_judge": "Motor neurons and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles or glands, with 'efferent' being a synonym for 'motor' in neuroanatomy."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "motor neurons",
+                "motor neurons",
+                "somatic motor neurons",
+                "motor neurons"
+              ],
+              "fitness": 0.0
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "parents": [],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 3,
+          "n_queried": 2,
+          "candidates": [
+            {
+              "paraphrase": "What parts of the nervous system are responsible for controlling skeletal muscles?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation"
+            },
+            {
+              "round": 2,
+              "paraphrase": "Identify the neurons that are in charge of controlling the skeletal muscles.",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "motor neurons",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'motor neurons' ≈ 'somatic motor neurons'",
+                "llm_judge": "Motor neurons and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles or glands, with 'efferent' being a synonym for 'motor' in neuroanatomy."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "motor neurons",
+                "somatic motor neurons",
+                "somatic motor neurons",
+                "motor neurons"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "paraphrase": "List the types of neurons that control the skeletal muscles.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation"
+            },
+            {
+              "paraphrase": "What components of the nervous system are associated with skeletal muscle control?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation"
+            },
+            {
+              "round": 2,
+              "paraphrase": "Name the neurons that are responsible for the control of skeletal muscles.",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "motor neurons",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'motor neurons' ≈ 'somatic motor neurons'",
+                "llm_judge": "Motor neurons and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles or glands, with 'efferent' being a synonym for 'motor' in neuroanatomy."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "motor neurons",
+                "motor neurons",
+                "motor neurons",
+                "motor neurons"
+              ],
+              "fitness": 0.0
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "parents": [],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 5,
+          "candidates": [
+            {
+              "round": 3,
+              "paraphrase": "Which motor neurons are responsible for the control of skeletal muscles?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Alpha motor neurons",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction 'alpha motor neurons'",
+                "llm_judge": "Alpha motor neurons are a type of efferent nerve that carry motor signals from the central nervous system to skeletal muscles, so they are semantically equivalent despite different terminology."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "alpha motor neurons",
+                "alpha motor neurons",
+                "somatic motor neurons",
+                "somatic motor neurons"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 3,
+              "paraphrase": "What kind of motor neurons are in charge of controlling skeletal muscles?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "somatic motor neurons",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'somatic motor neurons' ≈ 'somatic motor neurons'",
+                "llm_judge": "Somatic motor neurons are a type of efferent nerve that control voluntary muscle movements, so they refer to the same concept with different terminology."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "somatic motor neurons",
+                "alpha motor neurons",
+                "somatic motor neurons",
+                "alpha motor neurons"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 3,
+              "paraphrase": "The motor neurons that control skeletal muscles are referred to as?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "somatic motor neurons",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'somatic motor neurons' ≈ 'somatic motor neurons'",
+                "llm_judge": "Somatic motor neurons are a type of efferent nerve that control voluntary muscle movements, so they refer to the same concept with different terminology."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "somatic motor neurons",
+                "somatic motor neurons",
+                "somatic motor neurons",
+                "somatic motor neurons"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 3,
+              "paraphrase": "The efferent nerves that control skeletal muscles are also known as?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "somatic motor nerves",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'somatic motor nerves' ≈ 'somatic'",
+                "llm_judge": "Somatic motor nerves and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles, with efferent nerves being a subset of somatic motor nerves."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "somatic motor nerves",
+                "somatic",
+                "We are to find the name for the efferent nerves that control skeletal muscles.\n\nEfferent nerves carry signals away from the central nervous system to the effectors (muscles or glands). In the context of skeletal muscles, the efferent nerves that control them are part of the somatic nervous system.\n\nSpecifically, the nerves that innervate skeletal muscles are called the somatic motor nerves. However, the question asks for the name of the e as the efferent nerves that control skeletal muscles.\n\nIn the somatic nervous system, the efferent (motor) nerves that control skeletal muscles are known as the \"somatic motor neurons\" or \"somatic efferent nerves\". But the question might be looking for a more specific term.\n\nAlternatively, note that the entire system that controls skeletal muscles is the somatic nervous system, and the efferent part is the somatic motor division.\n\nBut the question says \"efferent nerves\". So the nerves themselves are called the somatic motor nerves.\n\nHowever, there is a common term: the efferent nerves that control skeletal muscles are the \"somatic nerves\" or more precisely, they are part of the somatic motor system.\n\nWait, let's think about the answer. In neuroanatomy, the nerves that carry motor signals to skeletal muscles are called the \"motor nerves\" or \"efferent nerves of the somatic nervous system\".\n\nBut the question might expect the term \"somatic motor nerves\".\n\nHowever, note that the question says: \"The efferent nerves that control skeletal muscles are also known as?\"\n\nI recall that in some contexts, they are called the \"somatic efferent nerves\".\n\nBut the most direct answer that is commonly used is \"somatic motor nerves\".\n\nAlternatively, the entire system is the somatic nervous system, but the nerves that control skeletal muscles specifically are the motor nerves of the somatic system.\n\nWait, there's a standard answer: the efferent nerves that control skeletal muscles are called the \"somatic nerves\".\n\nBut let me check: in the somatic nervous system, the efferent division is the motor division. So the nerves are the somatic motor nerves.\n\nHowever, the question says \"also known as\". So what is the alternative name?\n\nI think the answer is \"somatic motor nerves\".\n\nBut wait, there's another possibility: the nerves that control skeletal muscles are the \"neuromuscular nerves\" but that's not standard.\n\nLet me think about the answer that is typically expected.\n\nIn many textbooks, the efferent nerves that control skeletal muscles are called the \"somatic efferent nerves\". But that might be too long.\n\nAlternatively, they are simply called \"motor nerves\".\n\nBut the question specifies \"efferent nerves that control skeletal muscles\", so the answer might be \"somatic motor nerves\".\n\nHowever, note that the question says \"also known as\". So we are to give a name that is an alternative.\n\nI remember: in the context of the autonomic nervous system, the efferent nerves are divided into sympathetic and parasympathetic. But the efferent nerves for skeletal muscles are not part of the autonomic system.\n\nSo the answer should be the somatic motor nerves.\n\nBut let's see if there's a more concise term.\n\nI think the standard answer is \"somatic nerves\" but that might be ambiguous.\n\nWait, the somatic nervous system includes both afferent and efferent. The efferent part is the motor nerves.\n\nSo the efferent nerves that control skeletal muscles are the somatic motor nerves.\n\nBut the question might be looking for the term \"somatic efferent nerves\".\n\nHowever, the instruction says: return only the answer itself, and the shortest direct answer.\n\nI have found that in some multiple-choice questions, the answer is \"somatic motor nerves\".\n\nBut let's try to recall: the efferent nerves for skeletal muscles are part of the somatic nervous system and are called the somatic motor neurons (but the question says nerves, not neurons).\n\nThe nerves are the axons of the motor neurons that run to the skeletal muscles.\n\nSo the nerves are called the somatic motor nerves.\n\nAlternatively, they are known as the \"efferent nerves of the somatic system\".\n\nBut the question says \"also known as\", so we want a term that is an alternative name.\n\nI think the answer is \"somatic motor nerves\".\n\nHowever, I remember that in some contexts, they are called the \"neuromuscular nerves\" but that is not standard.\n\nLet me check online? But I can't. So I'll go with the standard.\n\nWait, the question might be expecting \"somatic nerves\" because the somatic nervous system is the system that controls skeletal muscles.\n\nBut note: the somatic nervous system includes sensory nerves as well. So the efferent part is the motor part.\n\nSo the efferent nerves that control skeletal muscles are the somatic motor nerves.\n\nI think the answer is \"somatic motor nerves\".\n\nBut let's see if there's a shorter term. In some texts, they are called \"voluntary nerves\" because skeletal muscles are under voluntary control.\n\nYes! The efferent nerves that control skeletal muscles are part of the voluntary nervous system. So they are also known as voluntary nerves.\n\nBut the term \"voluntary nerves\" is not commonly used. The term \"somatic motor nerves\" is more standard.\n\nWait, the question says \"also known as\". So what is the common alternative name?\n\nI found a source in my memory: in some contexts, they are called the \"somatic efferent nerves\".\n\nBut I think the expected answer in many educational contexts is \"somatic motor nerves\".\n\nHowever, let's try to be precise.\n\nAnother thought: the efferent nerves that control skeletal muscles are the same as the nerves of the somatic motor system.\n\nBut the question asks for the name.\n\nI recall that in the autonomic nervous system, the efferent nerves are the preganglionic and postganglionic nerves, but for skeletal muscles, it's not autonomic.\n\nSo for skeletal muscles, it's somatic.\n\nI think the answer is \"somatic motor nerves\".\n\nBut the problem says: \"return only the answer itself\". And we want the shortest direct answer.\n\nLet me see if there's a one-word answer? The question says \"efferent nerves that control skeletal muscles\". They are also known as the motor nerves? But that's not specific because motor nerves can also be for smooth and cardiac muscles? No, motor nerves for skeletal muscles are somatic.\n\nWait, the motor nerves for skeletal muscles are specifically the somatic motor nerves.\n\nBut the question might expect \"somatic nerves\" as a short answer? However, that is not precise because somatic nerves include sensory.\n\nI found a better idea: in some textbooks, they are called the \"efferent nerves of the somatic nervous system\".\n\nBut the question asks for the shortest direct answer.\n\nI remember that the answer is \"somatic nerves\" but that's not entirely accurate.\n\nWait, let's think about the term used in the context of the question. The question says \"efferent nerves that control skeletal muscles\". The efferent nerves for skeletal muscles are part of the somatic nervous system and are called the somatic motor nerves.\n\nBut the term \"somatic motor nerves\" is two words.\n\nI think the answer they are looking for is \"somatic nerves\" but that might be misleading.\n\nAlternatively, the answer could be \"voluntary nerves\". Because skeletal muscles are under voluntary control.\n\nYes, that's a possibility. In common language, the nerves that control skeletal muscles are voluntary nerves.\n\nBut in scientific terms, it's somatic motor nerves.\n\nHowever, the question says \"also known as\", so it might be \"voluntary nerves\".\n\nLet me see: the efferent nerves that control skeletal muscles are voluntary because we can choose to move.\n\nSo they are also known as voluntary nerves.\n\nBut I think the more precise scientific term is \"somatic motor nerves\".\n\nGiven the instructions for the shortest direct answer, I'll go with \"somatic motor nerves\".\n\nBut wait, the problem says: \"return only the answer itself\". And we have to be the shortest.\n\nI recall that in some multiple-choice questions, the answer is \"somatic\".\n\nBut that's not the full term.\n\nAnother thought: the efferent nerves that control skeletal muscles are called the \"skeletal nerves\"? No, that's not a term.\n\nI think the best answer is \"somatic motor nerves\".\n\nBut let's try to see if there's a standard abbreviation or common name.\n\nI found online in my mind: they are part of the somatic nervous system and are called the somatic efferent nerves.\n\nBut the question says \"also known as\", so perhaps \"somatic efferent nerves\".\n\nHowever, the question might be from a context where the answer is \"motor nerves\".\n\nBut to be safe, I think the answer is \"somatic motor nerves\".\n\nBut the problem says: \"the shortest direct answer\". So we can try to make it short.\n\nWhat about \"somatic nerves\"? But that's not specific.\n\nI remember that in some contexts, the efferent nerves for skeletal muscles are called the \"neuromuscular nerves\", but that's not standard.\n\nLet me make a decision.\n\nI think the answer they expect is \"somatic nerves\", but I'm not sure.\n\nWait, the question says: \"efferent nerves that control skeletal muscles\". The efferent nerves for skeletal muscles are the motor nerves of the somatic nervous system.\n\nIn many textbooks, they are simply called \"motor nerves\" (for skeletal muscles).\n\nBut the question says \"also known as\", so maybe \"motor nerves\".\n\nHowever, the motor nerves can be for autonomic as well? No, the autonomic nervous system has motor nerves for smooth and cardiac muscles, but skeletal muscles",
+                "somatic motor nerves"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 3,
+              "paraphrase": "What are the primary motor neurons responsible for controlling skeletal muscles?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "alpha motor neurons",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction 'alpha motor neurons'",
+                "llm_judge": "Alpha motor neurons are a type of efferent nerve that carry motor signals from the central nervous system to skeletal muscles, so they are semantically equivalent despite different terminology."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "alpha motor neurons",
+                "alpha motor neurons",
+                "alpha motor neurons",
+                "alpha motor neurons"
+              ],
+              "fitness": 0.0
+            }
+          ]
+        }
+      ],
+      "n_valid_victim_queries": 11,
+      "successful_attacks": [
+        {
+          "round": 3,
+          "paraphrase": "Which motor neurons are responsible for the control of skeletal muscles?",
+          "victim_answer": "Alpha motor neurons",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 3,
+          "paraphrase": "What are the primary motor neurons responsible for controlling skeletal muscles?",
+          "victim_answer": "alpha motor neurons",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          }
+        }
+      ],
+      "n_successful_attacks": {
+        "exact_match": 2,
+        "llm_judge": 0
+      },
+      "attack_succeeded": {
+        "exact_match": true,
+        "llm_judge": false
+      }
+    },
+    {
+      "question_id": "nqo_validation_0019",
+      "original_question": "What age do you need to be to buy a bb gun?",
+      "ground_truths": [
+        "18"
+      ],
+      "victim_original_answer": "18",
+      "victim_original_correct": {
+        "exact_match": true,
+        "llm_judge": true
+      },
+      "paraphrases": [
+        {
+          "round": 1,
+          "paraphrase": "q1: At what age is it lawful to purchase a BB gun?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "16",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction '16'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "12 years",
+            "No specific age restriction",
+            "18",
+            "10 years old"
+          ],
+          "fitness": 0.8
+        },
+        {
+          "round": 1,
+          "paraphrase": "q2: What's the minimum age requirement to acquire a BB gun?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "18 years old",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '18 years old' ≈ '18'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "12 years old",
+            "10 years",
+            "12",
+            "18 years"
+          ],
+          "fitness": 0.6
+        },
+        {
+          "round": 1,
+          "paraphrase": "q3: How old must you be to buy a BB gun legally?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "18",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '18' ≈ '18'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "18",
+            "18",
+            "16",
+            "18"
+          ],
+          "fitness": 0.2
+        },
+        {
+          "round": 1,
+          "paraphrase": "q4: What age threshold must be met to purchase a BB gun?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "18",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '18' ≈ '18'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "18 years",
+            "12 years old",
+            "18",
+            "18"
+          ],
+          "fitness": 0.2
+        },
+        {
+          "round": 1,
+          "paraphrase": "q5: At what age can you lawfully purchase a BB gun?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "18",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '18' ≈ '18'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "12 years old",
+            "18",
+            "18",
+            "10"
+          ],
+          "fitness": 0.4
+        },
+        {
+          "round": 2,
+          "paraphrase": "What is the age at which a BB gun can be lawfully purchased?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "18 years",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '18 years' ≈ '18'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "12 years",
+            "12",
+            "18",
+            "10"
+          ],
+          "fitness": 0.6
+        },
+        {
+          "round": 2,
+          "paraphrase": "At what age do you need to be to legally acquire a BB gun?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "10",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction '10'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "18",
+            "18",
+            "No specific age",
+            "18"
+          ],
+          "fitness": 0.4
+        },
+        {
+          "round": 2,
+          "paraphrase": "What's the age limit for buying a BB gun?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "12 years old",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction '12 years old'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "18 years old",
+            "18 years",
+            "18 years old",
+            "18"
+          ],
+          "fitness": 0.2
+        },
+        {
+          "round": 2,
+          "paraphrase": "At what age can you buy a BB gun without restriction?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "18",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '18' ≈ '18'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "18",
+            "18",
+            "No minimum age",
+            "18"
+          ],
+          "fitness": 0.2
+        },
+        {
+          "round": 2,
+          "paraphrase": "How old must you be to legally purchase a BB gun?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "18",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '18' ≈ '18'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "10",
+            "18",
+            "18",
+            "18"
+          ],
+          "fitness": 0.2
+        },
+        {
+          "round": 3,
+          "paraphrase": "q11: At what age is it permissible to buy a BB gun?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "18",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '18' ≈ '18'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "10",
+            "8 years",
+            "18",
+            "18"
+          ],
+          "fitness": 0.4
+        },
+        {
+          "round": 3,
+          "paraphrase": "q12: What age do you need to be to lawfully purchase a BB gun?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "18",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '18' ≈ '18'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "12",
+            "18",
+            "12 years old",
+            "18"
+          ],
+          "fitness": 0.4
+        },
+        {
+          "round": 3,
+          "paraphrase": "q13: At what age is a BB gun considered suitable for purchase?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "10",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction '10'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "10",
+            "12 years old",
+            "12",
+            "12"
+          ],
+          "fitness": 1.0
+        },
+        {
+          "round": 3,
+          "paraphrase": "q14: What is the age threshold to legally acquire a BB gun?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "18 years",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '18 years' ≈ '18'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "18",
+            "18 years",
+            "18",
+            "12 years"
+          ],
+          "fitness": 0.2
+        },
+        {
+          "round": 3,
+          "paraphrase": "q15: At what age is a minor allowed to buy a BB gun?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "18 years",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '18 years' ≈ '18'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "12",
+            "12",
+            "10",
+            "18"
+          ],
+          "fitness": 0.6
+        }
+      ],
+      "attack_success_rate": {
+        "exact_match": 0.26666666666666666,
+        "llm_judge": 0.26666666666666666
+      },
+      "rounds_attempted": 3,
+      "rounds": [
+        {
+          "round": 1,
+          "parents": [],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 5,
+          "candidates": [
+            {
+              "round": 1,
+              "paraphrase": "q1: At what age is it lawful to purchase a BB gun?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "16",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction '16'",
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "12 years",
+                "No specific age restriction",
+                "18",
+                "10 years old"
+              ],
+              "fitness": 0.8
+            },
+            {
+              "round": 1,
+              "paraphrase": "q2: What's the minimum age requirement to acquire a BB gun?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "18 years old",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '18 years old' ≈ '18'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "12 years old",
+                "10 years",
+                "12",
+                "18 years"
+              ],
+              "fitness": 0.6
+            },
+            {
+              "round": 1,
+              "paraphrase": "q3: How old must you be to buy a BB gun legally?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "18",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '18' ≈ '18'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "18",
+                "18",
+                "16",
+                "18"
+              ],
+              "fitness": 0.2
+            },
+            {
+              "round": 1,
+              "paraphrase": "q4: What age threshold must be met to purchase a BB gun?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "18",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '18' ≈ '18'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "18 years",
+                "12 years old",
+                "18",
+                "18"
+              ],
+              "fitness": 0.2
+            },
+            {
+              "round": 1,
+              "paraphrase": "q5: At what age can you lawfully purchase a BB gun?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "18",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '18' ≈ '18'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "12 years old",
+                "18",
+                "18",
+                "10"
+              ],
+              "fitness": 0.4
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "parents": [
+            "q1: At what age is it lawful to purchase a BB gun?",
+            "q2: What's the minimum age requirement to acquire a BB gun?",
+            "q5: At what age can you lawfully purchase a BB gun?"
+          ],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 5,
+          "candidates": [
+            {
+              "round": 2,
+              "paraphrase": "What is the age at which a BB gun can be lawfully purchased?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "18 years",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '18 years' ≈ '18'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "12 years",
+                "12",
+                "18",
+                "10"
+              ],
+              "fitness": 0.6
+            },
+            {
+              "round": 2,
+              "paraphrase": "At what age do you need to be to legally acquire a BB gun?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "10",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction '10'",
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "18",
+                "18",
+                "No specific age",
+                "18"
+              ],
+              "fitness": 0.4
+            },
+            {
+              "round": 2,
+              "paraphrase": "What's the age limit for buying a BB gun?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "12 years old",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction '12 years old'",
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "18 years old",
+                "18 years",
+                "18 years old",
+                "18"
+              ],
+              "fitness": 0.2
+            },
+            {
+              "round": 2,
+              "paraphrase": "At what age can you buy a BB gun without restriction?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "18",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '18' ≈ '18'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "18",
+                "18",
+                "No minimum age",
+                "18"
+              ],
+              "fitness": 0.2
+            },
+            {
+              "round": 2,
+              "paraphrase": "How old must you be to legally purchase a BB gun?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "18",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '18' ≈ '18'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "10",
+                "18",
+                "18",
+                "18"
+              ],
+              "fitness": 0.2
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "parents": [
+            "q1: At what age is it lawful to purchase a BB gun?",
+            "q2: What's the minimum age requirement to acquire a BB gun?",
+            "What is the age at which a BB gun can be lawfully purchased?"
+          ],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 5,
+          "candidates": [
+            {
+              "round": 3,
+              "paraphrase": "q11: At what age is it permissible to buy a BB gun?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "18",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '18' ≈ '18'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "10",
+                "8 years",
+                "18",
+                "18"
+              ],
+              "fitness": 0.4
+            },
+            {
+              "round": 3,
+              "paraphrase": "q12: What age do you need to be to lawfully purchase a BB gun?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "18",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '18' ≈ '18'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "12",
+                "18",
+                "12 years old",
+                "18"
+              ],
+              "fitness": 0.4
+            },
+            {
+              "round": 3,
+              "paraphrase": "q13: At what age is a BB gun considered suitable for purchase?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "10",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction '10'",
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "10",
+                "12 years old",
+                "12",
+                "12"
+              ],
+              "fitness": 1.0
+            },
+            {
+              "round": 3,
+              "paraphrase": "q14: What is the age threshold to legally acquire a BB gun?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "18 years",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '18 years' ≈ '18'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "18",
+                "18 years",
+                "18",
+                "12 years"
+              ],
+              "fitness": 0.2
+            },
+            {
+              "round": 3,
+              "paraphrase": "q15: At what age is a minor allowed to buy a BB gun?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "18 years",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '18 years' ≈ '18'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "12",
+                "12",
+                "10",
+                "18"
+              ],
+              "fitness": 0.6
+            }
+          ]
+        }
+      ],
+      "n_valid_victim_queries": 15,
+      "successful_attacks": [
+        {
+          "round": 1,
+          "paraphrase": "q1: At what age is it lawful to purchase a BB gun?",
+          "victim_answer": "16",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "round": 2,
+          "paraphrase": "At what age do you need to be to legally acquire a BB gun?",
+          "victim_answer": "10",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "round": 2,
+          "paraphrase": "What's the age limit for buying a BB gun?",
+          "victim_answer": "12 years old",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "round": 3,
+          "paraphrase": "q13: At what age is a BB gun considered suitable for purchase?",
+          "victim_answer": "10",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        }
+      ],
+      "n_successful_attacks": {
+        "exact_match": 4,
+        "llm_judge": 4
+      },
+      "attack_succeeded": {
+        "exact_match": true,
+        "llm_judge": true
+      }
+    },
+    {
+      "question_id": "nqo_validation_1337",
+      "original_question": "What was the united states foreign policy after ww1 started?",
+      "ground_truths": [
+        "neutrality"
+      ],
+      "victim_original_answer": "Neutrality",
+      "victim_original_correct": {
+        "exact_match": true,
+        "llm_judge": true
+      },
+      "paraphrases": [],
+      "attack_success_rate": {
+        "exact_match": 0.0,
+        "llm_judge": 0.0
+      },
+      "rounds_attempted": 3,
+      "rounds": [
+        {
+          "round": 1,
+          "parents": [],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 5,
+          "n_queried": 0,
+          "candidates": [
+            {
+              "paraphrase": "How did the United States approach foreign policy when World War 1 began?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation"
+            },
+            {
+              "paraphrase": "What stance did the United States adopt towards international relations following the outbreak of World War 1?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation"
+            },
+            {
+              "paraphrase": "Did the United States maintain its neutrality when World War 1 started?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "equivalence"
+            },
+            {
+              "paraphrase": "What was the general attitude of the United States towards foreign policy in the immediate aftermath of World War 1's commencement?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation"
+            },
+            {
+              "paraphrase": "How did the United States balance its domestic and international responsibilities during the initial stages of World War 1?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "equivalence"
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "parents": [],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 5,
+          "n_queried": 0,
+          "candidates": [
+            {
+              "paraphrase": "What stance did the US government maintain when WW1 commenced?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation"
+            },
+            {
+              "paraphrase": "How did the United States' foreign policy evolve immediately after WW1 started?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "equivalence"
+            },
+            {
+              "paraphrase": "What position did the US take with regards to international relations at the onset of WW1?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation"
+            },
+            {
+              "paraphrase": "In what way did the US approach its foreign policy when WW1 broke out?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "equivalence"
+            },
+            {
+              "paraphrase": "How did the US navigate its foreign policy commitments during the early stages of WW1?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation"
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "parents": [],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 5,
+          "n_queried": 0,
+          "candidates": [
+            {
+              "paraphrase": "Under what circumstances did the United States adjust its foreign policy after World War 1 began?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "equivalence"
+            },
+            {
+              "paraphrase": "Following the start of World War 1, what adjustments did the United States make to its foreign policy stance?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "equivalence"
+            },
+            {
+              "paraphrase": "The United States' foreign policy underwent what changes after the outbreak of World War 1.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "equivalence"
+            },
+            {
+              "paraphrase": "What alterations did the United States make to its foreign policy following the commencement of World War 1?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "equivalence"
+            },
+            {
+              "paraphrase": "The United States foreign policy evolved in what way after World War 1 started.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "equivalence"
+            }
+          ]
+        }
+      ],
+      "n_valid_victim_queries": 0,
+      "successful_attacks": [],
+      "n_successful_attacks": {
+        "exact_match": 0,
+        "llm_judge": 0
+      },
+      "attack_succeeded": {
+        "exact_match": false,
+        "llm_judge": false
+      }
+    },
+    {
+      "question_id": "nqo_validation_1006",
+      "original_question": "When did the first marvel vs capcom come out?",
+      "ground_truths": [
+        "1998",
+        "in 1996",
+        "1996"
+      ],
+      "victim_original_answer": "1998",
+      "victim_original_correct": {
+        "exact_match": true,
+        "llm_judge": true
+      },
+      "paraphrases": [
+        {
+          "round": 1,
+          "paraphrase": "In what year did Marvel vs Capcom 1 see the light of day?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "1998",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '1998' ≈ '1998'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "1998",
+            "1998",
+            "1998",
+            "1998"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 1,
+          "paraphrase": "When was the first Marvel vs Capcom game released?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "1998",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '1998' ≈ '1998'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "1998",
+            "1998",
+            "1998",
+            "1998"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 1,
+          "paraphrase": "What was the initial year of the Marvel vs Capcom series?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "1998",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '1998' ≈ '1998'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "1998",
+            "1998",
+            "1998",
+            "1998"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 1,
+          "paraphrase": "At what point in time did Marvel vs Capcom 1 appear on the scene?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "1998",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '1998' ≈ '1998'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "1998",
+            "1994",
+            "1994",
+            "1998"
+          ],
+          "fitness": 0.4
+        },
+        {
+          "round": 1,
+          "paraphrase": "When was it that the inaugural Marvel vs Capcom game was published?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "1998",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '1998' ≈ '1998'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "1998",
+            "1998",
+            "1999",
+            "1998"
+          ],
+          "fitness": 0.2
+        },
+        {
+          "round": 2,
+          "paraphrase": "What year marked the arrival of Marvel vs Capcom 1?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "1998",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '1998' ≈ '1998'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "1998",
+            "1998",
+            "1998",
+            "1998"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 2,
+          "paraphrase": "Marvel vs Capcom 1's release date was in what year?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "1998",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '1998' ≈ '1998'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "1998",
+            "1998",
+            "2000",
+            "1998"
+          ],
+          "fitness": 0.2
+        },
+        {
+          "round": 2,
+          "paraphrase": "When did Marvel vs Capcom 1 first see the light of day?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "1998",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '1998' ≈ '1998'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "June 1998",
+            "1998",
+            "1998",
+            "1998"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 2,
+          "paraphrase": "The inaugural Marvel vs Capcom game, Marvel vs Capcom 1, came out in what year?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "1998",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '1998' ≈ '1998'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "1998",
+            "1998",
+            "1998",
+            "1998"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 3,
+          "paraphrase": "In which year did Marvel vs Capcom 1 make its first appearance?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "1998",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '1998' ≈ '1998'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "1998",
+            "1998",
+            "1998",
+            "1998"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 3,
+          "paraphrase": "When exactly did the first Marvel vs Capcom game make its debut?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "1998",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '1998' ≈ '1998'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "1998",
+            "1998",
+            "October 26, 2001",
+            "1998"
+          ],
+          "fitness": 0.2
+        },
+        {
+          "round": 3,
+          "paraphrase": "At what point did the inaugural Marvel vs Capcom game hit the market?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "1998",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '1998' ≈ '1998'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "1998",
+            "1998",
+            "1998",
+            "1998"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 3,
+          "paraphrase": "When was it that Marvel vs Capcom 1 initially came out?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "1998",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '1998' ≈ '1998'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "1998",
+            "1998",
+            "1998",
+            "1997"
+          ],
+          "fitness": 0.2
+        },
+        {
+          "round": 3,
+          "paraphrase": "In what year did the first game in the Marvel vs Capcom series release?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "1998",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '1998' ≈ '1998'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "1998",
+            "1998",
+            "1998",
+            "1998"
+          ],
+          "fitness": 0.0
+        }
+      ],
+      "attack_success_rate": {
+        "exact_match": 0.0,
+        "llm_judge": 0.0
+      },
+      "rounds_attempted": 3,
+      "rounds": [
+        {
+          "round": 1,
+          "parents": [],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 5,
+          "candidates": [
+            {
+              "round": 1,
+              "paraphrase": "In what year did Marvel vs Capcom 1 see the light of day?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "1998",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '1998' ≈ '1998'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "1998",
+                "1998",
+                "1998",
+                "1998"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 1,
+              "paraphrase": "When was the first Marvel vs Capcom game released?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "1998",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '1998' ≈ '1998'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "1998",
+                "1998",
+                "1998",
+                "1998"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 1,
+              "paraphrase": "What was the initial year of the Marvel vs Capcom series?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "1998",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '1998' ≈ '1998'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "1998",
+                "1998",
+                "1998",
+                "1998"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 1,
+              "paraphrase": "At what point in time did Marvel vs Capcom 1 appear on the scene?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "1998",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '1998' ≈ '1998'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "1998",
+                "1994",
+                "1994",
+                "1998"
+              ],
+              "fitness": 0.4
+            },
+            {
+              "round": 1,
+              "paraphrase": "When was it that the inaugural Marvel vs Capcom game was published?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "1998",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '1998' ≈ '1998'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "1998",
+                "1998",
+                "1999",
+                "1998"
+              ],
+              "fitness": 0.2
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "parents": [
+            "At what point in time did Marvel vs Capcom 1 appear on the scene?",
+            "When was it that the inaugural Marvel vs Capcom game was published?"
+          ],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 1,
+          "n_queried": 4,
+          "candidates": [
+            {
+              "paraphrase": "Exactly when did Marvel vs Capcom 1 burst into the gaming scene?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation"
+            },
+            {
+              "round": 2,
+              "paraphrase": "What year marked the arrival of Marvel vs Capcom 1?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "1998",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '1998' ≈ '1998'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "1998",
+                "1998",
+                "1998",
+                "1998"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 2,
+              "paraphrase": "Marvel vs Capcom 1's release date was in what year?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "1998",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '1998' ≈ '1998'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "1998",
+                "1998",
+                "2000",
+                "1998"
+              ],
+              "fitness": 0.2
+            },
+            {
+              "round": 2,
+              "paraphrase": "When did Marvel vs Capcom 1 first see the light of day?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "1998",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '1998' ≈ '1998'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "June 1998",
+                "1998",
+                "1998",
+                "1998"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 2,
+              "paraphrase": "The inaugural Marvel vs Capcom game, Marvel vs Capcom 1, came out in what year?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "1998",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '1998' ≈ '1998'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "1998",
+                "1998",
+                "1998",
+                "1998"
+              ],
+              "fitness": 0.0
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "parents": [
+            "At what point in time did Marvel vs Capcom 1 appear on the scene?",
+            "When was it that the inaugural Marvel vs Capcom game was published?",
+            "Marvel vs Capcom 1's release date was in what year?"
+          ],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 5,
+          "candidates": [
+            {
+              "round": 3,
+              "paraphrase": "In which year did Marvel vs Capcom 1 make its first appearance?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "1998",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '1998' ≈ '1998'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "1998",
+                "1998",
+                "1998",
+                "1998"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 3,
+              "paraphrase": "When exactly did the first Marvel vs Capcom game make its debut?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "1998",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '1998' ≈ '1998'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "1998",
+                "1998",
+                "October 26, 2001",
+                "1998"
+              ],
+              "fitness": 0.2
+            },
+            {
+              "round": 3,
+              "paraphrase": "At what point did the inaugural Marvel vs Capcom game hit the market?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "1998",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '1998' ≈ '1998'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "1998",
+                "1998",
+                "1998",
+                "1998"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 3,
+              "paraphrase": "When was it that Marvel vs Capcom 1 initially came out?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "1998",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '1998' ≈ '1998'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "1998",
+                "1998",
+                "1998",
+                "1997"
+              ],
+              "fitness": 0.2
+            },
+            {
+              "round": 3,
+              "paraphrase": "In what year did the first game in the Marvel vs Capcom series release?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "1998",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '1998' ≈ '1998'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "1998",
+                "1998",
+                "1998",
+                "1998"
+              ],
+              "fitness": 0.0
+            }
+          ]
+        }
+      ],
+      "n_valid_victim_queries": 14,
+      "successful_attacks": [],
+      "n_successful_attacks": {
+        "exact_match": 0,
+        "llm_judge": 0
+      },
+      "attack_succeeded": {
+        "exact_match": false,
+        "llm_judge": false
+      }
+    },
+    {
+      "question_id": "nqo_validation_0990",
+      "original_question": "Another name for the torso is the blank region of the body?",
+      "ground_truths": [
+        "trunk"
+      ],
+      "victim_original_answer": "trunk",
+      "victim_original_correct": {
+        "exact_match": true,
+        "llm_judge": true
+      },
+      "paraphrases": [
+        {
+          "round": 1,
+          "paraphrase": "Another term for the torso is the blank part of the body",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "trunk",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'trunk' ≈ 'trunk'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "trunk",
+            "trunk",
+            "trunk",
+            "trunk"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 1,
+          "paraphrase": "What else is the torso commonly referred to as?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "trunk",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'trunk' ≈ 'trunk'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "trunk",
+            "trunk",
+            "trunk",
+            "trunk"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 1,
+          "paraphrase": "The torso can also be known as the blank area of the human body",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "trunk",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'trunk' ≈ 'trunk'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "trunk",
+            "trunk",
+            "trunk",
+            "trunk"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 1,
+          "paraphrase": "What's another name for the middle region of the body?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "thorax",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'thorax'",
+            "llm_judge": "Both 'thorax' and 'trunk' refer to the same anatomical region in the human body, with 'trunk' being a more general term that encompasses the thorax."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "trunk",
+            "thorax",
+            "trunk",
+            "trunk"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 2,
+          "paraphrase": "Another term that can be used for the middle part of the body is the blank.",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "trunk",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'trunk' ≈ 'trunk'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "trunk",
+            "torso",
+            "trunk",
+            "torso"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 2,
+          "paraphrase": "What is another common name for the area between the neck and hips?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "torso",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'torso'",
+            "llm_judge": "Both 'torso' and 'trunk' refer to the central part of the body in anatomical terms, with 'trunk' being a common synonym for 'torso' in medical and biological contexts."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "torso",
+            "torso",
+            "torso",
+            "torso"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 2,
+          "paraphrase": "The section of the body between the shoulders and thighs is sometimes referred to as the blank.",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "trunk",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'trunk' ≈ 'trunk'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "trunk",
+            "trunk",
+            "trunk",
+            "trunk"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 3,
+          "paraphrase": "Another name that is often used for the torso is the blank.",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "trunk",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'trunk' ≈ 'trunk'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "trunk",
+            "trunk",
+            "trunk",
+            "trunk"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 3,
+          "paraphrase": "The torso is sometimes referred to as the blank.",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "trunk",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'trunk' ≈ 'trunk'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "trunk",
+            "trunk",
+            "trunk",
+            "trunk"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 3,
+          "paraphrase": "What is another way to refer to the torso?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "trunk",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'trunk' ≈ 'trunk'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "trunk",
+            "trunk",
+            "trunk",
+            "trunk"
+          ],
+          "fitness": 0.0
+        }
+      ],
+      "attack_success_rate": {
+        "exact_match": 0.2,
+        "llm_judge": 0.0
+      },
+      "rounds_attempted": 3,
+      "rounds": [
+        {
+          "round": 1,
+          "parents": [],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 1,
+          "n_queried": 4,
+          "candidates": [
+            {
+              "round": 1,
+              "paraphrase": "Another term for the torso is the blank part of the body",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "trunk",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'trunk' ≈ 'trunk'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "trunk",
+                "trunk",
+                "trunk",
+                "trunk"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 1,
+              "paraphrase": "What else is the torso commonly referred to as?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "trunk",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'trunk' ≈ 'trunk'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "trunk",
+                "trunk",
+                "trunk",
+                "trunk"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 1,
+              "paraphrase": "The torso can also be known as the blank area of the human body",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "trunk",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'trunk' ≈ 'trunk'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "trunk",
+                "trunk",
+                "trunk",
+                "trunk"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "paraphrase": "An alternative name for the torso is the empty section of the body",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation"
+            },
+            {
+              "round": 1,
+              "paraphrase": "What's another name for the middle region of the body?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "thorax",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction 'thorax'",
+                "llm_judge": "Both 'thorax' and 'trunk' refer to the same anatomical region in the human body, with 'trunk' being a more general term that encompasses the thorax."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "trunk",
+                "thorax",
+                "trunk",
+                "trunk"
+              ],
+              "fitness": 0.0
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "parents": [],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 2,
+          "n_queried": 3,
+          "candidates": [
+            {
+              "paraphrase": "The region below the neck and above the waist is often called the blank.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation"
+            },
+            {
+              "round": 2,
+              "paraphrase": "Another term that can be used for the middle part of the body is the blank.",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "trunk",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'trunk' ≈ 'trunk'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "trunk",
+                "torso",
+                "trunk",
+                "torso"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 2,
+              "paraphrase": "What is another common name for the area between the neck and hips?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "torso",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction 'torso'",
+                "llm_judge": "Both 'torso' and 'trunk' refer to the central part of the body in anatomical terms, with 'trunk' being a common synonym for 'torso' in medical and biological contexts."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "torso",
+                "torso",
+                "torso",
+                "torso"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 2,
+              "paraphrase": "The section of the body between the shoulders and thighs is sometimes referred to as the blank.",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "trunk",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'trunk' ≈ 'trunk'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "trunk",
+                "trunk",
+                "trunk",
+                "trunk"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "paraphrase": "What else do you call the torso, the central part of the human body?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation"
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "parents": [],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 2,
+          "n_queried": 3,
+          "candidates": [
+            {
+              "paraphrase": "The blank is another name for the torso.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation"
+            },
+            {
+              "round": 3,
+              "paraphrase": "Another name that is often used for the torso is the blank.",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "trunk",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'trunk' ≈ 'trunk'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "trunk",
+                "trunk",
+                "trunk",
+                "trunk"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 3,
+              "paraphrase": "The torso is sometimes referred to as the blank.",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "trunk",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'trunk' ≈ 'trunk'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "trunk",
+                "trunk",
+                "trunk",
+                "trunk"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 3,
+              "paraphrase": "What is another way to refer to the torso?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "trunk",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'trunk' ≈ 'trunk'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "trunk",
+                "trunk",
+                "trunk",
+                "trunk"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "paraphrase": "In common usage, the blank is another term for the torso.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation"
+            }
+          ]
+        }
+      ],
+      "n_valid_victim_queries": 10,
+      "successful_attacks": [
+        {
+          "round": 1,
+          "paraphrase": "What's another name for the middle region of the body?",
+          "victim_answer": "thorax",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 2,
+          "paraphrase": "What is another common name for the area between the neck and hips?",
+          "victim_answer": "torso",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          }
+        }
+      ],
+      "n_successful_attacks": {
+        "exact_match": 2,
+        "llm_judge": 0
+      },
+      "attack_succeeded": {
+        "exact_match": true,
+        "llm_judge": false
+      }
+    }
+  ],
+  "summary": {
+    "n_questions": 5,
+    "n_paraphrases_per_question": 5,
+    "max_rounds": 3,
+    "stop_on_success": false,
+    "evaluators_used": [
+      "exact_match",
+      "llm_judge"
+    ],
+    "overall_attack_success_rate": {
+      "exact_match": 0.1296969696969697,
+      "llm_judge": 0.05333333333333333
+    },
+    "question_attack_success_rate": {
+      "exact_match": 0.6,
+      "llm_judge": 0.2
+    },
+    "total_valid_victim_queries": 50,
+    "total_successful_attacks": {
+      "exact_match": 8,
+      "llm_judge": 4
+    },
+    "victim_baseline_accuracy": {
+      "exact_match": 1.0,
+      "llm_judge": 1.0
+    }
+  }
+}

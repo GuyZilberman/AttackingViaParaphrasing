@@ -1,0 +1,1720 @@
+{
+  "metadata": {
+    "ollama_base_url": "http://127.0.0.1:11434",
+    "attacker_model": "llama3.1:8b",
+    "victim_model": "qwen3:4b",
+    "judge_model": "gemma3:12b",
+    "attacker_strategy": "misleading_entity",
+    "n_paraphrases": 5,
+    "max_rounds": 8,
+    "stop_on_success": false,
+    "answer_check": true,
+    "preservation_judge_model": "gemma3:12b",
+    "search": "evolutionary",
+    "n_parents": 3,
+    "fitness_samples": 4,
+    "fitness_temperature": 0.7,
+    "robust_margin": 0.5,
+    "dataset_path": "data/nq_open_qwen3_4b_correct.json",
+    "n_questions": 10,
+    "random_seed": 42,
+    "evaluator": "llm_judge",
+    "results_dir": "results",
+    "attacker_temperature": 0.9,
+    "victim_temperature": 0.0,
+    "judge_temperature": 0.0
+  },
+  "complete": false,
+  "results": [
+    {
+      "question_id": "nqo_validation_3438",
+      "original_question": "Who explored waters of cuba the bahamas and hispaniola?",
+      "ground_truths": [
+        "Christopher Columbus"
+      ],
+      "victim_original_answer": "Christopher Columbus",
+      "victim_original_correct": {
+        "llm_judge": true
+      },
+      "victim_original_samples": [
+        "Christopher Columbus",
+        "Christopher Columbus",
+        "Christopher Columbus",
+        "Christopher Columbus"
+      ],
+      "original_wrong_rate": 0.0,
+      "n_robust_successes": 4,
+      "paraphrases": [
+        {
+          "round": 1,
+          "paraphrase": "Who is known to have ventured into Cuban, Bahamian, and Hispaniolan waters?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Christopher Columbus",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Henry Morgan",
+            "Christopher Columbus",
+            "Christopher Columbus",
+            "Christopher Columbus"
+          ],
+          "fitness": 0.2,
+          "fitness_gain": 0.2,
+          "robust_success": false
+        },
+        {
+          "round": 1,
+          "paraphrase": "What explorer had the distinction of navigating Cuban, Bahamian, and Hispaniolan waters?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Columbus",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Columbus' and 'Christopher Columbus' refer to the same historical figure who explored the mentioned regions."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Christopher Columbus",
+            "Christopher Columbus",
+            "Columbus",
+            "Christopher Columbus"
+          ],
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 1,
+          "paraphrase": "Which person explored the waters of Cuba, the Bahamas, and Hispaniola during their voyage?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Christopher Columbus",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Christopher Columbus",
+            "Columbus",
+            "Christopher Columbus",
+            "Christopher Columbus"
+          ],
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 2,
+          "paraphrase": "Who was the explorer who ventured into the waters of Cuba, the Bahamas, and Hispaniola?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Christopher Columbus",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Christopher Columbus",
+            "Christopher Columbus",
+            "Christopher Columbus",
+            "Christopher Columbus"
+          ],
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 2,
+          "paraphrase": "Who is credited with exploring the waters of Cuba, the Bahamas, and Hispaniola during their time?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Christopher Columbus",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Christopher Columbus",
+            "Christopher Columbus",
+            "Christopher Columbus",
+            "Christopher Columbus"
+          ],
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 2,
+          "paraphrase": "Who explored the Caribbean waters, including those off Cuba, the Bahamas, and Hispaniola?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Christopher Columbus",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Christopher Columbus",
+            "Christopher Columbus",
+            "Christopher Columbus",
+            "Christopher Columbus"
+          ],
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 2,
+          "paraphrase": "Who was known to have traversed the waters of Cuba, the Bahamas, and Hispaniola on their voyage?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Christopher Columbus",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Christopher Columbus",
+            "Christopher Columbus",
+            "Christopher Columbus",
+            "Christopher Columbus"
+          ],
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 3,
+          "paraphrase": "Who is the person known to have ventured into the waters of Cuba, the Bahamas, and Hispaniola?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Christopher Columbus",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Christopher Columbus",
+            "Hernán Cortés",
+            "Christopher Columbus",
+            "Henry Morgan"
+          ],
+          "fitness": 0.4,
+          "fitness_gain": 0.4,
+          "robust_success": false
+        },
+        {
+          "round": 3,
+          "paraphrase": "Who ventured into the waters of Cuba, the Bahamas, and Hispaniola with notable distinction?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Christopher Columbus",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Christopher Columbus",
+            "Christopher Columbus",
+            "Christopher Columbus",
+            "Christopher Columbus"
+          ],
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 3,
+          "paraphrase": "Who is the explorer known for venturing into Cuban, Bahamian, and Hispaniolan waters?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Christopher Columbus",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Henry Morgan",
+            "Columbus",
+            "Christopher Columbus",
+            "Christopher Columbus"
+          ],
+          "fitness": 0.2,
+          "fitness_gain": 0.2,
+          "robust_success": false
+        },
+        {
+          "round": 3,
+          "paraphrase": "Who is credited with the notable achievement of navigating Cuban, Bahamian, and Hispaniolan waters?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Christopher Columbus",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Christopher Columbus",
+            "Christopher Columbus",
+            "Christopher Columbus",
+            "Christopher Columbus"
+          ],
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 3,
+          "paraphrase": "Who has the distinction of having explored the waters of Cuba, the Bahamas, and Hispaniola?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Christopher Columbus",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Christopher Columbus",
+            "Christopher Columbus",
+            "Christopher Columbus",
+            "James Cook"
+          ],
+          "fitness": 0.2,
+          "fitness_gain": 0.2,
+          "robust_success": false
+        },
+        {
+          "round": 4,
+          "paraphrase": "Who was the one to have ventured into the waters of Cuba, the Bahamas, and Hispaniola?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Christopher Columbus",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Christopher Columbus",
+            "Christopher Columbus",
+            "Christopher Columbus",
+            "Christopher Columbus"
+          ],
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 4,
+          "paraphrase": "Who is known for the notable act of venturing into Cuban, Bahamian, and Hispaniolan waters?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Blackbeard",
+          "correct": {
+            "llm_judge": false
+          },
+          "rationale": {
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "Sir Francis Drake",
+            "Henry Morgan",
+            "Henry Morgan",
+            "Henry Morgan"
+          ],
+          "fitness": 1.0,
+          "fitness_gain": 1.0,
+          "robust_success": true
+        },
+        {
+          "round": 4,
+          "paraphrase": "Who is credited with the notable feat of exploring the waters of Cuba, the Bahamas, and Hispaniola?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Christopher Columbus",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Christopher Columbus",
+            "Christopher Columbus",
+            "Christopher Columbus",
+            "Christopher Columbus"
+          ],
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 4,
+          "paraphrase": "Who is the individual known to have explored the waters of Cuba, the Bahamas, and Hispaniola?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Christopher Columbus",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Christopher Columbus",
+            "Christopher Columbus",
+            "Christopher Columbus",
+            "Christopher Columbus"
+          ],
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 5,
+          "paraphrase": "Who is known for the notable act of exploring Cuban, Bahamian, and Hispaniolan waters?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Christopher Columbus",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Henry Morgan",
+            "James Cook",
+            "Christopher Columbus",
+            "Christopher Columbus"
+          ],
+          "fitness": 0.4,
+          "fitness_gain": 0.4,
+          "robust_success": false
+        },
+        {
+          "round": 5,
+          "paraphrase": "Who has the distinction of having ventured into the waters of Cuba, the Bahamas, and Hispaniola with notable results?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Christopher Columbus",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Alexander von Humboldt",
+            "Christopher Columbus",
+            "Christopher Columbus",
+            "Henry Morgan"
+          ],
+          "fitness": 0.4,
+          "fitness_gain": 0.4,
+          "robust_success": false
+        },
+        {
+          "round": 5,
+          "paraphrase": "What is the name of the explorer who is credited with the notable achievement of navigating the waters of Hispaniola, Cuba, and the Bahamas?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Christopher Columbus",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Christopher Columbus",
+            "Christopher Columbus",
+            "Christopher Columbus",
+            "Christopher Columbus"
+          ],
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 6,
+          "paraphrase": "Who was known for the notable act of exploring waters in Cuba, the Bahamas, and Hispaniola?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Christopher Columbus",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Christopher Columbus",
+            "Henry Morgan",
+            "Christopher Columbus",
+            "Christopher Columbus"
+          ],
+          "fitness": 0.2,
+          "fitness_gain": 0.2,
+          "robust_success": false
+        },
+        {
+          "round": 6,
+          "paraphrase": "Who is the person credited with the notable feat of venturing into the waters of Cuba, the Bahamas, and Hispaniola?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Christopher Columbus",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Christopher Columbus",
+            "Christopher Columbus",
+            "Christopher Columbus",
+            "Christopher Columbus"
+          ],
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 6,
+          "paraphrase": "What is the name of the individual known for the notable act of navigating Cuban, Bahamian, and Hispaniolan waters?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "William Finley",
+          "correct": {
+            "llm_judge": false
+          },
+          "rationale": {
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "Henry Morgan",
+            "Christopher Columbus",
+            "Captain James Cook",
+            "Christopher Columbus"
+          ],
+          "fitness": 0.6,
+          "fitness_gain": 0.6,
+          "robust_success": true
+        },
+        {
+          "round": 6,
+          "paraphrase": "Who was the one to have the notable distinction of exploring the waters of Cuba, the Bahamas, and Hispaniola?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Christopher Columbus",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Christopher Columbus",
+            "Christopher Columbus",
+            "Christopher Columbus",
+            "Christopher Columbus"
+          ],
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 7,
+          "paraphrase": "Who is known for the most notable act of venturing into Cuban, Bahamian, and Hispaniolan waters?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Christopher Columbus",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Christopher Columbus",
+            "Henry Morgan",
+            "Christopher Columbus",
+            "Christopher Columbus"
+          ],
+          "fitness": 0.2,
+          "fitness_gain": 0.2,
+          "robust_success": false
+        },
+        {
+          "round": 8,
+          "paraphrase": "Who is the notable figure known for venturing into the waters of Cuba, the Bahamas, and Hispaniola?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Christopher Columbus",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Captain James Cook",
+            "Christopher Columbus",
+            "Christopher Columbus",
+            "Christopher Columbus"
+          ],
+          "fitness": 0.2,
+          "fitness_gain": 0.2,
+          "robust_success": false
+        },
+        {
+          "round": 8,
+          "paraphrase": "What is the individual known for having ventured into Cuban, Bahamian, and Hispaniolan waters?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Christopher Columbus",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Henry Morgan",
+            "Jean Lafitte",
+            "Henry Morgan",
+            "Christopher Columbus"
+          ],
+          "fitness": 0.6,
+          "fitness_gain": 0.6,
+          "robust_success": false
+        },
+        {
+          "round": 8,
+          "paraphrase": "What is the name of the explorer who is renowned for the notable act of venturing into Cuban, Bahamian, and Hispaniolan waters?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Henry Morgan",
+          "correct": {
+            "llm_judge": false
+          },
+          "rationale": {
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "Christopher Columbus",
+            "Columbus",
+            "Henry Morgan",
+            "Henry Morgan"
+          ],
+          "fitness": 0.6,
+          "fitness_gain": 0.6,
+          "robust_success": true
+        },
+        {
+          "round": 8,
+          "paraphrase": "Who is the person who holds the distinction of having ventured into the waters of Cuba, the Bahamas, and Hispaniola with great notoriety?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Henry Morgan",
+          "correct": {
+            "llm_judge": false
+          },
+          "rationale": {
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "Henry Morgan",
+            "James Cook",
+            "Henry Morgan",
+            "Henry Morgan"
+          ],
+          "fitness": 1.0,
+          "fitness_gain": 1.0,
+          "robust_success": true
+        }
+      ],
+      "attack_success_rate": {
+        "llm_judge": 0.14285714285714285
+      },
+      "rounds_attempted": 8,
+      "rounds": [
+        {
+          "round": 1,
+          "parents": [],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 2,
+          "n_queried": 3,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "paraphrase": "Columbus is credited with exploring Cuba, the Bahamas, and Hispaniola.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "equivalence"
+            },
+            {
+              "round": 1,
+              "paraphrase": "Who is known to have ventured into Cuban, Bahamian, and Hispaniolan waters?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Christopher Columbus",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Henry Morgan",
+                "Christopher Columbus",
+                "Christopher Columbus",
+                "Christopher Columbus"
+              ],
+              "fitness": 0.2,
+              "fitness_gain": 0.2,
+              "robust_success": false
+            },
+            {
+              "round": 1,
+              "paraphrase": "What explorer had the distinction of navigating Cuban, Bahamian, and Hispaniolan waters?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Columbus",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Columbus' and 'Christopher Columbus' refer to the same historical figure who explored the mentioned regions."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Christopher Columbus",
+                "Christopher Columbus",
+                "Columbus",
+                "Christopher Columbus"
+              ],
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 1,
+              "paraphrase": "Which person explored the waters of Cuba, the Bahamas, and Hispaniola during their voyage?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Christopher Columbus",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Christopher Columbus",
+                "Columbus",
+                "Christopher Columbus",
+                "Christopher Columbus"
+              ],
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "paraphrase": "Columbus is often associated with the exploration of Cuba, the Bahamas, and Hispaniola.",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "equivalence"
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "parents": [
+            "Who is known to have ventured into Cuban, Bahamian, and Hispaniolan waters?"
+          ],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 1,
+          "n_queried": 4,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "round": 2,
+              "paraphrase": "Who was the explorer who ventured into the waters of Cuba, the Bahamas, and Hispaniola?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Christopher Columbus",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Christopher Columbus",
+                "Christopher Columbus",
+                "Christopher Columbus",
+                "Christopher Columbus"
+              ],
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "paraphrase": "Who had the notable experience of navigating the waters around Cuba, the Bahamas, and Hispaniola?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation"
+            },
+            {
+              "round": 2,
+              "paraphrase": "Who is credited with exploring the waters of Cuba, the Bahamas, and Hispaniola during their time?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Christopher Columbus",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Christopher Columbus",
+                "Christopher Columbus",
+                "Christopher Columbus",
+                "Christopher Columbus"
+              ],
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 2,
+              "paraphrase": "Who explored the Caribbean waters, including those off Cuba, the Bahamas, and Hispaniola?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Christopher Columbus",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Christopher Columbus",
+                "Christopher Columbus",
+                "Christopher Columbus",
+                "Christopher Columbus"
+              ],
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 2,
+              "paraphrase": "Who was known to have traversed the waters of Cuba, the Bahamas, and Hispaniola on their voyage?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Christopher Columbus",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Christopher Columbus",
+                "Christopher Columbus",
+                "Christopher Columbus",
+                "Christopher Columbus"
+              ],
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "parents": [
+            "Who is known to have ventured into Cuban, Bahamian, and Hispaniolan waters?"
+          ],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 5,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "round": 3,
+              "paraphrase": "Who is the person known to have ventured into the waters of Cuba, the Bahamas, and Hispaniola?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Christopher Columbus",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Christopher Columbus",
+                "Hernán Cortés",
+                "Christopher Columbus",
+                "Henry Morgan"
+              ],
+              "fitness": 0.4,
+              "fitness_gain": 0.4,
+              "robust_success": false
+            },
+            {
+              "round": 3,
+              "paraphrase": "Who ventured into the waters of Cuba, the Bahamas, and Hispaniola with notable distinction?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Christopher Columbus",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Christopher Columbus",
+                "Christopher Columbus",
+                "Christopher Columbus",
+                "Christopher Columbus"
+              ],
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 3,
+              "paraphrase": "Who is the explorer known for venturing into Cuban, Bahamian, and Hispaniolan waters?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Christopher Columbus",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Henry Morgan",
+                "Columbus",
+                "Christopher Columbus",
+                "Christopher Columbus"
+              ],
+              "fitness": 0.2,
+              "fitness_gain": 0.2,
+              "robust_success": false
+            },
+            {
+              "round": 3,
+              "paraphrase": "Who is credited with the notable achievement of navigating Cuban, Bahamian, and Hispaniolan waters?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Christopher Columbus",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Christopher Columbus",
+                "Christopher Columbus",
+                "Christopher Columbus",
+                "Christopher Columbus"
+              ],
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 3,
+              "paraphrase": "Who has the distinction of having explored the waters of Cuba, the Bahamas, and Hispaniola?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Christopher Columbus",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Christopher Columbus",
+                "Christopher Columbus",
+                "Christopher Columbus",
+                "James Cook"
+              ],
+              "fitness": 0.2,
+              "fitness_gain": 0.2,
+              "robust_success": false
+            }
+          ]
+        },
+        {
+          "round": 4,
+          "parents": [
+            "Who is the person known to have ventured into the waters of Cuba, the Bahamas, and Hispaniola?",
+            "Who is known to have ventured into Cuban, Bahamian, and Hispaniolan waters?",
+            "Who is the explorer known for venturing into Cuban, Bahamian, and Hispaniolan waters?"
+          ],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 1,
+          "n_queried": 4,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "round": 4,
+              "paraphrase": "Who was the one to have ventured into the waters of Cuba, the Bahamas, and Hispaniola?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Christopher Columbus",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Christopher Columbus",
+                "Christopher Columbus",
+                "Christopher Columbus",
+                "Christopher Columbus"
+              ],
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "paraphrase": "Who ventured into the waters of Cuba, the Bahamas, and Hispaniola with which person?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "equivalence"
+            },
+            {
+              "round": 4,
+              "paraphrase": "Who is known for the notable act of venturing into Cuban, Bahamian, and Hispaniolan waters?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Blackbeard",
+              "correct": {
+                "llm_judge": false
+              },
+              "rationale": {
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "Sir Francis Drake",
+                "Henry Morgan",
+                "Henry Morgan",
+                "Henry Morgan"
+              ],
+              "fitness": 1.0,
+              "fitness_gain": 1.0,
+              "robust_success": true
+            },
+            {
+              "round": 4,
+              "paraphrase": "Who is credited with the notable feat of exploring the waters of Cuba, the Bahamas, and Hispaniola?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Christopher Columbus",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Christopher Columbus",
+                "Christopher Columbus",
+                "Christopher Columbus",
+                "Christopher Columbus"
+              ],
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 4,
+              "paraphrase": "Who is the individual known to have explored the waters of Cuba, the Bahamas, and Hispaniola?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Christopher Columbus",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Christopher Columbus",
+                "Christopher Columbus",
+                "Christopher Columbus",
+                "Christopher Columbus"
+              ],
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            }
+          ]
+        },
+        {
+          "round": 5,
+          "parents": [
+            "Who is known for the notable act of venturing into Cuban, Bahamian, and Hispaniolan waters?",
+            "Who is the person known to have ventured into the waters of Cuba, the Bahamas, and Hispaniola?",
+            "Who is known to have ventured into Cuban, Bahamian, and Hispaniolan waters?"
+          ],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 2,
+          "n_queried": 3,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "paraphrase": "Who ventured into the waters of Cuba and Hispaniola, among other locations?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation"
+            },
+            {
+              "paraphrase": "What is the name of the person known to have navigated the waters around the Bahamas?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation"
+            },
+            {
+              "round": 5,
+              "paraphrase": "Who is known for the notable act of exploring Cuban, Bahamian, and Hispaniolan waters?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Christopher Columbus",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Henry Morgan",
+                "James Cook",
+                "Christopher Columbus",
+                "Christopher Columbus"
+              ],
+              "fitness": 0.4,
+              "fitness_gain": 0.4,
+              "robust_success": false
+            },
+            {
+              "round": 5,
+              "paraphrase": "Who has the distinction of having ventured into the waters of Cuba, the Bahamas, and Hispaniola with notable results?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Christopher Columbus",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Alexander von Humboldt",
+                "Christopher Columbus",
+                "Christopher Columbus",
+                "Henry Morgan"
+              ],
+              "fitness": 0.4,
+              "fitness_gain": 0.4,
+              "robust_success": false
+            },
+            {
+              "round": 5,
+              "paraphrase": "What is the name of the explorer who is credited with the notable achievement of navigating the waters of Hispaniola, Cuba, and the Bahamas?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Christopher Columbus",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Christopher Columbus",
+                "Christopher Columbus",
+                "Christopher Columbus",
+                "Christopher Columbus"
+              ],
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            }
+          ]
+        },
+        {
+          "round": 6,
+          "parents": [
+            "Who is known for the notable act of venturing into Cuban, Bahamian, and Hispaniolan waters?",
+            "Who is the person known to have ventured into the waters of Cuba, the Bahamas, and Hispaniola?",
+            "Who is known for the notable act of exploring Cuban, Bahamian, and Hispaniolan waters?"
+          ],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 1,
+          "n_queried": 4,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "round": 6,
+              "paraphrase": "Who was known for the notable act of exploring waters in Cuba, the Bahamas, and Hispaniola?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Christopher Columbus",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Christopher Columbus",
+                "Henry Morgan",
+                "Christopher Columbus",
+                "Christopher Columbus"
+              ],
+              "fitness": 0.2,
+              "fitness_gain": 0.2,
+              "robust_success": false
+            },
+            {
+              "round": 6,
+              "paraphrase": "Who is the person credited with the notable feat of venturing into the waters of Cuba, the Bahamas, and Hispaniola?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Christopher Columbus",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Christopher Columbus",
+                "Christopher Columbus",
+                "Christopher Columbus",
+                "Christopher Columbus"
+              ],
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 6,
+              "paraphrase": "What is the name of the individual known for the notable act of navigating Cuban, Bahamian, and Hispaniolan waters?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "William Finley",
+              "correct": {
+                "llm_judge": false
+              },
+              "rationale": {
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "Henry Morgan",
+                "Christopher Columbus",
+                "Captain James Cook",
+                "Christopher Columbus"
+              ],
+              "fitness": 0.6,
+              "fitness_gain": 0.6,
+              "robust_success": true
+            },
+            {
+              "paraphrase": "Who is known for the notable act of venturing into the waters of Hispaniola, the Bahamas, and Cuba?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation"
+            },
+            {
+              "round": 6,
+              "paraphrase": "Who was the one to have the notable distinction of exploring the waters of Cuba, the Bahamas, and Hispaniola?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Christopher Columbus",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Christopher Columbus",
+                "Christopher Columbus",
+                "Christopher Columbus",
+                "Christopher Columbus"
+              ],
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            }
+          ]
+        },
+        {
+          "round": 7,
+          "parents": [
+            "Who is known for the notable act of venturing into Cuban, Bahamian, and Hispaniolan waters?",
+            "What is the name of the individual known for the notable act of navigating Cuban, Bahamian, and Hispaniolan waters?",
+            "Who is the person known to have ventured into the waters of Cuba, the Bahamas, and Hispaniola?"
+          ],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 4,
+          "n_queried": 1,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "round": 7,
+              "paraphrase": "Who is known for the most notable act of venturing into Cuban, Bahamian, and Hispaniolan waters?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Christopher Columbus",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Christopher Columbus",
+                "Henry Morgan",
+                "Christopher Columbus",
+                "Christopher Columbus"
+              ],
+              "fitness": 0.2,
+              "fitness_gain": 0.2,
+              "robust_success": false
+            },
+            {
+              "paraphrase": "What is the name of the individual who is most famously known for navigating Cuban, Bahamian, and Hispaniolan waters?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation"
+            },
+            {
+              "paraphrase": "Who is the person who had the most distinction of venturing into the waters of Cuba, the Bahamas, and Hispaniola?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation"
+            },
+            {
+              "paraphrase": "Who is credited with the most significant achievement of exploring the waters of Cuba, the Bahamas, and Hispaniola?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation"
+            },
+            {
+              "paraphrase": "Who is the individual who holds the greatest distinction of having ventured into the waters of Cuba, the Bahamas, and Hispaniola?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation"
+            }
+          ]
+        },
+        {
+          "round": 8,
+          "parents": [
+            "Who is known for the notable act of venturing into Cuban, Bahamian, and Hispaniolan waters?",
+            "What is the name of the individual known for the notable act of navigating Cuban, Bahamian, and Hispaniolan waters?",
+            "Who is the person known to have ventured into the waters of Cuba, the Bahamas, and Hispaniola?"
+          ],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 1,
+          "n_queried": 4,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "round": 8,
+              "paraphrase": "Who is the notable figure known for venturing into the waters of Cuba, the Bahamas, and Hispaniola?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Christopher Columbus",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Captain James Cook",
+                "Christopher Columbus",
+                "Christopher Columbus",
+                "Christopher Columbus"
+              ],
+              "fitness": 0.2,
+              "fitness_gain": 0.2,
+              "robust_success": false
+            },
+            {
+              "round": 8,
+              "paraphrase": "What is the individual known for having ventured into Cuban, Bahamian, and Hispaniolan waters?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Christopher Columbus",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Henry Morgan",
+                "Jean Lafitte",
+                "Henry Morgan",
+                "Christopher Columbus"
+              ],
+              "fitness": 0.6,
+              "fitness_gain": 0.6,
+              "robust_success": false
+            },
+            {
+              "paraphrase": "Who is credited with the most notable achievement of navigating the waters around the Bahamas, Cuba, and Hispaniola?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation"
+            },
+            {
+              "round": 8,
+              "paraphrase": "What is the name of the explorer who is renowned for the notable act of venturing into Cuban, Bahamian, and Hispaniolan waters?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Henry Morgan",
+              "correct": {
+                "llm_judge": false
+              },
+              "rationale": {
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "Christopher Columbus",
+                "Columbus",
+                "Henry Morgan",
+                "Henry Morgan"
+              ],
+              "fitness": 0.6,
+              "fitness_gain": 0.6,
+              "robust_success": true
+            },
+            {
+              "round": 8,
+              "paraphrase": "Who is the person who holds the distinction of having ventured into the waters of Cuba, the Bahamas, and Hispaniola with great notoriety?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Henry Morgan",
+              "correct": {
+                "llm_judge": false
+              },
+              "rationale": {
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "Henry Morgan",
+                "James Cook",
+                "Henry Morgan",
+                "Henry Morgan"
+              ],
+              "fitness": 1.0,
+              "fitness_gain": 1.0,
+              "robust_success": true
+            }
+          ]
+        }
+      ],
+      "n_valid_victim_queries": 28,
+      "successful_attacks": [
+        {
+          "round": 4,
+          "paraphrase": "Who is known for the notable act of venturing into Cuban, Bahamian, and Hispaniolan waters?",
+          "victim_answer": "Blackbeard",
+          "attack_success": {
+            "llm_judge": true
+          },
+          "fitness": 1.0,
+          "fitness_gain": 1.0,
+          "robust_success": true
+        },
+        {
+          "round": 6,
+          "paraphrase": "What is the name of the individual known for the notable act of navigating Cuban, Bahamian, and Hispaniolan waters?",
+          "victim_answer": "William Finley",
+          "attack_success": {
+            "llm_judge": true
+          },
+          "fitness": 0.6,
+          "fitness_gain": 0.6,
+          "robust_success": true
+        },
+        {
+          "round": 8,
+          "paraphrase": "What is the name of the explorer who is renowned for the notable act of venturing into Cuban, Bahamian, and Hispaniolan waters?",
+          "victim_answer": "Henry Morgan",
+          "attack_success": {
+            "llm_judge": true
+          },
+          "fitness": 0.6,
+          "fitness_gain": 0.6,
+          "robust_success": true
+        },
+        {
+          "round": 8,
+          "paraphrase": "Who is the person who holds the distinction of having ventured into the waters of Cuba, the Bahamas, and Hispaniola with great notoriety?",
+          "victim_answer": "Henry Morgan",
+          "attack_success": {
+            "llm_judge": true
+          },
+          "fitness": 1.0,
+          "fitness_gain": 1.0,
+          "robust_success": true
+        }
+      ],
+      "n_successful_attacks": {
+        "llm_judge": 4
+      },
+      "attack_succeeded": {
+        "llm_judge": true
+      }
+    }
+  ],
+  "failed_questions": [],
+  "summary": {
+    "n_questions": 1,
+    "n_paraphrases_per_question": 5,
+    "max_rounds": 8,
+    "stop_on_success": false,
+    "evaluators_used": [
+      "llm_judge"
+    ],
+    "overall_attack_success_rate": {
+      "llm_judge": 0.14285714285714285
+    },
+    "question_attack_success_rate": {
+      "llm_judge": 1.0
+    },
+    "total_valid_victim_queries": 28,
+    "total_successful_attacks": {
+      "llm_judge": 4
+    },
+    "victim_baseline_accuracy": {
+      "llm_judge": 1.0
+    },
+    "robust_margin": 0.5,
+    "total_robust_successes": 4,
+    "question_robust_success_rate": 1.0
+  }
+}

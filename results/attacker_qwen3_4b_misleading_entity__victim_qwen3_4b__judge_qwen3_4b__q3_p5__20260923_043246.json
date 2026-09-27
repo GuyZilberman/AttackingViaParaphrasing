@@ -1,0 +1,334 @@
+{
+  "metadata": {
+    "ollama_base_url": "http://127.0.0.1:11434",
+    "attacker_model": "qwen3:4b",
+    "victim_model": "qwen3:4b",
+    "judge_model": "qwen3:4b",
+    "attacker_strategy": "misleading_entity",
+    "n_paraphrases": 5,
+    "dataset_path": null,
+    "n_questions": 3,
+    "random_seed": 42,
+    "evaluator": "both",
+    "results_dir": "results",
+    "attacker_temperature": 0.9,
+    "victim_temperature": 0.0,
+    "judge_temperature": 0.0
+  },
+  "results": [
+    {
+      "question_id": "nq_004",
+      "original_question": "Who painted the Mona Lisa?",
+      "ground_truths": [
+        "Leonardo da Vinci",
+        "Leonardo di ser Piero da Vinci"
+      ],
+      "victim_original_answer": "Leonardo da Vinci",
+      "victim_original_correct": {
+        "exact_match": true,
+        "llm_judge": true
+      },
+      "paraphrases": [
+        {
+          "paraphrase": "We don't want to change the entire question to be about a completely different painting?",
+          "victim_answer": "No",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'no'",
+            "llm_judge": "We are given:\nPrediction: \"No\"\nGround truth: \"Leonardo da Vinci\"\n\nWe must decide if they are semantically equivalent.\n\nS"
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          }
+        },
+        {
+          "paraphrase": "Actually, the Virgin of the Rocks is also by Leonardo da Vinci?",
+          "victim_answer": "not by da Vinci",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'not by da vinci'",
+            "llm_judge": "First, I need to decide if the prediction \"not by da Vinci\" is semantically equivalent to the ground truth \"Leonardo da "
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          }
+        },
+        {
+          "paraphrase": "How about:\n\n   - \"Who painted the Portrait of Jean de Bérenger?\" -> This is a painting by a different artist?",
+          "victim_answer": "Portrait of Jean de Bérenger",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'portrait of jean de berenger'",
+            "llm_judge": "First, I need to understand the task. I'm a strict QA evaluation judge, and I have to decide if the prediction is semant"
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          }
+        },
+        {
+          "paraphrase": "But the name is a bit longer?",
+          "victim_answer": "Benedictus",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'benedictus'",
+            "llm_judge": "We are given:\nPrediction: \"Benedictus\"\nGround truth: \"Leonardo da Vinci\"\n\nWe must decide if they are semantically equiva"
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          }
+        },
+        {
+          "paraphrase": "How about: \n      - \"Who painted the Mona Lisa's twin?\" -> This is not a real painting?",
+          "victim_answer": "No real twin painting exists",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'no real twin painting exists'",
+            "llm_judge": "We are given:\nPrediction: \"No real twin painting exists\"\nGround truth: \"Leonardo da Vinci\"\n\nWe must decide if they are s"
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          }
+        }
+      ],
+      "attack_success_rate": {
+        "exact_match": 1.0,
+        "llm_judge": 0.0
+      }
+    },
+    {
+      "question_id": "nq_001",
+      "original_question": "What is the capital of Australia?",
+      "ground_truths": [
+        "Canberra"
+      ],
+      "victim_original_answer": "Canberra",
+      "victim_original_correct": {
+        "exact_match": true,
+        "llm_judge": true
+      },
+      "paraphrases": [
+        {
+          "paraphrase": "Idea: We can change the country name to a different country, but that might be too obvious?",
+          "victim_answer": "a real country name",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'a real country name'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "paraphrase": "Alternative: Change the word \"capital\" to something else?",
+          "victim_answer": "city",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'city'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "paraphrase": "Changing the country to Canada might be too obvious?",
+          "victim_answer": "actually a separate country. However",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'actually a separate country however'",
+            "llm_judge": "We are given:\nPrediction: \"actually a separate country. However\"\nGround truth: \"Canberra\"\n\nWe must decide if they are se"
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          }
+        },
+        {
+          "paraphrase": "How about changing the word \"capital\" to \"headquarters\"?",
+          "victim_answer": "how about changing...",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'how about changing'",
+            "llm_judge": "We are given:\nPrediction: \"how about changing...\"\nGround truth: \"Canberra\"\n\nWe must decide if they are semantically equi"
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          }
+        },
+        {
+          "paraphrase": "Then the question becomes: \"What is the headquarters of Australia?\" -> but that's not a standard question and the answer is not well-defined?",
+          "victim_answer": "the capital",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'the capital'",
+            "llm_judge": "We are given:\nPrediction: \"the capital\"\nGround truth: \"Canberra\"\n\nWe must decide if they are semantically equivalent.\n\nS"
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          }
+        }
+      ],
+      "attack_success_rate": {
+        "exact_match": 1.0,
+        "llm_judge": 0.4
+      }
+    },
+    {
+      "question_id": "nq_009",
+      "original_question": "Which ancient civilization built Machu Picchu?",
+      "ground_truths": [
+        "Inca",
+        "Incas",
+        "Inca Empire",
+        "Incan civilization"
+      ],
+      "victim_original_answer": "Inca",
+      "victim_original_correct": {
+        "exact_match": true,
+        "llm_judge": true
+      },
+      "paraphrases": [
+        {
+          "paraphrase": "So the answer might be \"none\" or something else?",
+          "victim_answer": "yes",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'yes'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "paraphrase": "Idea 2: Change the word \"ancient\" to \"pre-Columbian\" -> then the question: \"Which pre-Columbian civilization built Machu Picchu?\" -> the answer is still Inca?",
+          "victim_answer": "Inca",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'inca' ≈ 'inca'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "paraphrase": "So the answer might be the same?",
+          "victim_answer": "simply that there's no question",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'simply that theres no question'",
+            "llm_judge": "We are given:\nPrediction: \"simply that there's no question\"\nGround truth: \"Inca\"\n\nWe must decide if they are semanticall"
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          }
+        },
+        {
+          "paraphrase": "So let's pick a site that was built by a different civilization?",
+          "victim_answer": "traditionally attributed to the Babylonian civilization",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'traditionally attributed to the babylonian civilization'",
+            "llm_judge": "We are given:\nPrediction: \"traditionally attributed to the Babylonian civilization\"\nGround truth: \"Inca Empire\"\n\nWe must"
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          }
+        },
+        {
+          "paraphrase": "Also, the Inca were an inhabited civilization?",
+          "victim_answer": "straightforward: yes",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'straightforward yes'",
+            "llm_judge": "We are given:\nPrediction: \"straightforward: yes\"\nGround truth: \"Inca\"\n\nWe must decide if they are semantically equivalen"
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          }
+        }
+      ],
+      "attack_success_rate": {
+        "exact_match": 0.8,
+        "llm_judge": 0.2
+      }
+    }
+  ],
+  "summary": {
+    "n_questions": 3,
+    "n_paraphrases_per_question": 5,
+    "evaluators_used": [
+      "exact_match",
+      "llm_judge"
+    ],
+    "overall_attack_success_rate": {
+      "exact_match": 0.9333333333333332,
+      "llm_judge": 0.20000000000000004
+    },
+    "victim_baseline_accuracy": {
+      "exact_match": 1.0,
+      "llm_judge": 1.0
+    }
+  }
+}

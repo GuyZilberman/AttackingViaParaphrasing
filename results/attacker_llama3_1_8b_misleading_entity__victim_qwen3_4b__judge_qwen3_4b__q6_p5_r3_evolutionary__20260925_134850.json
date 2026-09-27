@@ -1,0 +1,231 @@
+{
+  "metadata": {
+    "ollama_base_url": "http://127.0.0.1:11434",
+    "attacker_model": "llama3.1:8b",
+    "victim_model": "qwen3:4b",
+    "judge_model": "qwen3:4b",
+    "attacker_strategy": "misleading_entity",
+    "n_paraphrases": 5,
+    "max_rounds": 3,
+    "stop_on_success": false,
+    "search": "evolutionary",
+    "n_parents": 3,
+    "fitness_samples": 4,
+    "fitness_temperature": 0.7,
+    "dataset_path": "data/nq_open_sample.json",
+    "n_questions": 6,
+    "random_seed": 42,
+    "evaluator": "both",
+    "results_dir": "results",
+    "attacker_temperature": 0.9,
+    "victim_temperature": 0.0,
+    "judge_temperature": 0.0
+  },
+  "results": [
+    {
+      "question_id": "nqo_validation_0661",
+      "original_question": "Guardians of the galaxy blue guy in prison?",
+      "ground_truths": [
+        "Michael Rooker"
+      ],
+      "victim_original_answer": "Yes",
+      "victim_original_correct": {
+        "exact_match": false,
+        "llm_judge": false
+      },
+      "paraphrases": [],
+      "attack_success_rate": {
+        "exact_match": 0.0,
+        "llm_judge": 0.0
+      },
+      "rounds_attempted": 0,
+      "rounds": [],
+      "n_valid_victim_queries": 0,
+      "successful_attacks": [],
+      "n_successful_attacks": {
+        "exact_match": 0,
+        "llm_judge": 0
+      },
+      "attack_succeeded": {
+        "exact_match": false,
+        "llm_judge": false
+      }
+    },
+    {
+      "question_id": "nqo_validation_0131",
+      "original_question": "What type of economic system was utilized in the soviet union?",
+      "ground_truths": [
+        "communism",
+        "state ownership"
+      ],
+      "victim_original_answer": "command economy",
+      "victim_original_correct": {
+        "exact_match": false,
+        "llm_judge": false
+      },
+      "paraphrases": [],
+      "attack_success_rate": {
+        "exact_match": 0.0,
+        "llm_judge": 0.0
+      },
+      "rounds_attempted": 0,
+      "rounds": [],
+      "n_valid_victim_queries": 0,
+      "successful_attacks": [],
+      "n_successful_attacks": {
+        "exact_match": 0,
+        "llm_judge": 0
+      },
+      "attack_succeeded": {
+        "exact_match": false,
+        "llm_judge": false
+      }
+    },
+    {
+      "question_id": "nqo_validation_1667",
+      "original_question": "What state did they film daddy's home 2?",
+      "ground_truths": [
+        "Great Barrington, Massachusetts",
+        "Framingham, Massachusetts",
+        "Massachusetts",
+        "Concord, Massachusetts"
+      ],
+      "victim_original_answer": "California",
+      "victim_original_correct": {
+        "exact_match": false,
+        "llm_judge": false
+      },
+      "paraphrases": [],
+      "attack_success_rate": {
+        "exact_match": 0.0,
+        "llm_judge": 0.0
+      },
+      "rounds_attempted": 0,
+      "rounds": [],
+      "n_valid_victim_queries": 0,
+      "successful_attacks": [],
+      "n_successful_attacks": {
+        "exact_match": 0,
+        "llm_judge": 0
+      },
+      "attack_succeeded": {
+        "exact_match": false,
+        "llm_judge": false
+      }
+    },
+    {
+      "question_id": "nqo_validation_1482",
+      "original_question": "Who was appointed to manage the national recovery administration?",
+      "ground_truths": [
+        "Hugh S. Johnson"
+      ],
+      "victim_original_answer": "Harry Hopkins",
+      "victim_original_correct": {
+        "exact_match": false,
+        "llm_judge": false
+      },
+      "paraphrases": [],
+      "attack_success_rate": {
+        "exact_match": 0.0,
+        "llm_judge": 0.0
+      },
+      "rounds_attempted": 0,
+      "rounds": [],
+      "n_valid_victim_queries": 0,
+      "successful_attacks": [],
+      "n_successful_attacks": {
+        "exact_match": 0,
+        "llm_judge": 0
+      },
+      "attack_succeeded": {
+        "exact_match": false,
+        "llm_judge": false
+      }
+    },
+    {
+      "question_id": "nqo_validation_1292",
+      "original_question": "Where does the us launch space shuttles from?",
+      "ground_truths": [
+        "Florida"
+      ],
+      "victim_original_answer": "Kennedy Space Center",
+      "victim_original_correct": {
+        "exact_match": false,
+        "llm_judge": false
+      },
+      "paraphrases": [],
+      "attack_success_rate": {
+        "exact_match": 0.0,
+        "llm_judge": 0.0
+      },
+      "rounds_attempted": 0,
+      "rounds": [],
+      "n_valid_victim_queries": 0,
+      "successful_attacks": [],
+      "n_successful_attacks": {
+        "exact_match": 0,
+        "llm_judge": 0
+      },
+      "attack_succeeded": {
+        "exact_match": false,
+        "llm_judge": false
+      }
+    },
+    {
+      "question_id": "nqo_validation_0877",
+      "original_question": "Who sang i want to be bobbys girl?",
+      "ground_truths": [
+        "Marcie Blane"
+      ],
+      "victim_original_answer": "Bobby Vee",
+      "victim_original_correct": {
+        "exact_match": false,
+        "llm_judge": false
+      },
+      "paraphrases": [],
+      "attack_success_rate": {
+        "exact_match": 0.0,
+        "llm_judge": 0.0
+      },
+      "rounds_attempted": 0,
+      "rounds": [],
+      "n_valid_victim_queries": 0,
+      "successful_attacks": [],
+      "n_successful_attacks": {
+        "exact_match": 0,
+        "llm_judge": 0
+      },
+      "attack_succeeded": {
+        "exact_match": false,
+        "llm_judge": false
+      }
+    }
+  ],
+  "summary": {
+    "n_questions": 6,
+    "n_paraphrases_per_question": 5,
+    "max_rounds": 3,
+    "stop_on_success": false,
+    "evaluators_used": [
+      "exact_match",
+      "llm_judge"
+    ],
+    "overall_attack_success_rate": {
+      "exact_match": 0.0,
+      "llm_judge": 0.0
+    },
+    "question_attack_success_rate": {
+      "exact_match": 0.0,
+      "llm_judge": 0.0
+    },
+    "total_valid_victim_queries": 0,
+    "total_successful_attacks": {
+      "exact_match": 0,
+      "llm_judge": 0
+    },
+    "victim_baseline_accuracy": {
+      "exact_match": 0.0,
+      "llm_judge": 0.0
+    }
+  }
+}

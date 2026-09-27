@@ -1,0 +1,2569 @@
+{
+  "metadata": {
+    "ollama_base_url": "http://127.0.0.1:11434",
+    "attacker_model": "llama3.1:8b",
+    "victim_model": "qwen3:4b",
+    "judge_model": "qwen3:4b",
+    "attacker_strategy": "misleading_entity",
+    "n_paraphrases": 5,
+    "max_rounds": 3,
+    "stop_on_success": false,
+    "answer_check": true,
+    "search": "evolutionary",
+    "n_parents": 3,
+    "fitness_samples": 4,
+    "fitness_temperature": 0.7,
+    "dataset_path": "data/nq_open_qwen3_4b_correct.json",
+    "n_questions": 3,
+    "random_seed": 42,
+    "evaluator": "both",
+    "results_dir": "results",
+    "attacker_temperature": 0.9,
+    "victim_temperature": 0.0,
+    "judge_temperature": 0.0
+  },
+  "results": [
+    {
+      "question_id": "nqo_validation_0448",
+      "original_question": "All the motor neurons that control the skeletal muscles are?",
+      "ground_truths": [
+        "efferent nerves",
+        "Somatic motor neurons",
+        "Somatic"
+      ],
+      "victim_original_answer": "somatic motor neurons",
+      "victim_original_correct": {
+        "exact_match": true,
+        "llm_judge": true
+      },
+      "paraphrases": [
+        {
+          "round": 1,
+          "paraphrase": "What type of neurons control the skeletal muscles?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "motor neurons",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'motor neurons' ≈ 'somatic motor neurons'",
+            "llm_judge": "Motor neurons and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles or glands, with 'efferent' being a synonym for 'motor' in neuroanatomy."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "somatic motor neurons",
+            "motor neurons",
+            "motor neurons",
+            "motor neurons"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 1,
+          "paraphrase": "Which motor neurons are responsible for the contraction of skeletal muscles?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "somatic motor neurons",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'somatic motor neurons' ≈ 'somatic motor neurons'",
+            "llm_judge": "Somatic motor neurons are a type of efferent nerve that control voluntary muscle movements, so they refer to the same concept with different terminology."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "alpha motor neurons",
+            "alpha motor neurons",
+            "alpha motor neurons",
+            "alpha motor neurons"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 1,
+          "paraphrase": "What neurons are typically associated with the motor control of skeletal muscles?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "lower motor neurons",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'lower motor neurons'",
+            "llm_judge": "Both terms refer to the same biological concept of nerves that carry signals from the central nervous system to muscles, with 'lower motor neurons' being a specific type of efferent nerves."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "alpha motor neurons",
+            "motor neurons",
+            "motor neurons",
+            "alpha motor neurons"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 2,
+          "paraphrase": "Which type of neurons are responsible for the activation of skeletal muscles?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Motor neurons",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'motor neurons' ≈ 'somatic motor neurons'",
+            "llm_judge": "Motor neurons and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles or glands, with 'efferent' being a synonym for 'motor' in neuroanatomy."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "motor neurons",
+            "motor neurons",
+            "motor neurons",
+            "Motor neurons"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 2,
+          "paraphrase": "Identify the neurons that initiate muscle contractions in the skeletal system.",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "motor neurons",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'motor neurons' ≈ 'somatic motor neurons'",
+            "llm_judge": "Motor neurons and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles or glands, with 'efferent' being a synonym for 'motor' in neuroanatomy."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "motor neurons",
+            "motor neurons",
+            "motor neurons",
+            "motor neurons"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 2,
+          "paraphrase": "Skeletal muscle movement is primarily controlled by which type of neurons?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "alpha motor neurons",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'alpha motor neurons'",
+            "llm_judge": "Alpha motor neurons are a type of efferent nerve that carry motor signals from the central nervous system to skeletal muscles, so they are semantically equivalent despite different terminology."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "somatic motor neurons",
+            "motor neurons",
+            "motor neurons",
+            "motor neurons"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 2,
+          "paraphrase": "What category of neurons is directly responsible for controlling skeletal muscle contraction?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "motor neurons",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'motor neurons' ≈ 'somatic motor neurons'",
+            "llm_judge": "Motor neurons and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles or glands, with 'efferent' being a synonym for 'motor' in neuroanatomy."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "motor neurons",
+            "motor neurons",
+            "somatic motor neurons",
+            "motor neurons"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 2,
+          "paraphrase": "What neurons are responsible for transmitting signals to skeletal muscles to initiate contraction?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "motor neurons",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'motor neurons' ≈ 'somatic motor neurons'",
+            "llm_judge": "Motor neurons and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles or glands, with 'efferent' being a synonym for 'motor' in neuroanatomy."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "motor neurons",
+            "motor neurons",
+            "motor neurons",
+            "motor neurons"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 2,
+          "paraphrase": "The type of neurons responsible for the contraction of skeletal muscles is",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "somatic motor neurons",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'somatic motor neurons' ≈ 'somatic motor neurons'",
+            "llm_judge": "Somatic motor neurons are a type of efferent nerve that control voluntary muscle movements, so they refer to the same concept with different terminology."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "motor neurons",
+            "motor neurons",
+            "somatic motor neurons",
+            "motor neurons"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 2,
+          "paraphrase": "The neurons that control skeletal muscle activity are",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "somatic motor neurons",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'somatic motor neurons' ≈ 'somatic motor neurons'",
+            "llm_judge": "Somatic motor neurons are a type of efferent nerve that control voluntary muscle movements, so they refer to the same concept with different terminology."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "somatic motor neurons",
+            "somatic motor neurons",
+            "somatic motor neurons",
+            "somatic motor neurons"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 3,
+          "paraphrase": "What part of the nervous system is responsible for controlling skeletal muscles?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "somatic nervous system",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'somatic nervous system' ≈ 'somatic'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "somatic nervous system",
+            "somatic nervous system",
+            "somatic nervous system",
+            "somatic nervous system"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 3,
+          "paraphrase": "The motor control of skeletal muscles is carried out by which type of neurons?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "motor neurons",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'motor neurons' ≈ 'somatic motor neurons'",
+            "llm_judge": "Motor neurons and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles or glands, with 'efferent' being a synonym for 'motor' in neuroanatomy."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "motor neurons",
+            "lower motor neurons",
+            "lower motor neurons",
+            "somatic motor neurons"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 3,
+          "paraphrase": "Identify the neurons directly involved in the contraction of skeletal muscles.",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "motor neurons",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'motor neurons' ≈ 'somatic motor neurons'",
+            "llm_judge": "Motor neurons and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles or glands, with 'efferent' being a synonym for 'motor' in neuroanatomy."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "motor neurons",
+            "motor neurons",
+            "motor neurons",
+            "motor neurons"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 3,
+          "paraphrase": "Which type of nerve fibers are responsible for transmitting signals to skeletal muscles?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "motor neurons",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'motor neurons' ≈ 'somatic motor neurons'",
+            "llm_judge": "Motor neurons and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles or glands, with 'efferent' being a synonym for 'motor' in neuroanatomy."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "motor neurons",
+            "motor neurons",
+            "motor neurons",
+            "motor neurons"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 3,
+          "paraphrase": "What type of neurons initiate and control the contraction of skeletal muscles?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "motor neurons",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'motor neurons' ≈ 'somatic motor neurons'",
+            "llm_judge": "Motor neurons and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles or glands, with 'efferent' being a synonym for 'motor' in neuroanatomy."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "motor neurons",
+            "motor neurons",
+            "motor neurons",
+            "motor neurons"
+          ],
+          "fitness": 0.0
+        }
+      ],
+      "attack_success_rate": {
+        "exact_match": 0.13333333333333333,
+        "llm_judge": 0.0
+      },
+      "rounds_attempted": 3,
+      "rounds": [
+        {
+          "round": 1,
+          "parents": [],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 2,
+          "n_queried": 3,
+          "candidates": [
+            {
+              "round": 1,
+              "paraphrase": "What type of neurons control the skeletal muscles?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "motor neurons",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'motor neurons' ≈ 'somatic motor neurons'",
+                "llm_judge": "Motor neurons and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles or glands, with 'efferent' being a synonym for 'motor' in neuroanatomy."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "somatic motor neurons",
+                "motor neurons",
+                "motor neurons",
+                "motor neurons"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 1,
+              "paraphrase": "Which motor neurons are responsible for the contraction of skeletal muscles?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "somatic motor neurons",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'somatic motor neurons' ≈ 'somatic motor neurons'",
+                "llm_judge": "Somatic motor neurons are a type of efferent nerve that control voluntary muscle movements, so they refer to the same concept with different terminology."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "alpha motor neurons",
+                "alpha motor neurons",
+                "alpha motor neurons",
+                "alpha motor neurons"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "paraphrase": "Are the neurons that control skeletal muscle movement afferent or efferent?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation"
+            },
+            {
+              "round": 1,
+              "paraphrase": "What neurons are typically associated with the motor control of skeletal muscles?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "lower motor neurons",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction 'lower motor neurons'",
+                "llm_judge": "Both terms refer to the same biological concept of nerves that carry signals from the central nervous system to muscles, with 'lower motor neurons' being a specific type of efferent nerves."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "alpha motor neurons",
+                "motor neurons",
+                "motor neurons",
+                "alpha motor neurons"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "paraphrase": "Which of the following types of neurons are involved in the contraction of skeletal muscles?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation"
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "parents": [],
+          "n_generated": 10,
+          "n_duplicates": 0,
+          "n_rejected": 3,
+          "n_queried": 7,
+          "candidates": [
+            {
+              "round": 2,
+              "paraphrase": "Which type of neurons are responsible for the activation of skeletal muscles?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Motor neurons",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'motor neurons' ≈ 'somatic motor neurons'",
+                "llm_judge": "Motor neurons and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles or glands, with 'efferent' being a synonym for 'motor' in neuroanatomy."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "motor neurons",
+                "motor neurons",
+                "motor neurons",
+                "Motor neurons"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 2,
+              "paraphrase": "Identify the neurons that initiate muscle contractions in the skeletal system.",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "motor neurons",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'motor neurons' ≈ 'somatic motor neurons'",
+                "llm_judge": "Motor neurons and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles or glands, with 'efferent' being a synonym for 'motor' in neuroanatomy."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "motor neurons",
+                "motor neurons",
+                "motor neurons",
+                "motor neurons"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "paraphrase": "The neurons in question are those that",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation"
+            },
+            {
+              "round": 2,
+              "paraphrase": "Skeletal muscle movement is primarily controlled by which type of neurons?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "alpha motor neurons",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction 'alpha motor neurons'",
+                "llm_judge": "Alpha motor neurons are a type of efferent nerve that carry motor signals from the central nervous system to skeletal muscles, so they are semantically equivalent despite different terminology."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "somatic motor neurons",
+                "motor neurons",
+                "motor neurons",
+                "motor neurons"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 2,
+              "paraphrase": "What category of neurons is directly responsible for controlling skeletal muscle contraction?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "motor neurons",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'motor neurons' ≈ 'somatic motor neurons'",
+                "llm_judge": "Motor neurons and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles or glands, with 'efferent' being a synonym for 'motor' in neuroanatomy."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "motor neurons",
+                "motor neurons",
+                "somatic motor neurons",
+                "motor neurons"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "paraphrase": "All skeletal muscle movements are a result of the action of",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation"
+            },
+            {
+              "round": 2,
+              "paraphrase": "What neurons are responsible for transmitting signals to skeletal muscles to initiate contraction?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "motor neurons",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'motor neurons' ≈ 'somatic motor neurons'",
+                "llm_judge": "Motor neurons and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles or glands, with 'efferent' being a synonym for 'motor' in neuroanatomy."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "motor neurons",
+                "motor neurons",
+                "motor neurons",
+                "motor neurons"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 2,
+              "paraphrase": "The type of neurons responsible for the contraction of skeletal muscles is",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "somatic motor neurons",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'somatic motor neurons' ≈ 'somatic motor neurons'",
+                "llm_judge": "Somatic motor neurons are a type of efferent nerve that control voluntary muscle movements, so they refer to the same concept with different terminology."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "motor neurons",
+                "motor neurons",
+                "somatic motor neurons",
+                "motor neurons"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 2,
+              "paraphrase": "The neurons that control skeletal muscle activity are",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "somatic motor neurons",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'somatic motor neurons' ≈ 'somatic motor neurons'",
+                "llm_judge": "Somatic motor neurons are a type of efferent nerve that control voluntary muscle movements, so they refer to the same concept with different terminology."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "somatic motor neurons",
+                "somatic motor neurons",
+                "somatic motor neurons",
+                "somatic motor neurons"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "paraphrase": "Skeletal muscle activation is primarily caused by which type of neurons?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation"
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "parents": [],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 5,
+          "candidates": [
+            {
+              "round": 3,
+              "paraphrase": "What part of the nervous system is responsible for controlling skeletal muscles?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "somatic nervous system",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'somatic nervous system' ≈ 'somatic'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "somatic nervous system",
+                "somatic nervous system",
+                "somatic nervous system",
+                "somatic nervous system"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 3,
+              "paraphrase": "The motor control of skeletal muscles is carried out by which type of neurons?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "motor neurons",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'motor neurons' ≈ 'somatic motor neurons'",
+                "llm_judge": "Motor neurons and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles or glands, with 'efferent' being a synonym for 'motor' in neuroanatomy."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "motor neurons",
+                "lower motor neurons",
+                "lower motor neurons",
+                "somatic motor neurons"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 3,
+              "paraphrase": "Identify the neurons directly involved in the contraction of skeletal muscles.",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "motor neurons",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'motor neurons' ≈ 'somatic motor neurons'",
+                "llm_judge": "Motor neurons and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles or glands, with 'efferent' being a synonym for 'motor' in neuroanatomy."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "motor neurons",
+                "motor neurons",
+                "motor neurons",
+                "motor neurons"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 3,
+              "paraphrase": "Which type of nerve fibers are responsible for transmitting signals to skeletal muscles?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "motor neurons",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'motor neurons' ≈ 'somatic motor neurons'",
+                "llm_judge": "Motor neurons and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles or glands, with 'efferent' being a synonym for 'motor' in neuroanatomy."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "motor neurons",
+                "motor neurons",
+                "motor neurons",
+                "motor neurons"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 3,
+              "paraphrase": "What type of neurons initiate and control the contraction of skeletal muscles?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "motor neurons",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'motor neurons' ≈ 'somatic motor neurons'",
+                "llm_judge": "Motor neurons and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles or glands, with 'efferent' being a synonym for 'motor' in neuroanatomy."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "motor neurons",
+                "motor neurons",
+                "motor neurons",
+                "motor neurons"
+              ],
+              "fitness": 0.0
+            }
+          ]
+        }
+      ],
+      "n_valid_victim_queries": 15,
+      "successful_attacks": [
+        {
+          "round": 1,
+          "paraphrase": "What neurons are typically associated with the motor control of skeletal muscles?",
+          "victim_answer": "lower motor neurons",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 2,
+          "paraphrase": "Skeletal muscle movement is primarily controlled by which type of neurons?",
+          "victim_answer": "alpha motor neurons",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          }
+        }
+      ],
+      "n_successful_attacks": {
+        "exact_match": 2,
+        "llm_judge": 0
+      },
+      "attack_succeeded": {
+        "exact_match": true,
+        "llm_judge": false
+      }
+    },
+    {
+      "question_id": "nqo_validation_0019",
+      "original_question": "What age do you need to be to buy a bb gun?",
+      "ground_truths": [
+        "18"
+      ],
+      "victim_original_answer": "18",
+      "victim_original_correct": {
+        "exact_match": true,
+        "llm_judge": true
+      },
+      "paraphrases": [
+        {
+          "round": 1,
+          "paraphrase": "What minimum age do you need to be to purchase a BB gun?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "18",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '18' ≈ '18'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "18",
+            "10",
+            "18",
+            "10"
+          ],
+          "fitness": 0.4
+        },
+        {
+          "round": 1,
+          "paraphrase": "At what age can you legally buy a BB gun?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "12",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction '12'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "18",
+            "10",
+            "18 years old",
+            "16 years old"
+          ],
+          "fitness": 0.6
+        },
+        {
+          "round": 1,
+          "paraphrase": "What is the minimum age requirement for buying a BB gun?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "12",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction '12'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "12 years old",
+            "18 years old",
+            "18 years",
+            "16 years old"
+          ],
+          "fitness": 0.6
+        },
+        {
+          "round": 1,
+          "paraphrase": "How old do you have to be to buy a BB gun legally?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "18",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '18' ≈ '18'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "18",
+            "18",
+            "18",
+            "18"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 1,
+          "paraphrase": "What is the age limit for purchasing a BB gun?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "18 years",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '18 years' ≈ '18'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "18 years old",
+            "18 years old",
+            "18",
+            "18 years"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 2,
+          "paraphrase": "At which minimum age can you lawfully acquire a BB gun?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "18",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '18' ≈ '18'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "18",
+            "16",
+            "10 years old",
+            "10 years old"
+          ],
+          "fitness": 0.6
+        },
+        {
+          "round": 2,
+          "paraphrase": "What's the lowest age you must be to lawfully purchase a BB gun?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "16",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction '16'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "12",
+            "18",
+            "16 years old",
+            "18"
+          ],
+          "fitness": 0.6
+        },
+        {
+          "round": 2,
+          "paraphrase": "What age is the threshold for being allowed to buy a BB gun?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "10 years old",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction '10 years old'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "10 years",
+            "18",
+            "18",
+            "18"
+          ],
+          "fitness": 0.4
+        },
+        {
+          "round": 2,
+          "paraphrase": "At what age do you become legally qualified to acquire a BB gun?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "12",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction '12'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "No federal age requirement",
+            "18",
+            "18",
+            "18"
+          ],
+          "fitness": 0.4
+        },
+        {
+          "round": 3,
+          "paraphrase": "what is the age at which one can buy a BB gun legally?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "18",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '18' ≈ '18'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "16",
+            "12",
+            "18",
+            "18"
+          ],
+          "fitness": 0.4
+        },
+        {
+          "round": 3,
+          "paraphrase": "At what age are you legally allowed to acquire a BB gun?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "No legal age requirement.",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'no legal age requirement'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "12",
+            "18",
+            "10",
+            "12 years old"
+          ],
+          "fitness": 0.8
+        },
+        {
+          "round": 3,
+          "paraphrase": "At what minimum age can you lawfully purchase a BB gun?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "18",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '18' ≈ '18'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "10",
+            "18",
+            "18",
+            "18"
+          ],
+          "fitness": 0.2
+        },
+        {
+          "round": 3,
+          "paraphrase": "What minimum age do you have to be to legally buy a BB gun?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "18",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '18' ≈ '18'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "18",
+            "18",
+            "18",
+            "16"
+          ],
+          "fitness": 0.2
+        },
+        {
+          "round": 3,
+          "paraphrase": "At which age can you lawfully buy a BB gun?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "12",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction '12'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "12",
+            "18",
+            "18",
+            "10"
+          ],
+          "fitness": 0.6
+        }
+      ],
+      "attack_success_rate": {
+        "exact_match": 0.5,
+        "llm_judge": 0.5
+      },
+      "rounds_attempted": 3,
+      "rounds": [
+        {
+          "round": 1,
+          "parents": [],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 5,
+          "candidates": [
+            {
+              "round": 1,
+              "paraphrase": "What minimum age do you need to be to purchase a BB gun?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "18",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '18' ≈ '18'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "18",
+                "10",
+                "18",
+                "10"
+              ],
+              "fitness": 0.4
+            },
+            {
+              "round": 1,
+              "paraphrase": "At what age can you legally buy a BB gun?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "12",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction '12'",
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "18",
+                "10",
+                "18 years old",
+                "16 years old"
+              ],
+              "fitness": 0.6
+            },
+            {
+              "round": 1,
+              "paraphrase": "What is the minimum age requirement for buying a BB gun?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "12",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction '12'",
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "12 years old",
+                "18 years old",
+                "18 years",
+                "16 years old"
+              ],
+              "fitness": 0.6
+            },
+            {
+              "round": 1,
+              "paraphrase": "How old do you have to be to buy a BB gun legally?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "18",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '18' ≈ '18'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "18",
+                "18",
+                "18",
+                "18"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 1,
+              "paraphrase": "What is the age limit for purchasing a BB gun?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "18 years",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '18 years' ≈ '18'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "18 years old",
+                "18 years old",
+                "18",
+                "18 years"
+              ],
+              "fitness": 0.0
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "parents": [
+            "At what age can you legally buy a BB gun?",
+            "What is the minimum age requirement for buying a BB gun?",
+            "What minimum age do you need to be to purchase a BB gun?"
+          ],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 1,
+          "n_queried": 4,
+          "candidates": [
+            {
+              "round": 2,
+              "paraphrase": "At which minimum age can you lawfully acquire a BB gun?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "18",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '18' ≈ '18'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "18",
+                "16",
+                "10 years old",
+                "10 years old"
+              ],
+              "fitness": 0.6
+            },
+            {
+              "round": 2,
+              "paraphrase": "What's the lowest age you must be to lawfully purchase a BB gun?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "16",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction '16'",
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "12",
+                "18",
+                "16 years old",
+                "18"
+              ],
+              "fitness": 0.6
+            },
+            {
+              "paraphrase": "When does the minimum age requirement for buying a BB gun kick in?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation"
+            },
+            {
+              "round": 2,
+              "paraphrase": "What age is the threshold for being allowed to buy a BB gun?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "10 years old",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction '10 years old'",
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "10 years",
+                "18",
+                "18",
+                "18"
+              ],
+              "fitness": 0.4
+            },
+            {
+              "round": 2,
+              "paraphrase": "At what age do you become legally qualified to acquire a BB gun?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "12",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction '12'",
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "No federal age requirement",
+                "18",
+                "18",
+                "18"
+              ],
+              "fitness": 0.4
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "parents": [
+            "At what age can you legally buy a BB gun?",
+            "What is the minimum age requirement for buying a BB gun?",
+            "At which minimum age can you lawfully acquire a BB gun?"
+          ],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 5,
+          "candidates": [
+            {
+              "round": 3,
+              "paraphrase": "what is the age at which one can buy a BB gun legally?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "18",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '18' ≈ '18'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "16",
+                "12",
+                "18",
+                "18"
+              ],
+              "fitness": 0.4
+            },
+            {
+              "round": 3,
+              "paraphrase": "At what age are you legally allowed to acquire a BB gun?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "No legal age requirement.",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction 'no legal age requirement'",
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "12",
+                "18",
+                "10",
+                "12 years old"
+              ],
+              "fitness": 0.8
+            },
+            {
+              "round": 3,
+              "paraphrase": "At what minimum age can you lawfully purchase a BB gun?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "18",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '18' ≈ '18'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "10",
+                "18",
+                "18",
+                "18"
+              ],
+              "fitness": 0.2
+            },
+            {
+              "round": 3,
+              "paraphrase": "What minimum age do you have to be to legally buy a BB gun?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "18",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '18' ≈ '18'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "18",
+                "18",
+                "18",
+                "16"
+              ],
+              "fitness": 0.2
+            },
+            {
+              "round": 3,
+              "paraphrase": "At which age can you lawfully buy a BB gun?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "12",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction '12'",
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "12",
+                "18",
+                "18",
+                "10"
+              ],
+              "fitness": 0.6
+            }
+          ]
+        }
+      ],
+      "n_valid_victim_queries": 14,
+      "successful_attacks": [
+        {
+          "round": 1,
+          "paraphrase": "At what age can you legally buy a BB gun?",
+          "victim_answer": "12",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "round": 1,
+          "paraphrase": "What is the minimum age requirement for buying a BB gun?",
+          "victim_answer": "12",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "round": 2,
+          "paraphrase": "What's the lowest age you must be to lawfully purchase a BB gun?",
+          "victim_answer": "16",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "round": 2,
+          "paraphrase": "What age is the threshold for being allowed to buy a BB gun?",
+          "victim_answer": "10 years old",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "round": 2,
+          "paraphrase": "At what age do you become legally qualified to acquire a BB gun?",
+          "victim_answer": "12",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "round": 3,
+          "paraphrase": "At what age are you legally allowed to acquire a BB gun?",
+          "victim_answer": "No legal age requirement.",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "round": 3,
+          "paraphrase": "At which age can you lawfully buy a BB gun?",
+          "victim_answer": "12",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        }
+      ],
+      "n_successful_attacks": {
+        "exact_match": 7,
+        "llm_judge": 7
+      },
+      "attack_succeeded": {
+        "exact_match": true,
+        "llm_judge": true
+      }
+    },
+    {
+      "question_id": "nqo_validation_1337",
+      "original_question": "What was the united states foreign policy after ww1 started?",
+      "ground_truths": [
+        "neutrality"
+      ],
+      "victim_original_answer": "Neutrality",
+      "victim_original_correct": {
+        "exact_match": true,
+        "llm_judge": true
+      },
+      "paraphrases": [
+        {
+          "round": 1,
+          "paraphrase": "Under what policy did the United States operate internationally after WW1 began?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "neutrality",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'neutrality' ≈ 'neutrality'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "neutrality",
+            "neutrality",
+            "neutrality",
+            "Neutrality"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 1,
+          "paraphrase": "What stance did the United States adopt regarding foreign policy at the start of WW1?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Neutrality",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'neutrality' ≈ 'neutrality'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "neutrality",
+            "neutrality",
+            "neutrality",
+            "neutrality"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 1,
+          "paraphrase": "What was the U.S. foreign policy after the outbreak of WW1?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Entered WW1",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'entered ww1'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "Neutral until 1917",
+            "isolationism",
+            "neutrality",
+            "Neutrality"
+          ],
+          "fitness": 0.6
+        },
+        {
+          "round": 1,
+          "paraphrase": "What policy guided the United States' actions in the world after WW1 started?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "neutrality",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'neutrality' ≈ 'neutrality'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "isolationism",
+            "Neutrality",
+            "neutrality",
+            "isolationism"
+          ],
+          "fitness": 0.4
+        },
+        {
+          "round": 2,
+          "paraphrase": "What foreign policy stance was adopted by the United States upon the outbreak of WW1?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "neutrality",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'neutrality' ≈ 'neutrality'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "neutrality",
+            "neutrality",
+            "neutrality",
+            "neutrality"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 2,
+          "paraphrase": "The United States' policy regarding international relations was characterized by what after WW1 began.",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "neutrality",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'neutrality' ≈ 'neutrality'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "neutrality",
+            "neutrality",
+            "isolationism",
+            "isolationism"
+          ],
+          "fitness": 0.4
+        },
+        {
+          "round": 2,
+          "paraphrase": "The foreign policy of the United States was marked by what approach after the start of WW1.",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "isolationism",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'isolationism'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "interventionism",
+            "isolationism",
+            "interventionism",
+            "isolationism"
+          ],
+          "fitness": 1.0
+        },
+        {
+          "round": 3,
+          "paraphrase": "What policy characterized the United States' international approach after WW1?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "isolationism",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'isolationism'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "isolationism",
+            "isolationism",
+            "isolationism",
+            "isolationism"
+          ],
+          "fitness": 1.0
+        },
+        {
+          "round": 3,
+          "paraphrase": "The United States' actions abroad were governed by what policy after WW1 began?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "neutrality",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'neutrality' ≈ 'neutrality'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "neutrality policy",
+            "neutrality",
+            "neutrality",
+            "neutrality"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 3,
+          "paraphrase": "What principle guided the United States' foreign policy after the outbreak of WW1?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "isolationism",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'isolationism'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "moral diplomacy",
+            "isolationism",
+            "isolationism",
+            "Neutrality"
+          ],
+          "fitness": 0.8
+        },
+        {
+          "round": 3,
+          "paraphrase": "The United States' stance on international relations was marked by what policy after WW1?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "isolationism",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'isolationism'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "isolationism",
+            "isolationism",
+            "isolationism",
+            "isolationism"
+          ],
+          "fitness": 1.0
+        },
+        {
+          "round": 3,
+          "paraphrase": "What stance did the United States adopt in its international dealings after WW1 started?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "neutrality",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'neutrality' ≈ 'neutrality'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "neutrality",
+            "neutrality",
+            "neutrality",
+            "neutrality"
+          ],
+          "fitness": 0.0
+        }
+      ],
+      "attack_success_rate": {
+        "exact_match": 0.4166666666666667,
+        "llm_judge": 0.4166666666666667
+      },
+      "rounds_attempted": 3,
+      "rounds": [
+        {
+          "round": 1,
+          "parents": [],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 1,
+          "n_queried": 4,
+          "candidates": [
+            {
+              "round": 1,
+              "paraphrase": "Under what policy did the United States operate internationally after WW1 began?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "neutrality",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'neutrality' ≈ 'neutrality'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "neutrality",
+                "neutrality",
+                "neutrality",
+                "Neutrality"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 1,
+              "paraphrase": "What stance did the United States adopt regarding foreign policy at the start of WW1?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Neutrality",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'neutrality' ≈ 'neutrality'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "neutrality",
+                "neutrality",
+                "neutrality",
+                "neutrality"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "paraphrase": "How did the United States approach international relations immediately following the start of WW1?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation"
+            },
+            {
+              "round": 1,
+              "paraphrase": "What was the U.S. foreign policy after the outbreak of WW1?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Entered WW1",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction 'entered ww1'",
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "Neutral until 1917",
+                "isolationism",
+                "neutrality",
+                "Neutrality"
+              ],
+              "fitness": 0.6
+            },
+            {
+              "round": 1,
+              "paraphrase": "What policy guided the United States' actions in the world after WW1 started?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "neutrality",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'neutrality' ≈ 'neutrality'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "isolationism",
+                "Neutrality",
+                "neutrality",
+                "isolationism"
+              ],
+              "fitness": 0.4
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "parents": [
+            "What was the U.S. foreign policy after the outbreak of WW1?",
+            "What policy guided the United States' actions in the world after WW1 started?"
+          ],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 2,
+          "n_queried": 3,
+          "candidates": [
+            {
+              "paraphrase": "Under what policy was the United States' foreign involvement structured after WW1 commenced?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation"
+            },
+            {
+              "round": 2,
+              "paraphrase": "What foreign policy stance was adopted by the United States upon the outbreak of WW1?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "neutrality",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'neutrality' ≈ 'neutrality'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "neutrality",
+                "neutrality",
+                "neutrality",
+                "neutrality"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 2,
+              "paraphrase": "The United States' policy regarding international relations was characterized by what after WW1 began.",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "neutrality",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'neutrality' ≈ 'neutrality'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "neutrality",
+                "neutrality",
+                "isolationism",
+                "isolationism"
+              ],
+              "fitness": 0.4
+            },
+            {
+              "round": 2,
+              "paraphrase": "The foreign policy of the United States was marked by what approach after the start of WW1.",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "isolationism",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction 'isolationism'",
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "interventionism",
+                "isolationism",
+                "interventionism",
+                "isolationism"
+              ],
+              "fitness": 1.0
+            },
+            {
+              "paraphrase": "What policy governed the United States' actions in the international arena after WW1 started and lasted?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "equivalence"
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "parents": [
+            "The foreign policy of the United States was marked by what approach after the start of WW1.",
+            "What was the U.S. foreign policy after the outbreak of WW1?",
+            "What policy guided the United States' actions in the world after WW1 started?"
+          ],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 5,
+          "candidates": [
+            {
+              "round": 3,
+              "paraphrase": "What policy characterized the United States' international approach after WW1?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "isolationism",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction 'isolationism'",
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "isolationism",
+                "isolationism",
+                "isolationism",
+                "isolationism"
+              ],
+              "fitness": 1.0
+            },
+            {
+              "round": 3,
+              "paraphrase": "The United States' actions abroad were governed by what policy after WW1 began?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "neutrality",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'neutrality' ≈ 'neutrality'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "neutrality policy",
+                "neutrality",
+                "neutrality",
+                "neutrality"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 3,
+              "paraphrase": "What principle guided the United States' foreign policy after the outbreak of WW1?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "isolationism",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction 'isolationism'",
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "moral diplomacy",
+                "isolationism",
+                "isolationism",
+                "Neutrality"
+              ],
+              "fitness": 0.8
+            },
+            {
+              "round": 3,
+              "paraphrase": "The United States' stance on international relations was marked by what policy after WW1?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "isolationism",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction 'isolationism'",
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "isolationism",
+                "isolationism",
+                "isolationism",
+                "isolationism"
+              ],
+              "fitness": 1.0
+            },
+            {
+              "round": 3,
+              "paraphrase": "What stance did the United States adopt in its international dealings after WW1 started?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "neutrality",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'neutrality' ≈ 'neutrality'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "neutrality",
+                "neutrality",
+                "neutrality",
+                "neutrality"
+              ],
+              "fitness": 0.0
+            }
+          ]
+        }
+      ],
+      "n_valid_victim_queries": 12,
+      "successful_attacks": [
+        {
+          "round": 1,
+          "paraphrase": "What was the U.S. foreign policy after the outbreak of WW1?",
+          "victim_answer": "Entered WW1",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "round": 2,
+          "paraphrase": "The foreign policy of the United States was marked by what approach after the start of WW1.",
+          "victim_answer": "isolationism",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "round": 3,
+          "paraphrase": "What policy characterized the United States' international approach after WW1?",
+          "victim_answer": "isolationism",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "round": 3,
+          "paraphrase": "What principle guided the United States' foreign policy after the outbreak of WW1?",
+          "victim_answer": "isolationism",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "round": 3,
+          "paraphrase": "The United States' stance on international relations was marked by what policy after WW1?",
+          "victim_answer": "isolationism",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        }
+      ],
+      "n_successful_attacks": {
+        "exact_match": 5,
+        "llm_judge": 5
+      },
+      "attack_succeeded": {
+        "exact_match": true,
+        "llm_judge": true
+      }
+    }
+  ],
+  "summary": {
+    "n_questions": 3,
+    "n_paraphrases_per_question": 5,
+    "max_rounds": 3,
+    "stop_on_success": false,
+    "evaluators_used": [
+      "exact_match",
+      "llm_judge"
+    ],
+    "overall_attack_success_rate": {
+      "exact_match": 0.35000000000000003,
+      "llm_judge": 0.3055555555555556
+    },
+    "question_attack_success_rate": {
+      "exact_match": 1.0,
+      "llm_judge": 0.6666666666666666
+    },
+    "total_valid_victim_queries": 41,
+    "total_successful_attacks": {
+      "exact_match": 14,
+      "llm_judge": 12
+    },
+    "victim_baseline_accuracy": {
+      "exact_match": 1.0,
+      "llm_judge": 1.0
+    }
+  }
+}

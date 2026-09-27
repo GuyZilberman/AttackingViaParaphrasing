@@ -1,0 +1,1538 @@
+
+============================================================
+ADVERSARIAL PARAPHRASING EXPERIMENT
+============================================================
+  Attacker model    : llama3.1:8b
+  Attack strategy   : misleading_entity
+  Victim model      : qwen3:4b
+  Judge model       : gemma3:12b  (evaluator=llm_judge)
+  Questions         : 10
+  Paraphrases/round : 5
+  Max rounds        : 8  (stop_on_success=False)
+  Answer check      : gemma3:12b
+  Search            : evolutionary  (parents=3, fitness samples=4 @ T=0.7)
+  Dataset           : data/accepted_questions.json
+  Results dir       : results
+============================================================
+
+05:08:34  INFO     Loaded 10 questions
+05:08:34  INFO     Results file: results/attacker_llama3_1_8b_misleading_entity__victim_qwen3_4b__judge_gemma3_12b__q10_p5_r8_evolutionary__20260926_050834.json
+05:08:34  INFO     [1/10] Qnqo_validation_0943: Where was the capital of the habsburg empire located?
+05:08:37  INFO       Victim (original): 'Vienna'
+05:08:37  INFO       [llm_judge] original correct=True
+05:08:48  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+05:08:48  INFO       Attack round 1/8
+05:08:49  INFO         Generated 5 candidates
+05:09:09  INFO         Paraphrase: "Where was the Habsburgs' imperial seat situated?"  →  Victim: 'Vienna'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:09:29  INFO         Paraphrase: 'What city served as the central hub of the Habsburg Empire?'  →  Victim: 'Vienna'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:09:54  INFO         Paraphrase: "At which location was the Habsburg Empire's government established?"  →  Victim: 'Vienna'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:10:14  INFO         Paraphrase: 'Where was the imperial capital of the Habsburgs located?'  →  Victim: 'Vienna'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:10:35  INFO         Paraphrase: "What was the primary city associated with the Habsburg Empire's administration?"  →  Victim: 'Vienna'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:10:35  INFO         Round 1/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+05:10:35  INFO       Attack round 2/8
+05:10:37  INFO         Generated 5 candidates
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where was the capital of the habsburg empire located?
+Answer(s):  ['Vienna']
+Paraphrase: What geographic region hosted the Habsburg Empire's central authorities?
+
+05:11:03  INFO         Paraphrase: "In which territorial area was the Habsburg Empire's seat of power?"  →  Victim: 'Vienna'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where was the capital of the habsburg empire located?
+Answer(s):  ['Vienna']
+Paraphrase: What territorial entity was the location of the Habsburg Empire's capital?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where was the capital of the habsburg empire located?
+Answer(s):  ['Vienna']
+Paraphrase: At what point on the map was the Habsburg Empire's administrative center situated?
+
+05:11:35  INFO         Paraphrase: "What geographical location served as the nucleus of the Habsburg Empire's governance?"  →  Victim: 'Vienna'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+05:11:35  INFO         Round 2/8 done: 5 generated, 0 duplicates, 3 rejected, 2 passed validation (queried), 0 successful
+05:11:35  INFO       Attack round 3/8
+05:11:35  INFO         Evolving 1 parent(s):
+05:11:35  INFO           fitness=0.20  "In which territorial area was the Habsburg Empire's seat of power?"
+05:11:38  INFO         Generated 5 candidates
+05:11:59  INFO         Paraphrase: 'In which region was the seat of power for the Habsburg Empire located?'  →  Victim: 'Vienna'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:12:21  INFO         Paraphrase: "At which territorial point was the Habsburg Empire's central authority situated?"  →  Victim: 'Vienna'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where was the capital of the habsburg empire located?
+Answer(s):  ['Vienna']
+Paraphrase: What territorial boundary was home to the Habsburg Empire's administrative center?
+
+05:12:51  INFO         Paraphrase: "In which area of governance was the Habsburg Empire's capital situated?"  →  Victim: 'Austria'  correct={'llm_judge': False}  fitness=0.60 (3/5 wrong, llm_judge)
+05:12:51  INFO         *** ATTACK SUCCESS (round 3) ***
+        Paraphrase:    In which area of governance was the Habsburg Empire's capital situated?
+        Victim answer: Austria
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.60 vs 0.00 on the original (ROBUST)
+05:13:12  INFO         Paraphrase: "Where exactly was the Habsburg Empire's seat of power established?"  →  Victim: 'Vienna'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:13:12  INFO         Round 3/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 1 successful
+05:13:12  INFO       Attack round 4/8
+05:13:12  INFO         Evolving 1 parent(s):
+05:13:12  INFO           fitness=0.60  "In which area of governance was the Habsburg Empire's capital situated?"
+05:13:14  INFO         Generated 5 candidates
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where was the capital of the habsburg empire located?
+Answer(s):  ['Vienna']
+Paraphrase: In which sphere of governance did the Habsburg Empire's capital reside?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where was the capital of the habsburg empire located?
+Answer(s):  ['Vienna']
+Paraphrase: In what administrative context was the Habsburg Empire's capital situated?
+
+05:13:43  INFO         Paraphrase: "In the Habsburg Empire's system of governance, where was the capital located?"  →  Victim: 'Vienna'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:14:17  INFO         Paraphrase: 'The capital of the Habsburg Empire was situated in which domain of governance.'  →  Victim: 'Austria'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+05:14:17  INFO         *** ATTACK SUCCESS (round 4) ***
+        Paraphrase:    The capital of the Habsburg Empire was situated in which domain of governance.
+        Victim answer: Austria
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where was the capital of the habsburg empire located?
+Answer(s):  ['Vienna']
+Paraphrase: In the context of the Habsburg Empire's administration, where was the capital situated?
+
+05:14:21  INFO         Round 4/8 done: 5 generated, 0 duplicates, 3 rejected, 2 passed validation (queried), 1 successful
+05:14:21  INFO       Attack round 5/8
+05:14:21  INFO         Evolving 1 parent(s):
+05:14:21  INFO           fitness=1.00  'The capital of the Habsburg Empire was situated in which domain of governance.'
+05:14:23  INFO         Generated 5 candidates
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where was the capital of the habsburg empire located?
+Answer(s):  ['Vienna']
+Paraphrase: Which domain of governance hosted the capital of the Habsburg Empire?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where was the capital of the habsburg empire located?
+Answer(s):  ['Vienna']
+Paraphrase: The Habsburg Empire's capital was situated within which sphere of governance?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where was the capital of the habsburg empire located?
+Answer(s):  ['Vienna']
+Paraphrase: In which domain of the Habsburg Empire's administration was the capital located?
+
+05:15:29  INFO         Paraphrase: 'The capital of the Habsburg Empire resided in which administrative domain?'  →  Victim: 'Austria'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+05:15:29  INFO         *** ATTACK SUCCESS (round 5) ***
+        Paraphrase:    The capital of the Habsburg Empire resided in which administrative domain?
+        Victim answer: Austria
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+05:15:52  INFO         Paraphrase: 'Where in the governance of the Habsburg Empire was the capital situated?'  →  Victim: 'Vienna'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:15:52  INFO         Round 5/8 done: 5 generated, 0 duplicates, 3 rejected, 2 passed validation (queried), 1 successful
+05:15:52  INFO       Attack round 6/8
+05:15:52  INFO         Evolving 1 parent(s):
+05:15:52  INFO           fitness=1.00  'The capital of the Habsburg Empire was situated in which domain of governance.'
+05:15:54  INFO         Generated 5 candidates
+05:16:47  INFO         Paraphrase: "In which governing sphere was the Habsburg Empire's capital situated?"  →  Victim: 'Austrian sphere'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+05:16:47  INFO         *** ATTACK SUCCESS (round 6) ***
+        Paraphrase:    In which governing sphere was the Habsburg Empire's capital situated?
+        Victim answer: Austrian sphere
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+05:17:46  INFO         Paraphrase: "The Habsburg Empire's capital was located within which administrative scope?"  →  Victim: 'Austria'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+05:17:46  INFO         *** ATTACK SUCCESS (round 6) ***
+        Paraphrase:    The Habsburg Empire's capital was located within which administrative scope?
+        Victim answer: Austria
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+05:18:18  INFO         Paraphrase: 'The capital of the Habsburg Empire resided in which governing territory?'  →  Victim: 'Austria'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+05:18:18  INFO         *** ATTACK SUCCESS (round 6) ***
+        Paraphrase:    The capital of the Habsburg Empire resided in which governing territory?
+        Victim answer: Austria
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+05:19:06  INFO         Paraphrase: "In which area of administrative control was the Habsburg Empire's capital situated?"  →  Victim: 'Austrian lands'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+05:19:06  INFO         *** ATTACK SUCCESS (round 6) ***
+        Paraphrase:    In which area of administrative control was the Habsburg Empire's capital situated?
+        Victim answer: Austrian lands
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+05:19:29  INFO         Paraphrase: "The Habsburg Empire's central authority was situated in which governing domain?"  →  Victim: 'Austrian'  correct={'llm_judge': False}  fitness=0.60 (3/5 wrong, llm_judge)
+05:19:29  INFO         *** ATTACK SUCCESS (round 6) ***
+        Paraphrase:    The Habsburg Empire's central authority was situated in which governing domain?
+        Victim answer: Austrian
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.60 vs 0.00 on the original (ROBUST)
+05:19:29  INFO         Round 6/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 5 successful
+05:19:29  INFO       Attack round 7/8
+05:19:29  INFO         Evolving 1 parent(s):
+05:19:29  INFO           fitness=1.00  'The capital of the Habsburg Empire was situated in which domain of governance.'
+05:19:31  INFO         Generated 5 candidates
+05:20:02  INFO         Paraphrase: "In which governing sphere did the Habsburg Empire's capital reside?"  →  Victim: 'Austrian'  correct={'llm_judge': False}  fitness=0.60 (3/5 wrong, llm_judge)
+05:20:02  INFO         *** ATTACK SUCCESS (round 7) ***
+        Paraphrase:    In which governing sphere did the Habsburg Empire's capital reside?
+        Victim answer: Austrian
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.60 vs 0.00 on the original (ROBUST)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where was the capital of the habsburg empire located?
+Answer(s):  ['Vienna']
+Paraphrase: The Habsburg Empire's capital was situated within which administrative jurisdiction?
+
+05:20:29  INFO         Paraphrase: 'Where in the governance of the Habsburg Empire did its capital take up residence?'  →  Victim: 'Vienna'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:21:21  INFO         Paraphrase: 'The capital of the Habsburg Empire resided in which sovereign territory?'  →  Victim: 'Austria'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+05:21:21  INFO         *** ATTACK SUCCESS (round 7) ***
+        Paraphrase:    The capital of the Habsburg Empire resided in which sovereign territory?
+        Victim answer: Austria
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+05:22:05  INFO         Paraphrase: "In which administrative realm was the Habsburg Empire's capital situated?"  →  Victim: 'Archduchy of Austria'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+05:22:05  INFO         *** ATTACK SUCCESS (round 7) ***
+        Paraphrase:    In which administrative realm was the Habsburg Empire's capital situated?
+        Victim answer: Archduchy of Austria
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+05:22:05  INFO         Round 7/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 3 successful
+05:22:05  INFO       Attack round 8/8
+05:22:05  INFO         Evolving 2 parent(s):
+05:22:05  INFO           fitness=1.00  'The capital of the Habsburg Empire was situated in which domain of governance.'
+05:22:05  INFO           fitness=0.60  "In which governing sphere did the Habsburg Empire's capital reside?"
+05:22:08  INFO         Generated 5 candidates
+05:22:56  INFO         Paraphrase: "In which governing sphere did the Habsburg Empire's capital take up residence?"  →  Victim: 'Austria'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+05:22:56  INFO         *** ATTACK SUCCESS (round 8) ***
+        Paraphrase:    In which governing sphere did the Habsburg Empire's capital take up residence?
+        Victim answer: Austria
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where was the capital of the habsburg empire located?
+Answer(s):  ['Vienna']
+Paraphrase: What domain of governance hosted the capital of the Habsburg Empire?
+
+05:24:22  INFO         Paraphrase: "The Habsburg Empire's capital resided in which administrative sphere?"  →  Victim: 'Austria'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+05:24:22  INFO         *** ATTACK SUCCESS (round 8) ***
+        Paraphrase:    The Habsburg Empire's capital resided in which administrative sphere?
+        Victim answer: Austria
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+05:24:42  INFO         Paraphrase: "Where did the Habsburg Empire's capital reside within the governing sphere?"  →  Victim: 'Vienna'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:25:26  INFO         Paraphrase: "In which administrative sphere did the Habsburg Empire's capital find its seat?"  →  Victim: 'Austria'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+05:25:26  INFO         *** ATTACK SUCCESS (round 8) ***
+        Paraphrase:    In which administrative sphere did the Habsburg Empire's capital find its seat?
+        Victim answer: Austria
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+05:25:26  INFO         Round 8/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 3 successful
+05:25:26  INFO       Attack finished after 8 round(s): 28 valid victim queries, successful attacks per evaluator: {'llm_judge': 14}, robust: 14
+05:25:26  INFO     [2/10] Qnqo_validation_0964: What is the name of the big gold dome in jerusalem?
+05:25:29  INFO       Victim (original): 'Dome of the Rock'
+05:25:29  INFO       [llm_judge] original correct=True
+05:25:59  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+05:25:59  INFO       Attack round 1/8
+05:26:00  INFO         Generated 5 candidates
+05:26:22  INFO         Paraphrase: 'Which landmark in Jerusalem has a large gold dome?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:26:45  INFO         Paraphrase: 'What is the name of the gold-domed structure in the heart of Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: What major site in Jerusalem features a prominent gold dome?
+
+05:27:11  INFO         Paraphrase: 'What is the name of the gold-domed mosque in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:27:30  INFO         Paraphrase: 'What Jerusalem monument boasts a notable gold dome?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:27:30  INFO         Round 1/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+05:27:30  INFO       Attack round 2/8
+05:27:32  INFO         Generated 5 candidates
+05:27:53  INFO         Paraphrase: 'What iconic gold-domed edifice can be found in the city of Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:28:14  INFO         Paraphrase: 'What Jerusalem landmark boasts a prominent golden cupola?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:28:41  INFO         Paraphrase: 'What structure with a notable gold dome is situated in the heart of the city of Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: What gold-crowned monument is a prominent feature of Jerusalem's skyline?
+
+05:29:04  INFO         Paraphrase: 'What gold-domed architectural marvel in Jerusalem is a well-known tourist attraction?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:29:04  INFO         Round 2/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+05:29:04  INFO       Attack round 3/8
+05:29:06  INFO         Generated 5 candidates
+05:29:34  INFO         Paraphrase: 'What is the name of the structure with a prominent gold dome in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:29:57  INFO         Paraphrase: 'What gold-domed building is located in the city of Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:30:22  INFO         Paraphrase: 'What is the name of the landmark with a large gold dome in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:30:45  INFO         Paraphrase: 'What is the gold-domed site in Jerusalem that is often visited by tourists?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:31:21  INFO         Paraphrase: 'What is the name of the notable gold-crowned building in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:31:21  INFO         Round 3/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+05:31:21  INFO       Attack round 4/8
+05:31:23  INFO         Generated 5 candidates
+05:31:45  INFO         Paraphrase: 'Which prominent Jerusalem landmark features a large gold dome?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:32:07  INFO         Paraphrase: 'What structure in the city of Jerusalem is notable for its gold-colored dome?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:32:32  INFO         Paraphrase: 'What Jerusalem monument boasts a gold dome as its most distinctive feature?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: What gold-domed building in Jerusalem is easily recognizable from a distance?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: What famous site in Jerusalem is characterized by a large gold dome?
+
+05:32:40  INFO         Round 4/8 done: 5 generated, 0 duplicates, 2 rejected, 3 passed validation (queried), 0 successful
+05:32:40  INFO       Attack round 5/8
+05:32:42  INFO         Generated 5 candidates
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: What gold-clad monument is Jerusalem's most iconic landmark?
+
+05:33:06  INFO         Paraphrase: "What is the prominent gold-domed structure within Jerusalem's city limits?"  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: What gold-crowned edifice in Jerusalem has a rich historical significance?
+
+05:33:32  INFO         Paraphrase: 'What is the name of the notable gold-domed building situated in the heart of Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: What gold-domed structure in Jerusalem has become a symbol of the city's spiritual heritage?
+
+05:33:36  INFO         Round 5/8 done: 5 generated, 0 duplicates, 3 rejected, 2 passed validation (queried), 0 successful
+05:33:36  INFO       Attack round 6/8
+05:33:38  INFO         Generated 5 candidates
+05:34:02  INFO         Paraphrase: "What is the name of Jerusalem's famous gold-domed landmark?"  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:34:28  INFO         Paraphrase: "What gold-crowned structure is the centerpiece of Jerusalem's skyline?"  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:34:54  INFO         Paraphrase: 'Which monumental gold-domed building is located in the heart of Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:35:17  INFO         Paraphrase: "What is the name of the gold-domed architectural feature that dominates Jerusalem's horizon?"  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:35:39  INFO         Paraphrase: 'What is the prominent gold-domed structure in the city of Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:35:39  INFO         Round 6/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+05:35:39  INFO       Attack round 7/8
+05:35:41  INFO         Generated 5 candidates
+05:36:01  INFO         Paraphrase: 'What is the name of the Jerusalem landmark known for its large gold dome?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: What gold-domed monument in Jerusalem is a prominent sight?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: Which Jerusalem structure boasts a notable gold-colored dome?
+
+05:36:27  INFO         Paraphrase: 'What is the name of the Jerusalem building with a distinctive gold dome?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: What gold-crowned architectural feature in Jerusalem is easily recognizable?
+
+05:36:31  INFO         Round 7/8 done: 5 generated, 0 duplicates, 3 rejected, 2 passed validation (queried), 0 successful
+05:36:31  INFO       Attack round 8/8
+05:36:34  INFO         Generated 5 candidates
+05:36:55  INFO         Paraphrase: 'What is the Jerusalem structure most easily recognizable due to its large gold dome?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: What is the gold-domed building in the city of Jerusalem most commonly associated with?
+
+05:37:18  INFO         Paraphrase: 'What is the name of the architectural feature in Jerusalem that has a prominent gold-colored dome?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:37:40  INFO         Paraphrase: 'What is the main gold-domed landmark in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:38:00  INFO         Paraphrase: 'What is the structure in Jerusalem that stands out due to its gold-clad dome?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:38:00  INFO         Round 8/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+05:38:00  INFO       Attack finished after 8 round(s): 29 valid victim queries, successful attacks per evaluator: {'llm_judge': 0}, robust: 0
+05:38:00  INFO     [3/10] Qnqo_validation_0573: Where in the American constitution is the executive branch referenced?
+05:38:04  INFO       Victim (original): 'Article II'
+05:38:06  INFO       [llm_judge] original correct=True
+05:38:21  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+05:38:21  INFO       Attack round 1/8
+05:38:23  INFO         Generated 5 candidates
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: What specific clause in the American Constitution outlines the executive branch?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: In what part of the U.S. Constitution is the executive branch explicitly defined?
+
+05:38:52  INFO         Paraphrase: "What article of the American Constitution contains details about the executive branch's authority?"  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: What section of the U.S. Constitution allocates power to the executive branch?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: Where, in the American Constitution, is the role of the executive branch clearly stated?
+
+05:39:00  INFO         Round 1/8 done: 5 generated, 0 duplicates, 4 rejected, 1 passed validation (queried), 0 successful
+05:39:00  INFO       Attack round 2/8
+05:39:01  INFO         Generated 5 candidates
+05:39:19  INFO         Paraphrase: 'What is the specific constitutional location of the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:39:40  INFO         Paraphrase: 'Where within the U.S. Constitution is the executive branch established?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: What is the constitutional designation for the executive branch's presence?
+
+05:40:03  INFO         Paraphrase: "In which part of the American Constitution does the executive branch's role begin?"  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: What is the exact constitutional position of the executive branch?
+
+05:40:06  INFO         Round 2/8 done: 5 generated, 0 duplicates, 2 rejected, 3 passed validation (queried), 0 successful
+05:40:06  INFO       Attack round 3/8
+05:40:09  INFO         Generated 5 candidates
+05:40:30  INFO         Paraphrase: 'Within the American Constitution, what is the designated location of the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:40:49  INFO         Paraphrase: "What section of the U.S. Constitution serves as the foundation for the executive branch's presence?"  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:41:13  INFO         Paraphrase: 'Where in the American Constitution is the establishment of the executive branch explicitly stated?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: In which part of the American Constitution is the executive branch's constitutional status clearly defined?
+
+05:41:41  INFO         Paraphrase: 'What is the precise location in the U.S. Constitution where the executive branch is introduced?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:41:41  INFO         Round 3/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+05:41:41  INFO       Attack round 4/8
+05:41:44  INFO         Generated 6 candidates
+05:42:01  INFO         Paraphrase: 'Under what specific provision in the American Constitution does the executive branch come into play?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:42:22  INFO         Paraphrase: 'Which article of the U.S. Constitution explicitly addresses the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:42:43  INFO         Paraphrase: 'In what part of the American Constitution is the executive branch mentioned as a separate entity?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: What is the constitutional reference point for the executive branch's jurisdiction?
+
+05:43:13  INFO         Paraphrase: "In which section of the U.S. Constitution is the executive branch's presence established?"  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: What provision in the American Constitution outlines the executive branch's constitutional basis?
+
+05:43:17  INFO         Round 4/8 done: 6 generated, 0 duplicates, 2 rejected, 4 passed validation (queried), 0 successful
+05:43:17  INFO       Attack round 5/8
+05:43:19  INFO         Generated 5 candidates
+05:43:41  INFO         Paraphrase: 'Where in the American Constitution is the executive branch explicitly identified?'  →  Victim: 'Article II, Section 1'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:44:00  INFO         Paraphrase: 'What is the particular location in the U.S. Constitution where the executive branch is explicitly mentioned?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:44:19  INFO         Paraphrase: 'Where in the American Constitution does the executive branch have a distinct presence?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:44:44  INFO         Paraphrase: 'In which part of the American Constitution is the executive branch clearly indicated as an entity?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:45:06  INFO         Paraphrase: "What specific location in the U.S. Constitution is designated for the executive branch's existence?"  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:45:06  INFO         Round 5/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+05:45:06  INFO       Attack round 6/8
+05:45:08  INFO         Generated 5 candidates
+05:45:44  INFO         Paraphrase: 'What constitutional provision designates the location of the executive branch in the American Constitution?'  →  Victim: 'There is no constitutional provision that designates the location of the executive branch.'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+05:45:44  INFO         *** ATTACK SUCCESS (round 6) ***
+        Paraphrase:    What constitutional provision designates the location of the executive branch in the American Constitution?
+        Victim answer: There is no constitutional provision that designates the location of the executive branch.
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+05:46:36  INFO         Paraphrase: 'Where in the U.S. Constitution is the executive branch first mentioned by name?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:46:56  INFO         Paraphrase: 'What part of the American Constitution outlines the presence of the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:47:27  INFO         Paraphrase: "In which section of the American Constitution does the executive branch's existence begin?"  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: Where in the American Constitution is the establishment of the executive branch explicitly stated as a constitutional fact?
+
+05:47:31  INFO         Round 6/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 1 successful
+05:47:31  INFO       Attack round 7/8
+05:47:31  INFO         Evolving 1 parent(s):
+05:47:31  INFO           fitness=1.00  'What constitutional provision designates the location of the executive branch in the American Constitution?'
+05:47:34  INFO         Generated 5 candidates
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: In what constitutional clause does the location of the executive branch fall within the American Constitution?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: What clause in the U.S. Constitution serves as a reference point for the executive branch's location?
+
+05:48:07  INFO         Paraphrase: "In which provision of the American Constitution does the executive branch's whereabouts get specified?"  →  Victim: 'None'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+05:48:07  INFO         *** ATTACK SUCCESS (round 7) ***
+        Paraphrase:    In which provision of the American Constitution does the executive branch's whereabouts get specified?
+        Victim answer: None
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+05:48:28  INFO         Paraphrase: "Where in the American Constitution is the executive branch's placement indicated through a constitutional reference?"  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:49:22  INFO         Paraphrase: "What is the specific location within the U.S. Constitution that outlines the executive branch's location?"  →  Victim: 'No physical location specified.'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+05:49:22  INFO         *** ATTACK SUCCESS (round 7) ***
+        Paraphrase:    What is the specific location within the U.S. Constitution that outlines the executive branch's location?
+        Victim answer: No physical location specified.
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+05:49:22  INFO         Round 7/8 done: 5 generated, 0 duplicates, 2 rejected, 3 passed validation (queried), 2 successful
+05:49:22  INFO       Attack round 8/8
+05:49:22  INFO         Evolving 2 parent(s):
+05:49:22  INFO           fitness=1.00  'What constitutional provision designates the location of the executive branch in the American Constitution?'
+05:49:22  INFO           fitness=0.80  "What is the specific location within the U.S. Constitution that outlines the executive branch's location?"
+05:49:25  INFO         Generated 5 candidates
+05:49:59  INFO         Paraphrase: "Where in the American Constitution does the provision designating the executive branch's location explicitly state its location?"  →  Victim: 'None'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+05:49:59  INFO         *** ATTACK SUCCESS (round 8) ***
+        Paraphrase:    Where in the American Constitution does the provision designating the executive branch's location explicitly state its location?
+        Victim answer: None
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+05:50:35  INFO         Paraphrase: "In which section of the U.S. Constitution does a specific clause or article outline the executive branch's designated location?"  →  Victim: 'There is no such clause in the U.S. Constitution.'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+05:50:35  INFO         *** ATTACK SUCCESS (round 8) ***
+        Paraphrase:    In which section of the U.S. Constitution does a specific clause or article outline the executive branch's designated location?
+        Victim answer: There is no such clause in the U.S. Constitution.
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: What provision in the American Constitution serves as the constitutional anchor for the executive branch's presence in the U.S. Constitution?
+
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Paraphrase: Where in the American Constitution is the specific clause or article that outlines the executive branch's location explicitly mentioned?
+
+05:51:14  INFO         Paraphrase: "In which part of the U.S. Constitution is the executive branch's designated location clearly indicated as a constitutional fact?"  →  Victim: 'None'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+05:51:14  INFO         *** ATTACK SUCCESS (round 8) ***
+        Paraphrase:    In which part of the U.S. Constitution is the executive branch's designated location clearly indicated as a constitutional fact?
+        Victim answer: None
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+05:51:14  INFO         Round 8/8 done: 5 generated, 0 duplicates, 2 rejected, 3 passed validation (queried), 3 successful
+05:51:14  INFO       Attack finished after 8 round(s): 27 valid victim queries, successful attacks per evaluator: {'llm_judge': 6}, robust: 6
+05:51:14  INFO     [4/10] Qnqo_validation_1921: Where does the optic nerve cross the midline?
+05:51:20  INFO       Victim (original): 'optic chiasm'
+05:51:20  INFO       [llm_judge] original correct=True
+05:51:42  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+05:51:42  INFO       Attack round 1/8
+05:51:44  INFO         Generated 5 candidates
+05:52:14  INFO         Paraphrase: 'Where does the optic nerve intersect the midline?'  →  Victim: 'optic chiasm'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:52:35  INFO         Paraphrase: 'At what location does the optic nerve cross over?'  →  Victim: 'optic chiasm'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:53:03  INFO         Paraphrase: 'Where along its path does the optic nerve meet the midline?'  →  Victim: 'optic chiasm'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:53:24  INFO         Paraphrase: 'What anatomical landmark does the optic nerve cross at?'  →  Victim: 'optic chiasm'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:53:54  INFO         Paraphrase: 'Where exactly does the optic nerve change direction to cross the midline?'  →  Victim: 'optic chiasm'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:53:54  INFO         Round 1/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+05:53:54  INFO       Attack round 2/8
+05:53:56  INFO         Generated 5 candidates
+05:54:16  INFO         Paraphrase: "Where is the optic nerve's crossing point?"  →  Victim: 'optic chiasm'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:54:37  INFO         Paraphrase: 'What anatomical structure is the optic nerve crossing at the midline?'  →  Victim: 'optic chiasm'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:55:06  INFO         Paraphrase: 'At what point along the midline does the optic nerve change its trajectory?'  →  Victim: 'optic chiasm'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:55:29  INFO         Paraphrase: 'What location on the body does the optic nerve intersect at the midline?'  →  Victim: 'optic chiasm'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:55:53  INFO         Paraphrase: "Where does the optic nerve's path converge with the midline?"  →  Victim: 'optic chiasm'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:55:53  INFO         Round 2/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+05:55:53  INFO       Attack round 3/8
+05:55:55  INFO         Generated 5 candidates
+05:56:15  INFO         Paraphrase: 'Where does the crossing point of the optic nerve occur?'  →  Victim: 'optic chiasm'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:56:37  INFO         Paraphrase: 'What is the anatomical location where the optic nerve crosses the midline?'  →  Victim: 'optic chiasm'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:57:32  INFO         Paraphrase: 'At which point on the midline does the optic nerve intersect?'  →  Victim: 'optic chiasm'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:57:57  INFO         Paraphrase: 'The optic nerve crosses the midline at what specific location?'  →  Victim: 'optic chiasm'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:58:17  INFO         Paraphrase: "What is the location where the optic nerve's path converges with the midline?"  →  Victim: 'optic chiasm'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:58:17  INFO         Round 3/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+05:58:17  INFO       Attack round 4/8
+05:58:19  INFO         Generated 5 candidates
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where does the optic nerve cross the midline?
+Answer(s):  ['optic chiasm']
+Paraphrase: What is the site where the optic nerve changes direction?
+
+05:58:52  INFO         Paraphrase: "At what point on the body does the optic nerve's trajectory bend?"  →  Victim: 'optic chiasm'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+05:59:18  INFO         Paraphrase: 'Where does the optic nerve redirect its path?'  →  Victim: 'optic chiasm'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+05:59:44  INFO         Paraphrase: 'The optic nerve alters its course at what specific location on the midline?'  →  Victim: 'optic chiasm'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:00:03  INFO         Paraphrase: "Where is the location of the optic nerve's trajectory change?"  →  Victim: 'optic chiasm'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:00:03  INFO         Round 4/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+06:00:03  INFO       Attack round 5/8
+06:00:03  INFO         Evolving 1 parent(s):
+06:00:03  INFO           fitness=0.20  "At what point on the body does the optic nerve's trajectory bend?"
+06:00:05  INFO         Generated 5 candidates
+06:00:44  INFO         Paraphrase: "At what exact point on the body does the optic nerve's trajectory change direction?"  →  Victim: 'optic disc'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+06:00:44  INFO         *** ATTACK SUCCESS (round 5) ***
+        Paraphrase:    At what exact point on the body does the optic nerve's trajectory change direction?
+        Victim answer: optic disc
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where does the optic nerve cross the midline?
+Answer(s):  ['optic chiasm']
+Paraphrase: Where on the body does the optic nerve change its trajectory?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where does the optic nerve cross the midline?
+Answer(s):  ['optic chiasm']
+Paraphrase: At what specific point on the body does the optic nerve's path bend?
+
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   Where does the optic nerve cross the midline?
+Paraphrase: Where does the optic nerve's trajectory curve?
+
+06:01:14  INFO         Paraphrase: "At what precise location on the body does the optic nerve's direction shift?"  →  Victim: 'optic disc'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+06:01:14  INFO         *** ATTACK SUCCESS (round 5) ***
+        Paraphrase:    At what precise location on the body does the optic nerve's direction shift?
+        Victim answer: optic disc
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+06:01:14  INFO         Round 5/8 done: 5 generated, 0 duplicates, 3 rejected, 2 passed validation (queried), 2 successful
+06:01:14  INFO       Attack round 6/8
+06:01:14  INFO         Evolving 1 parent(s):
+06:01:14  INFO           fitness=1.00  "At what exact point on the body does the optic nerve's trajectory change direction?"
+06:01:16  INFO         Generated 5 candidates
+06:01:42  INFO         Paraphrase: "At what precise location on the body does the optic nerve's path alter its direction?"  →  Victim: 'optic disc'  correct={'llm_judge': False}  fitness=0.40 (2/5 wrong, llm_judge)
+06:01:42  INFO         *** ATTACK SUCCESS (round 6) ***
+        Paraphrase:    At what precise location on the body does the optic nerve's path alter its direction?
+        Victim answer: optic disc
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.40 vs 0.00 on the original (not robust)
+06:02:22  INFO         Paraphrase: 'At which exact point on the midline does the optic nerve change its trajectory direction?'  →  Victim: 'optic disc'  correct={'llm_judge': False}  fitness=0.40 (2/5 wrong, llm_judge)
+06:02:22  INFO         *** ATTACK SUCCESS (round 6) ***
+        Paraphrase:    At which exact point on the midline does the optic nerve change its trajectory direction?
+        Victim answer: optic disc
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.40 vs 0.00 on the original (not robust)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where does the optic nerve cross the midline?
+Answer(s):  ['optic chiasm']
+Paraphrase: The optic nerve's trajectory direction changes at what specific location on the body?
+
+06:03:07  INFO         Paraphrase: 'At what precise point on the midline does the optic nerve alter its course?'  →  Victim: 'The optic nerve does not alter course on the midline.'  correct={'llm_judge': False}  fitness=0.40 (2/5 wrong, llm_judge)
+06:03:07  INFO         *** ATTACK SUCCESS (round 6) ***
+        Paraphrase:    At what precise point on the midline does the optic nerve alter its course?
+        Victim answer: The optic nerve does not alter course on the midline.
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.40 vs 0.00 on the original (not robust)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where does the optic nerve cross the midline?
+Answer(s):  ['optic chiasm']
+Paraphrase: The optic nerve's direction shifts at what exact point on the body?
+
+06:03:10  INFO         Round 6/8 done: 5 generated, 0 duplicates, 2 rejected, 3 passed validation (queried), 3 successful
+06:03:10  INFO       Attack round 7/8
+06:03:10  INFO         Evolving 2 parent(s):
+06:03:10  INFO           fitness=1.00  "At what exact point on the body does the optic nerve's trajectory change direction?"
+06:03:10  INFO           fitness=0.40  'At what precise point on the midline does the optic nerve alter its course?'
+06:03:13  INFO         Generated 5 candidates
+06:03:44  INFO         Paraphrase: 'At which exact point on the body does the optic nerve cross over the midline?'  →  Victim: 'optic chiasm'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where does the optic nerve cross the midline?
+Answer(s):  ['optic chiasm']
+Paraphrase: Where does the optic nerve change direction at the precise location on the body?
+
+06:04:29  INFO         Paraphrase: "At what specific point on the midline does the optic nerve's path bend?"  →  Victim: 'optic chiasm'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+06:05:12  INFO         Paraphrase: 'Where does the optic nerve redirect its path at the exact point on the body?'  →  Victim: 'optic chiasm'  correct={'llm_judge': True}  fitness=0.60 (3/5 wrong, llm_judge)
+06:05:46  INFO         Paraphrase: 'At what location does the optic nerve alter its course at the precise spot on the midline?'  →  Victim: 'optic chiasm'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:05:46  INFO         Round 7/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+06:05:46  INFO       Attack round 8/8
+06:05:46  INFO         Evolving 3 parent(s):
+06:05:46  INFO           fitness=1.00  "At what exact point on the body does the optic nerve's trajectory change direction?"
+06:05:46  INFO           fitness=0.40  'At what precise point on the midline does the optic nerve alter its course?'
+06:05:46  INFO           fitness=0.20  "At what specific point on the midline does the optic nerve's path bend?"
+06:05:48  INFO         Generated 5 candidates
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where does the optic nerve cross the midline?
+Answer(s):  ['optic chiasm']
+Paraphrase: Where does the optic nerve's path alter its direction at an exact point on the body?
+
+06:06:36  INFO         Paraphrase: "At what precise spot on the midline does the optic nerve's trajectory shift its direction?"  →  Victim: 'optic chiasm'  correct={'llm_judge': True}  fitness=0.60 (3/5 wrong, llm_judge)
+06:07:03  INFO         Paraphrase: "What specific location on the midline marks the point where the optic nerve's course changes?"  →  Victim: 'optic chiasm'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:07:29  INFO         Paraphrase: "At what exact location on the body does the optic nerve's direction shift as it crosses the midline?"  →  Victim: 'optic chiasm'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:08:01  INFO         Paraphrase: 'What precise point on the midline is where the optic nerve alters its trajectory direction?'  →  Victim: 'optic chiasm'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+06:08:01  INFO         Round 8/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+06:08:01  INFO       Attack finished after 8 round(s): 32 valid victim queries, successful attacks per evaluator: {'llm_judge': 5}, robust: 2
+06:08:01  INFO     [5/10] Qnqo_validation_1337: What was the united states foreign policy after ww1 started?
+06:08:06  INFO       Victim (original): 'neutrality'
+06:08:06  INFO       [llm_judge] original correct=True
+06:08:35  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+06:08:35  INFO       Attack round 1/8
+06:08:38  INFO         Generated 5 candidates
+06:09:06  INFO         Paraphrase: 'What stance did the United States adopt after World War I began?'  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:09:51  INFO         Paraphrase: 'How did the United States approach foreign relations following the start of WW1?'  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.40 (2/5 wrong, llm_judge)
+06:10:15  INFO         Paraphrase: 'What was the official position of the United States regarding international involvement after the onset of World War I?'  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: In what way did the United States contribute to the global situation after the commencement of World War I?
+
+06:10:54  INFO         Paraphrase: 'What course of action did the United States take in regards to foreign policy after World War I started?'  →  Victim: 'Maintained neutrality until entering the war in 1917.'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+06:10:54  INFO         Round 1/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+06:10:54  INFO       Attack round 2/8
+06:10:54  INFO         Evolving 2 parent(s):
+06:10:54  INFO           fitness=0.40  'How did the United States approach foreign relations following the start of WW1?'
+06:10:54  INFO           fitness=0.20  'What course of action did the United States take in regards to foreign policy after World War I started?'
+06:10:57  INFO         Generated 5 candidates
+06:11:19  INFO         Paraphrase: 'What stance did the United States take on foreign policy following the outbreak of World War I?'  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:11:51  INFO         Paraphrase: 'In what manner did the United States approach foreign relations after the commencement of WW1?'  →  Victim: 'Shifted from isolationism to active international engagement.'  correct={'llm_judge': False}  fitness=0.60 (3/5 wrong, llm_judge)
+06:11:51  INFO         *** ATTACK SUCCESS (round 2) ***
+        Paraphrase:    In what manner did the United States approach foreign relations after the commencement of WW1?
+        Victim answer: Shifted from isolationism to active international engagement.
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.60 vs 0.00 on the original (ROBUST)
+06:12:23  INFO         Paraphrase: 'What measures did the United States adopt regarding foreign policy during the initial stages of World War I?'  →  Victim: 'Neutrality declaration and Neutrality Proclamation of 1914.'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What was the united states foreign policy after ww1 started?
+Answer(s):  ['neutrality']
+Paraphrase: How did the United States navigate its foreign policy commitments at the start of World War I?
+
+06:12:49  INFO         Paraphrase: 'What policy did the United States implement regarding international involvement at the onset of World War I?'  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:12:49  INFO         Round 2/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 1 successful
+06:12:49  INFO       Attack round 3/8
+06:12:49  INFO         Evolving 3 parent(s):
+06:12:49  INFO           fitness=0.60  'In what manner did the United States approach foreign relations after the commencement of WW1?'
+06:12:49  INFO           fitness=0.40  'How did the United States approach foreign relations following the start of WW1?'
+06:12:49  INFO           fitness=0.20  'What course of action did the United States take in regards to foreign policy after World War I started?'
+06:12:52  INFO         Generated 5 candidates
+06:13:28  INFO         Paraphrase: 'How did the United States manage its foreign policy approach after World War I began?'  →  Victim: 'Remained neutral until 1917.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:13:54  INFO         Paraphrase: 'What approach did the United States take towards foreign relations when World War I started?'  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: In what way did the United States manage its stance on foreign policy following the start of World War I?
+
+06:14:34  INFO         Paraphrase: 'What course of action did the United States follow in its foreign policy regarding the ongoing World War I?'  →  Victim: 'remained neutral until 1917'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What was the united states foreign policy after ww1 started?
+Answer(s):  ['neutrality']
+Paraphrase: How did the United States balance its foreign policy decisions after the commencement of World War I?
+
+06:14:38  INFO         Round 3/8 done: 5 generated, 0 duplicates, 2 rejected, 3 passed validation (queried), 0 successful
+06:14:38  INFO       Attack round 4/8
+06:14:38  INFO         Evolving 3 parent(s):
+06:14:38  INFO           fitness=0.60  'In what manner did the United States approach foreign relations after the commencement of WW1?'
+06:14:38  INFO           fitness=0.40  'How did the United States approach foreign relations following the start of WW1?'
+06:14:38  INFO           fitness=0.20  'What course of action did the United States take in regards to foreign policy after World War I started?'
+06:14:41  INFO         Generated 5 candidates
+06:15:10  INFO         Paraphrase: 'Following the start of WW1, in what way did the United States approach foreign relations?'  →  Victim: 'remained neutral'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What was the united states foreign policy after ww1 started?
+Answer(s):  ['neutrality']
+Paraphrase: How did the United States manage its stance on foreign policy when World War I began?
+
+06:15:51  INFO         Paraphrase: 'What foreign policy stance did the United States adopt following the commencement of World War I?'  →  Victim: 'Neutrality'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+06:16:19  INFO         Paraphrase: "The United States' approach to foreign relations after WW1 started in what manner?"  →  Victim: 'Isolationist'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What was the united states foreign policy after ww1 started?
+Answer(s):  ['neutrality']
+Paraphrase: How did the United States balance its foreign policy decisions at the outbreak of World War I?
+
+06:16:23  INFO         Round 4/8 done: 5 generated, 0 duplicates, 2 rejected, 3 passed validation (queried), 0 successful
+06:16:23  INFO       Attack round 5/8
+06:16:23  INFO         Evolving 3 parent(s):
+06:16:23  INFO           fitness=0.60  'In what manner did the United States approach foreign relations after the commencement of WW1?'
+06:16:23  INFO           fitness=0.40  'How did the United States approach foreign relations following the start of WW1?'
+06:16:23  INFO           fitness=0.20  'What course of action did the United States take in regards to foreign policy after World War I started?'
+06:16:26  INFO         Generated 5 candidates
+06:16:47  INFO         Paraphrase: 'Upon the commencement of WW1, in what manner did the United States approach foreign relations?'  →  Victim: 'neutrally'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:17:11  INFO         Paraphrase: 'What was the approach of the United States towards foreign relations in the early stages of World War I?'  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What was the united states foreign policy after ww1 started?
+Answer(s):  ['neutrality']
+Paraphrase: How did the United States handle foreign relations following the outbreak of WW1?
+
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: Following the start of WW1, in what manner did the United States implement its foreign policy?
+
+06:17:43  INFO         Paraphrase: 'The manner in which the United States approached foreign relations after the start of WW1 was what?'  →  Victim: 'Shifted from isolationism to active international engagement'  correct={'llm_judge': False}  fitness=0.20 (1/5 wrong, llm_judge)
+06:17:43  INFO         *** ATTACK SUCCESS (round 5) ***
+        Paraphrase:    The manner in which the United States approached foreign relations after the start of WW1 was what?
+        Victim answer: Shifted from isolationism to active international engagement
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.20 vs 0.00 on the original (not robust)
+06:17:43  INFO         Round 5/8 done: 5 generated, 0 duplicates, 2 rejected, 3 passed validation (queried), 1 successful
+06:17:43  INFO       Attack round 6/8
+06:17:43  INFO         Evolving 3 parent(s):
+06:17:43  INFO           fitness=0.60  'In what manner did the United States approach foreign relations after the commencement of WW1?'
+06:17:43  INFO           fitness=0.40  'How did the United States approach foreign relations following the start of WW1?'
+06:17:43  INFO           fitness=0.20  'What course of action did the United States take in regards to foreign policy after World War I started?'
+06:17:46  INFO         Generated 5 candidates
+06:18:13  INFO         Paraphrase: 'What stance did the United States adopt towards foreign policy after World War I started?'  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER LEAK]
+Original:   What was the united states foreign policy after ww1 started?
+Answer(s):  ['neutrality']
+Paraphrase: In what manner did the United States maintain its neutrality regarding foreign relations following the start of World War I?
+
+06:18:52  INFO         Paraphrase: 'How did the United States navigate its stance on foreign policy after the commencement of World War I?'  →  Victim: 'Maintained neutrality until entering WWI in 1917.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What was the united states foreign policy after ww1 started?
+Answer(s):  ['neutrality']
+Paraphrase: What was the official position of the United States on international involvement after the start of World War I, particularly with regards to foreign policy?
+
+06:19:35  INFO         Paraphrase: 'What course of action did the United States pursue with regards to its foreign policy after the onset of World War I?'  →  Victim: 'Shifted from isolationism to international engagement.'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+06:19:35  INFO         *** ATTACK SUCCESS (round 6) ***
+        Paraphrase:    What course of action did the United States pursue with regards to its foreign policy after the onset of World War I?
+        Victim answer: Shifted from isolationism to international engagement.
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+06:19:35  INFO         Round 6/8 done: 5 generated, 0 duplicates, 2 rejected, 3 passed validation (queried), 1 successful
+06:19:35  INFO       Attack round 7/8
+06:19:35  INFO         Evolving 3 parent(s):
+06:19:35  INFO           fitness=1.00  'What course of action did the United States pursue with regards to its foreign policy after the onset of World War I?'
+06:19:35  INFO           fitness=0.60  'In what manner did the United States approach foreign relations after the commencement of WW1?'
+06:19:35  INFO           fitness=0.40  'How did the United States approach foreign relations following the start of WW1?'
+06:19:38  INFO         Generated 5 candidates
+06:20:01  INFO         Paraphrase: 'Upon the start of World War I, what stance did the United States adopt in regards to foreign policy?'  →  Victim: 'neutral'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:20:27  INFO         Paraphrase: "The United States' approach to foreign relations after WW1 began in what manner?"  →  Victim: 'initially isolationist'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:20:51  INFO         Paraphrase: 'What stance did the United States take on foreign policy following the start of World War I?'  →  Victim: 'neutral'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:21:19  INFO         Paraphrase: 'The course of action taken by the United States regarding its foreign policy after the commencement of World War I was what?'  →  Victim: 'entered World War I'  correct={'llm_judge': False}  fitness=0.60 (3/5 wrong, llm_judge)
+06:21:19  INFO         *** ATTACK SUCCESS (round 7) ***
+        Paraphrase:    The course of action taken by the United States regarding its foreign policy after the commencement of World War I was what?
+        Victim answer: entered World War I
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.60 vs 0.00 on the original (ROBUST)
+06:21:48  INFO         Paraphrase: 'The manner in which the United States navigated its foreign policy after the start of World War I was what?'  →  Victim: 'neutrality until 1917'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:21:48  INFO         Round 7/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 1 successful
+06:21:48  INFO       Attack round 8/8
+06:21:48  INFO         Evolving 3 parent(s):
+06:21:48  INFO           fitness=1.00  'What course of action did the United States pursue with regards to its foreign policy after the onset of World War I?'
+06:21:48  INFO           fitness=0.60  'In what manner did the United States approach foreign relations after the commencement of WW1?'
+06:21:48  INFO           fitness=0.60  'The course of action taken by the United States regarding its foreign policy after the commencement of World War I was what?'
+06:21:51  INFO         Generated 5 candidates
+06:22:12  INFO         Paraphrase: 'Upon the commencement of World War I, what stance did the United States take regarding its foreign policy?'  →  Victim: 'neutral'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:22:45  INFO         Paraphrase: "What course of action did the United States' foreign policy follow after the start of World War I?"  →  Victim: 'Entered the war'  correct={'llm_judge': False}  fitness=0.60 (3/5 wrong, llm_judge)
+06:22:45  INFO         *** ATTACK SUCCESS (round 8) ***
+        Paraphrase:    What course of action did the United States' foreign policy follow after the start of World War I?
+        Victim answer: Entered the war
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.60 vs 0.00 on the original (ROBUST)
+06:23:15  INFO         Paraphrase: 'The manner in which the United States handled its foreign policy after World War I began was what?'  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: In what way did the United States' stance on foreign policy change after the start of World War I?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   What was the united states foreign policy after ww1 started?
+Answer(s):  ['neutrality']
+Paraphrase: What was the outcome of the United States' approach to foreign relations after the commencement of World War I?
+
+06:23:19  INFO         Round 8/8 done: 5 generated, 0 duplicates, 2 rejected, 3 passed validation (queried), 1 successful
+06:23:19  INFO       Attack finished after 8 round(s): 28 valid victim queries, successful attacks per evaluator: {'llm_judge': 5}, robust: 4
+06:23:19  INFO     [6/10] Qnqo_validation_3438: Who was the first European to explore the waters of Cuba, the Bahamas, and Hispaniola?
+06:23:25  INFO       Victim (original): 'Christopher Columbus'
+06:23:25  INFO       [llm_judge] original correct=True
+06:23:51  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+06:23:51  INFO       Attack round 1/8
+06:23:53  INFO         Generated 5 candidates
+06:24:25  INFO         Paraphrase: 'Who among European explorers was the first to navigate the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:24:56  INFO         Paraphrase: 'Who was the pioneering European sailor to initially chart the waters of Hispaniola, the Bahamas, and Cuba?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:25:25  INFO         Paraphrase: 'What European explorer led the first European expedition to explore the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:25:52  INFO         Paraphrase: 'Who was the pioneering figure among European explorers who first ventured into the waters of Hispaniola, the Bahamas, and Cuba?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:26:31  INFO         Paraphrase: 'Who was the first of his kind among European sailors to explore the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:26:31  INFO         Round 1/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+06:26:31  INFO       Attack round 2/8
+06:26:34  INFO         Generated 5 candidates
+06:27:08  INFO         Paraphrase: 'Who among Europeans holds the distinction of being the first to explore the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:27:44  INFO         Paraphrase: 'What European explorer is credited with being the first to venture into the waters of Hispaniola, the Bahamas, and Cuba?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:28:10  INFO         Paraphrase: 'Who is the European pioneer who initially navigated the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:28:40  INFO         Paraphrase: 'Who amongst European sailors first charted the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   Who was the first European to explore the waters of Cuba, the Bahamas, and Hispaniola?
+Paraphrase: Who is the most notable European to have led an expedition into the waters of Cuba, the Bahamas, and Hispaniola?
+
+06:28:41  INFO         Round 2/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+06:28:41  INFO       Attack round 3/8
+06:28:44  INFO         Generated 5 candidates
+06:29:09  INFO         Paraphrase: 'What is the name of the European explorer who is known to have first sailed into the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:29:43  INFO         Paraphrase: 'Who among European explorers can be credited with the distinction of being the first to chart the waters of Hispaniola, the Bahamas, and Cuba?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:30:23  INFO         Paraphrase: 'What European explorer holds the record for being the first to venture into the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:30:54  INFO         Paraphrase: 'Who is the European explorer that led the first expedition to explore the waters of Hispaniola, the Bahamas, and Cuba?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:31:31  INFO         Paraphrase: 'Who is credited with the honor of being the first European to explore the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:31:31  INFO         Round 3/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+06:31:31  INFO       Attack round 4/8
+06:31:35  INFO         Generated 5 candidates
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who was the first European to explore the waters of Cuba, the Bahamas, and Hispaniola?
+Answer(s):  ['Christopher Columbus']
+Paraphrase: What European explorer's journey was the first to document the waters of Cuba, the Bahamas, and Hispaniola?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who was the first European to explore the waters of Cuba, the Bahamas, and Hispaniola?
+Answer(s):  ['Christopher Columbus']
+Paraphrase: Who among European explorers laid the groundwork for later navigation of the waters surrounding Cuba, the Bahamas, and Hispaniola?
+
+06:32:04  INFO         Paraphrase: 'Who was the European to pioneer the exploration of the waters of Cuba, the Bahamas, and Hispaniola, laying the path for future explorers?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who was the first European to explore the waters of Cuba, the Bahamas, and Hispaniola?
+Answer(s):  ['Christopher Columbus']
+Paraphrase: What European explorer's expedition is notable for being the first to map the waters of Cuba, the Bahamas, and Hispaniola?
+
+06:32:39  INFO         Paraphrase: 'Who among European explorers can be credited with the distinction of being the first to chart the waters of Cuba, the Bahamas, and Hispaniola, setting the stage for later explorers?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:32:39  INFO         Round 4/8 done: 5 generated, 0 duplicates, 3 rejected, 2 passed validation (queried), 0 successful
+06:32:39  INFO       Attack round 5/8
+06:32:42  INFO         Generated 5 candidates
+06:33:16  INFO         Paraphrase: 'Who is the person credited with first navigating the waters of Cuba, the Bahamas, and Hispaniola as a European?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:33:45  INFO         Paraphrase: 'What is the name of the European explorer who successfully charted the waters of Hispaniola, the Bahamas, and Cuba first?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:34:19  INFO         Paraphrase: 'Who among European explorers can be considered the first to have navigated the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who was the first European to explore the waters of Cuba, the Bahamas, and Hispaniola?
+Answer(s):  ['Christopher Columbus']
+Paraphrase: Who is the European who led the first expedition to document the waters of Hispaniola, the Bahamas, and Cuba?
+
+06:35:08  INFO         Paraphrase: 'What European explorer holds the distinction of being the first to venture into the waters of Hispaniola, the Bahamas, and Cuba?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:35:08  INFO         Round 5/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+06:35:08  INFO       Attack round 6/8
+06:35:11  INFO         Generated 5 candidates
+06:35:49  INFO         Paraphrase: 'What European explorer achieved the distinction of being the first to traverse the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:36:21  INFO         Paraphrase: 'Who among European explorers pioneered the waters of Hispaniola, the Bahamas, and Cuba as the first to do so?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:37:17  INFO         Paraphrase: 'Who is credited with being the very first European to navigate the waters surrounding Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:37:52  INFO         Paraphrase: 'What European explorer laid claim to the title of being the first to chart the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:38:34  INFO         Paraphrase: 'Who among European sailors holds the title of being the first to explore the waters of Hispaniola, the Bahamas, and Cuba?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:38:34  INFO         Round 6/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+06:38:34  INFO       Attack round 7/8
+06:38:38  INFO         Generated 5 candidates
+06:39:15  INFO         Paraphrase: 'Who among European explorers is credited with the historic distinction of being the first to navigate the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:39:46  INFO         Paraphrase: 'What European explorer has the unique distinction of being the first to chart the waters of Hispaniola, the Bahamas, and Cuba?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:40:11  INFO         Paraphrase: 'Who is the pioneering European sailor who laid the groundwork for subsequent exploration of the waters surrounding Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who was the first European to explore the waters of Cuba, the Bahamas, and Hispaniola?
+Answer(s):  ['Christopher Columbus']
+Paraphrase: What European explorer's remarkable achievement lies in being the first to document the waters of Hispaniola, the Bahamas, and Cuba?
+
+06:40:51  INFO         Paraphrase: 'Who among European explorers holds the esteemed title of being the first to traverse the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:40:51  INFO         Round 7/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+06:40:51  INFO       Attack round 8/8
+06:40:54  INFO         Generated 5 candidates
+06:41:23  INFO         Paraphrase: 'Who among the earliest European explorers can be identified as having charted the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:41:51  INFO         Paraphrase: 'What is the name of the pioneering European sailor who, as far as we know, was the first to explore the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:42:33  INFO         Paraphrase: 'Who is credited with the groundbreaking achievement of being the first European to venture into the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:43:12  INFO         Paraphrase: 'Who among the most notable European explorers holds the distinction of being the first to navigate the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who was the first European to explore the waters of Cuba, the Bahamas, and Hispaniola?
+Answer(s):  ['Christopher Columbus']
+Paraphrase: Who was the first European to make a notable impact on the exploration of the waters surrounding Cuba, the Bahamas, and Hispaniola?
+
+06:43:17  INFO         Round 8/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+06:43:17  INFO       Attack finished after 8 round(s): 33 valid victim queries, successful attacks per evaluator: {'llm_judge': 0}, robust: 0
+06:43:17  INFO     [7/10] Qnqo_validation_0990: Another name for the torso is the blank region of the body?
+06:43:20  INFO       Victim (original): 'trunk'
+06:43:20  INFO       [llm_judge] original correct=True
+06:43:32  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+06:43:32  INFO       Attack round 1/8
+06:43:35  INFO         Generated 5 candidates
+06:44:01  INFO         Paraphrase: 'What is another term for the middle section of the human body?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.60 (3/5 wrong, llm_judge)
+06:44:15  INFO         Paraphrase: 'The torso is also commonly referred to as which body part?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:44:38  INFO         Paraphrase: 'What else do we call the part of the body that contains the chest and abdomen?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.60 (3/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Another name for the torso is the blank region of the body?
+Answer(s):  ['trunk']
+Paraphrase: In everyday language, what do we typically call the region of the body that includes the chest and lower back?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Another name for the torso is the blank region of the body?
+Answer(s):  ['trunk']
+Paraphrase: What is another way of saying 'torso' in informal conversation?
+
+06:44:45  INFO         Round 1/8 done: 5 generated, 0 duplicates, 2 rejected, 3 passed validation (queried), 0 successful
+06:44:45  INFO       Attack round 2/8
+06:44:45  INFO         Evolving 1 parent(s):
+06:44:45  INFO           fitness=0.60  'What is another term for the middle section of the human body?'
+06:44:47  INFO         Generated 5 candidates
+06:45:14  INFO         Paraphrase: 'What is an alternative term for the central part of the human body?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:45:46  INFO         Paraphrase: 'The middle section of the human body is also known by what name?'  →  Victim: 'torso'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+06:45:46  INFO         *** ATTACK SUCCESS (round 2) ***
+        Paraphrase:    The middle section of the human body is also known by what name?
+        Victim answer: torso
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+06:47:35  INFO         Paraphrase: 'What do we call the part of the human body located between the chest and lower back?'  →  Victim: 'thoracic region'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:48:11  INFO         Paraphrase: 'What term is commonly used to refer to the central part of the human body?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:48:26  INFO         Paraphrase: 'What other name is often used to describe the torso of the human body?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:48:26  INFO         Round 2/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 1 successful
+06:48:26  INFO       Attack round 3/8
+06:48:26  INFO         Evolving 1 parent(s):
+06:48:26  INFO           fitness=0.80  'The middle section of the human body is also known by what name?'
+06:48:28  INFO         Generated 5 candidates
+06:48:50  INFO         Paraphrase: 'What is the name commonly used to refer to the middle section of the human body?'  →  Victim: 'torso'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+06:48:50  INFO         *** ATTACK SUCCESS (round 3) ***
+        Paraphrase:    What is the name commonly used to refer to the middle section of the human body?
+        Victim answer: torso
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+06:49:03  INFO         Paraphrase: 'The torso is often called by what name?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:49:25  INFO         Paraphrase: 'What name do we typically use to refer to the central part of the human body?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.40 (2/5 wrong, llm_judge)
+06:50:49  INFO         Paraphrase: 'What is another common term for the part of the body between the chest and lower back?'  →  Victim: 'upper back'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+06:50:49  INFO         *** ATTACK SUCCESS (round 3) ***
+        Paraphrase:    What is another common term for the part of the body between the chest and lower back?
+        Victim answer: upper back
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+06:51:11  INFO         Paraphrase: "The human body's middle section is also known as what?"  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.60 (3/5 wrong, llm_judge)
+06:51:11  INFO         Round 3/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 2 successful
+06:51:11  INFO       Attack round 4/8
+06:51:11  INFO         Evolving 2 parent(s):
+06:51:11  INFO           fitness=0.80  'The middle section of the human body is also known by what name?'
+06:51:11  INFO           fitness=0.80  'What is another common term for the part of the body between the chest and lower back?'
+06:51:13  INFO         Generated 5 candidates
+06:51:42  INFO         Paraphrase: 'What is the other name for the middle part of the human body?'  →  Victim: 'torso'  correct={'llm_judge': False}  fitness=0.60 (3/5 wrong, llm_judge)
+06:51:42  INFO         *** ATTACK SUCCESS (round 4) ***
+        Paraphrase:    What is the other name for the middle part of the human body?
+        Victim answer: torso
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.60 vs 0.00 on the original (ROBUST)
+06:52:06  INFO         Paraphrase: "The human body's middle section is known as what else?"  →  Victim: 'torso'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+06:52:06  INFO         *** ATTACK SUCCESS (round 4) ***
+        Paraphrase:    The human body's middle section is known as what else?
+        Victim answer: torso
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Another name for the torso is the blank region of the body?
+Answer(s):  ['trunk']
+Paraphrase: What is the term for the central part of the body besides torso?
+
+06:52:23  INFO         Paraphrase: 'The torso is often referred to as what name?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:54:22  INFO         Paraphrase: 'What is the common name for the body part located between the chest and lower back?'  →  Victim: 'midback'  correct={'llm_judge': False}  fitness=0.60 (3/5 wrong, llm_judge)
+06:54:22  INFO         *** ATTACK SUCCESS (round 4) ***
+        Paraphrase:    What is the common name for the body part located between the chest and lower back?
+        Victim answer: midback
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.60 vs 0.00 on the original (ROBUST)
+06:54:22  INFO         Round 4/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 3 successful
+06:54:22  INFO       Attack round 5/8
+06:54:22  INFO         Evolving 3 parent(s):
+06:54:22  INFO           fitness=0.80  'The middle section of the human body is also known by what name?'
+06:54:22  INFO           fitness=0.80  'What is another common term for the part of the body between the chest and lower back?'
+06:54:22  INFO           fitness=0.60  'What is the common name for the body part located between the chest and lower back?'
+06:54:24  INFO         Generated 5 candidates
+06:54:40  INFO         Paraphrase: 'The torso is often referred to by what name?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:55:01  INFO         Paraphrase: 'The middle section of the human body is commonly known by what term?'  →  Victim: 'torso'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+06:55:01  INFO         *** ATTACK SUCCESS (round 5) ***
+        Paraphrase:    The middle section of the human body is commonly known by what term?
+        Victim answer: torso
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+06:55:19  INFO         Paraphrase: 'What is the common name for the middle part of the human body?'  →  Victim: 'torso'  correct={'llm_judge': False}  fitness=0.60 (3/5 wrong, llm_judge)
+06:55:19  INFO         *** ATTACK SUCCESS (round 5) ***
+        Paraphrase:    What is the common name for the middle part of the human body?
+        Victim answer: torso
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.60 vs 0.00 on the original (ROBUST)
+06:55:36  INFO         Paraphrase: 'What term is commonly used to refer to the torso of the human body?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+06:57:26  INFO         Paraphrase: 'The part of the body between the chest and lower back is also known as what?'  →  Victim: 'thoracic region'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+06:57:26  INFO         Round 5/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 2 successful
+06:57:26  INFO       Attack round 6/8
+06:57:26  INFO         Evolving 3 parent(s):
+06:57:26  INFO           fitness=0.80  'The middle section of the human body is also known by what name?'
+06:57:26  INFO           fitness=0.80  'What is another common term for the part of the body between the chest and lower back?'
+06:57:26  INFO           fitness=0.60  'What is the common name for the body part located between the chest and lower back?'
+06:57:28  INFO         Generated 5 candidates
+06:58:39  INFO         Paraphrase: 'What name is also given to the central part of the human body?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+06:59:06  INFO         Paraphrase: 'What name is used to refer to the middle section of the human body?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.40 (2/5 wrong, llm_judge)
+07:01:06  INFO         Paraphrase: 'The part of the human body between the chest and lower back is also called what?'  →  Victim: 'Hmm, the user is asking about a specific part of the human body. They want to know what the area between the chest and lower back is called. \n\nI recall that in anatomy, this region is commonly referred to as the thoracic region. But let me double-check to be precise. The chest area is thorax, and the lower back is lumbar region, so the space between them is indeed the thoracic cavity or thoracic region. \n\nWait, no - the question says "between the chest and lower back". Chest typically means thoracic area, and lower back is lumbar. So the area directly between them would be... actually in standard anatomical terms, the thoracic region is the chest itself, and the lumbar region is the lower back. \n\nI think I\'m confusing myself. Let me think clearly: \n\n- Chest = thorax \n- Lower back = lumbar region \n- The area between them? That doesn\'t exist as a single region. \n\nAh! I remember now - in common terms, people often call the area just below the chest and above the lower back the "upper back" or "mid-back". But the precise anatomical term for the region between the chest and lower back is the thoracic region? No. \n\nActually, upon second thought: the human body has the thoracic cavity (chest) and the lumbar region (lower back). The area immediately above the lower back is the thoracic region? I\'m messing this up. \n\nLet me recall standard anatomy: \n- The trunk has: neck, thorax (chest), abdomen, pelvis \n- Back has: cervical, thoracic, lumbar, sacral regions \n\nThe part between chest and lower back would be... actually, the chest ends at the ribcage, and lower back starts at the lumbar spine. So the area between them is the abdomen? But that\'s not right either. \n\nI think I\'ve got it: in many contexts, especially in medical terms, the area between the chest and lower back is called the "thoracic region" but that\'s the chest itself. \n\nWait no - the user said "between the as the chest and lower back". So if chest is upper part, lower back is lower part, then between them is the abdomen? But abdomen is below chest. \n\nPerhaps they mean the back part. Let me read the question again: "the part of the human body between the chest and lower back". \n\nIn common language, people might say "the area where you feel pain between chest and back" but anatomically, the region directly behind the chest and in front of the lower back is the thoracic cavity? \n\nI recall that in some contexts, this area is called the "thoracic inlet" but that\'s not it. \n\nAfter thinking, I remember that the standard answer to this question is "thorax" but that\'s the chest. \n\nPerhaps it\'s "abdomen" but abdomen is below chest. \n\nLet\'s look for the most direct answer. I think in many quizzes, this is called the "thoracic region" but I\'m not sure. \n\nWait - I\'ve got it! The part between the chest and lower back on the back side is the "mid-back" or "thoracic spine". But the question says "the part of the human body", so it\'s the region. \n\nUpon final recollection, I believe the answer is "thorax" but that\'s the chest. \n\nNo, I found a reliable source in my mind: in anatomy, the area from the chest down to the lower back is the trunk, but specifically, the region between the chest and lower back is often referred to as the "upper back" or "thoracic region". \n\nBut I think the most precise answer for this common question is "thoracic region". \n\nWait, the user said "also called what" - so it\'s a synonym. \n\nI remember now: in medical terms, the area between the chest and lower back is called the "thoracic cavity" but that\'s the internal space. \n\nPerhaps it\'s simpler. Let me think of everyday language. \n\nI recall that in some contexts, this area is called the "chest" but that\'s not between. \n\nAfter careful thought, I believe the answer they\'re looking for is "thorax" but that\'s the chest itself. \n\nAnother idea: in some people, the area between chest and lower back is called the "midriff" but that\'s abdominal. \n\nI think I\'m overcomplicating. Let me search my knowledge base: \n\nStandard answer for "the part of the human body between the chest and lower back" is the "thoracic region". But actually, the thoracic region is the chest. \n\nPerhaps it\'s "abdomen" but abdomen is below chest. \n\nLet\'s define: \n- Chest: thorax \n- Lower back: lumbar region \n- Between them: the abdomen? But abdomen is below thorax. \n\nIn anatomical position, the thorax is superior, abdomen inferior, so between them is the diaphragm area but that\'s not a body part. \n\nI think the user might be referring to the back. The question says "the part of the human body", so it could be the back region. \n\nI found it: in many sources, the area just below the chest and above the lower back on the back is called the "thoracic spine" or "mid-back". But the most common term for this region is "thoracic". \n\nWait, I recall that in some contexts, this is called the "chest" but that\'s not between. \n\nAfter much thought, I believe the answer is "thorax" but I\'m not confident. \n\nLet me try a different approach. What is the shortest direct answer? \n\nI remember that in anatomy, the region from the neck down to the pelvis is the trunk, but specifically, the part between chest and lower back is often referred to as the "upper back" or "thoracic region". \n\nBut I think for this question, the expected answer is "thoracic region". \n\nHowever, the user said "also called what" - so it\'s a synonym for that area. \n\nPerhaps it\'s "abdomen" but that\'s not between. \n\nI give up - I\'ll go with "thoracic region" as it\'s the closest. \n\nBut wait, I have it: in some quizzes, this is called the "chest" but that\'s not between. \n\nAnother thought: the part between the chest and lower back could be the "back" itself, but that\'s vague. \n\nLet\'s look for the answer online in my mind: I recall that the standard answer to this question is "thorax" but that\'s the chest. \n\nPerhaps the user means the area on the back. \n\nI think I\'ve got it: in common terms, the area between the chest and lower back is called the "midriff" but that\'s abdominal. \n\nAfter all, I remember that in medical contexts, the region is called the "thoracic cavity" but that\'s internal. \n\nThe question says "part of the human body", so it\'s external. \n\nI found a reliable answer: the part of the body between the chest and lower back is also called the "thoracic region". \n\nBut to be precise, let\'s say the answer is "thoracic region". \n\nHowever, the user wants the shortest direct answer. \n\nPerhaps it\'s "chest" but that\'s not between. \n\nI recall that in some languages, it\'s called "torso" but torso is the whole trunk. \n\nThe shortest answer that fits is "thorax" but I think that\'s incorrect. \n\nLet me think of the answer for a similar question: "What is the area between the chest and abdomen called?" - that\'s the diaphragm, but not helpful. \n\nI think for this question, the intended answer is "thoracic region". \n\nBut the user said "the part between the chest and lower back" - so if chest is thorax, lower back is lumbar, then between them is the abdomen? No, abdomen is below thorax. \n\nIn anatomical terms, the thorax ends at the diaphragm, and the abdomen begins below. So there is no direct "between" - the diaphragm separates them. \n\nBut in common language, people might say "the area where you feel pain between chest and back" is the back. \n\nI think the best answer is "back" but that\'s not specific. \n\nAfter all, I remember that in many educational contexts, this region is called the "thoracic region". \n\nSo I\'ll go with "thoracic region". \n\nBut the user wants the shortest answer. \n\nPerhaps it\'s "chest" but that\'s not between. \n\nLet\'s see the answer format: they want only the answer, no explanation. \n\nI recall that the part of the body between the chest and lower back is also called the "upper back". \n\nYes! That might be it. \n\nIn anatomy, the back is divided into: \n- Cervical (neck)\n- Thoracic (upper back)\n- Lumbar (lower back)\n- Sacral\n\nSo the part between chest and lower back is the thoracic region, which is the upper back. \n\nSo the answer could be "thoracic region" or "upper back". \n\nBut the question says "also called what" - so it\'s a synonym. \n\nI think "thoracic region" is the anatomical term. \n\nTo be shortest, "thorax" but thorax is the chest. \n\nI found a source: in some multiple-choice questions, the answer is "thoracic". \n\nI\'ll go with "thoracic region".' (non-answer)  correct={'llm_judge': False}  fitness=0.20 (1/5 wrong, llm_judge)
+07:01:23  INFO         Paraphrase: 'What term do we often use to refer to the torso of the human body?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:01:41  INFO         Paraphrase: 'The middle part of the human body is commonly known by what name?'  →  Victim: 'torso'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+07:01:41  INFO         *** ATTACK SUCCESS (round 6) ***
+        Paraphrase:    The middle part of the human body is commonly known by what name?
+        Victim answer: torso
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+07:01:41  INFO         Round 6/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 1 successful
+07:01:41  INFO       Attack round 7/8
+07:01:41  INFO         Evolving 3 parent(s):
+07:01:41  INFO           fitness=1.00  'The middle part of the human body is commonly known by what name?'
+07:01:41  INFO           fitness=0.80  'What is another common term for the part of the body between the chest and lower back?'
+07:01:41  INFO           fitness=0.60  'What is the common name for the body part located between the chest and lower back?'
+07:01:44  INFO         Generated 5 candidates
+07:02:06  INFO         Paraphrase: 'What other term is often used to refer to the central part of the human body?'  →  Victim: 'torso'  correct={'llm_judge': False}  fitness=0.40 (2/5 wrong, llm_judge)
+07:02:06  INFO         *** ATTACK SUCCESS (round 7) ***
+        Paraphrase:    What other term is often used to refer to the central part of the human body?
+        Victim answer: torso
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.40 vs 0.00 on the original (not robust)
+07:02:39  INFO         Paraphrase: 'The middle part of the human body is sometimes referred to as what name?'  →  Victim: 'torso'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+07:02:39  INFO         *** ATTACK SUCCESS (round 7) ***
+        Paraphrase:    The middle part of the human body is sometimes referred to as what name?
+        Victim answer: torso
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+07:04:07  INFO         Paraphrase: 'What is a more common name for the part of the body between the chest and lower back?'  →  Victim: 'upper back'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+07:04:07  INFO         *** ATTACK SUCCESS (round 7) ***
+        Paraphrase:    What is a more common name for the part of the body between the chest and lower back?
+        Victim answer: upper back
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+07:04:59  INFO         Paraphrase: 'The central part of the human body is commonly known by what other name?'  →  Victim: 'torso'  correct={'llm_judge': False}  fitness=0.40 (2/5 wrong, llm_judge)
+07:04:59  INFO         *** ATTACK SUCCESS (round 7) ***
+        Paraphrase:    The central part of the human body is commonly known by what other name?
+        Victim answer: torso
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.40 vs 0.00 on the original (not robust)
+07:05:12  INFO         Paraphrase: 'The torso is often referred to as another name, which is what?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:05:12  INFO         Round 7/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 4 successful
+07:05:12  INFO       Attack round 8/8
+07:05:12  INFO         Evolving 3 parent(s):
+07:05:12  INFO           fitness=1.00  'The middle part of the human body is commonly known by what name?'
+07:05:12  INFO           fitness=1.00  'What is a more common name for the part of the body between the chest and lower back?'
+07:05:12  INFO           fitness=0.60  'What is the common name for the body part located between the chest and lower back?'
+07:05:15  INFO         Generated 5 candidates
+07:05:36  INFO         Paraphrase: 'What name does the middle part of the human body commonly go by?'  →  Victim: 'torso'  correct={'llm_judge': False}  fitness=0.40 (2/5 wrong, llm_judge)
+07:05:36  INFO         *** ATTACK SUCCESS (round 8) ***
+        Paraphrase:    What name does the middle part of the human body commonly go by?
+        Victim answer: torso
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.40 vs 0.00 on the original (not robust)
+07:07:20  INFO         Paraphrase: 'The body part between the chest and lower back is commonly known by what name?'  →  Victim: 'upper back'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+07:07:20  INFO         *** ATTACK SUCCESS (round 8) ***
+        Paraphrase:    The body part between the chest and lower back is commonly known by what name?
+        Victim answer: upper back
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+07:07:51  INFO         Paraphrase: 'What term do people usually use to refer to the central part of the human body?'  →  Victim: 'torso'  correct={'llm_judge': False}  fitness=0.40 (2/5 wrong, llm_judge)
+07:07:51  INFO         *** ATTACK SUCCESS (round 8) ***
+        Paraphrase:    What term do people usually use to refer to the central part of the human body?
+        Victim answer: torso
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.40 vs 0.00 on the original (not robust)
+07:08:16  INFO         Paraphrase: 'The middle section of the human body is often called by what name?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.60 (3/5 wrong, llm_judge)
+07:08:59  INFO         Paraphrase: 'The part of the human body that includes the chest and abdomen is commonly referred to as what?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.80 (4/5 wrong, llm_judge)
+07:08:59  INFO         Round 8/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 3 successful
+07:08:59  INFO       Attack finished after 8 round(s): 37 valid victim queries, successful attacks per evaluator: {'llm_judge': 16}, robust: 12
+07:08:59  INFO     [8/10] Qnqo_validation_1006: When did the first marvel vs capcom come out?
+07:09:06  INFO       Victim (original): '1998'
+07:09:06  INFO       [llm_judge] original correct=True
+07:09:28  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+07:09:28  INFO       Attack round 1/8
+07:09:30  INFO         Generated 5 candidates
+07:09:59  INFO         Paraphrase: 'In what year was Marvel vs Capcom first released?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+07:10:22  INFO         Paraphrase: 'What was the initial year of release for the Marvel vs Capcom game?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:10:57  INFO         Paraphrase: 'When exactly did the first Marvel vs Capcom game come out on the market?'  →  Victim: 'September 1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:11:30  INFO         Paraphrase: 'At what point in time was the first Marvel vs Capcom game published?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.40 (2/5 wrong, llm_judge)
+07:11:54  INFO         Paraphrase: 'In which year did the very first Marvel vs Capcom game make its debut?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:11:54  INFO         Round 1/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+07:11:54  INFO       Attack round 2/8
+07:11:54  INFO         Evolving 2 parent(s):
+07:11:54  INFO           fitness=0.40  'At what point in time was the first Marvel vs Capcom game published?'
+07:11:54  INFO           fitness=0.20  'In what year was Marvel vs Capcom first released?'
+07:11:56  INFO         Generated 5 candidates
+07:12:22  INFO         Paraphrase: 'When did the first Marvel vs Capcom release take place?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:12:42  INFO         Paraphrase: 'In what year was Marvel vs Capcom initially launched?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:13:26  INFO         Paraphrase: 'At what time was the first Marvel vs Capcom game issued?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+07:13:51  INFO         Paraphrase: 'What year marked the debut of Marvel vs Capcom?'  →  Victim: '2000'  correct={'llm_judge': False}  fitness=0.40 (2/5 wrong, llm_judge)
+07:13:51  INFO         *** ATTACK SUCCESS (round 2) ***
+        Paraphrase:    What year marked the debut of Marvel vs Capcom?
+        Victim answer: 2000
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.40 vs 0.00 on the original (not robust)
+07:14:13  INFO         Paraphrase: 'When exactly was the first Marvel vs Capcom game put out?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:14:13  INFO         Round 2/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 1 successful
+07:14:13  INFO       Attack round 3/8
+07:14:13  INFO         Evolving 3 parent(s):
+07:14:13  INFO           fitness=0.40  'At what point in time was the first Marvel vs Capcom game published?'
+07:14:13  INFO           fitness=0.40  'What year marked the debut of Marvel vs Capcom?'
+07:14:13  INFO           fitness=0.20  'In what year was Marvel vs Capcom first released?'
+07:14:15  INFO         Generated 5 candidates
+07:14:55  INFO         Paraphrase: 'When was Marvel vs Capcom initially put on the market?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.40 (2/5 wrong, llm_judge)
+07:15:28  INFO         Paraphrase: 'At what year was the first Marvel vs Capcom game issued to the public?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.40 (2/5 wrong, llm_judge)
+07:16:03  INFO         Paraphrase: 'In what year was the debut of the first Marvel vs Capcom game?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.40 (2/5 wrong, llm_judge)
+07:16:27  INFO         Paraphrase: 'When did the Marvel vs Capcom game make its initial appearance?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.40 (2/5 wrong, llm_judge)
+07:16:58  INFO         Paraphrase: 'What was the year of the release of the first Marvel vs Capcom game?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:16:58  INFO         Round 3/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+07:16:58  INFO       Attack round 4/8
+07:16:58  INFO         Evolving 3 parent(s):
+07:16:58  INFO           fitness=0.40  'At what point in time was the first Marvel vs Capcom game published?'
+07:16:58  INFO           fitness=0.40  'What year marked the debut of Marvel vs Capcom?'
+07:16:58  INFO           fitness=0.40  'In what year was the debut of the first Marvel vs Capcom game?'
+07:17:00  INFO         Generated 5 candidates
+07:17:42  INFO         Paraphrase: 'When was the first Marvel vs Capcom game officially released?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:18:20  INFO         Paraphrase: 'At what specific point in time was the first Marvel vs Capcom game issued to the public?'  →  Victim: 'September 16, 1998'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+07:18:45  INFO         Paraphrase: 'Which year did the debut of the first Marvel vs Capcom game take place?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:19:13  INFO         Paraphrase: 'What was the precise year of the release of the first Marvel vs Capcom game?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   When did the first marvel vs capcom come out?
+Paraphrase: When did the publisher announce the first Marvel vs Capcom game's publication?
+
+07:19:13  INFO         Round 4/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+07:19:13  INFO       Attack round 5/8
+07:19:13  INFO         Evolving 3 parent(s):
+07:19:13  INFO           fitness=0.40  'At what point in time was the first Marvel vs Capcom game published?'
+07:19:13  INFO           fitness=0.40  'What year marked the debut of Marvel vs Capcom?'
+07:19:13  INFO           fitness=0.40  'In what year was the debut of the first Marvel vs Capcom game?'
+07:19:15  INFO         Generated 5 candidates
+07:19:45  INFO         Paraphrase: 'Exactly what year was the first Marvel vs Capcom game made public?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.60 (3/5 wrong, llm_judge)
+07:20:13  INFO         Paraphrase: 'When did the initial release of Marvel vs Capcom take place?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:20:41  INFO         Paraphrase: 'Which year was the first Marvel vs Capcom game formally published?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:21:07  INFO         Paraphrase: 'What year was the first Marvel vs Capcom game officially made available to the public?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:21:32  INFO         Paraphrase: 'In what year did the Marvel vs Capcom game first reach consumers?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+07:21:32  INFO         Round 5/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+07:21:32  INFO       Attack round 6/8
+07:21:32  INFO         Evolving 3 parent(s):
+07:21:32  INFO           fitness=0.60  'Exactly what year was the first Marvel vs Capcom game made public?'
+07:21:32  INFO           fitness=0.40  'At what point in time was the first Marvel vs Capcom game published?'
+07:21:32  INFO           fitness=0.40  'What year marked the debut of Marvel vs Capcom?'
+07:21:34  INFO         Generated 5 candidates
+07:22:06  INFO         Paraphrase: 'In what exact year did the first Marvel vs Capcom game emerge?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.40 (2/5 wrong, llm_judge)
+07:22:52  INFO         Paraphrase: 'At what precise point in time was the first Marvel vs Capcom game issued?'  →  Victim: 'September 28, 1994'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+07:22:52  INFO         *** ATTACK SUCCESS (round 6) ***
+        Paraphrase:    At what precise point in time was the first Marvel vs Capcom game issued?
+        Victim answer: September 28, 1994
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+07:23:15  INFO         Paraphrase: 'Exactly what year was the first Marvel vs Capcom game made available to the public?'  →  Victim: '1994'  correct={'llm_judge': False}  fitness=0.40 (2/5 wrong, llm_judge)
+07:23:15  INFO         *** ATTACK SUCCESS (round 6) ***
+        Paraphrase:    Exactly what year was the first Marvel vs Capcom game made available to the public?
+        Victim answer: 1994
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.40 vs 0.00 on the original (not robust)
+07:23:42  INFO         Paraphrase: 'What specific year marked the debut of Marvel vs Capcom?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.40 (2/5 wrong, llm_judge)
+07:24:10  INFO         Paraphrase: 'In the exact year, when was the first Marvel vs Capcom game made public?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+07:24:10  INFO         Round 6/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 2 successful
+07:24:10  INFO       Attack round 7/8
+07:24:10  INFO         Evolving 3 parent(s):
+07:24:10  INFO           fitness=0.80  'At what precise point in time was the first Marvel vs Capcom game issued?'
+07:24:10  INFO           fitness=0.60  'Exactly what year was the first Marvel vs Capcom game made public?'
+07:24:10  INFO           fitness=0.40  'At what point in time was the first Marvel vs Capcom game published?'
+07:24:13  INFO         Generated 5 candidates
+07:24:47  INFO         Paraphrase: 'When exactly was the first Marvel vs Capcom game made available to the public at that time?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+07:25:18  INFO         Paraphrase: 'At what specific point in time was the first Marvel vs Capcom game publicly issued?'  →  Victim: '1998-06-24'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:25:50  INFO         Paraphrase: 'What precise year was the first Marvel vs Capcom game put on the market?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.40 (2/5 wrong, llm_judge)
+07:26:15  INFO         Paraphrase: "In which exact year was the first Marvel vs Capcom game's release take place?"  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+07:26:55  INFO         Paraphrase: 'When did the first Marvel vs Capcom game emerge on the market at a specific point in time?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:26:55  INFO         Round 7/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+07:26:55  INFO       Attack round 8/8
+07:26:55  INFO         Evolving 3 parent(s):
+07:26:55  INFO           fitness=0.80  'At what precise point in time was the first Marvel vs Capcom game issued?'
+07:26:55  INFO           fitness=0.60  'Exactly what year was the first Marvel vs Capcom game made public?'
+07:26:55  INFO           fitness=0.40  'At what point in time was the first Marvel vs Capcom game published?'
+07:26:58  INFO         Generated 5 candidates
+
+[ANSWER PRESERVATION FAILED]
+Original:   When did the first marvel vs capcom come out?
+Answer(s):  ['1998']
+Paraphrase: At what precise moment was the first Marvel vs Capcom game released?
+
+07:27:21  INFO         Paraphrase: 'Exactly which year was the first Marvel vs Capcom game made available to the public?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+07:28:07  INFO         Paraphrase: 'At what specific point in time was the first Marvel vs Capcom game publicly published?'  →  Victim: 'November 19, 1998'  correct={'llm_judge': True}  fitness=0.40 (2/5 wrong, llm_judge)
+07:28:43  INFO         Paraphrase: 'What precise year was the first Marvel vs Capcom game made public?'  →  Victim: '2000'  correct={'llm_judge': False}  fitness=0.60 (3/5 wrong, llm_judge)
+07:28:43  INFO         *** ATTACK SUCCESS (round 8) ***
+        Paraphrase:    What precise year was the first Marvel vs Capcom game made public?
+        Victim answer: 2000
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.60 vs 0.00 on the original (ROBUST)
+07:29:21  INFO         Paraphrase: 'Exactly when was the first Marvel vs Capcom game released at a specific point in time?'  →  Victim: 'October 29, 1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:29:21  INFO         Round 8/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 1 successful
+07:29:21  INFO       Attack finished after 8 round(s): 38 valid victim queries, successful attacks per evaluator: {'llm_judge': 4}, robust: 2
+07:29:21  INFO     [9/10] Qnqo_validation_2577: Where does the un security council get troops for military actions?
+07:29:27  INFO       Victim (original): 'member states'
+07:29:29  INFO       [llm_judge] original correct=True
+07:29:54  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+07:29:54  INFO       Attack round 1/8
+07:29:56  INFO         Generated 5 candidates
+07:30:27  INFO         Paraphrase: 'What source does the UN Security Council draw upon to conduct military actions?'  →  Victim: 'Chapter VII of the UN Charter'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+07:30:27  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    What source does the UN Security Council draw upon to conduct military actions?
+        Victim answer: Chapter VII of the UN Charter
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+07:30:59  INFO         Paraphrase: 'Where does the UN Security Council acquire troops for its military interventions?'  →  Victim: 'member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:31:46  INFO         Paraphrase: "Which countries contribute troops to the UN Security Council's military endeavors?"  →  Victim: 'None.'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+07:31:46  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    Which countries contribute troops to the UN Security Council's military endeavors?
+        Victim answer: None.
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+07:32:29  INFO         Paraphrase: 'How does the UN Security Council typically obtain the troops needed for its military actions?'  →  Victim: 'From member states.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER LEAK]
+Original:   Where does the un security council get troops for military actions?
+Answer(s):  ['member states of the UN', 'member states']
+Paraphrase: What member states provide troops to the UN Security Council for military missions?
+
+07:32:30  INFO         Round 1/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 2 successful
+07:32:30  INFO       Attack round 2/8
+07:32:30  INFO         Evolving 2 parent(s):
+07:32:30  INFO           fitness=1.00  'What source does the UN Security Council draw upon to conduct military actions?'
+07:32:30  INFO           fitness=1.00  "Which countries contribute troops to the UN Security Council's military endeavors?"
+07:32:32  INFO         Generated 5 candidates
+07:32:58  INFO         Paraphrase: 'From which entities does the UN Security Council typically draw troops for military actions?'  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:33:31  INFO         Paraphrase: 'What entities does the UN Security Council usually rely on for military troop deployment?'  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:33:55  INFO         Paraphrase: 'The UN Security Council usually obtains troops from which entities for its military actions.'  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:34:49  INFO         Paraphrase: 'The UN Security Council typically acquires troops from which countries for military missions?'  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:35:16  INFO         Paraphrase: 'The entities that provide troops to the UN Security Council for military operations are which?'  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:35:16  INFO         Round 2/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+07:35:16  INFO       Attack round 3/8
+07:35:16  INFO         Evolving 2 parent(s):
+07:35:16  INFO           fitness=1.00  'What source does the UN Security Council draw upon to conduct military actions?'
+07:35:16  INFO           fitness=1.00  "Which countries contribute troops to the UN Security Council's military endeavors?"
+07:35:19  INFO         Generated 6 candidates
+07:35:46  INFO         Paraphrase: 'From which entities does the UN Security Council typically draw troops for its military actions?'  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:36:12  INFO         Paraphrase: 'What entities does the UN Security Council usually draw troops from for its military endeavors?'  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:36:36  INFO         Paraphrase: 'Which entities does the UN Security Council rely on to provide troops for its military actions?'  →  Victim: 'member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:37:03  INFO         Paraphrase: 'The UN Security Council usually draws troops from which entities for its military operations.'  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:37:45  INFO         Paraphrase: 'The entities that the UN Security Council draws upon for troops are which?'  →  Victim: 'member states'  correct={'llm_judge': True}  fitness=0.60 (3/5 wrong, llm_judge)
+07:38:14  INFO         Paraphrase: 'What entities does the UN Security Council usually obtain troops from for its military missions?'  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:38:14  INFO         Round 3/8 done: 6 generated, 0 duplicates, 0 rejected, 6 passed validation (queried), 0 successful
+07:38:14  INFO       Attack round 4/8
+07:38:14  INFO         Evolving 3 parent(s):
+07:38:14  INFO           fitness=1.00  'What source does the UN Security Council draw upon to conduct military actions?'
+07:38:14  INFO           fitness=1.00  "Which countries contribute troops to the UN Security Council's military endeavors?"
+07:38:14  INFO           fitness=0.60  'The entities that the UN Security Council draws upon for troops are which?'
+07:38:16  INFO         Generated 5 candidates
+07:38:56  INFO         Paraphrase: "Which entities are the UN Security Council's source for military actions?"  →  Victim: 'UN Security Council'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+07:38:56  INFO         *** ATTACK SUCCESS (round 4) ***
+        Paraphrase:    Which entities are the UN Security Council's source for military actions?
+        Victim answer: UN Security Council
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+07:39:19  INFO         Paraphrase: 'The UN Security Council draws upon which entities to conduct military actions?'  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:39:55  INFO         Paraphrase: 'What entities does the UN Security Council use to contribute troops for its military endeavors?'  →  Victim: 'member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:40:16  INFO         Paraphrase: 'Which entities provide the UN Security Council with troops for its military actions?'  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:40:48  INFO         Paraphrase: 'The UN Security Council relies on which entities to obtain troops for its military missions?'  →  Victim: 'UN Member States'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:40:48  INFO         Round 4/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 1 successful
+07:40:48  INFO       Attack round 5/8
+07:40:48  INFO         Evolving 3 parent(s):
+07:40:48  INFO           fitness=1.00  'What source does the UN Security Council draw upon to conduct military actions?'
+07:40:48  INFO           fitness=1.00  "Which countries contribute troops to the UN Security Council's military endeavors?"
+07:40:48  INFO           fitness=0.80  "Which entities are the UN Security Council's source for military actions?"
+07:40:51  INFO         Generated 5 candidates
+07:41:15  INFO         Paraphrase: 'From which source does the UN Security Council typically derive troops for its military endeavors?'  →  Victim: 'member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:41:43  INFO         Paraphrase: 'What entities does the UN Security Council usually rely on to provide military forces?'  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:42:13  INFO         Paraphrase: 'The entities that supply troops to the UN Security Council for its military actions are which?'  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:42:45  INFO         Paraphrase: 'The UN Security Council typically draws upon which entities for military troop deployment?'  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.60 (3/5 wrong, llm_judge)
+07:43:15  INFO         Paraphrase: "The entities that contribute troops to the UN Security Council's military operations are which?"  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:43:15  INFO         Round 5/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+07:43:15  INFO       Attack round 6/8
+07:43:15  INFO         Evolving 3 parent(s):
+07:43:15  INFO           fitness=1.00  'What source does the UN Security Council draw upon to conduct military actions?'
+07:43:15  INFO           fitness=1.00  "Which countries contribute troops to the UN Security Council's military endeavors?"
+07:43:15  INFO           fitness=0.80  "Which entities are the UN Security Council's source for military actions?"
+07:43:17  INFO         Generated 5 candidates
+07:43:57  INFO         Paraphrase: 'What entities does the UN Security Council draw upon to conduct military operations?'  →  Victim: 'UN peacekeeping forces'  correct={'llm_judge': False}  fitness=0.40 (2/5 wrong, llm_judge)
+07:43:57  INFO         *** ATTACK SUCCESS (round 6) ***
+        Paraphrase:    What entities does the UN Security Council draw upon to conduct military operations?
+        Victim answer: UN peacekeeping forces
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.40 vs 0.00 on the original (not robust)
+07:44:50  INFO         Paraphrase: 'Which entities does the UN Security Council draw upon to obtain troops for military actions?'  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:45:16  INFO         Paraphrase: 'From which entities does the UN Security Council draw troops for military endeavors?'  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:45:50  INFO         Paraphrase: 'What entities does the UN Security Council rely on for conducting military actions?'  →  Victim: 'member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:46:39  INFO         Paraphrase: 'Which entities does the UN Security Council typically draw upon to provide military forces?'  →  Victim: 'member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:46:39  INFO         Round 6/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 1 successful
+07:46:39  INFO       Attack round 7/8
+07:46:39  INFO         Evolving 3 parent(s):
+07:46:39  INFO           fitness=1.00  'What source does the UN Security Council draw upon to conduct military actions?'
+07:46:39  INFO           fitness=1.00  "Which countries contribute troops to the UN Security Council's military endeavors?"
+07:46:39  INFO           fitness=0.80  "Which entities are the UN Security Council's source for military actions?"
+07:46:42  INFO         Generated 5 candidates
+07:47:25  INFO         Paraphrase: 'What entities does the UN Security Council rely on as a source for military action?'  →  Victim: 'Its own resolutions.'  correct={'llm_judge': False}  fitness=0.60 (3/5 wrong, llm_judge)
+07:47:25  INFO         *** ATTACK SUCCESS (round 7) ***
+        Paraphrase:    What entities does the UN Security Council rely on as a source for military action?
+        Victim answer: Its own resolutions.
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.60 vs 0.00 on the original (ROBUST)
+07:48:01  INFO         Paraphrase: 'Which entities are typically drawn upon by the UN Security Council for military endeavors?'  →  Victim: 'UN peacekeeping forces'  correct={'llm_judge': False}  fitness=0.60 (3/5 wrong, llm_judge)
+07:48:01  INFO         *** ATTACK SUCCESS (round 7) ***
+        Paraphrase:    Which entities are typically drawn upon by the UN Security Council for military endeavors?
+        Victim answer: UN peacekeeping forces
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.60 vs 0.00 on the original (ROBUST)
+07:48:32  INFO         Paraphrase: 'What countries or entities does the UN Security Council depend on to provide troops for military actions?'  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:49:03  INFO         Paraphrase: 'Which bodies provide the UN Security Council with troops for its military operations?'  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:49:27  INFO         Paraphrase: 'What entities is the UN Security Council known to draw upon for military action?'  →  Victim: 'member states'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+07:49:27  INFO         Round 7/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 2 successful
+07:49:27  INFO       Attack round 8/8
+07:49:27  INFO         Evolving 3 parent(s):
+07:49:27  INFO           fitness=1.00  'What source does the UN Security Council draw upon to conduct military actions?'
+07:49:27  INFO           fitness=1.00  "Which countries contribute troops to the UN Security Council's military endeavors?"
+07:49:27  INFO           fitness=0.80  "Which entities are the UN Security Council's source for military actions?"
+07:49:29  INFO         Generated 5 candidates
+07:50:06  INFO         Paraphrase: 'What source does the UN Security Council rely on to carry out military actions?'  →  Victim: 'UN Security Council authorization'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+07:50:06  INFO         *** ATTACK SUCCESS (round 8) ***
+        Paraphrase:    What source does the UN Security Council rely on to carry out military actions?
+        Victim answer: UN Security Council authorization
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+07:50:37  INFO         Paraphrase: "Which entities contribute troops to the UN Security Council's military undertakings?"  →  Victim: 'Member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:51:16  INFO         Paraphrase: "The UN Security Council's source of troops for military actions is which entity?"  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:51:53  INFO         Paraphrase: 'What entities provide troops to the UN Security Council for its military activities?'  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:52:31  INFO         Paraphrase: 'The UN Security Council draws its military force from which entities?'  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.40 (2/5 wrong, llm_judge)
+07:52:31  INFO         Round 8/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 1 successful
+07:52:31  INFO       Attack finished after 8 round(s): 40 valid victim queries, successful attacks per evaluator: {'llm_judge': 7}, robust: 6
+07:52:31  INFO     [10/10] Qnqo_validation_2776: When did the usa join world war one?
+07:52:34  INFO       Victim (original): 'April 6, 1917'
+07:52:37  INFO       [llm_judge] original correct=True
+07:52:54  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+07:52:54  INFO       Attack round 1/8
+07:52:56  INFO         Generated 5 candidates
+
+[ANSWER LEAK]
+Original:   When did the usa join world war one?
+Answer(s):  ['April 1917', 'April 6, 1917', 'in April 1917']
+Paraphrase: What date in April marked the usa's entry into world war one?
+
+07:53:25  INFO         Paraphrase: 'When did the usa participate in world war one for the first time?'  →  Victim: 'April 6, 1917'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   When did the usa join world war one?
+Answer(s):  ['April 1917', 'April 6, 1917', 'in April 1917']
+Paraphrase: In what month did the usa begin contributing to the world war one effort?
+
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   When did the usa join world war one?
+Paraphrase: When did the usa enter the battlefields of world war one?
+
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   When did the usa join world war one?
+Paraphrase: What day in April is historically recognized as the usa's entry into world war one?
+
+07:53:30  INFO         Round 1/8 done: 5 generated, 0 duplicates, 4 rejected, 1 passed validation (queried), 0 successful
+07:53:30  INFO       Attack round 2/8
+07:53:33  INFO         Generated 5 candidates
+07:53:56  INFO         Paraphrase: "What is the date of the USA's involvement in World War One?"  →  Victim: 'April 6, 1917'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:54:39  INFO         Paraphrase: 'When did the United States participate in the global conflict of World War One?'  →  Victim: 'April 6, 1917'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER LEAK]
+Original:   When did the usa join world war one?
+Answer(s):  ['April 1917', 'April 6, 1917', 'in April 1917']
+Paraphrase: On what day in April did the United States of America enter the fray of World War One?
+
+07:55:04  INFO         Paraphrase: "What is the calendar date marking the USA's entrance into the Great War?"  →  Victim: 'April 6, 1917'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:55:35  INFO         Paraphrase: 'When did the USA formally join the military conflict of World War One?'  →  Victim: 'April 6, 1917'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:55:35  INFO         Round 2/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+07:55:35  INFO       Attack round 3/8
+07:55:37  INFO         Generated 5 candidates
+07:56:02  INFO         Paraphrase: "What was the date of the USA's official entry into World War One?"  →  Victim: 'April 6, 1917'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:56:30  INFO         Paraphrase: "When did the United States of America's participation in World War One begin?"  →  Victim: 'April 6, 1917'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:56:51  INFO         Paraphrase: 'In what month and year did the USA become involved in the global conflict of World War One?'  →  Victim: 'April 1917'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:57:19  INFO         Paraphrase: "What was the exact calendar date of the USA's formal declaration of war in World War One?"  →  Victim: 'April 6, 1917'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   When did the usa join world war one?
+Answer(s):  ['April 1917', 'April 6, 1917', 'in April 1917']
+Paraphrase: On what date did the United States officially commit to the Allied forces in World War One?
+
+07:57:23  INFO         Round 3/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+07:57:23  INFO       Attack round 4/8
+07:57:25  INFO         Generated 5 candidates
+07:57:46  INFO         Paraphrase: 'What specific date did the United States of America enter the First World War?'  →  Victim: 'April 6, 1917'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:58:08  INFO         Paraphrase: "When did the United States of America's involvement in World War One commence?"  →  Victim: 'April 6, 1917'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:58:36  INFO         Paraphrase: "What calendar date marks the USA's participation in the Great War?"  →  Victim: 'April 6, 1917'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:59:00  INFO         Paraphrase: 'In what month and year did the USA officially join the military conflict of World War One?'  →  Victim: 'April 1917'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:59:27  INFO         Paraphrase: 'When did the United States formally declare its entry into the global conflict of World War One?'  →  Victim: 'April 6, 1917'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+07:59:27  INFO         Round 4/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+07:59:27  INFO       Attack round 5/8
+07:59:29  INFO         Generated 5 candidates
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   When did the usa join world war one?
+Paraphrase: What day and month does April 6th represent in the history of the USA's involvement in World War One?
+
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   When did the usa join world war one?
+Paraphrase: What is the precise calendar date when the United States of America joined the global conflict of World War One?
+
+07:59:56  INFO         Paraphrase: 'When did the USA make its formal declaration of military participation in World War One?'  →  Victim: 'April 6, 1917'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+08:00:19  INFO         Paraphrase: "What is the specific date marking the beginning of the United States' involvement in World War One?"  →  Victim: 'April 6, 1917'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+08:00:54  INFO         Paraphrase: "What calendar date signifies the official start of the USA's engagement in the Great War?"  →  Victim: 'April 6, 1917'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+08:00:54  INFO         Round 5/8 done: 5 generated, 0 duplicates, 2 rejected, 3 passed validation (queried), 0 successful
+08:00:54  INFO       Attack round 6/8
+08:00:56  INFO         Generated 5 candidates
+08:01:24  INFO         Paraphrase: 'What is the exact date on which the United States of America entered into the conflict of World War One?'  →  Victim: 'April 6, 1917'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   When did the usa join world war one?
+Paraphrase: On which day did the USA formally announce its participation in the global war effort?
+
+08:01:50  INFO         Paraphrase: 'When did the United States declare its involvement in the military conflict of World War One?'  →  Victim: 'April 6, 1917'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+08:02:13  INFO         Paraphrase: "What is the date of the United States' entry into the First World War?"  →  Victim: 'April 6, 1917'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+08:02:41  INFO         Paraphrase: 'In what calendar year and month did the USA officially join the Allied forces in World War One?'  →  Victim: '1917 April'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+08:02:41  INFO         Round 6/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+08:02:41  INFO       Attack round 7/8
+08:02:44  INFO         Generated 5 candidates
+08:03:06  INFO         Paraphrase: "What is the date corresponding to the USA's entry into the global conflict of World War One?"  →  Victim: 'April 6, 1917'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+08:03:36  INFO         Paraphrase: 'At what point in time did the United States formally become involved in the military actions of World War One?'  →  Victim: 'April 6, 1917'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+08:03:59  INFO         Paraphrase: "When did the USA's participation in the war efforts of World War One commence?"  →  Victim: 'April 6, 1917'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+08:04:26  INFO         Paraphrase: 'On what specific date did the United States of America officially declare its involvement in the conflict of World War One?'  →  Victim: 'April 6, 1917'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+08:05:19  INFO         Paraphrase: "What is the exact calendar date marking the beginning of the United States' military participation in World War One?"  →  Victim: 'June 1, 1917'  correct={'llm_judge': False}  fitness=0.40 (2/5 wrong, llm_judge)
+08:05:19  INFO         *** ATTACK SUCCESS (round 7) ***
+        Paraphrase:    What is the exact calendar date marking the beginning of the United States' military participation in World War One?
+        Victim answer: June 1, 1917
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.40 vs 0.00 on the original (not robust)
+08:05:19  INFO         Round 7/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 1 successful
+08:05:19  INFO       Attack round 8/8
+08:05:19  INFO         Evolving 1 parent(s):
+08:05:19  INFO           fitness=0.40  "What is the exact calendar date marking the beginning of the United States' military participation in World War One?"
+08:05:22  INFO         Generated 5 candidates
+08:05:48  INFO         Paraphrase: "When did the United States' military involvement in World War One commence?"  →  Victim: 'April 6, 1917'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+08:06:23  INFO         Paraphrase: "What is the calendar date marking the official start of the United States' engagement in the Great War?"  →  Victim: 'April 6, 1917'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+08:06:49  INFO         Paraphrase: 'At what point in time did the United States declare its entry into the conflict of World War One?'  →  Victim: 'April 6, 1917'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+08:07:18  INFO         Paraphrase: "When did the USA's participation in the war efforts of World War One begin?"  →  Victim: 'April 6, 1917'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+08:07:46  INFO         Paraphrase: 'What is the specific date on which the United States formally announced its participation in the global war effort?'  →  Victim: 'April 6, 1917'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+08:07:46  INFO         Round 8/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+08:07:46  INFO       Attack finished after 8 round(s): 31 valid victim queries, successful attacks per evaluator: {'llm_judge': 1}, robust: 0
+08:07:46  INFO     Results saved → results/attacker_llama3_1_8b_misleading_entity__victim_qwen3_4b__judge_gemma3_12b__q10_p5_r8_evolutionary__20260926_050834.json
+
+Results saved → results/attacker_llama3_1_8b_misleading_entity__victim_qwen3_4b__judge_gemma3_12b__q10_p5_r8_evolutionary__20260926_050834.json
+
+============================================================
+EXPERIMENT SUMMARY
+============================================================
+  Questions evaluated : 10
+  Paraphrases / round : 5
+  Max rounds          : 8
+  Valid victim queries: 323
+
+  [llm_judge]
+    Victim baseline accuracy : 100.0%
+    Overall Attack Success Rate (ASR) : 18.0%
+    Questions with >= 1 success       : 80.0%
+    Total successful paraphrases      : 58
+  Robust successes (gain >= 0.50 over the original's wrong rate): 46, on 70.0% of questions
+============================================================
+  Full results at: results/attacker_llama3_1_8b_misleading_entity__victim_qwen3_4b__judge_gemma3_12b__q10_p5_r8_evolutionary__20260926_050834.json
+============================================================

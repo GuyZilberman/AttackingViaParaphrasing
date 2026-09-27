@@ -1,0 +1,2591 @@
+{
+  "metadata": {
+    "ollama_base_url": "http://127.0.0.1:11434",
+    "attacker_model": "llama3.1:8b",
+    "victim_model": "qwen3:4b",
+    "judge_model": "qwen3:4b",
+    "attacker_strategy": "misleading_entity",
+    "n_paraphrases": 5,
+    "max_rounds": 3,
+    "stop_on_success": false,
+    "search": "evolutionary",
+    "n_parents": 3,
+    "fitness_samples": 4,
+    "fitness_temperature": 0.7,
+    "dataset_path": "data/nq_open_qwen3_4b_correct.json",
+    "n_questions": 3,
+    "random_seed": 42,
+    "evaluator": "both",
+    "results_dir": "results",
+    "attacker_temperature": 0.9,
+    "victim_temperature": 0.0,
+    "judge_temperature": 0.0
+  },
+  "results": [
+    {
+      "question_id": "nqo_validation_0448",
+      "original_question": "All the motor neurons that control the skeletal muscles are?",
+      "ground_truths": [
+        "efferent nerves",
+        "Somatic motor neurons",
+        "Somatic"
+      ],
+      "victim_original_answer": "somatic motor neurons",
+      "victim_original_correct": {
+        "exact_match": true,
+        "llm_judge": true
+      },
+      "paraphrases": [
+        {
+          "round": 1,
+          "paraphrase": "What type of nerves control the skeletal muscles?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "somatic nerves",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'somatic nerves' ≈ 'somatic'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "somatic motor nerves",
+            "somatic motor nerves",
+            "somatic nerves",
+            "somatic nerves"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 1,
+          "paraphrase": "Which nerves are responsible for controlling skeletal muscle activity?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "somatic motor nerves",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'somatic motor nerves' ≈ 'somatic'",
+            "llm_judge": "Somatic motor nerves and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles, with efferent nerves being a subset of somatic motor nerves."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "somatic motor nerves",
+            "motor neurons",
+            "motor nerves",
+            "motor nerves"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 1,
+          "paraphrase": "What is the primary function of the nerves controlling the skeletal muscles?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "voluntary movement",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'voluntary movement'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "enable voluntary movement",
+            "cause skeletal muscle contraction",
+            "Initiate skeletal muscle contraction.",
+            "to produce voluntary movement"
+          ],
+          "fitness": 1.0
+        },
+        {
+          "round": 1,
+          "paraphrase": "What nerves make up the motor component of the skeletal muscle system?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "motor nerves",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'motor nerves'",
+            "llm_judge": "Both terms refer to the same type of nerve that carries signals from the central nervous system to muscles or glands, with 'motor nerves' being a common synonym for 'efferent nerves' in neuroanatomy."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "somatic motor neurons",
+            "motor neurons",
+            "motor neurons",
+            "motor neurons"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 1,
+          "paraphrase": "Which neurons are associated with the contraction of skeletal muscles?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "motor neurons",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'motor neurons' ≈ 'somatic motor neurons'",
+            "llm_judge": "Motor neurons and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles or glands, with 'efferent' being a synonym for 'motor' in neuroanatomy."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "motor neurons",
+            "motor neurons",
+            "motor neurons",
+            "motor neurons"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 2,
+          "paraphrase": "What nerves are primarily responsible for controlling skeletal muscle activity?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "somatic motor nerves",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'somatic motor nerves' ≈ 'somatic'",
+            "llm_judge": "Somatic motor nerves and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles, with efferent nerves being a subset of somatic motor nerves."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "motor neurons",
+            "somatic motor nerves",
+            "motor nerves",
+            "somatic motor nerves"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 2,
+          "paraphrase": "What is the main function of the nerves controlling the contraction of skeletal muscles?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "To initiate skeletal muscle contraction.",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'to initiate skeletal muscle contraction'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "Transmit signals to initiate contraction.",
+            "To initiate skeletal muscle contraction.",
+            "To initiate and coordinate skeletal muscle contraction.",
+            "To initiate skeletal muscle contraction"
+          ],
+          "fitness": 1.0
+        },
+        {
+          "round": 2,
+          "paraphrase": "What is the primary role of the nerves associated with the contraction of skeletal muscles?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "to initiate contraction",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'to initiate contraction'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "transmit signals to initiate contraction",
+            "to stimulate contraction",
+            "transmit motor commands to initiate contraction",
+            "to trigger skeletal muscle contraction"
+          ],
+          "fitness": 1.0
+        },
+        {
+          "round": 2,
+          "paraphrase": "What nerves have the primary function of controlling skeletal muscle activity?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "motor nerves",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'motor nerves'",
+            "llm_judge": "Both terms refer to the same type of nerve that carries signals from the central nervous system to muscles or glands, with 'motor nerves' being a common synonym for 'efferent nerves' in neuroanatomy."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "somatic motor nerves",
+            "motor nerves",
+            "motor nerves",
+            "somatic motor nerves"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 2,
+          "paraphrase": "What is the main purpose of the nerves controlling the movement of skeletal muscles?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "enable voluntary movement",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'enable voluntary movement'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "to enable voluntary movement",
+            "To enable voluntary movement.",
+            "To enable voluntary movement of skeletal muscles.",
+            "voluntary movement"
+          ],
+          "fitness": 1.0
+        },
+        {
+          "round": 3,
+          "paraphrase": "What nerves are primarily responsible for carrying signals to the skeletal muscles?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "motor nerves",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'motor nerves'",
+            "llm_judge": "Both terms refer to the same type of nerve that carries signals from the central nervous system to muscles or glands, with 'motor nerves' being a common synonym for 'efferent nerves' in neuroanatomy."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "motor nerves",
+            "motor nerves",
+            "somatic motor nerves",
+            "motor nerves"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 3,
+          "paraphrase": "What is the primary purpose of the nerves controlling the movement of skeletal muscles?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "voluntary movement execution",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'voluntary movement execution'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "To produce voluntary movement",
+            "voluntary movement",
+            "initiate and control voluntary movement",
+            "to produce voluntary movement"
+          ],
+          "fitness": 1.0
+        },
+        {
+          "round": 3,
+          "paraphrase": "Which type of nerves control the contraction of skeletal muscles?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "somatic motor nerves",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'somatic motor nerves' ≈ 'somatic'",
+            "llm_judge": "Somatic motor nerves and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles, with efferent nerves being a subset of somatic motor nerves."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "somatic",
+            "somatic motor nerves",
+            "somatic nerves",
+            "somatic nerves"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 3,
+          "paraphrase": "What is the main function of the nerves responsible for controlling skeletal muscle activity?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "to cause skeletal muscle contraction",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'to cause skeletal muscle contraction'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "Stimulate skeletal muscle contraction.",
+            "To initiate voluntary skeletal muscle contractions.",
+            "initiate skeletal muscle contraction",
+            "Cause skeletal muscle contraction."
+          ],
+          "fitness": 0.8
+        },
+        {
+          "round": 3,
+          "paraphrase": "What nerves have the primary function of controlling the contraction of skeletal muscles?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "motor nerves",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'motor nerves'",
+            "llm_judge": "Both terms refer to the same type of nerve that carries signals from the central nervous system to muscles or glands, with 'motor nerves' being a common synonym for 'efferent nerves' in neuroanatomy."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "somatic motor neurons",
+            "motor nerves",
+            "somatic motor neurons",
+            "somatic motor nerves"
+          ],
+          "fitness": 0.0
+        }
+      ],
+      "attack_success_rate": {
+        "exact_match": 0.6666666666666666,
+        "llm_judge": 0.4
+      },
+      "rounds_attempted": 3,
+      "rounds": [
+        {
+          "round": 1,
+          "parents": [],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 5,
+          "candidates": [
+            {
+              "round": 1,
+              "paraphrase": "What type of nerves control the skeletal muscles?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "somatic nerves",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'somatic nerves' ≈ 'somatic'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "somatic motor nerves",
+                "somatic motor nerves",
+                "somatic nerves",
+                "somatic nerves"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 1,
+              "paraphrase": "Which nerves are responsible for controlling skeletal muscle activity?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "somatic motor nerves",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'somatic motor nerves' ≈ 'somatic'",
+                "llm_judge": "Somatic motor nerves and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles, with efferent nerves being a subset of somatic motor nerves."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "somatic motor nerves",
+                "motor neurons",
+                "motor nerves",
+                "motor nerves"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 1,
+              "paraphrase": "What is the primary function of the nerves controlling the skeletal muscles?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "voluntary movement",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction 'voluntary movement'",
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "enable voluntary movement",
+                "cause skeletal muscle contraction",
+                "Initiate skeletal muscle contraction.",
+                "to produce voluntary movement"
+              ],
+              "fitness": 1.0
+            },
+            {
+              "round": 1,
+              "paraphrase": "What nerves make up the motor component of the skeletal muscle system?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "motor nerves",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction 'motor nerves'",
+                "llm_judge": "Both terms refer to the same type of nerve that carries signals from the central nervous system to muscles or glands, with 'motor nerves' being a common synonym for 'efferent nerves' in neuroanatomy."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "somatic motor neurons",
+                "motor neurons",
+                "motor neurons",
+                "motor neurons"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 1,
+              "paraphrase": "Which neurons are associated with the contraction of skeletal muscles?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "motor neurons",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'motor neurons' ≈ 'somatic motor neurons'",
+                "llm_judge": "Motor neurons and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles or glands, with 'efferent' being a synonym for 'motor' in neuroanatomy."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "motor neurons",
+                "motor neurons",
+                "motor neurons",
+                "motor neurons"
+              ],
+              "fitness": 0.0
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "parents": [
+            "What is the primary function of the nerves controlling the skeletal muscles?"
+          ],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 5,
+          "candidates": [
+            {
+              "round": 2,
+              "paraphrase": "What nerves are primarily responsible for controlling skeletal muscle activity?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "somatic motor nerves",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'somatic motor nerves' ≈ 'somatic'",
+                "llm_judge": "Somatic motor nerves and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles, with efferent nerves being a subset of somatic motor nerves."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "motor neurons",
+                "somatic motor nerves",
+                "motor nerves",
+                "somatic motor nerves"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 2,
+              "paraphrase": "What is the main function of the nerves controlling the contraction of skeletal muscles?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "To initiate skeletal muscle contraction.",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction 'to initiate skeletal muscle contraction'",
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "Transmit signals to initiate contraction.",
+                "To initiate skeletal muscle contraction.",
+                "To initiate and coordinate skeletal muscle contraction.",
+                "To initiate skeletal muscle contraction"
+              ],
+              "fitness": 1.0
+            },
+            {
+              "round": 2,
+              "paraphrase": "What is the primary role of the nerves associated with the contraction of skeletal muscles?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "to initiate contraction",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction 'to initiate contraction'",
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "transmit signals to initiate contraction",
+                "to stimulate contraction",
+                "transmit motor commands to initiate contraction",
+                "to trigger skeletal muscle contraction"
+              ],
+              "fitness": 1.0
+            },
+            {
+              "round": 2,
+              "paraphrase": "What nerves have the primary function of controlling skeletal muscle activity?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "motor nerves",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction 'motor nerves'",
+                "llm_judge": "Both terms refer to the same type of nerve that carries signals from the central nervous system to muscles or glands, with 'motor nerves' being a common synonym for 'efferent nerves' in neuroanatomy."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "somatic motor nerves",
+                "motor nerves",
+                "motor nerves",
+                "somatic motor nerves"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 2,
+              "paraphrase": "What is the main purpose of the nerves controlling the movement of skeletal muscles?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "enable voluntary movement",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction 'enable voluntary movement'",
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "to enable voluntary movement",
+                "To enable voluntary movement.",
+                "To enable voluntary movement of skeletal muscles.",
+                "voluntary movement"
+              ],
+              "fitness": 1.0
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "parents": [
+            "What is the primary function of the nerves controlling the skeletal muscles?",
+            "What is the main function of the nerves controlling the contraction of skeletal muscles?",
+            "What is the primary role of the nerves associated with the contraction of skeletal muscles?"
+          ],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 5,
+          "candidates": [
+            {
+              "round": 3,
+              "paraphrase": "What nerves are primarily responsible for carrying signals to the skeletal muscles?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "motor nerves",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction 'motor nerves'",
+                "llm_judge": "Both terms refer to the same type of nerve that carries signals from the central nervous system to muscles or glands, with 'motor nerves' being a common synonym for 'efferent nerves' in neuroanatomy."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "motor nerves",
+                "motor nerves",
+                "somatic motor nerves",
+                "motor nerves"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 3,
+              "paraphrase": "What is the primary purpose of the nerves controlling the movement of skeletal muscles?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "voluntary movement execution",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction 'voluntary movement execution'",
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "To produce voluntary movement",
+                "voluntary movement",
+                "initiate and control voluntary movement",
+                "to produce voluntary movement"
+              ],
+              "fitness": 1.0
+            },
+            {
+              "round": 3,
+              "paraphrase": "Which type of nerves control the contraction of skeletal muscles?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "somatic motor nerves",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'somatic motor nerves' ≈ 'somatic'",
+                "llm_judge": "Somatic motor nerves and efferent nerves both refer to nerves that carry signals from the central nervous system to muscles, with efferent nerves being a subset of somatic motor nerves."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "somatic",
+                "somatic motor nerves",
+                "somatic nerves",
+                "somatic nerves"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 3,
+              "paraphrase": "What is the main function of the nerves responsible for controlling skeletal muscle activity?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "to cause skeletal muscle contraction",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction 'to cause skeletal muscle contraction'",
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "Stimulate skeletal muscle contraction.",
+                "To initiate voluntary skeletal muscle contractions.",
+                "initiate skeletal muscle contraction",
+                "Cause skeletal muscle contraction."
+              ],
+              "fitness": 0.8
+            },
+            {
+              "round": 3,
+              "paraphrase": "What nerves have the primary function of controlling the contraction of skeletal muscles?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "motor nerves",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction 'motor nerves'",
+                "llm_judge": "Both terms refer to the same type of nerve that carries signals from the central nervous system to muscles or glands, with 'motor nerves' being a common synonym for 'efferent nerves' in neuroanatomy."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "somatic motor neurons",
+                "motor nerves",
+                "somatic motor neurons",
+                "somatic motor nerves"
+              ],
+              "fitness": 0.0
+            }
+          ]
+        }
+      ],
+      "n_valid_victim_queries": 15,
+      "successful_attacks": [
+        {
+          "round": 1,
+          "paraphrase": "What is the primary function of the nerves controlling the skeletal muscles?",
+          "victim_answer": "voluntary movement",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "round": 1,
+          "paraphrase": "What nerves make up the motor component of the skeletal muscle system?",
+          "victim_answer": "motor nerves",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 2,
+          "paraphrase": "What is the main function of the nerves controlling the contraction of skeletal muscles?",
+          "victim_answer": "To initiate skeletal muscle contraction.",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "round": 2,
+          "paraphrase": "What is the primary role of the nerves associated with the contraction of skeletal muscles?",
+          "victim_answer": "to initiate contraction",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "round": 2,
+          "paraphrase": "What nerves have the primary function of controlling skeletal muscle activity?",
+          "victim_answer": "motor nerves",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 2,
+          "paraphrase": "What is the main purpose of the nerves controlling the movement of skeletal muscles?",
+          "victim_answer": "enable voluntary movement",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "round": 3,
+          "paraphrase": "What nerves are primarily responsible for carrying signals to the skeletal muscles?",
+          "victim_answer": "motor nerves",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 3,
+          "paraphrase": "What is the primary purpose of the nerves controlling the movement of skeletal muscles?",
+          "victim_answer": "voluntary movement execution",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "round": 3,
+          "paraphrase": "What is the main function of the nerves responsible for controlling skeletal muscle activity?",
+          "victim_answer": "to cause skeletal muscle contraction",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "round": 3,
+          "paraphrase": "What nerves have the primary function of controlling the contraction of skeletal muscles?",
+          "victim_answer": "motor nerves",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          }
+        }
+      ],
+      "n_successful_attacks": {
+        "exact_match": 10,
+        "llm_judge": 6
+      },
+      "attack_succeeded": {
+        "exact_match": true,
+        "llm_judge": true
+      }
+    },
+    {
+      "question_id": "nqo_validation_0019",
+      "original_question": "What age do you need to be to buy a bb gun?",
+      "ground_truths": [
+        "18"
+      ],
+      "victim_original_answer": "18",
+      "victim_original_correct": {
+        "exact_match": true,
+        "llm_judge": true
+      },
+      "paraphrases": [
+        {
+          "round": 1,
+          "paraphrase": "At what minimum age can you buy a bb gun?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "12",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction '12'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "18",
+            "18",
+            "16",
+            "16"
+          ],
+          "fitness": 0.6
+        },
+        {
+          "round": 1,
+          "paraphrase": "What is the age requirement for buying a bb gun?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "10 years old",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction '10 years old'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "18 years old",
+            "18 years old",
+            "18 years old",
+            "18"
+          ],
+          "fitness": 0.2
+        },
+        {
+          "round": 1,
+          "paraphrase": "Can you buy a bb gun when you are still a minor?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "No",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'no'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "Yes, with parental consent.",
+            "No",
+            "No",
+            "No"
+          ],
+          "fitness": 1.0
+        },
+        {
+          "round": 1,
+          "paraphrase": "How old do you have to be to be eligible to buy a bb gun?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "18",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '18' ≈ '18'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "16",
+            "18 years old",
+            "18",
+            "18"
+          ],
+          "fitness": 0.2
+        },
+        {
+          "round": 2,
+          "paraphrase": "Can a minor purchase a bb gun?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "No",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'no'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "No",
+            "Yes",
+            "Yes",
+            "No"
+          ],
+          "fitness": 1.0
+        },
+        {
+          "round": 2,
+          "paraphrase": "At what age is it permitted to buy a bb gun?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "12",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction '12'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "12",
+            "18",
+            "18",
+            "18"
+          ],
+          "fitness": 0.4
+        },
+        {
+          "round": 2,
+          "paraphrase": "What age must you be to be allowed to buy a bb gun?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "18",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '18' ≈ '18'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "18",
+            "18",
+            "18",
+            "18"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 2,
+          "paraphrase": "Can you buy a bb gun if you're still a minor?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "No",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'no'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "No",
+            "No",
+            "No",
+            "No"
+          ],
+          "fitness": 1.0
+        },
+        {
+          "round": 2,
+          "paraphrase": "At what minimum age is it lawful to purchase a bb gun?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "18",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '18' ≈ '18'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "12",
+            "12 years",
+            "No federal minimum age",
+            "18"
+          ],
+          "fitness": 0.6
+        },
+        {
+          "round": 3,
+          "paraphrase": "What's the minimum age to buy a bb gun if you're still a minor?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "18",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: '18' ≈ '18'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "18 years old",
+            "18",
+            "12",
+            "18"
+          ],
+          "fitness": 0.2
+        },
+        {
+          "round": 3,
+          "paraphrase": "Can a minor legally purchase a bb gun?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Yes",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'yes'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "No",
+            "No",
+            "No",
+            "No."
+          ],
+          "fitness": 1.0
+        },
+        {
+          "round": 3,
+          "paraphrase": "Can you buy a bb gun while still considered a minor?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "No",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'no'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "No",
+            "No",
+            "No",
+            "No"
+          ],
+          "fitness": 1.0
+        }
+      ],
+      "attack_success_rate": {
+        "exact_match": 0.6666666666666666,
+        "llm_judge": 0.6666666666666666
+      },
+      "rounds_attempted": 3,
+      "rounds": [
+        {
+          "round": 1,
+          "parents": [],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 1,
+          "n_queried": 4,
+          "candidates": [
+            {
+              "paraphrase": "Who can purchase a bb gun?",
+              "status": "rejected",
+              "equivalent": false
+            },
+            {
+              "round": 1,
+              "paraphrase": "At what minimum age can you buy a bb gun?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "12",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction '12'",
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "18",
+                "18",
+                "16",
+                "16"
+              ],
+              "fitness": 0.6
+            },
+            {
+              "round": 1,
+              "paraphrase": "What is the age requirement for buying a bb gun?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "10 years old",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction '10 years old'",
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "18 years old",
+                "18 years old",
+                "18 years old",
+                "18"
+              ],
+              "fitness": 0.2
+            },
+            {
+              "round": 1,
+              "paraphrase": "Can you buy a bb gun when you are still a minor?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "No",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction 'no'",
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "Yes, with parental consent.",
+                "No",
+                "No",
+                "No"
+              ],
+              "fitness": 1.0
+            },
+            {
+              "round": 1,
+              "paraphrase": "How old do you have to be to be eligible to buy a bb gun?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "18",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '18' ≈ '18'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "16",
+                "18 years old",
+                "18",
+                "18"
+              ],
+              "fitness": 0.2
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "parents": [
+            "Can you buy a bb gun when you are still a minor?",
+            "At what minimum age can you buy a bb gun?",
+            "What is the age requirement for buying a bb gun?"
+          ],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 5,
+          "candidates": [
+            {
+              "round": 2,
+              "paraphrase": "Can a minor purchase a bb gun?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "No",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction 'no'",
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "No",
+                "Yes",
+                "Yes",
+                "No"
+              ],
+              "fitness": 1.0
+            },
+            {
+              "round": 2,
+              "paraphrase": "At what age is it permitted to buy a bb gun?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "12",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction '12'",
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "12",
+                "18",
+                "18",
+                "18"
+              ],
+              "fitness": 0.4
+            },
+            {
+              "round": 2,
+              "paraphrase": "What age must you be to be allowed to buy a bb gun?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "18",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '18' ≈ '18'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "18",
+                "18",
+                "18",
+                "18"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 2,
+              "paraphrase": "Can you buy a bb gun if you're still a minor?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "No",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction 'no'",
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "No",
+                "No",
+                "No",
+                "No"
+              ],
+              "fitness": 1.0
+            },
+            {
+              "round": 2,
+              "paraphrase": "At what minimum age is it lawful to purchase a bb gun?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "18",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '18' ≈ '18'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "12",
+                "12 years",
+                "No federal minimum age",
+                "18"
+              ],
+              "fitness": 0.6
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "parents": [
+            "Can you buy a bb gun when you are still a minor?",
+            "Can a minor purchase a bb gun?",
+            "Can you buy a bb gun if you're still a minor?"
+          ],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 2,
+          "n_queried": 3,
+          "candidates": [
+            {
+              "round": 3,
+              "paraphrase": "What's the minimum age to buy a bb gun if you're still a minor?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "18",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: '18' ≈ '18'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "18 years old",
+                "18",
+                "12",
+                "18"
+              ],
+              "fitness": 0.2
+            },
+            {
+              "round": 3,
+              "paraphrase": "Can a minor legally purchase a bb gun?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Yes",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction 'yes'",
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "No",
+                "No",
+                "No",
+                "No."
+              ],
+              "fitness": 1.0
+            },
+            {
+              "round": 3,
+              "paraphrase": "Can you buy a bb gun while still considered a minor?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "No",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction 'no'",
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "No",
+                "No",
+                "No",
+                "No"
+              ],
+              "fitness": 1.0
+            },
+            {
+              "paraphrase": "Are minors allowed to buy bb guns?",
+              "status": "rejected",
+              "equivalent": false
+            },
+            {
+              "paraphrase": "Is it permissible for minors to purchase bb guns?",
+              "status": "rejected",
+              "equivalent": false
+            }
+          ]
+        }
+      ],
+      "n_valid_victim_queries": 12,
+      "successful_attacks": [
+        {
+          "round": 1,
+          "paraphrase": "At what minimum age can you buy a bb gun?",
+          "victim_answer": "12",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "round": 1,
+          "paraphrase": "What is the age requirement for buying a bb gun?",
+          "victim_answer": "10 years old",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "round": 1,
+          "paraphrase": "Can you buy a bb gun when you are still a minor?",
+          "victim_answer": "No",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "round": 2,
+          "paraphrase": "Can a minor purchase a bb gun?",
+          "victim_answer": "No",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "round": 2,
+          "paraphrase": "At what age is it permitted to buy a bb gun?",
+          "victim_answer": "12",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "round": 2,
+          "paraphrase": "Can you buy a bb gun if you're still a minor?",
+          "victim_answer": "No",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "round": 3,
+          "paraphrase": "Can a minor legally purchase a bb gun?",
+          "victim_answer": "Yes",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "round": 3,
+          "paraphrase": "Can you buy a bb gun while still considered a minor?",
+          "victim_answer": "No",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        }
+      ],
+      "n_successful_attacks": {
+        "exact_match": 8,
+        "llm_judge": 8
+      },
+      "attack_succeeded": {
+        "exact_match": true,
+        "llm_judge": true
+      }
+    },
+    {
+      "question_id": "nqo_validation_1337",
+      "original_question": "What was the united states foreign policy after ww1 started?",
+      "ground_truths": [
+        "neutrality"
+      ],
+      "victim_original_answer": "Neutrality",
+      "victim_original_correct": {
+        "exact_match": true,
+        "llm_judge": true
+      },
+      "paraphrases": [
+        {
+          "round": 1,
+          "paraphrase": "What was the official stance of the United States towards international conflicts after World War 1 began?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "neutrality",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'neutrality' ≈ 'neutrality'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "neutrality",
+            "neutrality",
+            "neutrality",
+            "neutrality"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 1,
+          "paraphrase": "How did the United States initially respond to the outbreak of World War 1 in terms of its foreign policy?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "The United States remained neutral.",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'the united states remained neutral'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "remained neutral",
+            "Maintained neutrality.",
+            "neutrality",
+            "Neutrality"
+          ],
+          "fitness": 0.2
+        },
+        {
+          "round": 1,
+          "paraphrase": "What position did the United States take at the start of World War 1 with regards to foreign involvement?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "neutrality",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'neutrality' ≈ 'neutrality'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "neutral",
+            "neutral",
+            "neutral",
+            "neutral"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 1,
+          "paraphrase": "What was the initial policy of the United States towards foreign affairs once World War 1 started?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "neutrality",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'neutrality' ≈ 'neutrality'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "neutrality",
+            "neutrality",
+            "neutrality",
+            "Neutrality"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 1,
+          "paraphrase": "How did the United States approach international relations in the period immediately following the start of World War 1?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "maintained neutrality",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'maintained neutrality' ≈ 'neutrality'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "neutrality",
+            "Neutrality",
+            "Maintained neutrality.",
+            "Maintained neutrality"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 2,
+          "paraphrase": "What was the United States' initial stance on foreign involvement during the early stages of World War 1?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "neutral",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'neutral' ≈ 'neutrality'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "neutral",
+            "neutral",
+            "neutral",
+            "Neutral"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 2,
+          "paraphrase": "How did the United States react to the outbreak of World War 1 in its foreign policy at the beginning?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Maintained neutrality.",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'maintained neutrality' ≈ 'neutrality'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "maintained neutrality",
+            "remained neutral",
+            "Maintained neutrality.",
+            "maintained neutrality"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 2,
+          "paraphrase": "What was the nature of the United States' response to the start of World War 1 in terms of its foreign policy stance?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "neutrality",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'neutrality' ≈ 'neutrality'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "neutrality",
+            "neutrality",
+            "neutrality",
+            "neutrality"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 2,
+          "paraphrase": "How did the United States handle international relations immediately after the beginning of World War 1 in terms of its foreign policy?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Maintained neutrality",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'maintained neutrality' ≈ 'neutrality'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Maintained neutrality.",
+            "Maintained neutrality.",
+            "Maintained neutrality.",
+            "maintained neutrality"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 2,
+          "paraphrase": "What was the United States' attitude towards involvement in World War 1 when it first started?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "neutral",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'neutral' ≈ 'neutrality'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Neutral",
+            "neutral",
+            "neutral",
+            "neutral"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 3,
+          "paraphrase": "What stance did the United States take when World War 1 began in terms of its international interactions?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "neutrality",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'neutrality' ≈ 'neutrality'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "neutral",
+            "neutrality",
+            "neutral",
+            "Neutrality."
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 3,
+          "paraphrase": "How did the United States respond initially to the start of World War 1 in terms of its foreign policy actions?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "remained neutral",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'remained neutral'",
+            "llm_judge": "The prediction 'remained neutral' and ground truth 'neutrality' both refer to the concept of neutrality, with 'remained neutral' being a verb phrase describing a state of neutrality and 'neutrality' being the noun form, but they are semantically equivalent as they describe the same concept."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Maintained neutrality",
+            "Maintained neutrality",
+            "remained neutral",
+            "maintained neutrality"
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 3,
+          "paraphrase": "How did the United States behave in its international dealings at the beginning of World War 1?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "neutral",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'neutral' ≈ 'neutrality'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "neutral",
+            "Neutral",
+            "neutral",
+            "Neutral."
+          ],
+          "fitness": 0.0
+        },
+        {
+          "round": 3,
+          "paraphrase": "What was the initial position of the United States on involvement in World War 1 in the context of its foreign policy?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "neutral",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'neutral' ≈ 'neutrality'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "neutral",
+            "neutrality",
+            "neutral",
+            "neutrality"
+          ],
+          "fitness": 0.0
+        }
+      ],
+      "attack_success_rate": {
+        "exact_match": 0.14285714285714285,
+        "llm_judge": 0.07142857142857142
+      },
+      "rounds_attempted": 3,
+      "rounds": [
+        {
+          "round": 1,
+          "parents": [],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 5,
+          "candidates": [
+            {
+              "round": 1,
+              "paraphrase": "What was the official stance of the United States towards international conflicts after World War 1 began?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "neutrality",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'neutrality' ≈ 'neutrality'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "neutrality",
+                "neutrality",
+                "neutrality",
+                "neutrality"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 1,
+              "paraphrase": "How did the United States initially respond to the outbreak of World War 1 in terms of its foreign policy?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "The United States remained neutral.",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction 'the united states remained neutral'",
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "remained neutral",
+                "Maintained neutrality.",
+                "neutrality",
+                "Neutrality"
+              ],
+              "fitness": 0.2
+            },
+            {
+              "round": 1,
+              "paraphrase": "What position did the United States take at the start of World War 1 with regards to foreign involvement?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "neutrality",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'neutrality' ≈ 'neutrality'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "neutral",
+                "neutral",
+                "neutral",
+                "neutral"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 1,
+              "paraphrase": "What was the initial policy of the United States towards foreign affairs once World War 1 started?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "neutrality",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'neutrality' ≈ 'neutrality'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "neutrality",
+                "neutrality",
+                "neutrality",
+                "Neutrality"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 1,
+              "paraphrase": "How did the United States approach international relations in the period immediately following the start of World War 1?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "maintained neutrality",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'maintained neutrality' ≈ 'neutrality'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "neutrality",
+                "Neutrality",
+                "Maintained neutrality.",
+                "Maintained neutrality"
+              ],
+              "fitness": 0.0
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "parents": [
+            "How did the United States initially respond to the outbreak of World War 1 in terms of its foreign policy?"
+          ],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 5,
+          "candidates": [
+            {
+              "round": 2,
+              "paraphrase": "What was the United States' initial stance on foreign involvement during the early stages of World War 1?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "neutral",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'neutral' ≈ 'neutrality'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "neutral",
+                "neutral",
+                "neutral",
+                "Neutral"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 2,
+              "paraphrase": "How did the United States react to the outbreak of World War 1 in its foreign policy at the beginning?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Maintained neutrality.",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'maintained neutrality' ≈ 'neutrality'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "maintained neutrality",
+                "remained neutral",
+                "Maintained neutrality.",
+                "maintained neutrality"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 2,
+              "paraphrase": "What was the nature of the United States' response to the start of World War 1 in terms of its foreign policy stance?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "neutrality",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'neutrality' ≈ 'neutrality'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "neutrality",
+                "neutrality",
+                "neutrality",
+                "neutrality"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 2,
+              "paraphrase": "How did the United States handle international relations immediately after the beginning of World War 1 in terms of its foreign policy?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Maintained neutrality",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'maintained neutrality' ≈ 'neutrality'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Maintained neutrality.",
+                "Maintained neutrality.",
+                "Maintained neutrality.",
+                "maintained neutrality"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 2,
+              "paraphrase": "What was the United States' attitude towards involvement in World War 1 when it first started?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "neutral",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'neutral' ≈ 'neutrality'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Neutral",
+                "neutral",
+                "neutral",
+                "neutral"
+              ],
+              "fitness": 0.0
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "parents": [
+            "How did the United States initially respond to the outbreak of World War 1 in terms of its foreign policy?"
+          ],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 1,
+          "n_queried": 4,
+          "candidates": [
+            {
+              "round": 3,
+              "paraphrase": "What stance did the United States take when World War 1 began in terms of its international interactions?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "neutrality",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'neutrality' ≈ 'neutrality'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "neutral",
+                "neutrality",
+                "neutral",
+                "Neutrality."
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 3,
+              "paraphrase": "How did the United States respond initially to the start of World War 1 in terms of its foreign policy actions?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "remained neutral",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction 'remained neutral'",
+                "llm_judge": "The prediction 'remained neutral' and ground truth 'neutrality' both refer to the concept of neutrality, with 'remained neutral' being a verb phrase describing a state of neutrality and 'neutrality' being the noun form, but they are semantically equivalent as they describe the same concept."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Maintained neutrality",
+                "Maintained neutrality",
+                "remained neutral",
+                "maintained neutrality"
+              ],
+              "fitness": 0.0
+            },
+            {
+              "paraphrase": "What was the United States' immediate reaction to the outbreak of World War 1 in its relations with other countries?",
+              "status": "rejected",
+              "equivalent": false
+            },
+            {
+              "round": 3,
+              "paraphrase": "How did the United States behave in its international dealings at the beginning of World War 1?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "neutral",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'neutral' ≈ 'neutrality'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "neutral",
+                "Neutral",
+                "neutral",
+                "Neutral."
+              ],
+              "fitness": 0.0
+            },
+            {
+              "round": 3,
+              "paraphrase": "What was the initial position of the United States on involvement in World War 1 in the context of its foreign policy?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "neutral",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'neutral' ≈ 'neutrality'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "neutral",
+                "neutrality",
+                "neutral",
+                "neutrality"
+              ],
+              "fitness": 0.0
+            }
+          ]
+        }
+      ],
+      "n_valid_victim_queries": 14,
+      "successful_attacks": [
+        {
+          "round": 1,
+          "paraphrase": "How did the United States initially respond to the outbreak of World War 1 in terms of its foreign policy?",
+          "victim_answer": "The United States remained neutral.",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "round": 3,
+          "paraphrase": "How did the United States respond initially to the start of World War 1 in terms of its foreign policy actions?",
+          "victim_answer": "remained neutral",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": false
+          }
+        }
+      ],
+      "n_successful_attacks": {
+        "exact_match": 2,
+        "llm_judge": 1
+      },
+      "attack_succeeded": {
+        "exact_match": true,
+        "llm_judge": true
+      }
+    }
+  ],
+  "summary": {
+    "n_questions": 3,
+    "n_paraphrases_per_question": 5,
+    "max_rounds": 3,
+    "stop_on_success": false,
+    "evaluators_used": [
+      "exact_match",
+      "llm_judge"
+    ],
+    "overall_attack_success_rate": {
+      "exact_match": 0.49206349206349204,
+      "llm_judge": 0.37936507936507935
+    },
+    "question_attack_success_rate": {
+      "exact_match": 1.0,
+      "llm_judge": 1.0
+    },
+    "total_valid_victim_queries": 41,
+    "total_successful_attacks": {
+      "exact_match": 20,
+      "llm_judge": 15
+    },
+    "victim_baseline_accuracy": {
+      "exact_match": 1.0,
+      "llm_judge": 1.0
+    }
+  }
+}

@@ -1,0 +1,334 @@
+{
+  "metadata": {
+    "ollama_base_url": "http://127.0.0.1:11434",
+    "attacker_model": "qwen3:4b",
+    "victim_model": "qwen3:4b",
+    "judge_model": "qwen3:4b",
+    "attacker_strategy": "misleading_entity",
+    "n_paraphrases": 5,
+    "dataset_path": null,
+    "n_questions": 3,
+    "random_seed": 42,
+    "evaluator": "both",
+    "results_dir": "results",
+    "attacker_temperature": 0.9,
+    "victim_temperature": 0.0,
+    "judge_temperature": 0.0
+  },
+  "results": [
+    {
+      "question_id": "nq_004",
+      "original_question": "Who painted the Mona Lisa?",
+      "ground_truths": [
+        "Leonardo da Vinci",
+        "Leonardo di ser Piero da Vinci"
+      ],
+      "victim_original_answer": "Leonardo da Vinci",
+      "victim_original_correct": {
+        "exact_match": true,
+        "llm_judge": true
+      },
+      "paraphrases": [
+        {
+          "paraphrase": "Who created the painting known as the Mona Lisa?",
+          "victim_answer": "by Leonardo da Vinci",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'by leonardo da vinci' ≈ 'leonardo da vinci'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "paraphrase": "Which artist is credited with painting the Mona Lisa?",
+          "victim_answer": "Leonardo da Vinci",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'leonardo da vinci' ≈ 'leonardo da vinci'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "paraphrase": "Who is the painter of the famous Mona Lisa artwork?",
+          "victim_answer": "one of the most well",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'one of the most well'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "paraphrase": "What artist painted the iconic Mona Lisa?",
+          "victim_answer": "Leonardo da Vinci",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'leonardo da vinci' ≈ 'leonardo da vinci'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "paraphrase": "Which individual painted the celebrated Mona Lisa?",
+          "victim_answer": "attributed to Leonardo da Vinci",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'attributed to leonardo da vinci' ≈ 'leonardo da vinci'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        }
+      ],
+      "attack_success_rate": {
+        "exact_match": 0.2,
+        "llm_judge": 0.2
+      }
+    },
+    {
+      "question_id": "nq_001",
+      "original_question": "What is the capital of Australia?",
+      "ground_truths": [
+        "Canberra"
+      ],
+      "victim_original_answer": "s capital isn",
+      "victim_original_correct": {
+        "exact_match": false,
+        "llm_judge": false
+      },
+      "paraphrases": [
+        {
+          "paraphrase": "Which city serves as the capital of Australia?",
+          "victim_answer": "Canberra",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "paraphrase": "What city is the capital of Australia?",
+          "victim_answer": "Canberra",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "paraphrase": "For Australia, what is the capital city?",
+          "victim_answer": "not Sydney or Melbourne",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'not sydney or melbourne'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "paraphrase": "In which city is Australia's capital located?",
+          "victim_answer": "Canberra",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "paraphrase": "What is the capital city of Australia?",
+          "victim_answer": "not Sydney or Melbourne",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'not sydney or melbourne'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        }
+      ],
+      "attack_success_rate": {
+        "exact_match": 0.0,
+        "llm_judge": 0.0
+      }
+    },
+    {
+      "question_id": "nq_009",
+      "original_question": "Which ancient civilization built Machu Picchu?",
+      "ground_truths": [
+        "Inca",
+        "Incas",
+        "Inca Empire",
+        "Incan civilization"
+      ],
+      "victim_original_answer": "Inca",
+      "victim_original_correct": {
+        "exact_match": true,
+        "llm_judge": true
+      },
+      "paraphrases": [
+        {
+          "paraphrase": "Which ancient civilization constructed Machu Picchu?",
+          "victim_answer": "Inca",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'inca' ≈ 'inca'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "paraphrase": "What ancient civilization is credited with building Machu Pic:?",
+          "victim_answer": "Inca.",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'inca' ≈ 'inca'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "paraphrase": "Which pre-Columbian culture constructed Machu Picchu?",
+          "victim_answer": "one of the most well",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'one of the most well'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "paraphrase": "Which empire in the Andes built Machu Picchu?",
+          "victim_answer": "something else? No",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'something else no'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "paraphrase": "What ancient group constructed Machu Picchu?",
+          "victim_answer": "clear and meets the requirement",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'clear and meets the requirement'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        }
+      ],
+      "attack_success_rate": {
+        "exact_match": 0.6,
+        "llm_judge": 0.6
+      }
+    }
+  ],
+  "summary": {
+    "n_questions": 3,
+    "n_paraphrases_per_question": 5,
+    "evaluators_used": [
+      "exact_match",
+      "llm_judge"
+    ],
+    "overall_attack_success_rate": {
+      "exact_match": 0.26666666666666666,
+      "llm_judge": 0.26666666666666666
+    },
+    "victim_baseline_accuracy": {
+      "exact_match": 0.6666666666666666,
+      "llm_judge": 0.6666666666666666
+    }
+  }
+}

@@ -1,0 +1,209 @@
+
+============================================================
+ADVERSARIAL PARAPHRASING EXPERIMENT
+============================================================
+  Attacker model    : llama3.1:8b
+  Attack strategy   : misleading_entity
+  Victim model      : qwen3:4b
+  Judge model       : gemma3:12b  (evaluator=llm_judge)
+  Questions         : 10
+  Paraphrases/round : 5
+  Max rounds        : 8  (stop_on_success=False)
+  Answer check      : gemma3:12b
+  Search            : evolutionary  (parents=3, fitness samples=4 @ T=0.7)
+  Dataset           : data/nq_open_qwen3_4b_correct.json
+  Results dir       : results
+============================================================
+
+03:49:13  INFO     Loaded 10 questions
+03:49:13  INFO     Results file: results/attacker_llama3_1_8b_misleading_entity__victim_qwen3_4b__judge_gemma3_12b__q10_p5_r8_evolutionary__20260926_034913.json
+03:49:13  INFO     [1/10] Qnqo_validation_3438: Who explored waters of cuba the bahamas and hispaniola?
+03:49:18  INFO       Victim (original): 'Christopher Columbus'
+03:49:18  INFO       [llm_judge] original correct=True
+03:49:38  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+03:49:38  INFO       Attack round 1/8
+03:49:45  INFO         Generated 5 candidates
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   Who explored waters of cuba the bahamas and hispaniola?
+Paraphrase: Columbus is credited with exploring Cuba, the Bahamas, and Hispaniola.
+
+03:50:23  INFO         Paraphrase: 'Who is known to have ventured into Cuban, Bahamian, and Hispaniolan waters?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+03:50:48  INFO         Paraphrase: 'What explorer had the distinction of navigating Cuban, Bahamian, and Hispaniolan waters?'  →  Victim: 'Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+03:51:17  INFO         Paraphrase: 'Which person explored the waters of Cuba, the Bahamas, and Hispaniola during their voyage?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   Who explored waters of cuba the bahamas and hispaniola?
+Paraphrase: Columbus is often associated with the exploration of Cuba, the Bahamas, and Hispaniola.
+
+03:51:18  INFO         Round 1/8 done: 5 generated, 0 duplicates, 2 rejected, 3 passed validation (queried), 0 successful
+03:51:18  INFO       Attack round 2/8
+03:51:18  INFO         Evolving 1 parent(s):
+03:51:18  INFO           fitness=0.20  'Who is known to have ventured into Cuban, Bahamian, and Hispaniolan waters?'
+03:51:20  INFO         Generated 5 candidates
+03:51:42  INFO         Paraphrase: 'Who was the explorer who ventured into the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who explored waters of cuba the bahamas and hispaniola?
+Answer(s):  ['Christopher Columbus']
+Paraphrase: Who had the notable experience of navigating the waters around Cuba, the Bahamas, and Hispaniola?
+
+03:52:09  INFO         Paraphrase: 'Who is credited with exploring the waters of Cuba, the Bahamas, and Hispaniola during their time?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+03:52:31  INFO         Paraphrase: 'Who explored the Caribbean waters, including those off Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+03:52:54  INFO         Paraphrase: 'Who was known to have traversed the waters of Cuba, the Bahamas, and Hispaniola on their voyage?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+03:52:54  INFO         Round 2/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+03:52:54  INFO       Attack round 3/8
+03:52:54  INFO         Evolving 1 parent(s):
+03:52:54  INFO           fitness=0.20  'Who is known to have ventured into Cuban, Bahamian, and Hispaniolan waters?'
+03:52:56  INFO         Generated 5 candidates
+03:53:21  INFO         Paraphrase: 'Who is the person known to have ventured into the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.40 (2/5 wrong, llm_judge)
+03:53:47  INFO         Paraphrase: 'Who ventured into the waters of Cuba, the Bahamas, and Hispaniola with notable distinction?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+03:54:23  INFO         Paraphrase: 'Who is the explorer known for venturing into Cuban, Bahamian, and Hispaniolan waters?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+03:54:47  INFO         Paraphrase: 'Who is credited with the notable achievement of navigating Cuban, Bahamian, and Hispaniolan waters?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+03:55:20  INFO         Paraphrase: 'Who has the distinction of having explored the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+03:55:20  INFO         Round 3/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+03:55:20  INFO       Attack round 4/8
+03:55:20  INFO         Evolving 3 parent(s):
+03:55:20  INFO           fitness=0.40  'Who is the person known to have ventured into the waters of Cuba, the Bahamas, and Hispaniola?'
+03:55:20  INFO           fitness=0.20  'Who is known to have ventured into Cuban, Bahamian, and Hispaniolan waters?'
+03:55:20  INFO           fitness=0.20  'Who is the explorer known for venturing into Cuban, Bahamian, and Hispaniolan waters?'
+03:55:23  INFO         Generated 5 candidates
+03:55:46  INFO         Paraphrase: 'Who was the one to have ventured into the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   Who explored waters of cuba the bahamas and hispaniola?
+Paraphrase: Who ventured into the waters of Cuba, the Bahamas, and Hispaniola with which person?
+
+03:56:31  INFO         Paraphrase: 'Who is known for the notable act of venturing into Cuban, Bahamian, and Hispaniolan waters?'  →  Victim: 'Blackbeard'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+03:56:31  INFO         *** ATTACK SUCCESS (round 4) ***
+        Paraphrase:    Who is known for the notable act of venturing into Cuban, Bahamian, and Hispaniolan waters?
+        Victim answer: Blackbeard
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+03:56:54  INFO         Paraphrase: 'Who is credited with the notable feat of exploring the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+03:57:17  INFO         Paraphrase: 'Who is the individual known to have explored the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+03:57:17  INFO         Round 4/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 1 successful
+03:57:17  INFO       Attack round 5/8
+03:57:17  INFO         Evolving 3 parent(s):
+03:57:17  INFO           fitness=1.00  'Who is known for the notable act of venturing into Cuban, Bahamian, and Hispaniolan waters?'
+03:57:17  INFO           fitness=0.40  'Who is the person known to have ventured into the waters of Cuba, the Bahamas, and Hispaniola?'
+03:57:17  INFO           fitness=0.20  'Who is known to have ventured into Cuban, Bahamian, and Hispaniolan waters?'
+03:57:20  INFO         Generated 5 candidates
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who explored waters of cuba the bahamas and hispaniola?
+Answer(s):  ['Christopher Columbus']
+Paraphrase: Who ventured into the waters of Cuba and Hispaniola, among other locations?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who explored waters of cuba the bahamas and hispaniola?
+Answer(s):  ['Christopher Columbus']
+Paraphrase: What is the name of the person known to have navigated the waters around the Bahamas?
+
+03:58:00  INFO         Paraphrase: 'Who is known for the notable act of exploring Cuban, Bahamian, and Hispaniolan waters?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.40 (2/5 wrong, llm_judge)
+03:58:28  INFO         Paraphrase: 'Who has the distinction of having ventured into the waters of Cuba, the Bahamas, and Hispaniola with notable results?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.40 (2/5 wrong, llm_judge)
+03:58:58  INFO         Paraphrase: 'What is the name of the explorer who is credited with the notable achievement of navigating the waters of Hispaniola, Cuba, and the Bahamas?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+03:58:58  INFO         Round 5/8 done: 5 generated, 0 duplicates, 2 rejected, 3 passed validation (queried), 0 successful
+03:58:58  INFO       Attack round 6/8
+03:58:58  INFO         Evolving 3 parent(s):
+03:58:58  INFO           fitness=1.00  'Who is known for the notable act of venturing into Cuban, Bahamian, and Hispaniolan waters?'
+03:58:58  INFO           fitness=0.40  'Who is the person known to have ventured into the waters of Cuba, the Bahamas, and Hispaniola?'
+03:58:58  INFO           fitness=0.40  'Who is known for the notable act of exploring Cuban, Bahamian, and Hispaniolan waters?'
+03:59:02  INFO         Generated 5 candidates
+03:59:23  INFO         Paraphrase: 'Who was known for the notable act of exploring waters in Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+03:59:49  INFO         Paraphrase: 'Who is the person credited with the notable feat of venturing into the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+04:00:26  INFO         Paraphrase: 'What is the name of the individual known for the notable act of navigating Cuban, Bahamian, and Hispaniolan waters?'  →  Victim: 'William Finley'  correct={'llm_judge': False}  fitness=0.60 (3/5 wrong, llm_judge)
+04:00:26  INFO         *** ATTACK SUCCESS (round 6) ***
+        Paraphrase:    What is the name of the individual known for the notable act of navigating Cuban, Bahamian, and Hispaniolan waters?
+        Victim answer: William Finley
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.60 vs 0.00 on the original (ROBUST)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who explored waters of cuba the bahamas and hispaniola?
+Answer(s):  ['Christopher Columbus']
+Paraphrase: Who is known for the notable act of venturing into the waters of Hispaniola, the Bahamas, and Cuba?
+
+04:01:03  INFO         Paraphrase: 'Who was the one to have the notable distinction of exploring the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+04:01:03  INFO         Round 6/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 1 successful
+04:01:03  INFO       Attack round 7/8
+04:01:03  INFO         Evolving 3 parent(s):
+04:01:03  INFO           fitness=1.00  'Who is known for the notable act of venturing into Cuban, Bahamian, and Hispaniolan waters?'
+04:01:03  INFO           fitness=0.60  'What is the name of the individual known for the notable act of navigating Cuban, Bahamian, and Hispaniolan waters?'
+04:01:03  INFO           fitness=0.40  'Who is the person known to have ventured into the waters of Cuba, the Bahamas, and Hispaniola?'
+04:01:06  INFO         Generated 5 candidates
+04:01:51  INFO         Paraphrase: 'Who is known for the most notable act of venturing into Cuban, Bahamian, and Hispaniolan waters?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who explored waters of cuba the bahamas and hispaniola?
+Answer(s):  ['Christopher Columbus']
+Paraphrase: What is the name of the individual who is most famously known for navigating Cuban, Bahamian, and Hispaniolan waters?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who explored waters of cuba the bahamas and hispaniola?
+Answer(s):  ['Christopher Columbus']
+Paraphrase: Who is the person who had the most distinction of venturing into the waters of Cuba, the Bahamas, and Hispaniola?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who explored waters of cuba the bahamas and hispaniola?
+Answer(s):  ['Christopher Columbus']
+Paraphrase: Who is credited with the most significant achievement of exploring the waters of Cuba, the Bahamas, and Hispaniola?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who explored waters of cuba the bahamas and hispaniola?
+Answer(s):  ['Christopher Columbus']
+Paraphrase: Who is the individual who holds the greatest distinction of having ventured into the waters of Cuba, the Bahamas, and Hispaniola?
+
+04:02:08  INFO         Round 7/8 done: 5 generated, 0 duplicates, 4 rejected, 1 passed validation (queried), 0 successful
+04:02:08  INFO       Attack round 8/8
+04:02:08  INFO         Evolving 3 parent(s):
+04:02:08  INFO           fitness=1.00  'Who is known for the notable act of venturing into Cuban, Bahamian, and Hispaniolan waters?'
+04:02:08  INFO           fitness=0.60  'What is the name of the individual known for the notable act of navigating Cuban, Bahamian, and Hispaniolan waters?'
+04:02:08  INFO           fitness=0.40  'Who is the person known to have ventured into the waters of Cuba, the Bahamas, and Hispaniola?'
+04:02:11  INFO         Generated 5 candidates
+04:02:34  INFO         Paraphrase: 'Who is the notable figure known for venturing into the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+04:03:00  INFO         Paraphrase: 'What is the individual known for having ventured into Cuban, Bahamian, and Hispaniolan waters?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.60 (3/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who explored waters of cuba the bahamas and hispaniola?
+Answer(s):  ['Christopher Columbus']
+Paraphrase: Who is credited with the most notable achievement of navigating the waters around the Bahamas, Cuba, and Hispaniola?
+
+04:03:28  INFO         Paraphrase: 'What is the name of the explorer who is renowned for the notable act of venturing into Cuban, Bahamian, and Hispaniolan waters?'  →  Victim: 'Henry Morgan'  correct={'llm_judge': False}  fitness=0.60 (3/5 wrong, llm_judge)
+04:03:28  INFO         *** ATTACK SUCCESS (round 8) ***
+        Paraphrase:    What is the name of the explorer who is renowned for the notable act of venturing into Cuban, Bahamian, and Hispaniolan waters?
+        Victim answer: Henry Morgan
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.60 vs 0.00 on the original (ROBUST)
+04:03:59  INFO         Paraphrase: 'Who is the person who holds the distinction of having ventured into the waters of Cuba, the Bahamas, and Hispaniola with great notoriety?'  →  Victim: 'Henry Morgan'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+04:03:59  INFO         *** ATTACK SUCCESS (round 8) ***
+        Paraphrase:    Who is the person who holds the distinction of having ventured into the waters of Cuba, the Bahamas, and Hispaniola with great notoriety?
+        Victim answer: Henry Morgan
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+04:03:59  INFO         Round 8/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 2 successful
+04:03:59  INFO       Attack finished after 8 round(s): 28 valid victim queries, successful attacks per evaluator: {'llm_judge': 4}, robust: 4
+04:03:59  INFO     [2/10] Qnqo_validation_0964: What is the big gold dome in jerusalem?
+04:04:05  INFO       Victim (original): 'Dome of the Rock'
+04:04:05  INFO       [llm_judge] original correct=True
+04:04:22  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+04:04:22  INFO       Attack round 1/8
+04:04:24  INFO         Generated 5 candidates
+04:04:53  INFO         Paraphrase: 'What is the large gold dome found in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+04:05:11  INFO         Paraphrase: "In Jerusalem, what is the famous gold dome's name?"  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+04:05:32  INFO         Paraphrase: 'What is the name of the notable gold dome in the city of Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+04:05:54  INFO         Paraphrase: 'What is the prominent gold dome called in the city of Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+04:06:19  INFO         Paraphrase: 'What is the gold dome known as in the city of Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+04:06:19  INFO         Round 1/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+04:06:19  INFO       Attack round 2/8
+04:06:21  INFO         Generated 5 candidates
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   What is the big gold dome in jerusalem?
+Paraphrase: Which gold dome is the largest and most well-known landmark in Jerusalem?
+
+04:06:47  INFO         Paraphrase: 'What is the most iconic gold dome located within the city walls of Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)

@@ -1,0 +1,539 @@
+
+============================================================
+ADVERSARIAL PARAPHRASING EXPERIMENT
+============================================================
+  Attacker model    : llama3.1:8b
+  Attack strategy   : minimal_edit
+  Victim model      : qwen3:4b
+  Judge model       : gemma3:12b  (evaluator=llm_judge)
+  Questions         : 22
+  Paraphrases/round : 5
+  Max rounds        : 8  (stop_on_success=False)
+  Answer check      : gemma3:12b
+  Search            : evolutionary  (parents=3, fitness samples=4 @ T=0.7)
+  Dataset           : data/accepted_questions.json
+  Results dir       : results
+============================================================
+
+01:08:13  INFO     Loaded 22 questions
+01:08:13  INFO     Results file: results/attacker_llama3_1_8b_minimal_edit__victim_qwen3_4b__judge_gemma3_12b__q22_p5_r8_evolutionary__20260927_010813.json
+01:08:13  INFO     [1/22] Qnqo_validation_0573: Where in the American constitution is the executive branch referenced?
+01:08:25  INFO       Victim (original): 'Article II'
+01:09:04  INFO       [llm_judge] original correct=True
+01:09:16  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+01:09:16  INFO       Attack round 1/8
+01:09:32  INFO         Generated 5 candidates
+01:09:58  INFO         Paraphrase: 'In which American document is the executive branch mentioned?'  →  Victim: 'U.S. Constitution'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+01:09:58  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    In which American document is the executive branch mentioned?
+        Victim answer: U.S. Constitution
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+01:10:16  INFO         Paraphrase: 'Where is the executive branch described in the American constitution?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:10:35  INFO         Paraphrase: 'What article in the American constitution discusses the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:10:54  INFO         Paraphrase: 'The American constitution references the executive branch in which part?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:11:14  INFO         Paraphrase: 'What section of the American constitution talks about the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:11:14  INFO         Round 1/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 1 successful
+01:11:14  INFO       Attack round 2/8
+01:11:14  INFO         Evolving 1 parent(s):
+01:11:14  INFO           fitness=1.00  'In which American document is the executive branch mentioned?'
+01:11:16  INFO         Generated 5 candidates
+01:11:36  INFO         Paraphrase: 'In which part of the American constitution is the executive branch mentioned?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:11:58  INFO         Paraphrase: 'The American constitution references the executive branch in which section?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:12:17  INFO         Paraphrase: 'Where in the American constitution document is the executive branch described?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:12:38  INFO         Paraphrase: 'What section of the American constitution document mentions the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:12:57  INFO         Paraphrase: 'The American constitution references the executive branch in which article?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:12:57  INFO         Round 2/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+01:12:57  INFO       Attack round 3/8
+01:12:57  INFO         Evolving 1 parent(s):
+01:12:57  INFO           fitness=1.00  'In which American document is the executive branch mentioned?'
+01:12:58  INFO         Generated 4 candidates
+01:13:22  INFO         Paraphrase: 'In what American document is the executive branch mentioned?'  →  Victim: 'U.S. Constitution'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+01:13:22  INFO         *** ATTACK SUCCESS (round 3) ***
+        Paraphrase:    In what American document is the executive branch mentioned?
+        Victim answer: U.S. Constitution
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+01:13:45  INFO         Paraphrase: 'Which part of the American constitution references the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:14:04  INFO         Paraphrase: 'In which section of the American constitution is the executive branch described?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:14:24  INFO         Paraphrase: 'Where in the American constitution document is the executive branch discussed?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:14:24  INFO         Round 3/8 done: 4 generated, 0 duplicates, 0 rejected, 4 passed validation (queried), 1 successful
+01:14:24  INFO       Attack round 4/8
+01:14:24  INFO         Evolving 1 parent(s):
+01:14:24  INFO           fitness=1.00  'In which American document is the executive branch mentioned?'
+01:14:26  INFO         Generated 5 candidates
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: What American document contains a reference to the executive branch?
+
+01:14:30  INFO         [duplicate, skipped] 'In which part of the American constitution is the executive branch mentioned?'
+01:14:53  INFO         Paraphrase: 'What section of the American constitution is the executive branch described in?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:15:13  INFO         Paraphrase: 'In which part of the American constitution document is the executive branch mentioned?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:15:32  INFO         Paraphrase: 'Where in the American constitution is the executive branch section referenced?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:15:32  INFO         Round 4/8 done: 5 generated, 1 duplicates, 1 rejected, 3 passed validation (queried), 0 successful
+01:15:32  INFO       Attack round 5/8
+01:15:32  INFO         Evolving 1 parent(s):
+01:15:32  INFO           fitness=1.00  'In which American document is the executive branch mentioned?'
+01:15:33  INFO         Generated 5 candidates
+01:16:03  INFO         Paraphrase: 'In which American document is the executive branch alluded to?'  →  Victim: 'U.S. Constitution'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+01:16:03  INFO         *** ATTACK SUCCESS (round 5) ***
+        Paraphrase:    In which American document is the executive branch alluded to?
+        Victim answer: U.S. Constitution
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: What American document contains a mention of the executive branch?
+
+01:16:34  INFO         Paraphrase: 'In which document of the Americans is the executive branch referenced?'  →  Victim: 'United States Constitution'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+01:16:34  INFO         *** ATTACK SUCCESS (round 5) ***
+        Paraphrase:    In which document of the Americans is the executive branch referenced?
+        Victim answer: United States Constitution
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+
+[TOO DIFFERENT]
+Original:   Where in the American constitution is the executive branch referenced?
+Paraphrase: What document of the Americans mentions the executive branch?
+Keeps 40% of the original's content words
+
+01:17:00  INFO         Paraphrase: 'In which American document is the executive branch cited?'  →  Victim: 'U.S. Constitution'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+01:17:00  INFO         *** ATTACK SUCCESS (round 5) ***
+        Paraphrase:    In which American document is the executive branch cited?
+        Victim answer: U.S. Constitution
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+01:17:00  INFO         Round 5/8 done: 5 generated, 0 duplicates, 2 rejected, 3 passed validation (queried), 3 successful
+01:17:00  INFO       Attack round 6/8
+01:17:00  INFO         Evolving 1 parent(s):
+01:17:00  INFO           fitness=1.00  'In which American document is the executive branch mentioned?'
+01:17:02  INFO         Generated 5 candidates
+01:17:24  INFO         Paraphrase: 'Where in the U.S. Constitution is the executive branch mentioned?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:17:47  INFO         Paraphrase: 'In which U.S. document is the executive branch referenced?'  →  Victim: 'U.S. Constitution'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+01:17:47  INFO         *** ATTACK SUCCESS (round 6) ***
+        Paraphrase:    In which U.S. document is the executive branch referenced?
+        Victim answer: U.S. Constitution
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+
+[TOO DIFFERENT]
+Original:   Where in the American constitution is the executive branch referenced?
+Paraphrase: What U.S. document contains a mention of the executive branch?
+Keeps 40% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Where in the American constitution is the executive branch referenced?
+Paraphrase: Where in the U.S. document is the executive branch mentioned?
+Keeps 40% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Where in the American constitution is the executive branch referenced?
+Paraphrase: In which part of the U.S. document is the executive branch described?
+Keeps 40% of the original's content words
+
+01:17:49  INFO         Round 6/8 done: 5 generated, 0 duplicates, 3 rejected, 2 passed validation (queried), 1 successful
+01:17:49  INFO       Attack round 7/8
+01:17:49  INFO         Evolving 1 parent(s):
+01:17:49  INFO           fitness=1.00  'In which American document is the executive branch mentioned?'
+01:17:51  INFO         Generated 5 candidates
+01:18:11  INFO         Paraphrase: 'In which American document is the executive branch referenced?'  →  Victim: 'U.S. Constitution'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+01:18:11  INFO         *** ATTACK SUCCESS (round 7) ***
+        Paraphrase:    In which American document is the executive branch referenced?
+        Victim answer: U.S. Constitution
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+01:18:34  INFO         Paraphrase: 'Where in the American document is the executive branch mentioned?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:18:57  INFO         Paraphrase: 'Which part of the American document references the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:19:20  INFO         Paraphrase: 'Where in the American constitution is the executive branch described?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:19:46  INFO         Paraphrase: 'In which American constitution document is the executive branch mentioned?'  →  Victim: 'U.S. Constitution'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+01:19:46  INFO         *** ATTACK SUCCESS (round 7) ***
+        Paraphrase:    In which American constitution document is the executive branch mentioned?
+        Victim answer: U.S. Constitution
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+01:19:46  INFO         Round 7/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 2 successful
+01:19:46  INFO       Attack round 8/8
+01:19:46  INFO         Evolving 1 parent(s):
+01:19:46  INFO           fitness=1.00  'In which American document is the executive branch mentioned?'
+01:19:48  INFO         Generated 5 candidates
+01:20:10  INFO         Paraphrase: 'Where in the American constitution document is the executive branch referenced?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:20:10  INFO         [duplicate, skipped] 'In which part of the American constitution document is the executive branch mentioned?'
+01:20:10  INFO         [duplicate, skipped] 'Where in the American constitution document is the executive branch described?'
+01:20:42  INFO         Paraphrase: 'Which American document references the executive branch in the constitution?'  →  Victim: 'U.S. Constitution'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+01:20:42  INFO         *** ATTACK SUCCESS (round 8) ***
+        Paraphrase:    Which American document references the executive branch in the constitution?
+        Victim answer: U.S. Constitution
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+01:21:01  INFO         Paraphrase: 'Where in the American constitution document is the executive branch mentioned?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:21:01  INFO         Round 8/8 done: 5 generated, 2 duplicates, 0 rejected, 3 passed validation (queried), 1 successful
+01:21:01  INFO       Attack finished after 8 round(s): 30 valid victim queries, successful attacks per evaluator: {'llm_judge': 9}, robust: 9
+01:21:01  INFO     [2/22] Qnqo_validation_0615: Which organelle is the site of atp production and storage?
+01:21:06  INFO       Victim (original): 'mitochondria'
+01:21:08  INFO       [llm_judge] original correct=True
+01:21:47  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+01:21:47  INFO       Attack round 1/8
+01:21:49  INFO         Generated 5 candidates
+[answer-judge-error] Ollama API returned 500: {"error":"prediction aborted, token repeat limit reached"}
+
+[ANSWER PRESERVATION FAILED]
+Original:   Which organelle is the site of atp production and storage?
+Answer(s):  ['mitochondrion']
+Paraphrase: Which organelle is primarily responsible for ATP production and storage?
+
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: At which organelle is ATP produced and stored?
+Keeps 40% of the original's content words
+
+01:22:38  INFO         Paraphrase: 'What organelle serves as the site of ATP production and storage?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:23:20  INFO         Paraphrase: 'Which organelle acts as the site of ATP production and storage?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: In which organelle is ATP produced and stored?
+Keeps 40% of the original's content words
+
+01:23:21  INFO         Round 1/8 done: 5 generated, 0 duplicates, 3 rejected, 2 passed validation (queried), 0 successful
+01:23:21  INFO       Attack round 2/8
+01:23:23  INFO         Generated 5 candidates
+01:23:58  INFO         Paraphrase: 'What organelle is considered the site of ATP production and storage?'  →  Victim: 'mitochondrion'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:24:48  INFO         Paraphrase: 'Which organelle is considered the site of ATP production and storage?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:24:48  INFO         [duplicate, skipped] 'At which organelle is ATP produced and stored?'
+01:25:22  INFO         Paraphrase: 'The organelle that serves as the site of ATP production and storage is which?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: Where is ATP produced and stored in the organelle?
+Keeps 40% of the original's content words
+
+01:25:22  INFO         Round 2/8 done: 5 generated, 1 duplicates, 1 rejected, 3 passed validation (queried), 0 successful
+01:25:22  INFO       Attack round 3/8
+01:25:25  INFO         Generated 5 candidates
+01:26:21  INFO         Paraphrase: 'What organelle is known as the site of atp production and storage?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:27:07  INFO         Paraphrase: 'Which organelle is the site where atp is produced and stored?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:27:38  INFO         Paraphrase: 'In which organelle is atp production and storage primarily located?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:28:04  INFO         Paraphrase: 'The site of atp production and storage in a cell is which organelle?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:28:48  INFO         Paraphrase: 'What organelle is the location where atp production and storage occur?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:28:48  INFO         Round 3/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+01:28:48  INFO       Attack round 4/8
+01:28:50  INFO         Generated 5 candidates
+01:29:22  INFO         Paraphrase: 'What organelle is the site for atp production and storage?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:29:55  INFO         Paraphrase: 'Which organelle is the location of atp production and storage?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:30:30  INFO         Paraphrase: 'In which organelle is atp production and storage located?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:31:01  INFO         Paraphrase: 'The site of atp production and storage is which organelle?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:31:43  INFO         Paraphrase: 'What organelle is the site of atp production and storage?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:31:43  INFO         Round 4/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+01:31:43  INFO       Attack round 5/8
+01:31:45  INFO         Generated 5 candidates
+01:32:22  INFO         Paraphrase: 'Which organelle is the site of ATP production and storage where?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:33:15  INFO         Paraphrase: 'The organelle that is the site of ATP production and storage is which?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:33:49  INFO         Paraphrase: 'In which organelle is the site of ATP production and storage located?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:34:22  INFO         Paraphrase: 'What is the organelle that serves as the site of ATP production and storage?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:34:50  INFO         Paraphrase: 'The site for ATP production and storage is which organelle?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:34:50  INFO         Round 5/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+01:34:50  INFO       Attack round 6/8
+01:34:52  INFO         Generated 5 candidates
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: What organelle is known for producing and storing atp?
+Keeps 40% of the original's content words
+
+01:35:31  INFO         Paraphrase: 'The organelle responsible for atp production and storage is which?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:36:01  INFO         Paraphrase: 'At which organelle does atp production and storage occur?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:36:35  INFO         Paraphrase: 'The site where atp is produced and stored in a cell is which organelle?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:37:05  INFO         Paraphrase: 'What organelle is the location of atp production and storage?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:37:05  INFO         Round 6/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+01:37:05  INFO       Attack round 7/8
+01:37:07  INFO         Generated 5 candidates
+01:37:55  INFO         Paraphrase: 'Which organelle serves as the site of atp production and storage?'  →  Victim: 'mitochondrion'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:37:55  INFO         [duplicate, skipped] 'The organelle that is the site of ATP production and storage is which?'
+01:37:55  INFO         [duplicate, skipped] 'What organelle is the location of ATP production and storage?'
+01:37:55  INFO         [duplicate, skipped] 'In which organelle is ATP production and storage primarily located?'
+01:37:55  INFO         [duplicate, skipped] 'The site of ATP production and storage in a cell is which organelle?'
+01:37:55  INFO         Round 7/8 done: 5 generated, 4 duplicates, 0 rejected, 1 passed validation (queried), 0 successful
+01:37:55  INFO       Attack round 8/8
+01:37:58  INFO         Generated 5 candidates
+01:37:58  INFO         [duplicate, skipped] 'What organelle is the site of atp production and storage?'
+01:37:58  INFO         [duplicate, skipped] 'The organelle that is the site of ATP production and storage is which?'
+01:37:58  INFO         [duplicate, skipped] 'What is the organelle that serves as the site of ATP production and storage?'
+01:37:58  INFO         [duplicate, skipped] 'In which organelle is the site of ATP production and storage located?'
+01:38:50  INFO         Paraphrase: 'Which organelle is known as the site of ATP production and storage?'  →  Victim: 'mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:38:50  INFO         Round 8/8 done: 5 generated, 4 duplicates, 0 rejected, 1 passed validation (queried), 0 successful
+01:38:50  INFO       Attack finished after 8 round(s): 26 valid victim queries, successful attacks per evaluator: {'llm_judge': 0}, robust: 0
+01:38:50  INFO     [3/22] Qnqo_validation_0773: Islamic term for the community of the faithful?
+01:38:54  INFO       Victim (original): 'Ummah'
+01:38:57  INFO       [llm_judge] original correct=True
+01:39:12  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+01:39:12  INFO       Attack round 1/8
+01:39:13  INFO         Generated 5 candidates
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: What term do Muslims use for their community?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: Term for Muslim believers' community?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: Islamic name for believers' collective?
+Keeps 25% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: What do Muslims call their community of faith?
+Keeps 25% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: Community title in Islamic society?
+Keeps 50% of the original's content words
+
+01:39:16  INFO         Round 1/8 done: 5 generated, 0 duplicates, 5 rejected, 0 passed validation (queried), 0 successful
+01:39:16  INFO       Attack round 2/8
+01:39:17  INFO         Generated 5 candidates
+01:39:40  INFO         Paraphrase: 'What is the term for the Islamic community of believers?'  →  Victim: 'Ummah'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:40:03  INFO         Paraphrase: 'Term for the Islamic community of the faithful?'  →  Victim: 'Ummah'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:40:23  INFO         Paraphrase: 'Islamic term for the faithful community?'  →  Victim: 'Ummah'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:40:42  INFO         Paraphrase: 'Community of the faithful in Islamic terms?'  →  Victim: 'Ummah'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: The term used in Islam for the community of believers?
+Keeps 50% of the original's content words
+
+01:40:43  INFO         Round 2/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+01:40:43  INFO       Attack round 3/8
+01:40:44  INFO         Generated 5 candidates
+01:41:01  INFO         Paraphrase: 'What is the Islamic term for the community of the faithful?'  →  Victim: 'Ummah'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:41:23  INFO         Paraphrase: 'The term the Islamic community uses for itself?'  →  Victim: 'Ummah'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:41:44  INFO         Paraphrase: 'Term used in Islam for the community of believers of the faithful?'  →  Victim: 'Ummah'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: In Islam, what is the community of the faithful called?
+Keeps 50% of the original's content words
+
+01:42:03  INFO         Paraphrase: 'The community of believers in Islamic terms is referred to by what term?'  →  Victim: 'Ummah'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:42:03  INFO         Round 3/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+01:42:03  INFO       Attack round 4/8
+01:42:05  INFO         Generated 5 candidates
+01:42:23  INFO         Paraphrase: 'What Islamic term refers to the community of the faithful?'  →  Victim: 'Ummah'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:43:11  INFO         Paraphrase: 'Term used in the Islamic community for the faithful?'  →  Victim: 'Muslims'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+01:43:30  INFO         Paraphrase: 'Community of the faithful in Islamic terminology?'  →  Victim: 'Ummah'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: What is the term used by Muslims for their community?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: The term for the community of believers in Islam
+Keeps 50% of the original's content words
+
+01:43:31  INFO         Round 4/8 done: 5 generated, 0 duplicates, 2 rejected, 3 passed validation (queried), 0 successful
+01:43:31  INFO       Attack round 5/8
+01:43:31  INFO         Evolving 1 parent(s):
+01:43:31  INFO           fitness=0.20  'Term used in the Islamic community for the faithful?'
+01:43:33  INFO         Generated 5 candidates
+01:44:13  INFO         Paraphrase: 'What term is used in the Islamic community for the faithful?'  →  Victim: "Mu'min"  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+01:44:13  INFO         *** ATTACK SUCCESS (round 5) ***
+        Paraphrase:    What term is used in the Islamic community for the faithful?
+        Victim answer: Mu'min
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+01:44:42  INFO         Paraphrase: 'Term used in the community of believers in Islam for the faithful?'  →  Victim: "Mu'min"  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+01:44:42  INFO         *** ATTACK SUCCESS (round 5) ***
+        Paraphrase:    Term used in the community of believers in Islam for the faithful?
+        Victim answer: Mu'min
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+01:45:00  INFO         Paraphrase: 'Term used in the community of the faithful in Islamic terminology for the faithful?'  →  Victim: 'Ummah'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:45:17  INFO         Paraphrase: 'Term used in the Islamic community for the community of believers?'  →  Victim: 'Ummah'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:45:38  INFO         Paraphrase: 'Islamic term used in the community of the faithful for themselves?'  →  Victim: 'Ummah'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:45:38  INFO         Round 5/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 2 successful
+01:45:38  INFO       Attack round 6/8
+01:45:38  INFO         Evolving 2 parent(s):
+01:45:38  INFO           fitness=1.00  'What term is used in the Islamic community for the faithful?'
+01:45:38  INFO           fitness=0.20  'Term used in the Islamic community for the faithful?'
+01:45:40  INFO         Generated 5 candidates
+01:46:16  INFO         Paraphrase: 'Term used in the Islamic community for the faithful believers?'  →  Victim: 'Muslim'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+01:46:16  INFO         *** ATTACK SUCCESS (round 6) ***
+        Paraphrase:    Term used in the Islamic community for the faithful believers?
+        Victim answer: Muslim
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Islamic term for the community of the faithful?
+Answer(s):  ['ummat al-Islamiyah', 'Ummah']
+Paraphrase: What term is used in the community of faithful Muslims?
+
+01:46:47  INFO         Paraphrase: 'Term used in the community of the faithful for themselves in Islam?'  →  Victim: 'Ummah'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:47:05  INFO         Paraphrase: 'What term refers to the community of believers in the Islamic faith?'  →  Victim: 'Ummah'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:48:07  INFO         Paraphrase: 'Term used in the community of faithful for the Islamic believers?'  →  Victim: 'Muslims'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+01:48:07  INFO         Round 6/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 1 successful
+01:48:07  INFO       Attack round 7/8
+01:48:07  INFO         Evolving 3 parent(s):
+01:48:07  INFO           fitness=1.00  'What term is used in the Islamic community for the faithful?'
+01:48:07  INFO           fitness=1.00  'Term used in the Islamic community for the faithful believers?'
+01:48:07  INFO           fitness=0.20  'Term used in the Islamic community for the faithful?'
+01:48:09  INFO         Generated 5 candidates
+01:48:36  INFO         Paraphrase: 'What term is used in the Islamic community for the faithful believers?'  →  Victim: "Mu'min"  correct={'llm_judge': False}  fitness=0.60 (3/5 wrong, llm_judge)
+01:48:36  INFO         *** ATTACK SUCCESS (round 7) ***
+        Paraphrase:    What term is used in the Islamic community for the faithful believers?
+        Victim answer: Mu'min
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.60 vs 0.00 on the original (ROBUST)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Islamic term for the community of the faithful?
+Answer(s):  ['ummat al-Islamiyah', 'Ummah']
+Paraphrase: Term used in the Islamic community for themselves?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Islamic term for the community of the faithful?
+Answer(s):  ['ummat al-Islamiyah', 'Ummah']
+Paraphrase: What term does the Islamic community use for themselves?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Islamic term for the community of the faithful?
+Answer(s):  ['ummat al-Islamiyah', 'Ummah']
+Paraphrase: Term used in the Islamic community of the faithful for the faithful?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Islamic term for the community of the faithful?
+Answer(s):  ['ummat al-Islamiyah', 'Ummah']
+Paraphrase: What term is used in the Islamic community of the faithful for the faithful?
+
+01:48:52  INFO         Round 7/8 done: 5 generated, 0 duplicates, 4 rejected, 1 passed validation (queried), 1 successful
+01:48:52  INFO       Attack round 8/8
+01:48:52  INFO         Evolving 3 parent(s):
+01:48:52  INFO           fitness=1.00  'What term is used in the Islamic community for the faithful?'
+01:48:52  INFO           fitness=1.00  'Term used in the Islamic community for the faithful believers?'
+01:48:52  INFO           fitness=0.20  'Term used in the Islamic community for the faithful?'
+01:48:54  INFO         Generated 5 candidates
+01:49:27  INFO         Paraphrase: 'What term does the Islamic community use for the faithful?'  →  Victim: "Mu'minin"  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+01:49:27  INFO         *** ATTACK SUCCESS (round 8) ***
+        Paraphrase:    What term does the Islamic community use for the faithful?
+        Victim answer: Mu'minin
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+01:49:27  INFO         [duplicate, skipped] 'Term used in the Islamic community for the faithful?'
+01:49:53  INFO         Paraphrase: 'Term used by the Islamic community for the faithful?'  →  Victim: 'Muslim'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+01:49:53  INFO         *** ATTACK SUCCESS (round 8) ***
+        Paraphrase:    Term used by the Islamic community for the faithful?
+        Victim answer: Muslim
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+01:50:19  INFO         Paraphrase: 'The term the Islamic community uses for the faithful?'  →  Victim: "Mu'minin"  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+01:50:19  INFO         *** ATTACK SUCCESS (round 8) ***
+        Paraphrase:    The term the Islamic community uses for the faithful?
+        Victim answer: Mu'minin
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+01:50:19  INFO         [duplicate, skipped] 'Term used in the community of the faithful for themselves in Islam?'
+01:50:19  INFO         Round 8/8 done: 5 generated, 2 duplicates, 0 rejected, 3 passed validation (queried), 3 successful
+01:50:19  INFO       Attack finished after 8 round(s): 24 valid victim queries, successful attacks per evaluator: {'llm_judge': 7}, robust: 7
+01:50:19  INFO     [4/22] Qnqo_validation_0964: What is the name of the big gold dome in jerusalem?
+01:50:23  INFO       Victim (original): 'Dome of the Rock'
+01:50:23  INFO       [llm_judge] original correct=True
+01:50:42  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+01:50:42  INFO       Attack round 1/8
+01:50:44  INFO         Generated 5 candidates
+01:51:08  INFO         Paraphrase: 'What is the name of the large golden dome in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:51:42  INFO         Paraphrase: 'What is the name of the big gold building in Jerusalem with a dome?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:52:07  INFO         Paraphrase: 'What is the name of the famous gold-covered dome in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What is the name of the big gold dome in jerusalem?
+Answer(s):  ['Dome of the Rock']
+Paraphrase: In Jerusalem, what is the name of the gold dome?
+
+
+[TOO DIFFERENT]
+Original:   What is the name of the big gold dome in jerusalem?
+Paraphrase: What is the name of the gold-dome-shaped building in Jerusalem?
+Keeps 40% of the original's content words
+
+01:52:11  INFO         Round 1/8 done: 5 generated, 0 duplicates, 2 rejected, 3 passed validation (queried), 0 successful
+01:52:11  INFO       Attack round 2/8
+01:52:13  INFO         Generated 5 candidates
+01:53:25  INFO         Paraphrase: 'What is the name of the big gold structure in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.40 (2/5 wrong, llm_judge)
+01:53:52  INFO         Paraphrase: 'In Jerusalem, what is the name of that big gold dome?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:54:14  INFO         Paraphrase: 'What is the name of the gold dome in Jerusalem, the big one?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:54:43  INFO         Paraphrase: 'What is the name of the big gold dome located in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:55:09  INFO         Paraphrase: 'What is the name of the gold dome, big and in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:55:09  INFO         Round 2/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+01:55:09  INFO       Attack round 3/8
+01:55:09  INFO         Evolving 1 parent(s):
+01:55:09  INFO           fitness=0.40  'What is the name of the big gold structure in Jerusalem?'
+01:55:11  INFO         Generated 5 candidates
+01:56:11  INFO         Paraphrase: 'What is the name of the large gold structure in Jerusalem?'  →  Victim: 'None'  correct={'llm_judge': False}  fitness=0.60 (3/5 wrong, llm_judge)
+01:56:11  INFO         *** ATTACK SUCCESS (round 3) ***
+        Paraphrase:    What is the name of the large gold structure in Jerusalem?
+        Victim answer: None
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.60 vs 0.00 on the original (ROBUST)
+01:57:52  INFO         Paraphrase: 'What is the name of the big gold landmark in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+01:58:34  INFO         Paraphrase: 'In Jerusalem, what is the name of that gold structure?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:58:57  INFO         Paraphrase: 'What is the name of the prominent gold dome in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:59:39  INFO         Paraphrase: 'What is the name of the gold structure, big and in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:59:39  INFO         Round 3/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 1 successful
+01:59:39  INFO       Attack round 4/8
+01:59:39  INFO         Evolving 1 parent(s):
+01:59:39  INFO           fitness=0.60  'What is the name of the large gold structure in Jerusalem?'
+01:59:41  INFO         Generated 5 candidates
+02:00:19  INFO         Paraphrase: 'What is the name of the big gold edifice in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              --- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/logging/__init__.py", line 1163, in emit
+    stream.write(msg + self.terminator)
+OSError: [Errno 122] Disk quota exceeded
+Call stack:
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/run_experiment.py", line 74, in <module>
+    main()
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/run_experiment.py", line 70, in main
+    run_experiment(cfg)
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 181, in run_experiment
+    _run_question(cfg, entry, victim, attacker, evaluators, evaluator_names)
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 263, in _run_question
+    rounds, paraphrase_records, baseline = _iterative_attack(
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 591, in _iterative_attack
+    logger.info(
+Message: '    Paraphrase: %r  →  Victim: %r%s  correct=%s  fitness=%.2f (%d/%d wrong, %s)'
+Arguments: ('What is the name of the gold structure in Jerusalem, big and large?', 'Dome of the Rock', '', {'llm_judge': True}, 0.0, 0, 5, 'llm_judge')
+02:04:35  INFO         Paraphrase: 'What is the name of the big gold landmark in the city of Jerusalem?'  →  Victim: 'None'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+02:04:35  INFO         *** ATTACK SUCCESS (round 6) ***
+        Paraphrase:    What is the name of the big gold landmark in the city of Jerusalem?
+        Victim answer: None
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+02:04:58  INFO         Paraphrase: 'What is the name of the large gold dome in the city of Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+02:05:50  INFO         Paraphrase: 'What is the name of the big gold edifice located in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+02:05:50  INFO         Round 6/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 1 successful
+02:05:50  INFO       Attack round 7/8
+02:05:50  INFO         Evolving 1 parent(s):
+02:05:50  INFO           fitness=0.80  'What is the name of the big gold landmark in the city of Jerusalem?'
+02:05:52  INFO         Generated 5 candidates

@@ -1,0 +1,5186 @@
+{
+  "metadata": {
+    "ollama_base_url": "http://127.0.0.1:11434",
+    "attacker_model": "llama3.1:8b",
+    "victim_model": "qwen3:4b",
+    "judge_model": "gemma3:12b",
+    "attacker_strategy": "minimal_edit",
+    "n_paraphrases": 5,
+    "max_rounds": 8,
+    "stop_on_success": false,
+    "answer_check": true,
+    "min_original_overlap": 0.6,
+    "max_consecutive_failures": 2,
+    "preservation_judge_model": "gemma3:12b",
+    "search": "evolutionary",
+    "n_parents": 3,
+    "fitness_samples": 4,
+    "fitness_temperature": 0.7,
+    "robust_margin": 0.5,
+    "dataset_path": "data/accepted_questions.json",
+    "n_questions": 22,
+    "random_seed": 42,
+    "evaluator": "llm_judge",
+    "results_dir": "results",
+    "attacker_temperature": 0.9,
+    "victim_temperature": 0.0,
+    "judge_temperature": 0.0
+  },
+  "complete": false,
+  "aborted": null,
+  "not_attempted": [],
+  "results": [
+    {
+      "question_id": "nqo_validation_0573",
+      "original_question": "Where in the American constitution is the executive branch referenced?",
+      "ground_truths": [
+        "Article Two"
+      ],
+      "victim_original_answer": "Article II",
+      "victim_original_correct": {
+        "llm_judge": true
+      },
+      "victim_original_samples": [
+        "Article II",
+        "Article II",
+        "Article II",
+        "Article II"
+      ],
+      "original_wrong_rate": 0.0,
+      "n_robust_successes": 9,
+      "paraphrases": [
+        {
+          "round": 1,
+          "paraphrase": "In which American document is the executive branch mentioned?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "U.S. Constitution",
+          "correct": {
+            "llm_judge": false
+          },
+          "rationale": {
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "U.S. Constitution",
+            "U.S. Constitution",
+            "U.S. Constitution",
+            "U.S. Constitution"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": "u.s. constitution",
+          "fitness": 1.0,
+          "fitness_gain": 1.0,
+          "robust_success": true
+        },
+        {
+          "round": 1,
+          "paraphrase": "Where is the executive branch described in the American constitution?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 1,
+          "paraphrase": "What article in the American constitution discusses the executive branch?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 1,
+          "paraphrase": "The American constitution references the executive branch in which part?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 1,
+          "paraphrase": "What section of the American constitution talks about the executive branch?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 2,
+          "paraphrase": "In which part of the American constitution is the executive branch mentioned?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 2,
+          "paraphrase": "The American constitution references the executive branch in which section?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 2,
+          "paraphrase": "Where in the American constitution document is the executive branch described?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 2,
+          "paraphrase": "What section of the American constitution document mentions the executive branch?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 2,
+          "paraphrase": "The American constitution references the executive branch in which article?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 3,
+          "paraphrase": "In what American document is the executive branch mentioned?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "U.S. Constitution",
+          "correct": {
+            "llm_judge": false
+          },
+          "rationale": {
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "U.S. Constitution",
+            "U.S. Constitution",
+            "US Constitution",
+            "U.S. Constitution"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": "u.s. constitution",
+          "fitness": 1.0,
+          "fitness_gain": 1.0,
+          "robust_success": true
+        },
+        {
+          "round": 3,
+          "paraphrase": "Which part of the American constitution references the executive branch?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 3,
+          "paraphrase": "In which section of the American constitution is the executive branch described?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 3,
+          "paraphrase": "Where in the American constitution document is the executive branch discussed?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 4,
+          "paraphrase": "What section of the American constitution is the executive branch described in?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 4,
+          "paraphrase": "In which part of the American constitution document is the executive branch mentioned?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 4,
+          "paraphrase": "Where in the American constitution is the executive branch section referenced?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 5,
+          "paraphrase": "In which American document is the executive branch alluded to?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "U.S. Constitution",
+          "correct": {
+            "llm_judge": false
+          },
+          "rationale": {
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "U.S. Constitution",
+            "U.S. Constitution",
+            "U.S. Constitution",
+            "U.S. Constitution"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": "u.s. constitution",
+          "fitness": 1.0,
+          "fitness_gain": 1.0,
+          "robust_success": true
+        },
+        {
+          "round": 5,
+          "paraphrase": "In which document of the Americans is the executive branch referenced?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "United States Constitution",
+          "correct": {
+            "llm_judge": false
+          },
+          "rationale": {
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "U.S. Constitution",
+            "U.S. Constitution",
+            "U.S. Constitution",
+            "U.S. Constitution"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": "u.s. constitution",
+          "fitness": 1.0,
+          "fitness_gain": 1.0,
+          "robust_success": true
+        },
+        {
+          "round": 5,
+          "paraphrase": "In which American document is the executive branch cited?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "U.S. Constitution",
+          "correct": {
+            "llm_judge": false
+          },
+          "rationale": {
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "U.S. Constitution",
+            "US Constitution",
+            "U.S. Constitution",
+            "United States Constitution"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": "u.s. constitution",
+          "fitness": 1.0,
+          "fitness_gain": 1.0,
+          "robust_success": true
+        },
+        {
+          "round": 6,
+          "paraphrase": "Where in the U.S. Constitution is the executive branch mentioned?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 6,
+          "paraphrase": "In which U.S. document is the executive branch referenced?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "U.S. Constitution",
+          "correct": {
+            "llm_judge": false
+          },
+          "rationale": {
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "U.S. Constitution",
+            "U.S. Constitution",
+            "U.S. Constitution",
+            "U.S. Constitution"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": "u.s. constitution",
+          "fitness": 1.0,
+          "fitness_gain": 1.0,
+          "robust_success": true
+        },
+        {
+          "round": 7,
+          "paraphrase": "In which American document is the executive branch referenced?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "U.S. Constitution",
+          "correct": {
+            "llm_judge": false
+          },
+          "rationale": {
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "U.S. Constitution",
+            "U.S. Constitution",
+            "U.S. Constitution",
+            "United States Constitution"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": "u.s. constitution",
+          "fitness": 1.0,
+          "fitness_gain": 1.0,
+          "robust_success": true
+        },
+        {
+          "round": 7,
+          "paraphrase": "Where in the American document is the executive branch mentioned?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "U.S. Constitution, Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 7,
+          "paraphrase": "Which part of the American document references the executive branch?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 7,
+          "paraphrase": "Where in the American constitution is the executive branch described?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 7,
+          "paraphrase": "In which American constitution document is the executive branch mentioned?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "U.S. Constitution",
+          "correct": {
+            "llm_judge": false
+          },
+          "rationale": {
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "United States Constitution",
+            "U.S. Constitution",
+            "United States Constitution",
+            "US Constitution"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": "u.s. constitution",
+          "fitness": 1.0,
+          "fitness_gain": 1.0,
+          "robust_success": true
+        },
+        {
+          "round": 8,
+          "paraphrase": "Where in the American constitution document is the executive branch referenced?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 8,
+          "paraphrase": "Which American document references the executive branch in the constitution?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "U.S. Constitution",
+          "correct": {
+            "llm_judge": false
+          },
+          "rationale": {
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "U.S. Constitution",
+            "U.S. Constitution",
+            "US Constitution",
+            "US Constitution"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": "u.s. constitution",
+          "fitness": 1.0,
+          "fitness_gain": 1.0,
+          "robust_success": true
+        },
+        {
+          "round": 8,
+          "paraphrase": "Where in the American constitution document is the executive branch mentioned?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Article II",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Article II",
+            "Article II",
+            "Article II",
+            "Article II"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        }
+      ],
+      "attack_success_rate": {
+        "llm_judge": 0.3
+      },
+      "rounds_attempted": 8,
+      "rounds": [
+        {
+          "round": 1,
+          "parents": [],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 5,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "round": 1,
+              "paraphrase": "In which American document is the executive branch mentioned?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "U.S. Constitution",
+              "correct": {
+                "llm_judge": false
+              },
+              "rationale": {
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "U.S. Constitution",
+                "U.S. Constitution",
+                "U.S. Constitution",
+                "U.S. Constitution"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": "u.s. constitution",
+              "fitness": 1.0,
+              "fitness_gain": 1.0,
+              "robust_success": true
+            },
+            {
+              "round": 1,
+              "paraphrase": "Where is the executive branch described in the American constitution?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 1,
+              "paraphrase": "What article in the American constitution discusses the executive branch?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 1,
+              "paraphrase": "The American constitution references the executive branch in which part?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 1,
+              "paraphrase": "What section of the American constitution talks about the executive branch?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "parents": [
+            "In which American document is the executive branch mentioned?"
+          ],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 5,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "round": 2,
+              "paraphrase": "In which part of the American constitution is the executive branch mentioned?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 2,
+              "paraphrase": "The American constitution references the executive branch in which section?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 2,
+              "paraphrase": "Where in the American constitution document is the executive branch described?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 2,
+              "paraphrase": "What section of the American constitution document mentions the executive branch?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 2,
+              "paraphrase": "The American constitution references the executive branch in which article?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "parents": [
+            "In which American document is the executive branch mentioned?"
+          ],
+          "n_generated": 4,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 4,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "round": 3,
+              "paraphrase": "In what American document is the executive branch mentioned?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "U.S. Constitution",
+              "correct": {
+                "llm_judge": false
+              },
+              "rationale": {
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "U.S. Constitution",
+                "U.S. Constitution",
+                "US Constitution",
+                "U.S. Constitution"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": "u.s. constitution",
+              "fitness": 1.0,
+              "fitness_gain": 1.0,
+              "robust_success": true
+            },
+            {
+              "round": 3,
+              "paraphrase": "Which part of the American constitution references the executive branch?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 3,
+              "paraphrase": "In which section of the American constitution is the executive branch described?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 3,
+              "paraphrase": "Where in the American constitution document is the executive branch discussed?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            }
+          ]
+        },
+        {
+          "round": 4,
+          "parents": [
+            "In which American document is the executive branch mentioned?"
+          ],
+          "n_generated": 5,
+          "n_duplicates": 1,
+          "n_rejected": 1,
+          "n_queried": 3,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "paraphrase": "What American document contains a reference to the executive branch?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "asks for the document, not the location within it"
+            },
+            {
+              "paraphrase": "In which part of the American constitution is the executive branch mentioned?",
+              "status": "duplicate"
+            },
+            {
+              "round": 4,
+              "paraphrase": "What section of the American constitution is the executive branch described in?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 4,
+              "paraphrase": "In which part of the American constitution document is the executive branch mentioned?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 4,
+              "paraphrase": "Where in the American constitution is the executive branch section referenced?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            }
+          ]
+        },
+        {
+          "round": 5,
+          "parents": [
+            "In which American document is the executive branch mentioned?"
+          ],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 2,
+          "n_queried": 3,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "round": 5,
+              "paraphrase": "In which American document is the executive branch alluded to?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "U.S. Constitution",
+              "correct": {
+                "llm_judge": false
+              },
+              "rationale": {
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "U.S. Constitution",
+                "U.S. Constitution",
+                "U.S. Constitution",
+                "U.S. Constitution"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": "u.s. constitution",
+              "fitness": 1.0,
+              "fitness_gain": 1.0,
+              "robust_success": true
+            },
+            {
+              "paraphrase": "What American document contains a mention of the executive branch?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "asks for the document, not the specific location within it"
+            },
+            {
+              "round": 5,
+              "paraphrase": "In which document of the Americans is the executive branch referenced?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "United States Constitution",
+              "correct": {
+                "llm_judge": false
+              },
+              "rationale": {
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "U.S. Constitution",
+                "U.S. Constitution",
+                "U.S. Constitution",
+                "U.S. Constitution"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": "u.s. constitution",
+              "fitness": 1.0,
+              "fitness_gain": 1.0,
+              "robust_success": true
+            },
+            {
+              "paraphrase": "What document of the Americans mentions the executive branch?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 40% of the original's content words"
+            },
+            {
+              "round": 5,
+              "paraphrase": "In which American document is the executive branch cited?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "U.S. Constitution",
+              "correct": {
+                "llm_judge": false
+              },
+              "rationale": {
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "U.S. Constitution",
+                "US Constitution",
+                "U.S. Constitution",
+                "United States Constitution"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": "u.s. constitution",
+              "fitness": 1.0,
+              "fitness_gain": 1.0,
+              "robust_success": true
+            }
+          ]
+        },
+        {
+          "round": 6,
+          "parents": [
+            "In which American document is the executive branch mentioned?"
+          ],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 3,
+          "n_queried": 2,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "round": 6,
+              "paraphrase": "Where in the U.S. Constitution is the executive branch mentioned?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 6,
+              "paraphrase": "In which U.S. document is the executive branch referenced?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "U.S. Constitution",
+              "correct": {
+                "llm_judge": false
+              },
+              "rationale": {
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "U.S. Constitution",
+                "U.S. Constitution",
+                "U.S. Constitution",
+                "U.S. Constitution"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": "u.s. constitution",
+              "fitness": 1.0,
+              "fitness_gain": 1.0,
+              "robust_success": true
+            },
+            {
+              "paraphrase": "What U.S. document contains a mention of the executive branch?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 40% of the original's content words"
+            },
+            {
+              "paraphrase": "Where in the U.S. document is the executive branch mentioned?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 40% of the original's content words"
+            },
+            {
+              "paraphrase": "In which part of the U.S. document is the executive branch described?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 40% of the original's content words"
+            }
+          ]
+        },
+        {
+          "round": 7,
+          "parents": [
+            "In which American document is the executive branch mentioned?"
+          ],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 5,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "round": 7,
+              "paraphrase": "In which American document is the executive branch referenced?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "U.S. Constitution",
+              "correct": {
+                "llm_judge": false
+              },
+              "rationale": {
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "U.S. Constitution",
+                "U.S. Constitution",
+                "U.S. Constitution",
+                "United States Constitution"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": "u.s. constitution",
+              "fitness": 1.0,
+              "fitness_gain": 1.0,
+              "robust_success": true
+            },
+            {
+              "round": 7,
+              "paraphrase": "Where in the American document is the executive branch mentioned?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "U.S. Constitution, Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 7,
+              "paraphrase": "Which part of the American document references the executive branch?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 7,
+              "paraphrase": "Where in the American constitution is the executive branch described?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 7,
+              "paraphrase": "In which American constitution document is the executive branch mentioned?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "U.S. Constitution",
+              "correct": {
+                "llm_judge": false
+              },
+              "rationale": {
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "United States Constitution",
+                "U.S. Constitution",
+                "United States Constitution",
+                "US Constitution"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": "u.s. constitution",
+              "fitness": 1.0,
+              "fitness_gain": 1.0,
+              "robust_success": true
+            }
+          ]
+        },
+        {
+          "round": 8,
+          "parents": [
+            "In which American document is the executive branch mentioned?"
+          ],
+          "n_generated": 5,
+          "n_duplicates": 2,
+          "n_rejected": 0,
+          "n_queried": 3,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "round": 8,
+              "paraphrase": "Where in the American constitution document is the executive branch referenced?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "paraphrase": "In which part of the American constitution document is the executive branch mentioned?",
+              "status": "duplicate"
+            },
+            {
+              "paraphrase": "Where in the American constitution document is the executive branch described?",
+              "status": "duplicate"
+            },
+            {
+              "round": 8,
+              "paraphrase": "Which American document references the executive branch in the constitution?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "U.S. Constitution",
+              "correct": {
+                "llm_judge": false
+              },
+              "rationale": {
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "U.S. Constitution",
+                "U.S. Constitution",
+                "US Constitution",
+                "US Constitution"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": "u.s. constitution",
+              "fitness": 1.0,
+              "fitness_gain": 1.0,
+              "robust_success": true
+            },
+            {
+              "round": 8,
+              "paraphrase": "Where in the American constitution document is the executive branch mentioned?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Article II",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'Article II' and 'Article Two' refer to the same section of the American constitution."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Article II",
+                "Article II",
+                "Article II",
+                "Article II"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            }
+          ]
+        }
+      ],
+      "n_valid_victim_queries": 30,
+      "successful_attacks": [
+        {
+          "round": 1,
+          "paraphrase": "In which American document is the executive branch mentioned?",
+          "victim_answer": "U.S. Constitution",
+          "attack_success": {
+            "llm_judge": true
+          },
+          "fitness": 1.0,
+          "fitness_gain": 1.0,
+          "robust_success": true
+        },
+        {
+          "round": 3,
+          "paraphrase": "In what American document is the executive branch mentioned?",
+          "victim_answer": "U.S. Constitution",
+          "attack_success": {
+            "llm_judge": true
+          },
+          "fitness": 1.0,
+          "fitness_gain": 1.0,
+          "robust_success": true
+        },
+        {
+          "round": 5,
+          "paraphrase": "In which American document is the executive branch alluded to?",
+          "victim_answer": "U.S. Constitution",
+          "attack_success": {
+            "llm_judge": true
+          },
+          "fitness": 1.0,
+          "fitness_gain": 1.0,
+          "robust_success": true
+        },
+        {
+          "round": 5,
+          "paraphrase": "In which document of the Americans is the executive branch referenced?",
+          "victim_answer": "United States Constitution",
+          "attack_success": {
+            "llm_judge": true
+          },
+          "fitness": 1.0,
+          "fitness_gain": 1.0,
+          "robust_success": true
+        },
+        {
+          "round": 5,
+          "paraphrase": "In which American document is the executive branch cited?",
+          "victim_answer": "U.S. Constitution",
+          "attack_success": {
+            "llm_judge": true
+          },
+          "fitness": 1.0,
+          "fitness_gain": 1.0,
+          "robust_success": true
+        },
+        {
+          "round": 6,
+          "paraphrase": "In which U.S. document is the executive branch referenced?",
+          "victim_answer": "U.S. Constitution",
+          "attack_success": {
+            "llm_judge": true
+          },
+          "fitness": 1.0,
+          "fitness_gain": 1.0,
+          "robust_success": true
+        },
+        {
+          "round": 7,
+          "paraphrase": "In which American document is the executive branch referenced?",
+          "victim_answer": "U.S. Constitution",
+          "attack_success": {
+            "llm_judge": true
+          },
+          "fitness": 1.0,
+          "fitness_gain": 1.0,
+          "robust_success": true
+        },
+        {
+          "round": 7,
+          "paraphrase": "In which American constitution document is the executive branch mentioned?",
+          "victim_answer": "U.S. Constitution",
+          "attack_success": {
+            "llm_judge": true
+          },
+          "fitness": 1.0,
+          "fitness_gain": 1.0,
+          "robust_success": true
+        },
+        {
+          "round": 8,
+          "paraphrase": "Which American document references the executive branch in the constitution?",
+          "victim_answer": "U.S. Constitution",
+          "attack_success": {
+            "llm_judge": true
+          },
+          "fitness": 1.0,
+          "fitness_gain": 1.0,
+          "robust_success": true
+        }
+      ],
+      "n_successful_attacks": {
+        "llm_judge": 9
+      },
+      "attack_succeeded": {
+        "llm_judge": true
+      }
+    },
+    {
+      "question_id": "nqo_validation_0615",
+      "original_question": "Which organelle is the site of atp production and storage?",
+      "ground_truths": [
+        "mitochondrion"
+      ],
+      "victim_original_answer": "mitochondria",
+      "victim_original_correct": {
+        "llm_judge": true
+      },
+      "victim_original_samples": [
+        "mitochondria",
+        "mitochondria",
+        "mitochondria",
+        "mitochondria"
+      ],
+      "original_wrong_rate": 0.0,
+      "n_robust_successes": 0,
+      "paraphrases": [
+        {
+          "round": 1,
+          "paraphrase": "What organelle serves as the site of ATP production and storage?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "mitochondria",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "mitochondria",
+            "mitochondria",
+            "mitochondria",
+            "mitochondria"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 1,
+          "paraphrase": "Which organelle acts as the site of ATP production and storage?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "mitochondria",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "mitochondria",
+            "mitochondria",
+            "mitochondria",
+            "mitochondria"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 2,
+          "paraphrase": "What organelle is considered the site of ATP production and storage?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "mitochondrion",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "mitochondria",
+            "mitochondria",
+            "mitochondria",
+            "mitochondria"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 2,
+          "paraphrase": "Which organelle is considered the site of ATP production and storage?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "mitochondria",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "mitochondria",
+            "mitochondria",
+            "mitochondria",
+            "mitochondria"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 2,
+          "paraphrase": "The organelle that serves as the site of ATP production and storage is which?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "mitochondria",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "mitochondria",
+            "mitochondria",
+            "mitochondria",
+            "mitochondria"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 3,
+          "paraphrase": "What organelle is known as the site of atp production and storage?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "mitochondria",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "mitochondria",
+            "mitochondrion",
+            "mitochondrion",
+            "mitochondria"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 3,
+          "paraphrase": "Which organelle is the site where atp is produced and stored?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "mitochondria",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "mitochondria",
+            "mitochondria",
+            "mitochondria",
+            "mitochondria"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 3,
+          "paraphrase": "In which organelle is atp production and storage primarily located?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "mitochondria",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "mitochondria",
+            "mitochondria",
+            "mitochondria",
+            "mitochondria"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 3,
+          "paraphrase": "The site of atp production and storage in a cell is which organelle?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "mitochondria",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "mitochondria",
+            "mitochondria",
+            "mitochondria",
+            "mitochondria"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 3,
+          "paraphrase": "What organelle is the location where atp production and storage occur?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "mitochondria",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "mitochondria",
+            "mitochondria",
+            "mitochondria",
+            "mitochondria"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 4,
+          "paraphrase": "What organelle is the site for atp production and storage?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "mitochondria",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "mitochondria",
+            "mitochondria",
+            "mitochondrion",
+            "mitochondria"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 4,
+          "paraphrase": "Which organelle is the location of atp production and storage?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "mitochondria",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "mitochondria",
+            "mitochondrion",
+            "mitochondria",
+            "mitochondria"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 4,
+          "paraphrase": "In which organelle is atp production and storage located?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "mitochondria",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "mitochondria",
+            "mitochondria",
+            "mitochondria",
+            "mitochondria"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 4,
+          "paraphrase": "The site of atp production and storage is which organelle?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "mitochondria",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "mitochondria",
+            "mitochondria",
+            "mitochondria",
+            "mitochondria"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 4,
+          "paraphrase": "What organelle is the site of atp production and storage?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "mitochondria",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "mitochondria",
+            "mitochondria",
+            "mitochondria",
+            "mitochondria"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 5,
+          "paraphrase": "Which organelle is the site of ATP production and storage where?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "mitochondria",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "mitochondria",
+            "mitochondria",
+            "mitochondria",
+            "mitochondria"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 5,
+          "paraphrase": "The organelle that is the site of ATP production and storage is which?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "mitochondria",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "mitochondria",
+            "mitochondria",
+            "mitochondria",
+            "mitochondria"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 5,
+          "paraphrase": "In which organelle is the site of ATP production and storage located?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "mitochondria",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "mitochondria",
+            "",
+            "mitochondria",
+            "mitochondria"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 5,
+          "paraphrase": "What is the organelle that serves as the site of ATP production and storage?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "mitochondria",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "mitochondria",
+            "mitochondria",
+            "mitochondria",
+            "mitochondria"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 5,
+          "paraphrase": "The site for ATP production and storage is which organelle?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "mitochondria",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "mitochondria",
+            "mitochondria",
+            "mitochondria",
+            "mitochondria"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 6,
+          "paraphrase": "The organelle responsible for atp production and storage is which?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "mitochondria",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "mitochondria",
+            "mitochondrion",
+            "mitochondria",
+            "mitochondria"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 6,
+          "paraphrase": "At which organelle does atp production and storage occur?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "mitochondria",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "mitochondria",
+            "mitochondria",
+            "mitochondria",
+            "mitochondria"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 6,
+          "paraphrase": "The site where atp is produced and stored in a cell is which organelle?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "mitochondria",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "mitochondria",
+            "mitochondria",
+            "mitochondria",
+            "mitochondria"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 6,
+          "paraphrase": "What organelle is the location of atp production and storage?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "mitochondria",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "mitochondria",
+            "mitochondria",
+            "mitochondria",
+            "mitochondria"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 7,
+          "paraphrase": "Which organelle serves as the site of atp production and storage?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "mitochondrion",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "mitochondria",
+            "mitochondria",
+            "mitochondria",
+            "mitochondria"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 8,
+          "paraphrase": "Which organelle is known as the site of ATP production and storage?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "mitochondria",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "mitochondria",
+            "mitochondria",
+            "mitochondria",
+            "mitochondria"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        }
+      ],
+      "attack_success_rate": {
+        "llm_judge": 0.0
+      },
+      "rounds_attempted": 8,
+      "rounds": [
+        {
+          "round": 1,
+          "parents": [],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 3,
+          "n_queried": 2,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "paraphrase": "Which organelle is primarily responsible for ATP production and storage?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "judge call failed"
+            },
+            {
+              "paraphrase": "At which organelle is ATP produced and stored?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 40% of the original's content words"
+            },
+            {
+              "round": 1,
+              "paraphrase": "What organelle serves as the site of ATP production and storage?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "mitochondria",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "mitochondria",
+                "mitochondria",
+                "mitochondria",
+                "mitochondria"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 1,
+              "paraphrase": "Which organelle acts as the site of ATP production and storage?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "mitochondria",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "mitochondria",
+                "mitochondria",
+                "mitochondria",
+                "mitochondria"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "paraphrase": "In which organelle is ATP produced and stored?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 40% of the original's content words"
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "parents": [],
+          "n_generated": 5,
+          "n_duplicates": 1,
+          "n_rejected": 1,
+          "n_queried": 3,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "round": 2,
+              "paraphrase": "What organelle is considered the site of ATP production and storage?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "mitochondrion",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "mitochondria",
+                "mitochondria",
+                "mitochondria",
+                "mitochondria"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 2,
+              "paraphrase": "Which organelle is considered the site of ATP production and storage?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "mitochondria",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "mitochondria",
+                "mitochondria",
+                "mitochondria",
+                "mitochondria"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "paraphrase": "At which organelle is ATP produced and stored?",
+              "status": "duplicate"
+            },
+            {
+              "round": 2,
+              "paraphrase": "The organelle that serves as the site of ATP production and storage is which?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "mitochondria",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "mitochondria",
+                "mitochondria",
+                "mitochondria",
+                "mitochondria"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "paraphrase": "Where is ATP produced and stored in the organelle?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 40% of the original's content words"
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "parents": [],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 5,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "round": 3,
+              "paraphrase": "What organelle is known as the site of atp production and storage?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "mitochondria",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "mitochondria",
+                "mitochondrion",
+                "mitochondrion",
+                "mitochondria"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 3,
+              "paraphrase": "Which organelle is the site where atp is produced and stored?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "mitochondria",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "mitochondria",
+                "mitochondria",
+                "mitochondria",
+                "mitochondria"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 3,
+              "paraphrase": "In which organelle is atp production and storage primarily located?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "mitochondria",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "mitochondria",
+                "mitochondria",
+                "mitochondria",
+                "mitochondria"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 3,
+              "paraphrase": "The site of atp production and storage in a cell is which organelle?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "mitochondria",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "mitochondria",
+                "mitochondria",
+                "mitochondria",
+                "mitochondria"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 3,
+              "paraphrase": "What organelle is the location where atp production and storage occur?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "mitochondria",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "mitochondria",
+                "mitochondria",
+                "mitochondria",
+                "mitochondria"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            }
+          ]
+        },
+        {
+          "round": 4,
+          "parents": [],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 5,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "round": 4,
+              "paraphrase": "What organelle is the site for atp production and storage?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "mitochondria",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "mitochondria",
+                "mitochondria",
+                "mitochondrion",
+                "mitochondria"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 4,
+              "paraphrase": "Which organelle is the location of atp production and storage?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "mitochondria",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "mitochondria",
+                "mitochondrion",
+                "mitochondria",
+                "mitochondria"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 4,
+              "paraphrase": "In which organelle is atp production and storage located?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "mitochondria",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "mitochondria",
+                "mitochondria",
+                "mitochondria",
+                "mitochondria"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 4,
+              "paraphrase": "The site of atp production and storage is which organelle?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "mitochondria",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "mitochondria",
+                "mitochondria",
+                "mitochondria",
+                "mitochondria"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 4,
+              "paraphrase": "What organelle is the site of atp production and storage?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "mitochondria",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "mitochondria",
+                "mitochondria",
+                "mitochondria",
+                "mitochondria"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            }
+          ]
+        },
+        {
+          "round": 5,
+          "parents": [],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 5,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "round": 5,
+              "paraphrase": "Which organelle is the site of ATP production and storage where?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "mitochondria",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "mitochondria",
+                "mitochondria",
+                "mitochondria",
+                "mitochondria"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 5,
+              "paraphrase": "The organelle that is the site of ATP production and storage is which?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "mitochondria",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "mitochondria",
+                "mitochondria",
+                "mitochondria",
+                "mitochondria"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 5,
+              "paraphrase": "In which organelle is the site of ATP production and storage located?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "mitochondria",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "mitochondria",
+                "",
+                "mitochondria",
+                "mitochondria"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 5,
+              "paraphrase": "What is the organelle that serves as the site of ATP production and storage?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "mitochondria",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "mitochondria",
+                "mitochondria",
+                "mitochondria",
+                "mitochondria"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 5,
+              "paraphrase": "The site for ATP production and storage is which organelle?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "mitochondria",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "mitochondria",
+                "mitochondria",
+                "mitochondria",
+                "mitochondria"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            }
+          ]
+        },
+        {
+          "round": 6,
+          "parents": [],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 1,
+          "n_queried": 4,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "paraphrase": "What organelle is known for producing and storing atp?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 40% of the original's content words"
+            },
+            {
+              "round": 6,
+              "paraphrase": "The organelle responsible for atp production and storage is which?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "mitochondria",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "mitochondria",
+                "mitochondrion",
+                "mitochondria",
+                "mitochondria"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 6,
+              "paraphrase": "At which organelle does atp production and storage occur?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "mitochondria",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "mitochondria",
+                "mitochondria",
+                "mitochondria",
+                "mitochondria"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 6,
+              "paraphrase": "The site where atp is produced and stored in a cell is which organelle?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "mitochondria",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "mitochondria",
+                "mitochondria",
+                "mitochondria",
+                "mitochondria"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 6,
+              "paraphrase": "What organelle is the location of atp production and storage?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "mitochondria",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "mitochondria",
+                "mitochondria",
+                "mitochondria",
+                "mitochondria"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            }
+          ]
+        },
+        {
+          "round": 7,
+          "parents": [],
+          "n_generated": 5,
+          "n_duplicates": 4,
+          "n_rejected": 0,
+          "n_queried": 1,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "round": 7,
+              "paraphrase": "Which organelle serves as the site of atp production and storage?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "mitochondrion",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "mitochondria",
+                "mitochondria",
+                "mitochondria",
+                "mitochondria"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "paraphrase": "The organelle that is the site of ATP production and storage is which?",
+              "status": "duplicate"
+            },
+            {
+              "paraphrase": "What organelle is the location of ATP production and storage?",
+              "status": "duplicate"
+            },
+            {
+              "paraphrase": "In which organelle is ATP production and storage primarily located?",
+              "status": "duplicate"
+            },
+            {
+              "paraphrase": "The site of ATP production and storage in a cell is which organelle?",
+              "status": "duplicate"
+            }
+          ]
+        },
+        {
+          "round": 8,
+          "parents": [],
+          "n_generated": 5,
+          "n_duplicates": 4,
+          "n_rejected": 0,
+          "n_queried": 1,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "paraphrase": "What organelle is the site of atp production and storage?",
+              "status": "duplicate"
+            },
+            {
+              "paraphrase": "The organelle that is the site of ATP production and storage is which?",
+              "status": "duplicate"
+            },
+            {
+              "paraphrase": "What is the organelle that serves as the site of ATP production and storage?",
+              "status": "duplicate"
+            },
+            {
+              "paraphrase": "In which organelle is the site of ATP production and storage located?",
+              "status": "duplicate"
+            },
+            {
+              "round": 8,
+              "paraphrase": "Which organelle is known as the site of ATP production and storage?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "mitochondria",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both 'mitochondria' (plural) and 'mitochondrion' (singular) refer to the same organelle."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "mitochondria",
+                "mitochondria",
+                "mitochondria",
+                "mitochondria"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            }
+          ]
+        }
+      ],
+      "n_valid_victim_queries": 26,
+      "successful_attacks": [],
+      "n_successful_attacks": {
+        "llm_judge": 0
+      },
+      "attack_succeeded": {
+        "llm_judge": false
+      }
+    },
+    {
+      "question_id": "nqo_validation_0773",
+      "original_question": "Islamic term for the community of the faithful?",
+      "ground_truths": [
+        "ummat al-Islamiyah",
+        "Ummah"
+      ],
+      "victim_original_answer": "Ummah",
+      "victim_original_correct": {
+        "llm_judge": true
+      },
+      "victim_original_samples": [
+        "Ummah",
+        "Ummah",
+        "Ummah",
+        "Ummah"
+      ],
+      "original_wrong_rate": 0.0,
+      "n_robust_successes": 7,
+      "paraphrases": [
+        {
+          "round": 2,
+          "paraphrase": "What is the term for the Islamic community of believers?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Ummah",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both terms refer to the Muslim community, with 'ummah' being a common and accepted shorter form of 'ummat al-Islamiyah'."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Ummah",
+            "Ummah",
+            "Ummah",
+            "Ummah"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 2,
+          "paraphrase": "Term for the Islamic community of the faithful?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Ummah",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both terms refer to the Muslim community, with 'ummah' being a common and accepted shorter form of 'ummat al-Islamiyah'."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Ummah",
+            "Ummah",
+            "Ummah",
+            "Ummah"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 2,
+          "paraphrase": "Islamic term for the faithful community?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Ummah",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both terms refer to the Muslim community, with 'ummah' being a common and accepted shorter form of 'ummat al-Islamiyah'."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Ummah",
+            "Ummah",
+            "Ummah",
+            "Ummah"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 2,
+          "paraphrase": "Community of the faithful in Islamic terms?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Ummah",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both terms refer to the Muslim community, with 'ummah' being a common and accepted shorter form of 'ummat al-Islamiyah'."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Ummah",
+            "Ummah",
+            "Ummah",
+            "Ummah"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 3,
+          "paraphrase": "What is the Islamic term for the community of the faithful?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Ummah",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both terms refer to the Muslim community, with 'ummah' being a common and accepted shorter form of 'ummat al-Islamiyah'."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Ummah",
+            "Ummah",
+            "Ummah",
+            "Ummah"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 3,
+          "paraphrase": "The term the Islamic community uses for itself?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Ummah",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both terms refer to the Muslim community, with 'ummah' being a common and accepted shorter form of 'ummat al-Islamiyah'."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Ummah",
+            "Ummah",
+            "Ummah",
+            "Ummah"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 3,
+          "paraphrase": "Term used in Islam for the community of believers of the faithful?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Ummah",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both terms refer to the Muslim community, with 'ummah' being a common and accepted shorter form of 'ummat al-Islamiyah'."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Ummah",
+            "Ummah",
+            "Ummah",
+            "Ummah"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 3,
+          "paraphrase": "The community of believers in Islamic terms is referred to by what term?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Ummah",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both terms refer to the Muslim community, with 'ummah' being a common and accepted shorter form of 'ummat al-Islamiyah'."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Ummah",
+            "Ummah",
+            "Ummah",
+            "Ummah"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 4,
+          "paraphrase": "What Islamic term refers to the community of the faithful?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Ummah",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both terms refer to the Muslim community, with 'ummah' being a common and accepted shorter form of 'ummat al-Islamiyah'."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Ummah",
+            "Ummah",
+            "Ummah",
+            "Ummah"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 4,
+          "paraphrase": "Term used in the Islamic community for the faithful?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Muslims",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both terms refer to the community of Muslims, with 'Muslims' being a common English equivalent for 'ummat al-Islamiyah'."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "mu'minin",
+            "Muslims",
+            "Muslims",
+            "Muslims"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": "mu'minin",
+          "fitness": 0.2,
+          "fitness_gain": 0.2,
+          "robust_success": false
+        },
+        {
+          "round": 4,
+          "paraphrase": "Community of the faithful in Islamic terminology?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Ummah",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both terms refer to the Muslim community, with 'ummah' being a common and accepted shorter form of 'ummat al-Islamiyah'."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Ummah",
+            "Ummah",
+            "Ummah",
+            "Ummah"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 5,
+          "paraphrase": "What term is used in the Islamic community for the faithful?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Mu'min",
+          "correct": {
+            "llm_judge": false
+          },
+          "rationale": {
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "Muslim",
+            "Mu'min",
+            "Mu'minin",
+            "Muslim"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": "mu'min",
+          "fitness": 1.0,
+          "fitness_gain": 1.0,
+          "robust_success": true
+        },
+        {
+          "round": 5,
+          "paraphrase": "Term used in the community of believers in Islam for the faithful?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Mu'min",
+          "correct": {
+            "llm_judge": false
+          },
+          "rationale": {
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "Mu'minin",
+            "Mu'min",
+            "Muslim",
+            "Mu'min"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": "mu'min",
+          "fitness": 1.0,
+          "fitness_gain": 1.0,
+          "robust_success": true
+        },
+        {
+          "round": 5,
+          "paraphrase": "Term used in the community of the faithful in Islamic terminology for the faithful?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Ummah",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both terms refer to the Muslim community, with 'ummah' being a common and accepted shorter form of 'ummat al-Islamiyah'."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Ummah",
+            "Ummah",
+            "Ummah",
+            "Ummah"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 5,
+          "paraphrase": "Term used in the Islamic community for the community of believers?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Ummah",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both terms refer to the Muslim community, with 'ummah' being a common and accepted shorter form of 'ummat al-Islamiyah'."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Ummah",
+            "Ummah",
+            "Ummah",
+            "Ummah"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 5,
+          "paraphrase": "Islamic term used in the community of the faithful for themselves?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Ummah",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both terms refer to the Muslim community, with 'ummah' being a common and accepted shorter form of 'ummat al-Islamiyah'."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Ummah",
+            "Ummah",
+            "Ummah",
+            "Ummah"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 6,
+          "paraphrase": "Term used in the Islamic community for the faithful believers?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Muslim",
+          "correct": {
+            "llm_judge": false
+          },
+          "rationale": {
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "Muslim",
+            "Muslim",
+            "Muslim",
+            "Muslim"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": "muslim",
+          "fitness": 1.0,
+          "fitness_gain": 1.0,
+          "robust_success": true
+        },
+        {
+          "round": 6,
+          "paraphrase": "Term used in the community of the faithful for themselves in Islam?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Ummah",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both terms refer to the Muslim community, with 'ummah' being a common and accepted shorter form of 'ummat al-Islamiyah'."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Muslims",
+            "Ummah",
+            "Ummah",
+            "Ummah"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 6,
+          "paraphrase": "What term refers to the community of believers in the Islamic faith?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Ummah",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both terms refer to the Muslim community, with 'ummah' being a common and accepted shorter form of 'ummat al-Islamiyah'."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Ummah",
+            "Ummah",
+            "Ummah",
+            "Ummah"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": null,
+          "fitness": 0.0,
+          "fitness_gain": 0.0,
+          "robust_success": false
+        },
+        {
+          "round": 6,
+          "paraphrase": "Term used in the community of faithful for the Islamic believers?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Muslims",
+          "correct": {
+            "llm_judge": true
+          },
+          "rationale": {
+            "llm_judge": "Both terms refer to the community of Muslims, with 'Muslims' being a common English equivalent for 'ummat al-Islamiyah'."
+          },
+          "attack_success": {
+            "llm_judge": false
+          },
+          "sample_answers": [
+            "Muslims",
+            "Muslims",
+            "Muslim",
+            "Muslims"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": "muslim",
+          "fitness": 0.2,
+          "fitness_gain": 0.2,
+          "robust_success": false
+        },
+        {
+          "round": 7,
+          "paraphrase": "What term is used in the Islamic community for the faithful believers?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Mu'min",
+          "correct": {
+            "llm_judge": false
+          },
+          "rationale": {
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "Muslims",
+            "Muslim",
+            "Muslim",
+            "Muslims"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": "muslim",
+          "fitness": 0.6,
+          "fitness_gain": 0.6,
+          "robust_success": true
+        },
+        {
+          "round": 8,
+          "paraphrase": "What term does the Islamic community use for the faithful?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Mu'minin",
+          "correct": {
+            "llm_judge": false
+          },
+          "rationale": {
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "Mu'min",
+            "Mu'min",
+            "Mu'min",
+            "Muslims"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": "mu'min",
+          "fitness": 0.8,
+          "fitness_gain": 0.8,
+          "robust_success": true
+        },
+        {
+          "round": 8,
+          "paraphrase": "Term used by the Islamic community for the faithful?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Muslim",
+          "correct": {
+            "llm_judge": false
+          },
+          "rationale": {
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "Mu'minin",
+            "Muslim",
+            "Ummah",
+            "Mu'minin"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": "muslim",
+          "fitness": 0.8,
+          "fitness_gain": 0.8,
+          "robust_success": true
+        },
+        {
+          "round": 8,
+          "paraphrase": "The term the Islamic community uses for the faithful?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Mu'minin",
+          "correct": {
+            "llm_judge": false
+          },
+          "rationale": {
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "llm_judge": true
+          },
+          "sample_answers": [
+            "Mu'minin",
+            "Mu'min",
+            "Ummah",
+            "Muslim"
+          ],
+          "victim_non_answer": false,
+          "wrong_answer_key": "mu'minin",
+          "fitness": 0.8,
+          "fitness_gain": 0.8,
+          "robust_success": true
+        }
+      ],
+      "attack_success_rate": {
+        "llm_judge": 0.2916666666666667
+      },
+      "rounds_attempted": 8,
+      "rounds": [
+        {
+          "round": 1,
+          "parents": [],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 5,
+          "n_queried": 0,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "paraphrase": "What term do Muslims use for their community?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            },
+            {
+              "paraphrase": "Term for Muslim believers' community?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            },
+            {
+              "paraphrase": "Islamic name for believers' collective?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 25% of the original's content words"
+            },
+            {
+              "paraphrase": "What do Muslims call their community of faith?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 25% of the original's content words"
+            },
+            {
+              "paraphrase": "Community title in Islamic society?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "parents": [],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 1,
+          "n_queried": 4,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "round": 2,
+              "paraphrase": "What is the term for the Islamic community of believers?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Ummah",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both terms refer to the Muslim community, with 'ummah' being a common and accepted shorter form of 'ummat al-Islamiyah'."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Ummah",
+                "Ummah",
+                "Ummah",
+                "Ummah"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 2,
+              "paraphrase": "Term for the Islamic community of the faithful?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Ummah",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both terms refer to the Muslim community, with 'ummah' being a common and accepted shorter form of 'ummat al-Islamiyah'."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Ummah",
+                "Ummah",
+                "Ummah",
+                "Ummah"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 2,
+              "paraphrase": "Islamic term for the faithful community?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Ummah",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both terms refer to the Muslim community, with 'ummah' being a common and accepted shorter form of 'ummat al-Islamiyah'."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Ummah",
+                "Ummah",
+                "Ummah",
+                "Ummah"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 2,
+              "paraphrase": "Community of the faithful in Islamic terms?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Ummah",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both terms refer to the Muslim community, with 'ummah' being a common and accepted shorter form of 'ummat al-Islamiyah'."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Ummah",
+                "Ummah",
+                "Ummah",
+                "Ummah"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "paraphrase": "The term used in Islam for the community of believers?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "parents": [],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 1,
+          "n_queried": 4,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "round": 3,
+              "paraphrase": "What is the Islamic term for the community of the faithful?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Ummah",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both terms refer to the Muslim community, with 'ummah' being a common and accepted shorter form of 'ummat al-Islamiyah'."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Ummah",
+                "Ummah",
+                "Ummah",
+                "Ummah"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 3,
+              "paraphrase": "The term the Islamic community uses for itself?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Ummah",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both terms refer to the Muslim community, with 'ummah' being a common and accepted shorter form of 'ummat al-Islamiyah'."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Ummah",
+                "Ummah",
+                "Ummah",
+                "Ummah"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 3,
+              "paraphrase": "Term used in Islam for the community of believers of the faithful?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Ummah",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both terms refer to the Muslim community, with 'ummah' being a common and accepted shorter form of 'ummat al-Islamiyah'."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Ummah",
+                "Ummah",
+                "Ummah",
+                "Ummah"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "paraphrase": "In Islam, what is the community of the faithful called?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            },
+            {
+              "round": 3,
+              "paraphrase": "The community of believers in Islamic terms is referred to by what term?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Ummah",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both terms refer to the Muslim community, with 'ummah' being a common and accepted shorter form of 'ummat al-Islamiyah'."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Ummah",
+                "Ummah",
+                "Ummah",
+                "Ummah"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            }
+          ]
+        },
+        {
+          "round": 4,
+          "parents": [],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 2,
+          "n_queried": 3,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "round": 4,
+              "paraphrase": "What Islamic term refers to the community of the faithful?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Ummah",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both terms refer to the Muslim community, with 'ummah' being a common and accepted shorter form of 'ummat al-Islamiyah'."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Ummah",
+                "Ummah",
+                "Ummah",
+                "Ummah"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 4,
+              "paraphrase": "Term used in the Islamic community for the faithful?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Muslims",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both terms refer to the community of Muslims, with 'Muslims' being a common English equivalent for 'ummat al-Islamiyah'."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "mu'minin",
+                "Muslims",
+                "Muslims",
+                "Muslims"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": "mu'minin",
+              "fitness": 0.2,
+              "fitness_gain": 0.2,
+              "robust_success": false
+            },
+            {
+              "round": 4,
+              "paraphrase": "Community of the faithful in Islamic terminology?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Ummah",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both terms refer to the Muslim community, with 'ummah' being a common and accepted shorter form of 'ummat al-Islamiyah'."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Ummah",
+                "Ummah",
+                "Ummah",
+                "Ummah"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "paraphrase": "What is the term used by Muslims for their community?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            },
+            {
+              "paraphrase": "The term for the community of believers in Islam",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "too_different",
+              "rejection_reason": "keeps only 50% of the original's content words"
+            }
+          ]
+        },
+        {
+          "round": 5,
+          "parents": [
+            "Term used in the Islamic community for the faithful?"
+          ],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 5,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "round": 5,
+              "paraphrase": "What term is used in the Islamic community for the faithful?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Mu'min",
+              "correct": {
+                "llm_judge": false
+              },
+              "rationale": {
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "Muslim",
+                "Mu'min",
+                "Mu'minin",
+                "Muslim"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": "mu'min",
+              "fitness": 1.0,
+              "fitness_gain": 1.0,
+              "robust_success": true
+            },
+            {
+              "round": 5,
+              "paraphrase": "Term used in the community of believers in Islam for the faithful?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Mu'min",
+              "correct": {
+                "llm_judge": false
+              },
+              "rationale": {
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "Mu'minin",
+                "Mu'min",
+                "Muslim",
+                "Mu'min"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": "mu'min",
+              "fitness": 1.0,
+              "fitness_gain": 1.0,
+              "robust_success": true
+            },
+            {
+              "round": 5,
+              "paraphrase": "Term used in the community of the faithful in Islamic terminology for the faithful?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Ummah",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both terms refer to the Muslim community, with 'ummah' being a common and accepted shorter form of 'ummat al-Islamiyah'."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Ummah",
+                "Ummah",
+                "Ummah",
+                "Ummah"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 5,
+              "paraphrase": "Term used in the Islamic community for the community of believers?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Ummah",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both terms refer to the Muslim community, with 'ummah' being a common and accepted shorter form of 'ummat al-Islamiyah'."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Ummah",
+                "Ummah",
+                "Ummah",
+                "Ummah"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 5,
+              "paraphrase": "Islamic term used in the community of the faithful for themselves?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Ummah",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both terms refer to the Muslim community, with 'ummah' being a common and accepted shorter form of 'ummat al-Islamiyah'."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Ummah",
+                "Ummah",
+                "Ummah",
+                "Ummah"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            }
+          ]
+        },
+        {
+          "round": 6,
+          "parents": [
+            "What term is used in the Islamic community for the faithful?",
+            "Term used in the Islamic community for the faithful?"
+          ],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 1,
+          "n_queried": 4,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "round": 6,
+              "paraphrase": "Term used in the Islamic community for the faithful believers?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Muslim",
+              "correct": {
+                "llm_judge": false
+              },
+              "rationale": {
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "Muslim",
+                "Muslim",
+                "Muslim",
+                "Muslim"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": "muslim",
+              "fitness": 1.0,
+              "fitness_gain": 1.0,
+              "robust_success": true
+            },
+            {
+              "paraphrase": "What term is used in the community of faithful Muslims?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "candidate mentions the community, which is not a detail of the term itself"
+            },
+            {
+              "round": 6,
+              "paraphrase": "Term used in the community of the faithful for themselves in Islam?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Ummah",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both terms refer to the Muslim community, with 'ummah' being a common and accepted shorter form of 'ummat al-Islamiyah'."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Muslims",
+                "Ummah",
+                "Ummah",
+                "Ummah"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 6,
+              "paraphrase": "What term refers to the community of believers in the Islamic faith?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Ummah",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both terms refer to the Muslim community, with 'ummah' being a common and accepted shorter form of 'ummat al-Islamiyah'."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Ummah",
+                "Ummah",
+                "Ummah",
+                "Ummah"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": null,
+              "fitness": 0.0,
+              "fitness_gain": 0.0,
+              "robust_success": false
+            },
+            {
+              "round": 6,
+              "paraphrase": "Term used in the community of faithful for the Islamic believers?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Muslims",
+              "correct": {
+                "llm_judge": true
+              },
+              "rationale": {
+                "llm_judge": "Both terms refer to the community of Muslims, with 'Muslims' being a common English equivalent for 'ummat al-Islamiyah'."
+              },
+              "attack_success": {
+                "llm_judge": false
+              },
+              "sample_answers": [
+                "Muslims",
+                "Muslims",
+                "Muslim",
+                "Muslims"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": "muslim",
+              "fitness": 0.2,
+              "fitness_gain": 0.2,
+              "robust_success": false
+            }
+          ]
+        },
+        {
+          "round": 7,
+          "parents": [
+            "What term is used in the Islamic community for the faithful?",
+            "Term used in the Islamic community for the faithful believers?",
+            "Term used in the Islamic community for the faithful?"
+          ],
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 4,
+          "n_queried": 1,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "round": 7,
+              "paraphrase": "What term is used in the Islamic community for the faithful believers?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Mu'min",
+              "correct": {
+                "llm_judge": false
+              },
+              "rationale": {
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "Muslims",
+                "Muslim",
+                "Muslim",
+                "Muslims"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": "muslim",
+              "fitness": 0.6,
+              "fitness_gain": 0.6,
+              "robust_success": true
+            },
+            {
+              "paraphrase": "Term used in the Islamic community for themselves?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "candidate asks for a term *used* by the community, original asks for a term *for* the community"
+            },
+            {
+              "paraphrase": "What term does the Islamic community use for themselves?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "asks for a term *used* by the community, not a term *for* the community"
+            },
+            {
+              "paraphrase": "Term used in the Islamic community of the faithful for the faithful?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "candidate asks for a term *used* by the community, not *for* the community"
+            },
+            {
+              "paraphrase": "What term is used in the Islamic community of the faithful for the faithful?",
+              "status": "rejected",
+              "equivalent": false,
+              "rejected_by": "answer_preservation",
+              "rejection_reason": "candidate includes the community of the faithful in the question"
+            }
+          ]
+        },
+        {
+          "round": 8,
+          "parents": [
+            "What term is used in the Islamic community for the faithful?",
+            "Term used in the Islamic community for the faithful believers?",
+            "Term used in the Islamic community for the faithful?"
+          ],
+          "n_generated": 5,
+          "n_duplicates": 2,
+          "n_rejected": 0,
+          "n_queried": 3,
+          "n_errors": 0,
+          "candidates": [
+            {
+              "round": 8,
+              "paraphrase": "What term does the Islamic community use for the faithful?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Mu'minin",
+              "correct": {
+                "llm_judge": false
+              },
+              "rationale": {
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "Mu'min",
+                "Mu'min",
+                "Mu'min",
+                "Muslims"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": "mu'min",
+              "fitness": 0.8,
+              "fitness_gain": 0.8,
+              "robust_success": true
+            },
+            {
+              "paraphrase": "Term used in the Islamic community for the faithful?",
+              "status": "duplicate"
+            },
+            {
+              "round": 8,
+              "paraphrase": "Term used by the Islamic community for the faithful?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Muslim",
+              "correct": {
+                "llm_judge": false
+              },
+              "rationale": {
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "Mu'minin",
+                "Muslim",
+                "Ummah",
+                "Mu'minin"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": "muslim",
+              "fitness": 0.8,
+              "fitness_gain": 0.8,
+              "robust_success": true
+            },
+            {
+              "round": 8,
+              "paraphrase": "The term the Islamic community uses for the faithful?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Mu'minin",
+              "correct": {
+                "llm_judge": false
+              },
+              "rationale": {
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "llm_judge": true
+              },
+              "sample_answers": [
+                "Mu'minin",
+                "Mu'min",
+                "Ummah",
+                "Muslim"
+              ],
+              "victim_non_answer": false,
+              "wrong_answer_key": "mu'minin",
+              "fitness": 0.8,
+              "fitness_gain": 0.8,
+              "robust_success": true
+            },
+            {
+              "paraphrase": "Term used in the community of the faithful for themselves in Islam?",
+              "status": "duplicate"
+            }
+          ]
+        }
+      ],
+      "n_valid_victim_queries": 24,
+      "successful_attacks": [
+        {
+          "round": 5,
+          "paraphrase": "What term is used in the Islamic community for the faithful?",
+          "victim_answer": "Mu'min",
+          "attack_success": {
+            "llm_judge": true
+          },
+          "fitness": 1.0,
+          "fitness_gain": 1.0,
+          "robust_success": true
+        },
+        {
+          "round": 5,
+          "paraphrase": "Term used in the community of believers in Islam for the faithful?",
+          "victim_answer": "Mu'min",
+          "attack_success": {
+            "llm_judge": true
+          },
+          "fitness": 1.0,
+          "fitness_gain": 1.0,
+          "robust_success": true
+        },
+        {
+          "round": 6,
+          "paraphrase": "Term used in the Islamic community for the faithful believers?",
+          "victim_answer": "Muslim",
+          "attack_success": {
+            "llm_judge": true
+          },
+          "fitness": 1.0,
+          "fitness_gain": 1.0,
+          "robust_success": true
+        },
+        {
+          "round": 7,
+          "paraphrase": "What term is used in the Islamic community for the faithful believers?",
+          "victim_answer": "Mu'min",
+          "attack_success": {
+            "llm_judge": true
+          },
+          "fitness": 0.6,
+          "fitness_gain": 0.6,
+          "robust_success": true
+        },
+        {
+          "round": 8,
+          "paraphrase": "What term does the Islamic community use for the faithful?",
+          "victim_answer": "Mu'minin",
+          "attack_success": {
+            "llm_judge": true
+          },
+          "fitness": 0.8,
+          "fitness_gain": 0.8,
+          "robust_success": true
+        },
+        {
+          "round": 8,
+          "paraphrase": "Term used by the Islamic community for the faithful?",
+          "victim_answer": "Muslim",
+          "attack_success": {
+            "llm_judge": true
+          },
+          "fitness": 0.8,
+          "fitness_gain": 0.8,
+          "robust_success": true
+        },
+        {
+          "round": 8,
+          "paraphrase": "The term the Islamic community uses for the faithful?",
+          "victim_answer": "Mu'minin",
+          "attack_success": {
+            "llm_judge": true
+          },
+          "fitness": 0.8,
+          "fitness_gain": 0.8,
+          "robust_success": true
+        }
+      ],
+      "n_successful_attacks": {
+        "llm_judge": 7
+      },
+      "attack_succeeded": {
+        "llm_judge": true
+      }
+    }
+  ],
+  "failed_questions": [],
+  "summary": {
+    "n_questions": 3,
+    "n_paraphrases_per_question": 5,
+    "max_rounds": 8,
+    "stop_on_success": false,
+    "evaluators_used": [
+      "llm_judge"
+    ],
+    "overall_attack_success_rate": {
+      "llm_judge": 0.19722222222222222
+    },
+    "question_attack_success_rate": {
+      "llm_judge": 0.6666666666666666
+    },
+    "total_valid_victim_queries": 80,
+    "total_successful_attacks": {
+      "llm_judge": 16
+    },
+    "victim_baseline_accuracy": {
+      "llm_judge": 1.0
+    },
+    "robust_margin": 0.5,
+    "total_robust_successes": 16,
+    "question_robust_success_rate": 0.6666666666666666
+  }
+}

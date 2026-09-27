@@ -1,0 +1,1422 @@
+
+============================================================
+ADVERSARIAL PARAPHRASING EXPERIMENT
+============================================================
+  Attacker model    : llama3.1:8b
+  Attack strategy   : misleading_entity
+  Victim model      : qwen3:4b
+  Judge model       : gemma3:12b  (evaluator=llm_judge)
+  Questions         : 10
+  Paraphrases/round : 5
+  Max rounds        : 8  (stop_on_success=False)
+  Answer check      : gemma3:12b
+  Search            : evolutionary  (parents=3, fitness samples=4 @ T=0.7)
+  Dataset           : data/nq_open_qwen3_4b_correct.json
+  Results dir       : results
+============================================================
+
+23:13:11  INFO     Loaded 10 questions
+23:13:11  INFO     [1/10] Qnqo_validation_3283: Who sold out jesus for 30 pieces of silver?
+23:13:18  INFO       Victim (original): 'Judas'
+23:13:25  INFO       [llm_judge] original correct=True
+23:13:42  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+23:13:42  INFO       Attack round 1/8
+23:13:47  INFO         Generated 5 candidates
+23:14:08  INFO         Paraphrase: 'Who betrayed Jesus for a sum of 30 silver coins?'  →  Victim: 'Judas Iscariot'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:14:34  INFO         Paraphrase: 'What disciple sold Jesus out to the authorities for thirty pieces of silver?'  →  Victim: 'Judas Iscariot'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:14:59  INFO         Paraphrase: 'For what price did Judas Iscariot hand Jesus over to his captors?'  →  Victim: '30 pieces of silver'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+23:14:59  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    For what price did Judas Iscariot hand Jesus over to his captors?
+        Victim answer: 30 pieces of silver
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+23:15:22  INFO         Paraphrase: "Which of Jesus' followers was bribed with thirty pieces of silver to turn him in?"  →  Victim: 'Judas Iscariot'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:15:49  INFO         Paraphrase: 'Who was the disciple who betrayed Jesus to the Romans for a reward of thirty silver coins?'  →  Victim: 'Judas Iscariot'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:15:49  INFO         Round 1/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 1 successful
+23:15:49  INFO       Attack round 2/8
+23:15:49  INFO         Evolving 1 parent(s):
+23:15:49  INFO           fitness=1.00  'For what price did Judas Iscariot hand Jesus over to his captors?'
+23:15:51  INFO         Generated 5 candidates
+23:16:13  INFO         Paraphrase: 'Who betrayed Jesus for thirty silver coins to his captors?'  →  Victim: 'Judas Iscariot'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:16:52  INFO         Paraphrase: 'For what sum was Judas Iscariot responsible for Jesus being handed over?'  →  Victim: 'thirty pieces of silver'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+23:16:52  INFO         *** ATTACK SUCCESS (round 2) ***
+        Paraphrase:    For what sum was Judas Iscariot responsible for Jesus being handed over?
+        Victim answer: thirty pieces of silver
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+23:17:14  INFO         Paraphrase: 'Which disciple was guilty of selling Jesus out for thirty pieces of silver?'  →  Victim: 'Judas Iscariot'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:17:37  INFO         Paraphrase: 'Who was the one who handed Jesus over to the Romans for a price of thirty silver coins?'  →  Victim: 'Judas'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who sold out jesus for 30 pieces of silver?
+Answer(s):  ['Judas Iscariot']
+Paraphrase: Judas Iscariot handed Jesus over to the authorities for how many pieces of silver?
+
+23:17:40  INFO         Round 2/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 1 successful
+23:17:40  INFO       Attack round 3/8
+23:17:40  INFO         Evolving 2 parent(s):
+23:17:40  INFO           fitness=1.00  'For what price did Judas Iscariot hand Jesus over to his captors?'
+23:17:40  INFO           fitness=1.00  'For what sum was Judas Iscariot responsible for Jesus being handed over?'
+23:17:42  INFO         Generated 5 candidates
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   Who sold out jesus for 30 pieces of silver?
+Paraphrase: By what amount did Judas Iscariot betray Jesus to his captors?
+
+23:18:12  INFO         Paraphrase: "For what sum was Judas Iscariot financially responsible for Jesus' handing over?"  →  Victim: 'thirty pieces of silver'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+23:18:12  INFO         *** ATTACK SUCCESS (round 3) ***
+        Paraphrase:    For what sum was Judas Iscariot financially responsible for Jesus' handing over?
+        Victim answer: thirty pieces of silver
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who sold out jesus for 30 pieces of silver?
+Answer(s):  ['Judas Iscariot']
+Paraphrase: What price did Judas Iscariot pay to have Jesus handed over?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who sold out jesus for 30 pieces of silver?
+Answer(s):  ['Judas Iscariot']
+Paraphrase: By what amount did Judas Iscariot have Jesus betrayed to the authorities?
+
+23:18:39  INFO         Paraphrase: 'What sum did Judas Iscariot receive for handing over Jesus?'  →  Victim: '30 pieces of silver'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+23:18:39  INFO         *** ATTACK SUCCESS (round 3) ***
+        Paraphrase:    What sum did Judas Iscariot receive for handing over Jesus?
+        Victim answer: 30 pieces of silver
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+23:18:39  INFO         Round 3/8 done: 5 generated, 0 duplicates, 3 rejected, 2 passed validation (queried), 2 successful
+23:18:39  INFO       Attack round 4/8
+23:18:39  INFO         Evolving 3 parent(s):
+23:18:39  INFO           fitness=1.00  'For what price did Judas Iscariot hand Jesus over to his captors?'
+23:18:39  INFO           fitness=1.00  'For what sum was Judas Iscariot responsible for Jesus being handed over?'
+23:18:39  INFO           fitness=1.00  "For what sum was Judas Iscariot financially responsible for Jesus' handing over?"
+23:18:42  INFO         Generated 5 candidates
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who sold out jesus for 30 pieces of silver?
+Answer(s):  ['Judas Iscariot']
+Paraphrase: What amount was Judas Iscariot held financially accountable for in relation to Jesus being handed over?
+
+23:19:14  INFO         Paraphrase: 'To what sum was Judas Iscariot answerable for Jesus being surrendered?'  →  Victim: '30 pieces of silver'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+23:19:14  INFO         *** ATTACK SUCCESS (round 4) ***
+        Paraphrase:    To what sum was Judas Iscariot answerable for Jesus being surrendered?
+        Victim answer: 30 pieces of silver
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who sold out jesus for 30 pieces of silver?
+Answer(s):  ['Judas Iscariot']
+Paraphrase: How much was Judas Iscariot liable for in the handing over of Jesus?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who sold out jesus for 30 pieces of silver?
+Answer(s):  ['Judas Iscariot']
+Paraphrase: What financial burden did Judas Iscariot incur for Jesus being handed over?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who sold out jesus for 30 pieces of silver?
+Answer(s):  ['Judas Iscariot']
+Paraphrase: By what monetary value was Judas Iscariot responsible for Jesus being delivered to his captors?
+
+23:19:23  INFO         Round 4/8 done: 5 generated, 0 duplicates, 4 rejected, 1 passed validation (queried), 1 successful
+23:19:23  INFO       Attack round 5/8
+23:19:23  INFO         Evolving 3 parent(s):
+23:19:23  INFO           fitness=1.00  'For what price did Judas Iscariot hand Jesus over to his captors?'
+23:19:23  INFO           fitness=1.00  'For what sum was Judas Iscariot responsible for Jesus being handed over?'
+23:19:23  INFO           fitness=1.00  "For what sum was Judas Iscariot financially responsible for Jesus' handing over?"
+23:19:25  INFO         Generated 5 candidates
+23:19:50  INFO         Paraphrase: 'Who handed Jesus over to his captors for a specified price?'  →  Victim: 'Judas Iscariot'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who sold out jesus for 30 pieces of silver?
+Answer(s):  ['Judas Iscariot']
+Paraphrase: By what sum was Judas Iscariot responsible for the handing over of Jesus?
+
+23:20:46  INFO         Paraphrase: 'Judas Iscariot gave Jesus over to his captors for a certain sum of money.'  →  Victim: 'Yes'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+23:20:46  INFO         *** ATTACK SUCCESS (round 5) ***
+        Paraphrase:    Judas Iscariot gave Jesus over to his captors for a certain sum of money.
+        Victim answer: Yes
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who sold out jesus for 30 pieces of silver?
+Answer(s):  ['Judas Iscariot']
+Paraphrase: What sum did Judas Iscariot pay for Jesus to be handed over?
+
+23:21:12  INFO         Paraphrase: 'For what monetary amount was Judas Iscariot financially liable for Jesus being surrendered?'  →  Victim: 'thirty pieces of silver'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+23:21:12  INFO         *** ATTACK SUCCESS (round 5) ***
+        Paraphrase:    For what monetary amount was Judas Iscariot financially liable for Jesus being surrendered?
+        Victim answer: thirty pieces of silver
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+23:21:12  INFO         Round 5/8 done: 5 generated, 0 duplicates, 2 rejected, 3 passed validation (queried), 2 successful
+23:21:12  INFO       Attack round 6/8
+23:21:12  INFO         Evolving 3 parent(s):
+23:21:12  INFO           fitness=1.00  'For what price did Judas Iscariot hand Jesus over to his captors?'
+23:21:12  INFO           fitness=1.00  'For what sum was Judas Iscariot responsible for Jesus being handed over?'
+23:21:12  INFO           fitness=1.00  "For what sum was Judas Iscariot financially responsible for Jesus' handing over?"
+23:21:14  INFO         Generated 5 candidates
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who sold out jesus for 30 pieces of silver?
+Answer(s):  ['Judas Iscariot']
+Paraphrase: What sum did Judas Iscariot bear the financial burden for in relation to Jesus being handed over?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who sold out jesus for 30 pieces of silver?
+Answer(s):  ['Judas Iscariot']
+Paraphrase: For what monetary amount was Judas Iscariot accountable in the betrayal of Jesus?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who sold out jesus for 30 pieces of silver?
+Answer(s):  ['Judas Iscariot']
+Paraphrase: How much did Judas Iscariot have to pay out in order for Jesus to be surrendered?
+
+23:22:03  INFO         Paraphrase: 'What price did Judas Iscariot ultimately foot for having Jesus handed over?'  →  Victim: 'his life'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+23:22:03  INFO         *** ATTACK SUCCESS (round 6) ***
+        Paraphrase:    What price did Judas Iscariot ultimately foot for having Jesus handed over?
+        Victim answer: his life
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who sold out jesus for 30 pieces of silver?
+Answer(s):  ['Judas Iscariot']
+Paraphrase: What cost did Judas Iscariot incur for Jesus being delivered to his captors?
+
+23:22:05  INFO         Round 6/8 done: 5 generated, 0 duplicates, 4 rejected, 1 passed validation (queried), 1 successful
+23:22:05  INFO       Attack round 7/8
+23:22:05  INFO         Evolving 3 parent(s):
+23:22:05  INFO           fitness=1.00  'For what price did Judas Iscariot hand Jesus over to his captors?'
+23:22:05  INFO           fitness=1.00  'For what sum was Judas Iscariot responsible for Jesus being handed over?'
+23:22:05  INFO           fitness=1.00  "For what sum was Judas Iscariot financially responsible for Jesus' handing over?"
+23:22:08  INFO         Generated 5 candidates
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who sold out jesus for 30 pieces of silver?
+Answer(s):  ['Judas Iscariot']
+Paraphrase: Who was Judas Iscariot's partner in the transaction that led to Jesus' capture?
+
+23:22:40  INFO         Paraphrase: 'For what amount did Judas Iscariot incur the financial cost of Jesus being handed over?'  →  Victim: '30 pieces of silver'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+23:22:40  INFO         *** ATTACK SUCCESS (round 7) ***
+        Paraphrase:    For what amount did Judas Iscariot incur the financial cost of Jesus being handed over?
+        Victim answer: 30 pieces of silver
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who sold out jesus for 30 pieces of silver?
+Answer(s):  ['Judas Iscariot']
+Paraphrase: What was the value that Judas Iscariot set for Jesus to be surrendered?
+
+23:23:16  INFO         Paraphrase: 'For what sum did Judas Iscariot agree to betray Jesus?'  →  Victim: '30 pieces of silver'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+23:23:16  INFO         *** ATTACK SUCCESS (round 7) ***
+        Paraphrase:    For what sum did Judas Iscariot agree to betray Jesus?
+        Victim answer: 30 pieces of silver
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who sold out jesus for 30 pieces of silver?
+Answer(s):  ['Judas Iscariot']
+Paraphrase: What was the monetary worth that Judas Iscariot placed on Jesus' betrayal?
+
+23:23:19  INFO         Round 7/8 done: 5 generated, 0 duplicates, 3 rejected, 2 passed validation (queried), 2 successful
+23:23:19  INFO       Attack round 8/8
+23:23:19  INFO         Evolving 3 parent(s):
+23:23:19  INFO           fitness=1.00  'For what price did Judas Iscariot hand Jesus over to his captors?'
+23:23:19  INFO           fitness=1.00  'For what sum was Judas Iscariot responsible for Jesus being handed over?'
+23:23:19  INFO           fitness=1.00  "For what sum was Judas Iscariot financially responsible for Jesus' handing over?"
+23:23:22  INFO         Generated 5 candidates
+23:23:47  INFO         Paraphrase: 'Who did Judas Iscariot hand over to his captors for a sum of money?'  →  Victim: 'Jesus'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+23:23:47  INFO         *** ATTACK SUCCESS (round 8) ***
+        Paraphrase:    Who did Judas Iscariot hand over to his captors for a sum of money?
+        Victim answer: Jesus
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who sold out jesus for 30 pieces of silver?
+Answer(s):  ['Judas Iscariot']
+Paraphrase: What price did Judas Iscariot pay to have Jesus handed over to his captors?
+
+23:24:18  INFO         Paraphrase: 'For what monetary value did Judas Iscariot hand Jesus over to the authorities?'  →  Victim: 'thirty pieces of silver'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+23:24:18  INFO         *** ATTACK SUCCESS (round 8) ***
+        Paraphrase:    For what monetary value did Judas Iscariot hand Jesus over to the authorities?
+        Victim answer: thirty pieces of silver
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who sold out jesus for 30 pieces of silver?
+Answer(s):  ['Judas Iscariot']
+Paraphrase: What amount did Judas Iscariot incur as the cost of handing Jesus over to his captors?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who sold out jesus for 30 pieces of silver?
+Answer(s):  ['Judas Iscariot']
+Paraphrase: How much did Judas Iscariot pay out to have Jesus delivered to his captors?
+
+23:24:23  INFO         Round 8/8 done: 5 generated, 0 duplicates, 3 rejected, 2 passed validation (queried), 2 successful
+23:24:23  INFO       Attack finished after 8 round(s): 20 valid victim queries, successful attacks per evaluator: {'llm_judge': 12}, robust: 12
+23:24:23  INFO     [2/10] Qnqo_validation_0964: What is the big gold dome in jerusalem?
+23:24:30  INFO       Victim (original): 'Dome of the Rock'
+23:24:30  INFO       [llm_judge] original correct=True
+23:24:47  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+23:24:47  INFO       Attack round 1/8
+23:24:49  INFO         Generated 5 candidates
+23:25:14  INFO         Paraphrase: 'Which prominent feature in jerusalem is characterized by a large gold dome?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:25:41  INFO         Paraphrase: 'What large gold-domed landmark is a famous sight in jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:26:07  INFO         Paraphrase: 'What is the name of the large gold-domed structure in the middle east, located in jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:26:34  INFO         Paraphrase: 'What is the gold-domed building known as in the heart of jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:26:53  INFO         Paraphrase: 'What prominent gold-domed edifice can be found in the holy city of jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:26:53  INFO         Round 1/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+23:26:53  INFO       Attack round 2/8
+23:26:55  INFO         Generated 5 candidates
+23:27:15  INFO         Paraphrase: 'What prominent landmark is Jerusalem most famous for?'  →  Victim: 'Western Wall'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+23:27:15  INFO         *** ATTACK SUCCESS (round 2) ***
+        Paraphrase:    What prominent landmark is Jerusalem most famous for?
+        Victim answer: Western Wall
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+23:27:37  INFO         Paraphrase: 'What is the gold-domed structure known as in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:28:00  INFO         Paraphrase: 'What large gold-colored monument is a major sight in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:28:22  INFO         Paraphrase: 'What is the name of the gold dome that stands out in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:28:50  INFO         Paraphrase: 'What famous gold-covered edifice dominates the Jerusalem skyline?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:28:50  INFO         Round 2/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 1 successful
+23:28:50  INFO       Attack round 3/8
+23:28:50  INFO         Evolving 1 parent(s):
+23:28:50  INFO           fitness=1.00  'What prominent landmark is Jerusalem most famous for?'
+23:28:52  INFO         Generated 5 candidates
+23:29:12  INFO         Paraphrase: 'What Jerusalem landmark is most well-known?'  →  Victim: 'Western Wall'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+23:29:12  INFO         *** ATTACK SUCCESS (round 3) ***
+        Paraphrase:    What Jerusalem landmark is most well-known?
+        Victim answer: Western Wall
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+23:29:33  INFO         Paraphrase: 'What the most prominent landmark in Jerusalem is?'  →  Victim: 'Western Wall'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+23:29:33  INFO         *** ATTACK SUCCESS (round 3) ***
+        Paraphrase:    What the most prominent landmark in Jerusalem is?
+        Victim answer: Western Wall
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+23:29:53  INFO         Paraphrase: 'What landmark in Jerusalem is considered most iconic?'  →  Victim: 'Western Wall'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+23:29:53  INFO         *** ATTACK SUCCESS (round 3) ***
+        Paraphrase:    What landmark in Jerusalem is considered most iconic?
+        Victim answer: Western Wall
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+23:30:17  INFO         Paraphrase: 'What most famous landmark is there in Jerusalem?'  →  Victim: 'Western Wall'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+23:30:17  INFO         *** ATTACK SUCCESS (round 3) ***
+        Paraphrase:    What most famous landmark is there in Jerusalem?
+        Victim answer: Western Wall
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+23:30:36  INFO         Paraphrase: 'What the iconic landmark in Jerusalem is?'  →  Victim: 'Western Wall'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+23:30:36  INFO         *** ATTACK SUCCESS (round 3) ***
+        Paraphrase:    What the iconic landmark in Jerusalem is?
+        Victim answer: Western Wall
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+23:30:36  INFO         Round 3/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 5 successful
+23:30:36  INFO       Attack round 4/8
+23:30:36  INFO         Evolving 3 parent(s):
+23:30:36  INFO           fitness=1.00  'What prominent landmark is Jerusalem most famous for?'
+23:30:36  INFO           fitness=1.00  'What Jerusalem landmark is most well-known?'
+23:30:36  INFO           fitness=1.00  'What the most prominent landmark in Jerusalem is?'
+23:30:38  INFO         Generated 5 candidates
+23:30:57  INFO         Paraphrase: "What is Jerusalem's most renowned landmark?"  →  Victim: 'Western Wall'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+23:30:57  INFO         *** ATTACK SUCCESS (round 4) ***
+        Paraphrase:    What is Jerusalem's most renowned landmark?
+        Victim answer: Western Wall
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+23:31:16  INFO         Paraphrase: "What landmark stands out as Jerusalem's most prominent feature?"  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.80 (4/5 wrong, llm_judge)
+23:31:41  INFO         Paraphrase: 'What is the most well-known gold-domed structure in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:32:04  INFO         Paraphrase: "What does Jerusalem's skyline most prominently feature?"  →  Victim: 'the Western Wall'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+23:32:04  INFO         *** ATTACK SUCCESS (round 4) ***
+        Paraphrase:    What does Jerusalem's skyline most prominently feature?
+        Victim answer: the Western Wall
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+23:32:30  INFO         Paraphrase: 'What gold-domed monument in Jerusalem is most iconic?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:32:30  INFO         Round 4/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 2 successful
+23:32:30  INFO       Attack round 5/8
+23:32:30  INFO         Evolving 3 parent(s):
+23:32:30  INFO           fitness=1.00  'What prominent landmark is Jerusalem most famous for?'
+23:32:30  INFO           fitness=1.00  'What Jerusalem landmark is most well-known?'
+23:32:30  INFO           fitness=1.00  'What the most prominent landmark in Jerusalem is?'
+23:32:32  INFO         Generated 5 candidates
+23:32:50  INFO         Paraphrase: 'Which Jerusalem landmark is most renowned for its gold dome?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:33:19  INFO         Paraphrase: 'What is the prominent landmark in Jerusalem that everyone recognizes?'  →  Victim: 'Western Wall'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+23:33:19  INFO         *** ATTACK SUCCESS (round 5) ***
+        Paraphrase:    What is the prominent landmark in Jerusalem that everyone recognizes?
+        Victim answer: Western Wall
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+23:33:40  INFO         Paraphrase: "What feature in Jerusalem's skyline is most iconic and gold-domed?"  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:34:03  INFO         Paraphrase: 'What is the gold-dome landmark that Jerusalem is most famous for?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:34:32  INFO         Paraphrase: 'What landmark in Jerusalem stands out due to its large gold dome?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:34:32  INFO         Round 5/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 1 successful
+23:34:32  INFO       Attack round 6/8
+23:34:32  INFO         Evolving 3 parent(s):
+23:34:32  INFO           fitness=1.00  'What prominent landmark is Jerusalem most famous for?'
+23:34:32  INFO           fitness=1.00  'What Jerusalem landmark is most well-known?'
+23:34:32  INFO           fitness=1.00  'What the most prominent landmark in Jerusalem is?'
+23:34:34  INFO         Generated 5 candidates
+23:35:01  INFO         Paraphrase: "What iconic structure does Jerusalem's skyline prominently feature?"  →  Victim: 'Western Wall'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+23:35:01  INFO         *** ATTACK SUCCESS (round 6) ***
+        Paraphrase:    What iconic structure does Jerusalem's skyline prominently feature?
+        Victim answer: Western Wall
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+23:35:24  INFO         Paraphrase: 'What notable gold-domed landmark is most associated with Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:36:17  INFO         Paraphrase: "What large golden monument is most recognizable in Jerusalem's landscape?"  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:36:38  INFO         Paraphrase: 'What Jerusalem landmark is renowned for its prominent gold dome?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:37:00  INFO         Paraphrase: 'What gold-domed structure stands out as the most famous in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:37:00  INFO         Round 6/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 1 successful
+23:37:00  INFO       Attack round 7/8
+23:37:00  INFO         Evolving 3 parent(s):
+23:37:00  INFO           fitness=1.00  'What prominent landmark is Jerusalem most famous for?'
+23:37:00  INFO           fitness=1.00  'What Jerusalem landmark is most well-known?'
+23:37:00  INFO           fitness=1.00  'What the most prominent landmark in Jerusalem is?'
+23:37:02  INFO         Generated 5 candidates
+23:37:28  INFO         Paraphrase: 'What prominent landmark in Jerusalem does everyone know?'  →  Victim: 'Western Wall'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+23:37:28  INFO         *** ATTACK SUCCESS (round 7) ***
+        Paraphrase:    What prominent landmark in Jerusalem does everyone know?
+        Victim answer: Western Wall
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+23:37:44  INFO         Paraphrase: 'What landmark is Jerusalem most known for?'  →  Victim: 'Western Wall'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+23:37:44  INFO         *** ATTACK SUCCESS (round 7) ***
+        Paraphrase:    What landmark is Jerusalem most known for?
+        Victim answer: Western Wall
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   What is the big gold dome in jerusalem?
+Paraphrase: What the most well-known landmark in Jerusalem is
+
+23:38:03  INFO         Paraphrase: 'What famous landmark does Jerusalem feature?'  →  Victim: 'Western Wall'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+23:38:03  INFO         *** ATTACK SUCCESS (round 7) ***
+        Paraphrase:    What famous landmark does Jerusalem feature?
+        Victim answer: Western Wall
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   What is the big gold dome in jerusalem?
+Paraphrase: What Jerusalem is most famous for in terms of landmarks?
+
+23:38:04  INFO         Round 7/8 done: 5 generated, 0 duplicates, 2 rejected, 3 passed validation (queried), 3 successful
+23:38:04  INFO       Attack round 8/8
+23:38:04  INFO         Evolving 3 parent(s):
+23:38:04  INFO           fitness=1.00  'What prominent landmark is Jerusalem most famous for?'
+23:38:04  INFO           fitness=1.00  'What Jerusalem landmark is most well-known?'
+23:38:04  INFO           fitness=1.00  'What the most prominent landmark in Jerusalem is?'
+23:38:05  INFO         Generated 5 candidates
+23:38:24  INFO         Paraphrase: 'What Jerusalem landmark is often most famously known?'  →  Victim: 'Western Wall'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+23:38:24  INFO         *** ATTACK SUCCESS (round 8) ***
+        Paraphrase:    What Jerusalem landmark is often most famously known?
+        Victim answer: Western Wall
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+23:39:05  INFO         Paraphrase: 'What landmark in Jerusalem is most renowned to everyone?'  →  Victim: 'Western Wall'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+23:39:05  INFO         *** ATTACK SUCCESS (round 8) ***
+        Paraphrase:    What landmark in Jerusalem is most renowned to everyone?
+        Victim answer: Western Wall
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+23:39:26  INFO         Paraphrase: 'What is the famous landmark that Jerusalem is most well-known for?'  →  Victim: 'Western Wall'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+23:39:26  INFO         *** ATTACK SUCCESS (round 8) ***
+        Paraphrase:    What is the famous landmark that Jerusalem is most well-known for?
+        Victim answer: Western Wall
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+23:39:57  INFO         Paraphrase: 'What in Jerusalem is the most prominent and well-known landmark?'  →  Victim: 'Western Wall'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+23:39:57  INFO         *** ATTACK SUCCESS (round 8) ***
+        Paraphrase:    What in Jerusalem is the most prominent and well-known landmark?
+        Victim answer: Western Wall
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+23:40:15  INFO         Paraphrase: 'What landmark stands out in Jerusalem as being most famous?'  →  Victim: 'Western Wall'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+23:40:15  INFO         *** ATTACK SUCCESS (round 8) ***
+        Paraphrase:    What landmark stands out in Jerusalem as being most famous?
+        Victim answer: Western Wall
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+23:40:15  INFO         Round 8/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 5 successful
+23:40:15  INFO       Attack finished after 8 round(s): 38 valid victim queries, successful attacks per evaluator: {'llm_judge': 18}, robust: 18
+23:40:15  INFO     [3/10] Qnqo_validation_0573: Where in the constitution is the executive branch referenced?
+23:40:18  INFO       Victim (original): 'Article II'
+23:40:20  INFO       [llm_judge] original correct=True
+23:40:36  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+23:40:36  INFO       Attack round 1/8
+23:40:38  INFO         Generated 5 candidates
+23:40:57  INFO         Paraphrase: 'In what article of the constitution is the executive branch defined?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:41:22  INFO         Paraphrase: 'According to the constitution, what specific article outlines the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:41:41  INFO         Paraphrase: 'Where in the constitution can one find information about the role of the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:41:58  INFO         Paraphrase: 'What section of the constitution establishes the executive branch as a part of government?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:42:18  INFO         Paraphrase: 'What article in the constitution sets forth the powers and responsibilities of the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:42:18  INFO         Round 1/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+23:42:18  INFO       Attack round 2/8
+23:42:20  INFO         Generated 5 candidates
+23:42:40  INFO         Paraphrase: 'What part of the constitution addresses the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:43:02  INFO         Paraphrase: 'Where in the constitution does it describe the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:43:21  INFO         Paraphrase: 'In what constitutional section is the executive branch outlined?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:43:39  INFO         Paraphrase: 'What article in the constitution provides information about the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:43:55  INFO         Paraphrase: 'According to the constitution, where can one find details about the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:43:55  INFO         Round 2/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+23:43:55  INFO       Attack round 3/8
+23:43:57  INFO         Generated 5 candidates
+23:44:16  INFO         Paraphrase: 'What article does the constitution explicitly mention regarding the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:44:38  INFO         Paraphrase: "In which specific part of the constitution can one find details about the executive branch's establishment?"  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:44:57  INFO         Paraphrase: 'According to the constitution, which particular article directly addresses the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:45:17  INFO         Paraphrase: 'What section of the constitution provides a clear outline of the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:45:41  INFO         Paraphrase: 'Where in the constitution is the creation and powers of the executive branch explicitly stated?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:45:41  INFO         Round 3/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+23:45:41  INFO       Attack round 4/8
+23:45:43  INFO         Generated 5 candidates
+23:46:03  INFO         Paraphrase: 'What article of the US Constitution defines the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:46:22  INFO         Paraphrase: 'Which constitutional article outlines the responsibilities of the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: What specific section of the Constitution assigns duties to the executive branch?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: According to the US Constitution, which article explains the executive branch's functions?
+
+23:46:47  INFO         Paraphrase: 'In what constitutional article are the powers and duties of the executive branch clearly stated?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:46:47  INFO         Round 4/8 done: 5 generated, 0 duplicates, 2 rejected, 3 passed validation (queried), 0 successful
+23:46:47  INFO       Attack round 5/8
+23:46:49  INFO         Generated 5 candidates
+23:47:07  INFO         Paraphrase: 'What part of the US Constitution lays out the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:47:22  INFO         Paraphrase: 'In what section of the Constitution does the executive branch get established?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:47:40  INFO         Paraphrase: "According to the Constitution, what article defines the executive branch's powers and responsibilities?"  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:48:00  INFO         Paraphrase: 'What article in the Constitution specifically outlines the structure and function of the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:48:16  INFO         Paraphrase: "In which part of the Constitution can one find the description of the executive branch's creation and role?"  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:48:16  INFO         Round 5/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+23:48:16  INFO       Attack round 6/8
+23:48:18  INFO         Generated 5 candidates
+23:48:39  INFO         Paraphrase: 'What part of the US Constitution allocates power to the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:48:59  INFO         Paraphrase: 'According to the Constitution, which article sets forth the authority of the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:49:19  INFO         Paraphrase: 'In what part of the Constitution does the executive branch receive its constitutional foundation?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: What specific section of the US Constitution defines the scope of the executive branch's actions?
+
+23:49:45  INFO         Paraphrase: 'In which article of the Constitution can one find the establishment and governance of the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:49:45  INFO         Round 6/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+23:49:45  INFO       Attack round 7/8
+23:49:48  INFO         Generated 5 candidates
+23:50:07  INFO         Paraphrase: 'What article of the U.S. Constitution specifically outlines the framework for the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:50:26  INFO         Paraphrase: 'In what part of the Constitution can one find the explicit details regarding the creation and powers of the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:50:47  INFO         Paraphrase: 'According to the U.S. Constitution, which article clearly defines the structure and function of the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:51:11  INFO         Paraphrase: 'What section of the Constitution explicitly establishes the executive branch and its constitutional authorities?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:51:30  INFO         Paraphrase: 'In the U.S. Constitution, where can one locate the specific article that outlines the responsibilities and duties of the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:51:30  INFO         Round 7/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+23:51:30  INFO       Attack round 8/8
+23:51:32  INFO         Generated 5 candidates
+23:51:55  INFO         Paraphrase: 'What article of the US Constitution sets out the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:52:12  INFO         Paraphrase: 'In what constitutional article is the executive branch clearly defined?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:52:32  INFO         Paraphrase: 'What part of the Constitution specifically outlines the powers of the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:52:48  INFO         Paraphrase: 'According to the Constitution, which article of the document establishes the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:53:07  INFO         Paraphrase: 'In the US Constitution, what article directly addresses the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:53:07  INFO         Round 8/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+23:53:07  INFO       Attack finished after 8 round(s): 37 valid victim queries, successful attacks per evaluator: {'llm_judge': 0}, robust: 0
+23:53:07  INFO     [4/10] Qnqo_validation_1584: Where is the majority of phosphorous stored in the environment?
+23:53:14  INFO       Victim (original): 'sedimentary rocks'
+23:53:18  INFO       [llm_judge] original correct=True
+23:53:55  INFO       Original wrong rate: 0.20 (1/5 sampled answers wrong, llm_judge)
+23:53:55  INFO       Attack round 1/8
+23:53:57  INFO         Generated 5 candidates
+23:54:29  INFO         Paraphrase: 'What is the primary reservoir of phosphorous in the environment?'  →  Victim: 'rocks'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:55:13  INFO         Paraphrase: 'Where is phosphorous mainly sequestered in the ecosystem?'  →  Victim: 'sediments'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+23:55:13  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    Where is phosphorous mainly sequestered in the ecosystem?
+        Victim answer: sediments
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.20 on the original (ROBUST)
+23:55:50  INFO         Paraphrase: 'In which geological formations is the majority of phosphorous stored?'  →  Victim: 'phosphate rocks'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:56:22  INFO         Paraphrase: 'What are the primary natural repositories of phosphorous on Earth?'  →  Victim: 'phosphate rocks'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:56:57  INFO         Paraphrase: 'What is the most significant storage site for phosphorous in the environment?'  →  Victim: 'phosphate rocks'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:56:57  INFO         Round 1/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 1 successful
+23:56:57  INFO       Attack round 2/8
+23:56:57  INFO         Evolving 1 parent(s):
+23:56:57  INFO           fitness=0.80  'Where is phosphorous mainly sequestered in the ecosystem?'
+23:56:59  INFO         Generated 5 candidates
+23:57:39  INFO         Paraphrase: 'Where does the majority of phosphorous get stored in the environment?'  →  Victim: 'sediments'  correct={'llm_judge': False}  fitness=0.20 (1/5 wrong, llm_judge)
+23:57:39  INFO         *** ATTACK SUCCESS (round 2) ***
+        Paraphrase:    Where does the majority of phosphorous get stored in the environment?
+        Victim answer: sediments
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.20 vs 0.20 on the original (not robust)
+23:58:08  INFO         Paraphrase: 'Where are the majority of phosphorous reserves located in the ecosystem?'  →  Victim: 'sedimentary rocks'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:58:44  INFO         Paraphrase: 'What stores the majority of phosphorous in the environment?'  →  Victim: 'sedimentary rocks'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+23:59:26  INFO         Paraphrase: 'In which part of the environment is the majority of phosphorous deposited?'  →  Victim: 'sediments'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+23:59:26  INFO         *** ATTACK SUCCESS (round 2) ***
+        Paraphrase:    In which part of the environment is the majority of phosphorous deposited?
+        Victim answer: sediments
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.20 on the original (ROBUST)
+23:59:55  INFO         Paraphrase: 'Where does the environment primarily store the majority of phosphorous?'  →  Victim: 'sediments'  correct={'llm_judge': False}  fitness=0.20 (1/5 wrong, llm_judge)
+23:59:55  INFO         *** ATTACK SUCCESS (round 2) ***
+        Paraphrase:    Where does the environment primarily store the majority of phosphorous?
+        Victim answer: sediments
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.20 vs 0.20 on the original (not robust)
+23:59:55  INFO         Round 2/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 3 successful
+23:59:55  INFO       Attack round 3/8
+23:59:55  INFO         Evolving 3 parent(s):
+23:59:55  INFO           fitness=1.00  'In which part of the environment is the majority of phosphorous deposited?'
+23:59:55  INFO           fitness=0.80  'Where is phosphorous mainly sequestered in the ecosystem?'
+23:59:55  INFO           fitness=0.20  'Where does the majority of phosphorous get stored in the environment?'
+23:59:57  INFO         Generated 5 candidates
+00:00:36  INFO         Paraphrase: 'What is the primary place where the majority of phosphorous is stored in the environment?'  →  Victim: 'sedimentary rocks'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:01:04  INFO         Paraphrase: 'In which part of the environment does the majority of phosphorous primarily accumulate?'  →  Victim: 'sediments'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+00:01:04  INFO         *** ATTACK SUCCESS (round 3) ***
+        Paraphrase:    In which part of the environment does the majority of phosphorous primarily accumulate?
+        Victim answer: sediments
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.20 on the original (ROBUST)
+00:01:59  INFO         Paraphrase: 'Where is the majority of phosphorous mainly deposited in the environment?'  →  Victim: 'marine sediments'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+00:01:59  INFO         *** ATTACK SUCCESS (round 3) ***
+        Paraphrase:    Where is the majority of phosphorous mainly deposited in the environment?
+        Victim answer: marine sediments
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.20 on the original (ROBUST)
+00:02:30  INFO         Paraphrase: 'What part of the environment is predominantly responsible for storing the majority of phosphorous?'  →  Victim: 'sediments'  correct={'llm_judge': False}  fitness=0.60 (3/5 wrong, llm_judge)
+00:02:30  INFO         *** ATTACK SUCCESS (round 3) ***
+        Paraphrase:    What part of the environment is predominantly responsible for storing the majority of phosphorous?
+        Victim answer: sediments
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.60 vs 0.20 on the original (not robust)
+00:03:23  INFO         Paraphrase: 'Where does the majority of phosphorous in the environment mainly settle?'  →  Victim: 'sediments'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+00:03:23  INFO         *** ATTACK SUCCESS (round 3) ***
+        Paraphrase:    Where does the majority of phosphorous in the environment mainly settle?
+        Victim answer: sediments
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.20 on the original (ROBUST)
+00:03:23  INFO         Round 3/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 4 successful
+00:03:23  INFO       Attack round 4/8
+00:03:23  INFO         Evolving 3 parent(s):
+00:03:23  INFO           fitness=1.00  'In which part of the environment is the majority of phosphorous deposited?'
+00:03:23  INFO           fitness=1.00  'In which part of the environment does the majority of phosphorous primarily accumulate?'
+00:03:23  INFO           fitness=1.00  'Where is the majority of phosphorous mainly deposited in the environment?'
+00:03:25  INFO         Generated 5 candidates
+00:04:16  INFO         Paraphrase: 'Where does the majority of phosphorous predominantly settle in the environment?'  →  Victim: 'aquatic sediments'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+00:04:16  INFO         *** ATTACK SUCCESS (round 4) ***
+        Paraphrase:    Where does the majority of phosphorous predominantly settle in the environment?
+        Victim answer: aquatic sediments
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.20 on the original (ROBUST)
+00:05:02  INFO         Paraphrase: 'Where is the majority of phosphorous primarily accumulated in the environment?'  →  Victim: 'marine sediments'  correct={'llm_judge': False}  fitness=0.40 (2/5 wrong, llm_judge)
+00:05:02  INFO         *** ATTACK SUCCESS (round 4) ***
+        Paraphrase:    Where is the majority of phosphorous primarily accumulated in the environment?
+        Victim answer: marine sediments
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.40 vs 0.20 on the original (not robust)
+00:05:31  INFO         Paraphrase: 'In which part of the environment is the majority of phosphorous mainly settled?'  →  Victim: 'sediments'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+00:05:31  INFO         *** ATTACK SUCCESS (round 4) ***
+        Paraphrase:    In which part of the environment is the majority of phosphorous mainly settled?
+        Victim answer: sediments
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.20 on the original (ROBUST)
+00:06:18  INFO         Paraphrase: 'Where does the majority of phosphorous mainly gather in the environment?'  →  Victim: 'sedimentary rocks'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:06:55  INFO         Paraphrase: 'In which part of the environment does the majority of phosphorous predominantly store?'  →  Victim: 'rocks'  correct={'llm_judge': True}  fitness=0.40 (2/5 wrong, llm_judge)
+00:06:55  INFO         Round 4/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 3 successful
+00:06:55  INFO       Attack round 5/8
+00:06:55  INFO         Evolving 3 parent(s):
+00:06:55  INFO           fitness=1.00  'In which part of the environment is the majority of phosphorous deposited?'
+00:06:55  INFO           fitness=1.00  'In which part of the environment does the majority of phosphorous primarily accumulate?'
+00:06:55  INFO           fitness=1.00  'Where is the majority of phosphorous mainly deposited in the environment?'
+00:06:57  INFO         Generated 5 candidates
+00:08:30  INFO         Paraphrase: 'Where is the majority of phosphorous predominantly deposited in the environment?'  →  Victim: 'oceans'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+00:08:30  INFO         *** ATTACK SUCCESS (round 5) ***
+        Paraphrase:    Where is the majority of phosphorous predominantly deposited in the environment?
+        Victim answer: oceans
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.20 on the original (ROBUST)
+00:09:05  INFO         Paraphrase: 'In which part of the environment is the majority of phosphorous mainly accumulated?'  →  Victim: 'sedimentary rocks'  correct={'llm_judge': True}  fitness=0.40 (2/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where is the majority of phosphorous stored in the environment?
+Answer(s):  ['minerals', 'rocks', 'in rocks and minerals']
+Paraphrase: What part of the environment is predominantly responsible for the majority of phosphorous deposition?
+
+00:09:36  INFO         Paraphrase: 'Where is the majority of phosphorous primarily stored in the environment?'  →  Victim: 'sedimentary rocks'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:10:12  INFO         Paraphrase: 'In which geological formations is the majority of phosphorous mainly stored?'  →  Victim: 'marine sediments'  correct={'llm_judge': False}  fitness=0.20 (1/5 wrong, llm_judge)
+00:10:12  INFO         *** ATTACK SUCCESS (round 5) ***
+        Paraphrase:    In which geological formations is the majority of phosphorous mainly stored?
+        Victim answer: marine sediments
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.20 vs 0.20 on the original (not robust)
+00:10:12  INFO         Round 5/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 2 successful
+00:10:12  INFO       Attack round 6/8
+00:10:12  INFO         Evolving 3 parent(s):
+00:10:12  INFO           fitness=1.00  'In which part of the environment is the majority of phosphorous deposited?'
+00:10:12  INFO           fitness=1.00  'In which part of the environment does the majority of phosphorous primarily accumulate?'
+00:10:12  INFO           fitness=1.00  'Where is the majority of phosphorous mainly deposited in the environment?'
+00:10:14  INFO         Generated 5 candidates
+00:11:28  INFO         Paraphrase: 'Where does the majority of phosphorous get deposited in the environment?'  →  Victim: 'marine sediments'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+00:11:28  INFO         *** ATTACK SUCCESS (round 6) ***
+        Paraphrase:    Where does the majority of phosphorous get deposited in the environment?
+        Victim answer: marine sediments
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.20 on the original (ROBUST)
+00:12:03  INFO         Paraphrase: 'In which part of the environment is the majority of phosphorous primarily stored?'  →  Victim: 'sedimentary rocks'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+00:13:05  INFO         Paraphrase: 'Where is the majority of phosphorous mainly accumulated in the environment?'  →  Victim: 'sedimentary rocks'  correct={'llm_judge': True}  fitness=0.60 (3/5 wrong, llm_judge)
+00:13:37  INFO         Paraphrase: 'In which part of the environment does the majority of phosphorous predominantly settle?'  →  Victim: 'sediments'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+00:13:37  INFO         *** ATTACK SUCCESS (round 6) ***
+        Paraphrase:    In which part of the environment does the majority of phosphorous predominantly settle?
+        Victim answer: sediments
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.20 on the original (ROBUST)
+00:14:34  INFO         Paraphrase: 'Where does the majority of phosphorous primarily gather in the environment?'  →  Victim: 'sedimentary rocks'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+00:14:34  INFO         Round 6/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 2 successful
+00:14:34  INFO       Attack round 7/8
+00:14:34  INFO         Evolving 3 parent(s):
+00:14:34  INFO           fitness=1.00  'In which part of the environment is the majority of phosphorous deposited?'
+00:14:34  INFO           fitness=1.00  'In which part of the environment does the majority of phosphorous primarily accumulate?'
+00:14:34  INFO           fitness=1.00  'Where is the majority of phosphorous mainly deposited in the environment?'
+00:14:36  INFO         Generated 5 candidates
+00:15:02  INFO         Paraphrase: 'Where in the environment is phosphorous predominantly stored?'  →  Victim: 'sedimentary rocks'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:15:31  INFO         Paraphrase: 'In which environment components does the majority of phosphorous settle?'  →  Victim: 'sediments'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+00:15:31  INFO         *** ATTACK SUCCESS (round 7) ***
+        Paraphrase:    In which environment components does the majority of phosphorous settle?
+        Victim answer: sediments
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.20 on the original (ROBUST)
+00:15:59  INFO         Paraphrase: 'Where does the majority of phosphorous primarily reside in the environment?'  →  Victim: 'sedimentary rocks'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:16:34  INFO         Paraphrase: 'Where in the ecosystem is the majority of phosphorous stored?'  →  Victim: 'sedimentary rocks'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:17:24  INFO         Paraphrase: 'In which environmental reservoirs is the majority of phosphorous deposited?'  →  Victim: 'ocean'  correct={'llm_judge': False}  fitness=0.40 (2/5 wrong, llm_judge)
+00:17:24  INFO         *** ATTACK SUCCESS (round 7) ***
+        Paraphrase:    In which environmental reservoirs is the majority of phosphorous deposited?
+        Victim answer: ocean
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.40 vs 0.20 on the original (not robust)
+00:17:24  INFO         Round 7/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 2 successful
+00:17:24  INFO       Attack round 8/8
+00:17:24  INFO         Evolving 3 parent(s):
+00:17:24  INFO           fitness=1.00  'In which part of the environment is the majority of phosphorous deposited?'
+00:17:24  INFO           fitness=1.00  'In which part of the environment does the majority of phosphorous primarily accumulate?'
+00:17:24  INFO           fitness=1.00  'Where is the majority of phosphorous mainly deposited in the environment?'
+00:17:26  INFO         Generated 5 candidates
+00:18:31  INFO         Paraphrase: 'What part of the environment is the majority of phosphorous primarily stored in?'  →  Victim: 'sedimentary rocks'  correct={'llm_judge': True}  fitness=0.40 (2/5 wrong, llm_judge)
+00:19:20  INFO         Paraphrase: 'Where in the environment is the majority of phosphorous primarily accumulated?'  →  Victim: 'sedimentary rocks'  correct={'llm_judge': True}  fitness=0.80 (4/5 wrong, llm_judge)
+00:19:20  INFO         [duplicate, skipped] 'In which part of the environment does the majority of phosphorous predominantly settle?'
+00:19:43  INFO         Paraphrase: 'In which part of the environment is the majority of phosphorous mainly stored?'  →  Victim: 'sedimentary rocks'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+00:20:15  INFO         Paraphrase: 'Where in the environment does the majority of phosphorous primarily reside?'  →  Victim: 'rocks and sediments'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:20:15  INFO         Round 8/8 done: 5 generated, 1 duplicates, 0 rejected, 4 passed validation (queried), 0 successful
+00:20:15  INFO       Attack finished after 8 round(s): 38 valid victim queries, successful attacks per evaluator: {'llm_judge': 17}, robust: 11
+00:20:15  INFO     [5/10] Qnqo_validation_1337: What was the united states foreign policy after ww1 started?
+00:20:20  INFO       Victim (original): 'neutrality'
+00:20:20  INFO       [llm_judge] original correct=True
+00:20:48  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+00:20:48  INFO       Attack round 1/8
+00:20:50  INFO         Generated 5 candidates
+00:21:14  INFO         Paraphrase: 'how did the united states initially respond to the onset of ww1?'  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:21:33  INFO         Paraphrase: 'what was the united states stance on the early stages of ww1?'  →  Victim: 'neutral'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:21:57  INFO         Paraphrase: 'what was the united states approach to ww1 in the initial period?'  →  Victim: 'maintained neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: how did the united states initially position itself in the lead-up to ww1?
+
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: what were the united states policies concerning the early years of ww1?
+
+00:21:58  INFO         Round 1/8 done: 5 generated, 0 duplicates, 2 rejected, 3 passed validation (queried), 0 successful
+00:21:58  INFO       Attack round 2/8
+00:22:01  INFO         Generated 5 candidates
+00:22:24  INFO         Paraphrase: "what policy did the united states follow in the immediate aftermath of ww1's commencement?"  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: how did the united states' actions reflect its foreign policy stance during the early years of ww1?
+
+00:22:47  INFO         Paraphrase: 'what stance did the united states take at the onset of ww1 regarding international relations?'  →  Victim: 'neutral'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:23:11  INFO         Paraphrase: "how did the united states' government respond to the outbreak of ww1 in terms of its foreign policy?"  →  Victim: 'maintained neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: what guiding principles influenced the united states' foreign policy decisions in the period following ww1's start?
+
+00:23:11  INFO         Round 2/8 done: 5 generated, 0 duplicates, 2 rejected, 3 passed validation (queried), 0 successful
+00:23:11  INFO       Attack round 3/8
+00:23:14  INFO         Generated 5 candidates
+00:23:36  INFO         Paraphrase: 'What foreign policy was adopted by the United States during the initial phase of WW1?'  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: How did the United States' involvement in WW1 affect its diplomatic stance?
+
+00:23:56  INFO         Paraphrase: 'What stance did the United States maintain with regards to WW1 in the early stages?'  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: In what ways did the United States' foreign policy align with its actions during WW1?
+
+00:24:22  INFO         Paraphrase: 'What position did the United States take in relation to WW1, particularly in the early years?'  →  Victim: 'neutral'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:24:22  INFO         Round 3/8 done: 5 generated, 0 duplicates, 2 rejected, 3 passed validation (queried), 0 successful
+00:24:22  INFO       Attack round 4/8
+00:24:25  INFO         Generated 5 candidates
+00:24:44  INFO         Paraphrase: 'what was the policy adopted by the united states when ww1 began?'  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:25:14  INFO         Paraphrase: 'how did the united states define its foreign policy during the opening stages of ww1?'  →  Victim: 'neutrality through the Neutrality Proclamation of 1914'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:25:35  INFO         Paraphrase: 'what stance did the united states take on the international stage at the outbreak of ww1?'  →  Victim: 'neutral'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: how did the united states' government position itself in the context of ww1?
+
+00:26:11  INFO         Paraphrase: 'what policy did the united states pursue in its initial response to ww1?'  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+00:26:11  INFO         Round 4/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+00:26:11  INFO       Attack round 5/8
+00:26:11  INFO         Evolving 1 parent(s):
+00:26:11  INFO           fitness=0.20  'what policy did the united states pursue in its initial response to ww1?'
+00:26:13  INFO         Generated 5 candidates
+00:26:39  INFO         Paraphrase: 'what was the united states policy in its first reaction to ww1?'  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: how did the united states' initial policy in response to ww1 shape its actions?
+
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: what did the united states do in its first move after ww1 started?
+
+00:27:25  INFO         Paraphrase: "what was the united states' posture in its opening response to ww1?"  →  Victim: 'declared war on Germany'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+00:27:25  INFO         *** ATTACK SUCCESS (round 5) ***
+        Paraphrase:    what was the united states' posture in its opening response to ww1?
+        Victim answer: declared war on Germany
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: how did the united states' initial posture in ww1 influence its foreign policy decisions?
+
+00:27:25  INFO         Round 5/8 done: 5 generated, 0 duplicates, 3 rejected, 2 passed validation (queried), 1 successful
+00:27:25  INFO       Attack round 6/8
+00:27:25  INFO         Evolving 2 parent(s):
+00:27:25  INFO           fitness=1.00  "what was the united states' posture in its opening response to ww1?"
+00:27:25  INFO           fitness=0.20  'what policy did the united states pursue in its initial response to ww1?'
+00:27:28  INFO         Generated 5 candidates
+00:27:54  INFO         Paraphrase: 'what policy was pursued by the united states in its first response to ww1?'  →  Victim: 'neutrality policy'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:28:13  INFO         Paraphrase: 'what stance did the united states maintain in its initial response to ww1?'  →  Victim: 'neutral'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:28:40  INFO         Paraphrase: 'what approach did the united states take in its opening reaction to ww1?'  →  Victim: 'declaring war on Germany'  correct={'llm_judge': False}  fitness=0.60 (3/5 wrong, llm_judge)
+00:28:40  INFO         *** ATTACK SUCCESS (round 6) ***
+        Paraphrase:    what approach did the united states take in its opening reaction to ww1?
+        Victim answer: declaring war on Germany
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.60 vs 0.00 on the original (ROBUST)
+00:29:03  INFO         Paraphrase: 'how did the united states initially respond to ww1 in terms of policy?'  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:29:25  INFO         Paraphrase: 'what position did the united states adopt in its response to the outbreak of ww1?'  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:29:25  INFO         Round 6/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 1 successful
+00:29:25  INFO       Attack round 7/8
+00:29:25  INFO         Evolving 3 parent(s):
+00:29:25  INFO           fitness=1.00  "what was the united states' posture in its opening response to ww1?"
+00:29:25  INFO           fitness=0.60  'what approach did the united states take in its opening reaction to ww1?'
+00:29:25  INFO           fitness=0.20  'what policy did the united states pursue in its initial response to ww1?'
+00:29:27  INFO         Generated 5 candidates
+00:29:49  INFO         Paraphrase: 'how the united states positioned itself upon the outset of ww1?'  →  Victim: 'neutral'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: what stance the united states initially took in its first moments of ww1?
+
+00:30:20  INFO         Paraphrase: 'how the united states first approached the onset of ww1?'  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:30:40  INFO         Paraphrase: 'what policy the united states initially followed in its response to ww1?'  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:31:04  INFO         Paraphrase: 'in what manner did the united states conduct itself in the initial stages of ww1?'  →  Victim: 'neutrally'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:31:04  INFO         Round 7/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+00:31:04  INFO       Attack round 8/8
+00:31:04  INFO         Evolving 3 parent(s):
+00:31:04  INFO           fitness=1.00  "what was the united states' posture in its opening response to ww1?"
+00:31:04  INFO           fitness=0.60  'what approach did the united states take in its opening reaction to ww1?'
+00:31:04  INFO           fitness=0.20  'what policy did the united states pursue in its initial response to ww1?'
+00:31:07  INFO         Generated 5 candidates
+00:31:25  INFO         Paraphrase: 'what posture did the united states maintain upon the outbreak of ww1?'  →  Victim: 'neutral'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:31:53  INFO         Paraphrase: 'how did the united states respond in its opening phase to the start of ww1?'  →  Victim: 'remained neutral'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:32:17  INFO         Paraphrase: 'what policy was the united states guided by at the onset of ww1?'  →  Victim: 'isolationism'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:32:36  INFO         Paraphrase: 'what stance did the united states take at the commencement of ww1?'  →  Victim: 'neutral'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: what was the united states' response in its first moments to the start of ww1?
+
+00:32:37  INFO         Round 8/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+00:32:37  INFO       Attack finished after 8 round(s): 28 valid victim queries, successful attacks per evaluator: {'llm_judge': 2}, robust: 2
+00:32:37  INFO     [6/10] Qnqo_validation_3113: The general term for software that is designed to damage disable or steal data is?
+00:32:41  INFO       Victim (original): 'malware'
+00:32:41  INFO       [llm_judge] original correct=True
+00:32:59  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+00:32:59  INFO       Attack round 1/8
+00:33:02  INFO         Generated 5 candidates
+00:33:48  INFO         Paraphrase: 'What is the term for software that intentionally corrupts or compromises digital information?'  →  Victim: 'malware'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:34:09  INFO         Paraphrase: 'What is the general label for software with malicious intent to disrupt or pilfer data?'  →  Victim: 'malware'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:34:40  INFO         Paraphrase: 'What do we call software designed to corrupt, damage, or secretly extract digital assets?'  →  Victim: 'malware'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:35:48  INFO         Paraphrase: 'What is the standard term for software engineered to sabotage or clandestinely appropriate data?'  →  Victim: 'malware'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:36:22  INFO         Paraphrase: 'What do experts refer to as software engineered to maliciously corrupt, erase, or plunder digital content?'  →  Victim: 'malware'  correct={'llm_judge': True}  fitness=0.40 (2/5 wrong, llm_judge)
+00:36:22  INFO         Round 1/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+00:36:22  INFO       Attack round 2/8
+00:36:22  INFO         Evolving 1 parent(s):
+00:36:22  INFO           fitness=0.40  'What do experts refer to as software engineered to maliciously corrupt, erase, or plunder digital content?'
+00:36:24  INFO         Generated 5 candidates
+00:36:46  INFO         Paraphrase: 'What do experts refer to as malicious software engineered to corrupt, erase, or plunder digital content?'  →  Victim: 'ransomware'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+00:36:46  INFO         *** ATTACK SUCCESS (round 2) ***
+        Paraphrase:    What do experts refer to as malicious software engineered to corrupt, erase, or plunder digital content?
+        Victim answer: ransomware
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+00:37:27  INFO         Paraphrase: 'What do experts term software engineered to maliciously corrupt, erase, or plunder digital content?'  →  Victim: 'malware'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:38:24  INFO         Paraphrase: 'What do experts call software engineered to maliciously corrupt, erase, or plunder digital assets?'  →  Victim: 'malware'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+00:38:55  INFO         Paraphrase: 'What do experts call software maliciously engineered to corrupt, erase, or plunder digital content?'  →  Victim: 'ransomware'  correct={'llm_judge': False}  fitness=0.40 (2/5 wrong, llm_judge)
+00:38:55  INFO         *** ATTACK SUCCESS (round 2) ***
+        Paraphrase:    What do experts call software maliciously engineered to corrupt, erase, or plunder digital content?
+        Victim answer: ransomware
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.40 vs 0.00 on the original (not robust)
+00:39:38  INFO         Paraphrase: 'What do experts term software maliciously engineered to corrupt, erase, or plunder digital content?'  →  Victim: 'malware'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:39:38  INFO         Round 2/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 2 successful
+00:39:38  INFO       Attack round 3/8
+00:39:38  INFO         Evolving 3 parent(s):
+00:39:38  INFO           fitness=0.80  'What do experts refer to as malicious software engineered to corrupt, erase, or plunder digital content?'
+00:39:38  INFO           fitness=0.40  'What do experts refer to as software engineered to maliciously corrupt, erase, or plunder digital content?'
+00:39:38  INFO           fitness=0.40  'What do experts call software maliciously engineered to corrupt, erase, or plunder digital content?'
+00:39:40  INFO         Generated 5 candidates
+00:40:08  INFO         Paraphrase: 'Malicious software is what experts call software engineered to corrupt, erase, or plunder digital content.'  →  Victim: 'malware'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:40:44  INFO         Paraphrase: 'What do experts refer to as software engineered to corrupt, erase, or plunder digital assets maliciously?'  →  Victim: 'malware'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+00:41:26  INFO         Paraphrase: 'What do experts term software maliciously engineered to corrupt, erase, or plunder digital assets as?'  →  Victim: 'malware'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:42:02  INFO         Paraphrase: 'What do experts call software that is maliciously engineered to corrupt, erase, or plunder digital content?'  →  Victim: 'malware'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:42:45  INFO         Paraphrase: 'What do experts refer to software engineered to maliciously corrupt, erase, or plunder digital content as?'  →  Victim: 'malware'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:42:45  INFO         Round 3/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+00:42:45  INFO       Attack round 4/8
+00:42:45  INFO         Evolving 3 parent(s):
+00:42:45  INFO           fitness=0.80  'What do experts refer to as malicious software engineered to corrupt, erase, or plunder digital content?'
+00:42:45  INFO           fitness=0.40  'What do experts refer to as software engineered to maliciously corrupt, erase, or plunder digital content?'
+00:42:45  INFO           fitness=0.40  'What do experts call software maliciously engineered to corrupt, erase, or plunder digital content?'
+00:42:48  INFO         Generated 5 candidates
+00:43:12  INFO         Paraphrase: 'Malicious software is what experts refer to as software engineered to corrupt digital content and erase or plunder its assets.'  →  Victim: 'malicious software'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:43:49  INFO         Paraphrase: 'What do experts refer to as software maliciously engineered to corrupt digital assets and erase or plunder their content?'  →  Victim: 'ransomware'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+00:43:49  INFO         *** ATTACK SUCCESS (round 4) ***
+        Paraphrase:    What do experts refer to as software maliciously engineered to corrupt digital assets and erase or plunder their content?
+        Victim answer: ransomware
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+00:44:13  INFO         Paraphrase: 'What experts call software engineered to corrupt digital content maliciously and erase or plunder its assets is'  →  Victim: 'ransomware'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+00:44:13  INFO         *** ATTACK SUCCESS (round 4) ***
+        Paraphrase:    What experts call software engineered to corrupt digital content maliciously and erase or plunder its assets is
+        Victim answer: ransomware
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+00:44:52  INFO         Paraphrase: 'What experts term software that maliciously corrupts digital content and erases or plunders its assets?'  →  Victim: 'malware'  correct={'llm_judge': True}  fitness=0.40 (2/5 wrong, llm_judge)
+00:45:45  INFO         Paraphrase: 'What experts refer to as software engineered to maliciously erase or plunder digital content and corrupt its assets?'  →  Victim: 'wipers'  correct={'llm_judge': False}  fitness=0.60 (3/5 wrong, llm_judge)
+00:45:45  INFO         *** ATTACK SUCCESS (round 4) ***
+        Paraphrase:    What experts refer to as software engineered to maliciously erase or plunder digital content and corrupt its assets?
+        Victim answer: wipers
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.60 vs 0.00 on the original (ROBUST)
+00:45:45  INFO         Round 4/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 3 successful
+00:45:45  INFO       Attack round 5/8
+00:45:45  INFO         Evolving 3 parent(s):
+00:45:45  INFO           fitness=0.80  'What do experts refer to as malicious software engineered to corrupt, erase, or plunder digital content?'
+00:45:45  INFO           fitness=0.80  'What do experts refer to as software maliciously engineered to corrupt digital assets and erase or plunder their content?'
+00:45:45  INFO           fitness=0.80  'What experts call software engineered to corrupt digital content maliciously and erase or plunder its assets is'
+00:45:48  INFO         Generated 5 candidates
+00:46:28  INFO         Paraphrase: 'What do experts term as malicious software that corrupts, erases, or plunders digital content?'  →  Victim: 'malware'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+00:47:27  INFO         Paraphrase: 'What do experts refer to as software maliciously engineered to corrupt digital assets and erase or plunder their contents?'  →  Victim: 'malware'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+00:47:56  INFO         Paraphrase: 'What experts call software that is maliciously engineered to corrupt digital content and erase or plunder its assets?'  →  Victim: 'ransomware'  correct={'llm_judge': False}  fitness=0.60 (3/5 wrong, llm_judge)
+00:47:56  INFO         *** ATTACK SUCCESS (round 5) ***
+        Paraphrase:    What experts call software that is maliciously engineered to corrupt digital content and erase or plunder its assets?
+        Victim answer: ransomware
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.60 vs 0.00 on the original (ROBUST)
+00:48:39  INFO         Paraphrase: 'What do experts term as software engineered to maliciously corrupt, erase, or plunder digital content and assets?'  →  Victim: 'malware'  correct={'llm_judge': True}  fitness=0.40 (2/5 wrong, llm_judge)
+00:49:25  INFO         Paraphrase: 'What do experts call software that is engineered to maliciously corrupt digital assets, erase, or plunder their contents?'  →  Victim: 'malware'  correct={'llm_judge': True}  fitness=0.40 (2/5 wrong, llm_judge)
+00:49:25  INFO         Round 5/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 1 successful
+00:49:25  INFO       Attack round 6/8
+00:49:25  INFO         Evolving 3 parent(s):
+00:49:25  INFO           fitness=0.80  'What do experts refer to as malicious software engineered to corrupt, erase, or plunder digital content?'
+00:49:25  INFO           fitness=0.80  'What do experts refer to as software maliciously engineered to corrupt digital assets and erase or plunder their content?'
+00:49:25  INFO           fitness=0.80  'What experts call software engineered to corrupt digital content maliciously and erase or plunder its assets is'
+00:49:28  INFO         Generated 5 candidates
+00:49:59  INFO         Paraphrase: 'Software maliciously engineered by experts to corrupt, erase, or plunder digital content is what?'  →  Victim: 'malware'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:50:31  INFO         Paraphrase: 'What experts refer to as software engineered to maliciously corrupt digital content and erase or plunder its assets is'  →  Victim: 'ransomware'  correct={'llm_judge': False}  fitness=0.60 (3/5 wrong, llm_judge)
+00:50:31  INFO         *** ATTACK SUCCESS (round 6) ***
+        Paraphrase:    What experts refer to as software engineered to maliciously corrupt digital content and erase or plunder its assets is
+        Victim answer: ransomware
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.60 vs 0.00 on the original (ROBUST)
+00:51:17  INFO         Paraphrase: 'What do experts call software maliciously engineered to corrupt digital assets, erase, or plunder their contents and what do they term it?'  →  Victim: 'malware'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+00:52:06  INFO         Paraphrase: 'What do experts term software maliciously engineered to corrupt, erase, or plunder digital content and what do they call it?'  →  Victim: 'malware'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:52:25  INFO         Paraphrase: 'What experts refer to as malicious software engineered to corrupt, erase, or plunder digital assets and content is'  →  Victim: 'ransomware'  correct={'llm_judge': False}  fitness=0.60 (3/5 wrong, llm_judge)
+00:52:25  INFO         *** ATTACK SUCCESS (round 6) ***
+        Paraphrase:    What experts refer to as malicious software engineered to corrupt, erase, or plunder digital assets and content is
+        Victim answer: ransomware
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.60 vs 0.00 on the original (ROBUST)
+00:52:25  INFO         Round 6/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 2 successful
+00:52:25  INFO       Attack round 7/8
+00:52:25  INFO         Evolving 3 parent(s):
+00:52:25  INFO           fitness=0.80  'What do experts refer to as malicious software engineered to corrupt, erase, or plunder digital content?'
+00:52:25  INFO           fitness=0.80  'What do experts refer to as software maliciously engineered to corrupt digital assets and erase or plunder their content?'
+00:52:25  INFO           fitness=0.80  'What experts call software engineered to corrupt digital content maliciously and erase or plunder its assets is'
+00:52:28  INFO         Generated 5 candidates
+00:52:28  INFO         [duplicate, skipped] 'What do experts term software maliciously engineered to corrupt, erase, or plunder digital content?'
+00:52:28  INFO         [duplicate, skipped] 'What experts refer to as malicious software engineered to corrupt, erase, or plunder digital assets and content is'
+00:54:01  INFO         Paraphrase: 'What do experts call software that is maliciously engineered to corrupt digital assets and erase or plunder their contents and what do they term it?'  →  Victim: 'malware'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+00:54:36  INFO         Paraphrase: 'What do experts refer to software engineered to maliciously corrupt digital assets and erase or plunder their contents as?'  →  Victim: 'ransomware'  correct={'llm_judge': False}  fitness=0.60 (3/5 wrong, llm_judge)
+00:54:36  INFO         *** ATTACK SUCCESS (round 7) ***
+        Paraphrase:    What do experts refer to software engineered to maliciously corrupt digital assets and erase or plunder their contents as?
+        Victim answer: ransomware
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.60 vs 0.00 on the original (ROBUST)
+00:55:10  INFO         Paraphrase: 'What experts term software maliciously engineered to corrupt digital assets and erase or plunder their contents is'  →  Victim: 'malware'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+00:55:10  INFO         Round 7/8 done: 5 generated, 2 duplicates, 0 rejected, 3 passed validation (queried), 1 successful
+00:55:10  INFO       Attack round 8/8
+00:55:10  INFO         Evolving 3 parent(s):
+00:55:10  INFO           fitness=0.80  'What do experts refer to as malicious software engineered to corrupt, erase, or plunder digital content?'
+00:55:10  INFO           fitness=0.80  'What do experts refer to as software maliciously engineered to corrupt digital assets and erase or plunder their content?'
+00:55:10  INFO           fitness=0.80  'What experts call software engineered to corrupt digital content maliciously and erase or plunder its assets is'
+00:55:13  INFO         Generated 5 candidates
+00:55:53  INFO         Paraphrase: 'What do experts term as malicious software engineered to corrupt, erase, or plunder digital content and assets?'  →  Victim: 'ransomware'  correct={'llm_judge': False}  fitness=0.40 (2/5 wrong, llm_judge)
+00:55:53  INFO         *** ATTACK SUCCESS (round 8) ***
+        Paraphrase:    What do experts term as malicious software engineered to corrupt, erase, or plunder digital content and assets?
+        Victim answer: ransomware
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.40 vs 0.00 on the original (not robust)
+00:56:39  INFO         Paraphrase: 'What do experts call software engineered to maliciously erase or corrupt digital assets and plunder their content?'  →  Victim: 'wiper'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+00:56:39  INFO         *** ATTACK SUCCESS (round 8) ***
+        Paraphrase:    What do experts call software engineered to maliciously erase or corrupt digital assets and plunder their content?
+        Victim answer: wiper
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+00:57:56  INFO         Paraphrase: 'What do experts refer to as software maliciously engineered to corrupt digital assets and erase or plunder their contents and what do they term it?'  →  Victim: 'ransomware'  correct={'llm_judge': False}  fitness=0.20 (1/5 wrong, llm_judge)
+00:57:56  INFO         *** ATTACK SUCCESS (round 8) ***
+        Paraphrase:    What do experts refer to as software maliciously engineered to corrupt digital assets and erase or plunder their contents and what do they term it?
+        Victim answer: ransomware
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.20 vs 0.00 on the original (not robust)
+00:58:45  INFO         Paraphrase: 'What experts term as software maliciously engineered to corrupt digital content and assets and erase or plunder them?'  →  Victim: 'malware'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+00:59:10  INFO         Paraphrase: 'What do experts refer to as software engineered to corrupt digital content and erase or plunder assets maliciously?'  →  Victim: 'malware'  correct={'llm_judge': True}  fitness=0.40 (2/5 wrong, llm_judge)
+00:59:10  INFO         Round 8/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 3 successful
+00:59:10  INFO       Attack finished after 8 round(s): 38 valid victim queries, successful attacks per evaluator: {'llm_judge': 12}, robust: 9
+00:59:10  INFO     [7/10] Qnqo_validation_0990: Another name for the torso is the blank region of the body?
+00:59:14  INFO       Victim (original): 'trunk'
+00:59:14  INFO       [llm_judge] original correct=True
+00:59:27  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+00:59:27  INFO       Attack round 1/8
+00:59:29  INFO         Generated 5 candidates
+00:59:45  INFO         Paraphrase: 'A synonym for the torso is the blank area of the human anatomy.'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:00:08  INFO         Paraphrase: 'What is another term for the middle section of the human body?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+01:02:23  INFO         Paraphrase: 'The part of the body that includes the chest and abdomen is also known as the blank region.'  →  Victim: 'Hmm, the user is asking about a specific anatomical term. They want to know what the chest and abdomen are collectively called. \n\nThis seems like a straightforward anatomy question. I recall that in medical terminology, the chest and abdomen together form the thoracoabdominal region. But wait - the most precise term they\'re looking for is actually "thoracic" for chest alone, and "abdominal" for abdomen. \n\nLet me think carefully... The standard term for the entire area from chest to abdomen is the "antibody" region? No, that\'s not right. I remember now - it\'s the "thoracoabdominal" region. But in common medical usage, especially in contexts like surgery or anatomy, this area is often referred to as the "abdominal" region when including the lower chest, but that\'s not quite accurate.\n\nActually, the most direct answer here is "thoracic" but that\'s only chest. The user specifically said "chest and abdomen". \n\n*lightbulb moment* I got it! In anatomy, the region that includes both the thorax (chest) and abdomen is called the "thoracoabdominal" region. But the question says "also known as the blank region" - and in many educational contexts, especially for beginners, they might expect "abdominal" since the abdomen technically includes the lower chest area? No, that\'s not precise.\n\nWait, let me double-check my knowledge. Standard anatomical terminology: the chest is thorax, abdomen is abdomen. Together they form the "thoracoabin" region? No. \n\nI recall now - in some contexts, particularly in emergency medicine, the area from the chest down to the pelvis is called the "abdominal" region, but that\'s not quite right. \n\n*thinking harder* The simplest answer that fits the blank is "thoracic" but that\'s only chest. The user wants both. \n\nAh! I remember: in many textbooks, the region encompassing the chest and abdomen is referred to as the "abdominal" region when they mean the lower part, but technically... \n\nNo, the correct term is "thoracoabdominal". But the question says "the blank region" - and in common parlance, especially for this type of question, the answer they\'re looking for is probably "abdominal" because in some contexts the abdomen includes the upper part. \n\nBut that\'s misleading. Let me think of standard multiple-choice answers. I\'ve seen this before - the answer is "thoracic" for chest only, but for both, it\'s... \n\n*realization* Wait a minute! The question says "the part of the body that includes the chest and abdomen". In anatomy, the entire trunk from neck down is the "trunk", but that\'s too broad. \n\nI think I\'ve got it: in medical terms, the chest and abdomen together are called the "thoracic" region? No, thoracic is only chest. \n\nPerhaps the answer is "abdominal" because in some contexts, the abdomen is used loosely. But that\'s not accurate. \n\nLet me search my memory for standard phrases. I recall that in surgery, the "abdominal cavity" includes the abdomen, but the chest is separate. \n\n*aha moment* The most precise answer for this blank is "thoracoabdominal". But the question says "also known as the blank region" - and in many educational materials, they might simplify it. \n\nWait, the user specified "the shortest direct answer". So I should give the most common term. \n\nI remember now: in basic anatomy, the region that includes both is often called the "abdominal" region when referring to the lower part, but technically the correct term is "thoracoabdominal". However, for this context, the answer they expect is probably "abdominal" because the question says "chest and abdomen" but in common language, people say "abdomen" for the whole area. \n\nBut that\'s not right. Let\'s think differently. \n\nAnother idea: in some contexts, the entire area is called the "core" but that\'s not anatomical. \n\nI think I found it: in medical terminology, the chest and abdomen together form the "thoracic" region? No, thoracic is chest. \n\n*final decision* After reviewing, I believe the standard answer for this type of question is "thoracic" but that\'s only chest. The user said "chest and abdomen", so it must be "thoracoabdominal". \n\nBut the question says "the blank region" - and in many textbooks, they use "abdominal" to mean the entire trunk area, but that\'s incorrect. \n\nWait, I recall a specific phrase: in anatomy, the region from the diaphragm down is the abdomen, and above is thorax. So together, it\'s the "thoracoabdominal" region. \n\nHowever, for the purpose of this question, since it\'s likely for a student, the answer might be "abdominal" as a simplification. But the user wants the shortest direct answer. \n\nLet me look for the most common answer online in my mind... I think for this exact question, the answer is "abdominal" because in some contexts, the abdomen is considered to include the lower chest. \n\nBut I\'m not sure. \n\n*alternative approach* The question says "the part of the body that includes the chest and abdomen". In human anatomy, the entire trunk is divided into thorax and abdomen. So the combined region is called the "thoracoabdominal" region. \n\nBut the blank is for a single word? The question says "the blank region" - so it might be a compound term. \n\nThe user said "return only the answer itself", so I should give "thoracoabdominal". \n\nBut let\'s see the instruction: "the shortest direct answer". So perhaps they want "abdominal" as it\'s commonly used. \n\nI remember now: in many multiple-choice questions, the answer for "chest and abdomen" is "thoracic" but that\'s wrong. \n\n*lightbulb* I got it! The answer is "abdominal" because in some educational systems, they teach that the abdomen includes the chest area. But that\'s not anatomically accurate. \n\nAfter careful thought, I recall that the standard anatomical term for the region encompassing both is "thoracoabdominal". However, for this specific question, the expected answer might be "abdominal" since the question says "also known as" implying a common name. \n\nBut the user wants the shortest answer. Let\'s see what\'s shortest: "thoracoabdominal" is 15 letters, "abdominal" is 9, but "thoracic" is 7. \n\nWait, the question says "chest and abdomen", so it must be both. \n\nI think I have to go with "thoracoabdominal". But the user said "shortest direct answer". \n\nPerhaps in this context, they mean the "core" but that\'s not right. \n\nAnother idea: in some contexts, it\'s called the "trunk" but that\'s too broad. \n\nLet me decide: after reviewing standard anatomy, the correct term is "thoracoabdominal". But for the sake of this question, since it\'s a common quiz question, the answer is often "abdominal" as a simplification. \n\nI found a reliable memory: in the context of this question, the answer is "abdominal" because the abdomen is sometimes used to refer to the entire lower body including chest in informal terms, but technically it\'s not. \n\nHowever, the user wants the most accurate answer. \n\n*final decision* I\'ll go with "thoracoabdominal" as it\'s the precise term. But the question says "the blank region" - and in many sources, it\'s written as "thoracoabdominal region". \n\nBut the user said "shortest direct answer". So perhaps they want "abdominal" for simplicity. \n\nI recall that in some textbooks, the area is called the "abdominal cavity" but that\'s only abdomen. \n\nLet\'s think of the diaphragm - it separates thorax and abdomen. So together, it\'s the thoracoabdominal region. \n\nI think for this response, I\'ll put "thoracoabdominal" as the answer. \n\nBut the user said "do not use a full sentence", so just the term. \n\nAlso, the instruction says "return only the answer itself". \n\nSo I\'ll write: thoracoabdominal\n\nBut is there a shorter term? Like "abdominal" is shorter, but it\'s not accurate. \n\nPerhaps the answer is "thoracic" but that\'s only chest. \n\nI give up - I\'ll go with "thoracoabdominal" as it\'s the correct term. \n\nWait, I remember now: in some contexts, it\'s called the "chest-abdomen" region but that\'s not standard. \n\nAfter double-checking my knowledge, I believe the answer is "abdominal" for this question because in many educational materials, they say the abdomen includes the chest area. But that\'s a misconception. \n\nFor example, in first aid courses, they might say "abdomen" for the whole area. \n\nBut to be precise, I\'ll use "thoracoabdominal". \n\nThe user said "shortest direct answer", so if "thoracoabdominal" is the answer, it\'s fine. \n\nLet\'s see the question again: "The part of the body that includes the chest and'  correct={'llm_judge': False}  fitness=0.40 (2/5 wrong, llm_judge)
+01:02:23  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    The part of the body that includes the chest and abdomen is also known as the blank region.
+        Victim answer: Hmm, the user is asking about a specific anatomical term. They want to know what the chest and abdomen are collectively called. 
+
+This seems like a straightforward anatomy question. I recall that in medical terminology, the chest and abdomen together form the thoracoabdominal region. But wait - the most precise term they're looking for is actually "thoracic" for chest alone, and "abdominal" for abdomen. 
+
+Let me think carefully... The standard term for the entire area from chest to abdomen is the "antibody" region? No, that's not right. I remember now - it's the "thoracoabdominal" region. But in common medical usage, especially in contexts like surgery or anatomy, this area is often referred to as the "abdominal" region when including the lower chest, but that's not quite accurate.
+
+Actually, the most direct answer here is "thoracic" but that's only chest. The user specifically said "chest and abdomen". 
+
+*lightbulb moment* I got it! In anatomy, the region that includes both the thorax (chest) and abdomen is called the "thoracoabdominal" region. But the question says "also known as the blank region" - and in many educational contexts, especially for beginners, they might expect "abdominal" since the abdomen technically includes the lower chest area? No, that's not precise.
+
+Wait, let me double-check my knowledge. Standard anatomical terminology: the chest is thorax, abdomen is abdomen. Together they form the "thoracoabin" region? No. 
+
+I recall now - in some contexts, particularly in emergency medicine, the area from the chest down to the pelvis is called the "abdominal" region, but that's not quite right. 
+
+*thinking harder* The simplest answer that fits the blank is "thoracic" but that's only chest. The user wants both. 
+
+Ah! I remember: in many textbooks, the region encompassing the chest and abdomen is referred to as the "abdominal" region when they mean the lower part, but technically... 
+
+No, the correct term is "thoracoabdominal". But the question says "the blank region" - and in common parlance, especially for this type of question, the answer they're looking for is probably "abdominal" because in some contexts the abdomen includes the upper part. 
+
+But that's misleading. Let me think of standard multiple-choice answers. I've seen this before - the answer is "thoracic" for chest only, but for both, it's... 
+
+*realization* Wait a minute! The question says "the part of the body that includes the chest and abdomen". In anatomy, the entire trunk from neck down is the "trunk", but that's too broad. 
+
+I think I've got it: in medical terms, the chest and abdomen together are called the "thoracic" region? No, thoracic is only chest. 
+
+Perhaps the answer is "abdominal" because in some contexts, the abdomen is used loosely. But that's not accurate. 
+
+Let me search my memory for standard phrases. I recall that in surgery, the "abdominal cavity" includes the abdomen, but the chest is separate. 
+
+*aha moment* The most precise answer for this blank is "thoracoabdominal". But the question says "also known as the blank region" - and in many educational materials, they might simplify it. 
+
+Wait, the user specified "the shortest direct answer". So I should give the most common term. 
+
+I remember now: in basic anatomy, the region that includes both is often called the "abdominal" region when referring to the lower part, but technically the correct term is "thoracoabdominal". However, for this context, the answer they expect is probably "abdominal" because the question says "chest and abdomen" but in common language, people say "abdomen" for the whole area. 
+
+But that's not right. Let's think differently. 
+
+Another idea: in some contexts, the entire area is called the "core" but that's not anatomical. 
+
+I think I found it: in medical terminology, the chest and abdomen together form the "thoracic" region? No, thoracic is chest. 
+
+*final decision* After reviewing, I believe the standard answer for this type of question is "thoracic" but that's only chest. The user said "chest and abdomen", so it must be "thoracoabdominal". 
+
+But the question says "the blank region" - and in many textbooks, they use "abdominal" to mean the entire trunk area, but that's incorrect. 
+
+Wait, I recall a specific phrase: in anatomy, the region from the diaphragm down is the abdomen, and above is thorax. So together, it's the "thoracoabdominal" region. 
+
+However, for the purpose of this question, since it's likely for a student, the answer might be "abdominal" as a simplification. But the user wants the shortest direct answer. 
+
+Let me look for the most common answer online in my mind... I think for this exact question, the answer is "abdominal" because in some contexts, the abdomen is considered to include the lower chest. 
+
+But I'm not sure. 
+
+*alternative approach* The question says "the part of the body that includes the chest and abdomen". In human anatomy, the entire trunk is divided into thorax and abdomen. So the combined region is called the "thoracoabdominal" region. 
+
+But the blank is for a single word? The question says "the blank region" - so it might be a compound term. 
+
+The user said "return only the answer itself", so I should give "thoracoabdominal". 
+
+But let's see the instruction: "the shortest direct answer". So perhaps they want "abdominal" as it's commonly used. 
+
+I remember now: in many multiple-choice questions, the answer for "chest and abdomen" is "thoracic" but that's wrong. 
+
+*lightbulb* I got it! The answer is "abdominal" because in some educational systems, they teach that the abdomen includes the chest area. But that's not anatomically accurate. 
+
+After careful thought, I recall that the standard anatomical term for the region encompassing both is "thoracoabdominal". However, for this specific question, the expected answer might be "abdominal" since the question says "also known as" implying a common name. 
+
+But the user wants the shortest answer. Let's see what's shortest: "thoracoabdominal" is 15 letters, "abdominal" is 9, but "thoracic" is 7. 
+
+Wait, the question says "chest and abdomen", so it must be both. 
+
+I think I have to go with "thoracoabdominal". But the user said "shortest direct answer". 
+
+Perhaps in this context, they mean the "core" but that's not right. 
+
+Another idea: in some contexts, it's called the "trunk" but that's too broad. 
+
+Let me decide: after reviewing standard anatomy, the correct term is "thoracoabdominal". But for the sake of this question, since it's a common quiz question, the answer is often "abdominal" as a simplification. 
+
+I found a reliable memory: in the context of this question, the answer is "abdominal" because the abdomen is sometimes used to refer to the entire lower body including chest in informal terms, but technically it's not. 
+
+However, the user wants the most accurate answer. 
+
+*final decision* I'll go with "thoracoabdominal" as it's the precise term. But the question says "the blank region" - and in many sources, it's written as "thoracoabdominal region". 
+
+But the user said "shortest direct answer". So perhaps they want "abdominal" for simplicity. 
+
+I recall that in some textbooks, the area is called the "abdominal cavity" but that's only abdomen. 
+
+Let's think of the diaphragm - it separates thorax and abdomen. So together, it's the thoracoabdominal region. 
+
+I think for this response, I'll put "thoracoabdominal" as the answer. 
+
+But the user said "do not use a full sentence", so just the term. 
+
+Also, the instruction says "return only the answer itself". 
+
+So I'll write: thoracoabdominal
+
+But is there a shorter term? Like "abdominal" is shorter, but it's not accurate. 
+
+Perhaps the answer is "thoracic" but that's only chest. 
+
+I give up - I'll go with "thoracoabdominal" as it's the correct term. 
+
+Wait, I remember now: in some contexts, it's called the "chest-abdomen" region but that's not standard. 
+
+After double-checking my knowledge, I believe the answer is "abdominal" for this question because in many educational materials, they say the abdomen includes the chest area. But that's a misconception. 
+
+For example, in first aid courses, they might say "abdomen" for the whole area. 
+
+But to be precise, I'll use "thoracoabdominal". 
+
+The user said "shortest direct answer", so if "thoracoabdominal" is the answer, it's fine. 
+
+Let's see the question again: "The part of the body that includes the chest and
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.40 vs 0.00 on the original (not robust)
+01:02:41  INFO         Paraphrase: 'An alternative name for the torso is the central portion of the human body.'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:03:07  INFO         Paraphrase: 'The torso can also be referred to as the blank part of the body that includes the chest and abdomen.'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:03:07  INFO         Round 1/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 1 successful
+01:03:07  INFO       Attack round 2/8
+01:03:07  INFO         Evolving 2 parent(s):
+01:03:07  INFO           fitness=0.40  'The part of the body that includes the chest and abdomen is also known as the blank region.'
+01:03:07  INFO           fitness=0.20  'What is another term for the middle section of the human body?'
+01:03:15  INFO         Generated 5 candidates
+01:04:17  INFO         Paraphrase: 'The part of the body containing the chest and abdomen can also be referred to as the blank region.'  →  Victim: 'thoracoabdominal'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+01:04:17  INFO         *** ATTACK SUCCESS (round 2) ***
+        Paraphrase:    The part of the body containing the chest and abdomen can also be referred to as the blank region.
+        Victim answer: thoracoabdominal
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+01:04:39  INFO         Paraphrase: 'Another term for the torso, which includes both the chest and abdomen, is the blank area.'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:05:06  INFO         Paraphrase: 'The torso, encompassing the chest and abdomen, can also be known as the blank part of the body.'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:06:35  INFO         Paraphrase: 'The chest and abdomen, collectively referred to as the blank area, are also known as the torso.'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+01:08:08  INFO         Paraphrase: 'The torso, which includes both the chest and abdomen, is also referred to as the blank region of the body.'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:08:08  INFO         Round 2/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 1 successful
+01:08:08  INFO       Attack round 3/8
+01:08:08  INFO         Evolving 3 parent(s):
+01:08:08  INFO           fitness=0.80  'The part of the body containing the chest and abdomen can also be referred to as the blank region.'
+01:08:08  INFO           fitness=0.40  'The part of the body that includes the chest and abdomen is also known as the blank region.'
+01:08:08  INFO           fitness=0.20  'What is another term for the middle section of the human body?'
+01:08:14  INFO         Generated 5 candidates
+01:08:41  INFO         Paraphrase: 'The region containing the chest and abdomen is also referred to as the blank area.'  →  Victim: 'thoracoabdominal'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+01:08:41  INFO         *** ATTACK SUCCESS (round 3) ***
+        Paraphrase:    The region containing the chest and abdomen is also referred to as the blank area.
+        Victim answer: thoracoabdominal
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+01:10:10  INFO         Paraphrase: 'The torso, encompassing both the chest and abdomen, is also called the blank region of the body.'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+01:11:45  INFO         Paraphrase: 'The chest and abdomen, collectively known as the blank part of the body, are also referred to as the torso.'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+01:12:09  INFO         Paraphrase: 'The area including both the chest and abdomen can also be referred to as the blank region of the body.'  →  Victim: 'thoracoabdominal'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+01:12:09  INFO         *** ATTACK SUCCESS (round 3) ***
+        Paraphrase:    The area including both the chest and abdomen can also be referred to as the blank region of the body.
+        Victim answer: thoracoabdominal
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+01:13:30  INFO         Paraphrase: 'The part of the body containing the chest and abdomen can be called the blank region, which is also known as the torso.'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:13:30  INFO         Round 3/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 2 successful
+01:13:30  INFO       Attack round 4/8
+01:13:30  INFO         Evolving 3 parent(s):
+01:13:30  INFO           fitness=1.00  'The region containing the chest and abdomen is also referred to as the blank area.'
+01:13:30  INFO           fitness=1.00  'The area including both the chest and abdomen can also be referred to as the blank region of the body.'
+01:13:30  INFO           fitness=0.80  'The part of the body containing the chest and abdomen can also be referred to as the blank region.'
+01:13:33  INFO         Generated 5 candidates
+01:15:06  INFO         Paraphrase: 'The area including both the chest and abdomen can be referred to as the blank part of the body.'  →  Victim: 'thoracoabdominal'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+01:15:06  INFO         *** ATTACK SUCCESS (round 4) ***
+        Paraphrase:    The area including both the chest and abdomen can be referred to as the blank part of the body.
+        Victim answer: thoracoabdominal
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+01:16:33  INFO         Paraphrase: 'The chest and abdomen, being part of the blank region, are also collectively known as the torso.'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:18:23  INFO         Paraphrase: 'The part of the body that contains the chest and abdomen is also referred to as the blank area of the human body.'  →  Victim: 'torso'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+01:18:23  INFO         *** ATTACK SUCCESS (round 4) ***
+        Paraphrase:    The part of the body that contains the chest and abdomen is also referred to as the blank area of the human body.
+        Victim answer: torso
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+01:20:48  INFO         Paraphrase: 'The region including the chest and abdomen can also be called the blank region of the body.'  →  Victim: 'thoracoabdominal'  correct={'llm_judge': False}  fitness=0.60 (3/5 wrong, llm_judge)
+01:20:48  INFO         *** ATTACK SUCCESS (round 4) ***
+        Paraphrase:    The region including the chest and abdomen can also be called the blank region of the body.
+        Victim answer: thoracoabdominal
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.60 vs 0.00 on the original (ROBUST)
+01:22:05  INFO         Paraphrase: 'The part of the body containing the chest and abdomen is also referred to as the blank area.'  →  Victim: 'thoracoabdominal'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+01:22:05  INFO         *** ATTACK SUCCESS (round 4) ***
+        Paraphrase:    The part of the body containing the chest and abdomen is also referred to as the blank area.
+        Victim answer: thoracoabdominal
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+01:22:05  INFO         Round 4/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 4 successful
+01:22:05  INFO       Attack round 5/8
+01:22:05  INFO         Evolving 3 parent(s):
+01:22:05  INFO           fitness=1.00  'The region containing the chest and abdomen is also referred to as the blank area.'
+01:22:05  INFO           fitness=1.00  'The area including both the chest and abdomen can also be referred to as the blank region of the body.'
+01:22:05  INFO           fitness=0.80  'The part of the body containing the chest and abdomen can also be referred to as the blank region.'
+01:22:08  INFO         Generated 5 candidates
+01:23:30  INFO         Paraphrase: 'The region that includes the chest and abdomen is also known as the blank area.'  →  Victim: 'thoracoabdominal'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+01:23:30  INFO         *** ATTACK SUCCESS (round 5) ***
+        Paraphrase:    The region that includes the chest and abdomen is also known as the blank area.
+        Victim answer: thoracoabdominal
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+01:24:36  INFO         Paraphrase: 'The area encompassing both the chest and abdomen can be referred to as the blank part of the body.'  →  Victim: 'thoracoabdominal'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+01:24:36  INFO         *** ATTACK SUCCESS (round 5) ***
+        Paraphrase:    The area encompassing both the chest and abdomen can be referred to as the blank part of the body.
+        Victim answer: thoracoabdominal
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+01:26:44  INFO         Paraphrase: 'The part of the body that contains the chest and abdomen is also referred to as the blank area of the body.'  →  Victim: 'torso'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+01:26:44  INFO         *** ATTACK SUCCESS (round 5) ***
+        Paraphrase:    The part of the body that contains the chest and abdomen is also referred to as the blank area of the body.
+        Victim answer: torso
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+01:27:56  INFO         Paraphrase: 'The region containing the chest and abdomen is also referred to as the blank part of the body.'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.80 (4/5 wrong, llm_judge)
+01:29:14  INFO         Paraphrase: 'The area that includes both the chest and abdomen can be called the blank region.'  →  Victim: 'thoracoabdominal'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+01:29:14  INFO         *** ATTACK SUCCESS (round 5) ***
+        Paraphrase:    The area that includes both the chest and abdomen can be called the blank region.
+        Victim answer: thoracoabdominal
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+01:29:14  INFO         Round 5/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 4 successful
+01:29:14  INFO       Attack round 6/8
+01:29:14  INFO         Evolving 3 parent(s):
+01:29:14  INFO           fitness=1.00  'The region containing the chest and abdomen is also referred to as the blank area.'
+01:29:14  INFO           fitness=1.00  'The area including both the chest and abdomen can also be referred to as the blank region of the body.'
+01:29:14  INFO           fitness=1.00  'The region that includes the chest and abdomen is also known as the blank area.'
+01:29:17  INFO         Generated 5 candidates
+01:29:53  INFO         Paraphrase: 'Both the chest and abdomen are part of the blank region of the body.'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+01:30:21  INFO         Paraphrase: 'The chest and abdomen form the blank area of the body.'  →  Victim: 'thoracoabdominal'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+01:30:21  INFO         *** ATTACK SUCCESS (round 6) ***
+        Paraphrase:    The chest and abdomen form the blank area of the body.
+        Victim answer: thoracoabdominal
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+01:30:59  INFO         Paraphrase: 'The blank region encompasses both the chest and abdomen.'  →  Victim: 'thoracoabdominal'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+01:30:59  INFO         *** ATTACK SUCCESS (round 6) ***
+        Paraphrase:    The blank region encompasses both the chest and abdomen.
+        Victim answer: thoracoabdominal
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+01:31:49  INFO         Paraphrase: 'The blank area includes the chest and abdomen.'  →  Victim: 'torso'  correct={'llm_judge': False}  fitness=0.60 (3/5 wrong, llm_judge)
+01:31:49  INFO         *** ATTACK SUCCESS (round 6) ***
+        Paraphrase:    The blank area includes the chest and abdomen.
+        Victim answer: torso
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.60 vs 0.00 on the original (ROBUST)
+01:33:44  INFO         Paraphrase: 'The chest and abdomen are collectively part of the blank region of the body.'  →  Victim: 'Hmm, the user wants me to fill in the blank for a statement about body regions. The statement is: "The chest and abdomen are collectively part of the blank region of the body."\n\nI need to recall basic anatomy. The chest is the thoracic region, and the abdomen is the abdominal region. Together, they form the thoracoabdominal region. But I think the standard term is "thoracic" for chest and "abdominal" for abdomen, so collectively they\'re often called the "thorax and abdomen" or more specifically in medical terms, the "antibody" isn\'t right—wait, no.\n\nLet me think carefully. In human anatomy, the trunk is divided into regions: the head, neck, thorax (chest), abdomen, and pelvis. But the question says "chest and abdomen" collectively. So, what\'s the term for that?\n\nI remember that in some contexts, the chest and abdomen are referred to as the "thoracoabdominal region." But I think the blank might be expecting a simpler answer. Perhaps it\'s "trunk" but that includes more than just chest and abdomen—trunk is head, neck, thorax, abdomen, pelvis? No, trunk usually means the torso without head and neck.\n\nStandard anatomical regions: the body has the head, neck, trunk, and limbs. The trunk consists of the thorax (chest), abdomen, and pelvis. But the question specifies "chest and abdomen," so it\'s not the whole trunk.\n\nI think the term they\'re looking for is "thoracic" but that\'s only chest. Abdomen is separate. Wait, no—collectively, it\'s often called the "thoracoabin" or something? I should look for the most precise term.\n\nUpon second thought, in many educational contexts, especially in basic biology or health classes, the chest and abdomen are grouped under the "chest and abdominal" region, but the blank is for a single word.\n\nThe user said "the shortest direct answer." So I need to be concise.\n\nI recall that the term is "thoracoabdominal." But that\'s two words. The blank might be for a phrase.\n\nThe question says "the blank region," so it\'s one term.\n\nAnother idea: in some contexts, it\'s called the "anterior trunk" but that includes chest and abdomen.\n\nLet me search my knowledge. I think the standard answer for this type of question is "thoracic" but that\'s incorrect because thoracic is only chest.\n\nPerhaps it\'s "abdominal" but that\'s only abdomen.\n\nThe question says "chest and abdomen collectively," so it must be a term that covers both.\n\nI remember now: in anatomy, the region that includes both the thorax and abdomen is often referred to as the "thoracoabdominal cavity" or simply "thoracoabdominal region." But for the blank, it might be "thoracoabdominal."\n\nBut the user wants the shortest answer. Maybe it\'s "trunk" but trunk is larger.\n\nLet\'s see the exact phrasing: "collectively part of the blank region." So the blank is the name of the region.\n\nI think the most common answer for this is "thoracic" but that\'s not right. Wait, no—thoracic is chest only.\n\nPerhaps in some contexts, it\'s called the "chest and abdomen" as a single entity, but the blank needs a term.\n\nI found a better way: in medical terms, the chest and abdomen are part of the "thorax" but thorax is chest, abdomen is separate.\n\nI think I have it: the term is "abdominal" but that\'s not inclusive.\n\nLet me think about the answer. I recall that in many textbooks, the chest and abdomen are collectively known as the "thoracoabdominal region." But for the purpose of this question, the shortest answer might be "thoracoabdominal."\n\nThe user said "do not use a full sentence," so I should just give the term.\n\nAnother thought: in some simplified models, it\'s called the "core" but that\'s not standard.\n\nPerhaps the answer is "trunk." Let\'s see: the trunk includes the chest and abdomen. Yes, in anatomy, the trunk (or torso) consists of the thorax, abdomen, and pelvis. So chest and abdomen are part of the trunk.\n\nBut the question says "collectively part of the blank region," so if I say "trunk," that might be it, but trunk is the whole torso, not just chest and abdomen.\n\nThe question says "chest and abdomen are collectively part of," so it\'s saying that they are part of a larger region. So the blank region is the one that includes them.\n\nFor example, the trunk includes chest and abdomen.\n\nBut is there a more specific term?\n\nI think for this context, the answer is "thoracoabdominal." But let\'s see if there\'s a shorter term.\n\nPerhaps in common language, it\'s "chest and belly" but that\'s not technical.\n\nThe user is probably expecting a technical term.\n\nI remember that in some multiple-choice questions, the answer is "thoracic" but that\'s wrong.\n\nLet me double-check online in my mind. Since I can\'t, I\'ll go with standard knowledge.\n\nUpon reflection, I believe the correct term is "thoracoabdominal." But the blank might be for "abdominal" but that\'s not chest.\n\nAnother idea: the region is called the "anterior body" but that\'s not right.\n\nI think I got it: in anatomy, the chest and abdomen are both part of the "thorax" but thorax is only chest.\n\nNo, thorax is the rib cage area.\n\nLet\'s look for the answer. I recall that the term for the area including chest and abdomen is the "thoracoabdominal cavity," but the region is "thoracoabdominal."\n\nFor the shortest answer, it might be "abdominal" but that\'s incorrect.\n\nPerhaps the question has a trick. The user said "the chest and abdomen," so collectively, it\'s the "trunk" region.\n\nBut in many contexts, "trunk" is used.\n\nLet\'s see the instruction: "return only the answer itself." and "do not use a full sentence."\n\nI think the most direct answer is "thoracoabdominal."\n\nBut to be precise, I found that in some sources, it\'s called the "chest and abdomen" as a single region, but the blank needs a name.\n\nPerhaps the answer is "core," but that\'s not standard.\n\nI remember now: in basic anatomy, the body is divided into regions, and the chest and abdomen are part of the "thoracic and abdominal" but collectively, for the purpose of this question, the answer might be "abdominal" but that\'s not chest.\n\nLet\'s read the question again: "The chest and abdomen are collectively part of the blank region of the body."\n\nSo, the blank region is the one that contains both. For example, the trunk contains both.\n\nIn anatomical terms, the trunk is the region from the neck down to the pelvis, including thorax and abdomen.\n\nSo, "trunk" could be the answer.\n\nBut is "trunk" short enough? Yes.\n\nAnother term is "torso," which is synonymous with trunk.\n\n"Torso" is often used.\n\nBut the question says "region of the body," and in medical terms, it\'s "trunk."\n\nI think "trunk" is a common answer for this.\n\nFor instance, in health classes, they say the trunk includes chest and abdomen.\n\nLet me confirm with logic: if I say "the chest and abdomen are part of the trunk," that\'s true.\n\nWhereas "thoracoabdominal" is more specific but might be too long.\n\nThe user wants the shortest direct answer.\n\n"Trunk" is one word, "thoracoabdominal" is two words.\n\nSo "trunk" might be shorter.\n\nBut is trunk the region? Yes.\n\nIn some contexts, "abdomen" is used, but that\'s only abdomen.\n\nI think "trunk" is the best answer.\n\nI recall that in some textbooks, it\'s specified as "thoracic and abdominal regions," but collectively, they are part of the trunk.\n\nPerhaps the answer is "anterior" but that\'s not it.\n\nLet\'s go with "trunk."\n\nBut the user said "do not use a full sentence," so I\'ll just put "trunk."\n\nTo be thorough, I think for this question, the expected answer is "thoracic" but that\'s wrong.\n\nNo, I found a reliable memory: in many online quizzes, for similar questions, the answer is "thoracoabdominal."\n\nFor example, "The chest and abdomen are collectively known as the thoracoabdominal region."\n\nSo, the blank is "thoracoabdominal."\n\nBut the user wants the shortest answer, so perhaps "thoracoabdominal" is it.\n\nThe question says "the blank region," so it\'s a phrase.\n\nBut the instruction is to return only the answer itself.\n\nAnother thought: in some contexts, it\'s called the "abdominal cavity" but that\'s only abdomen.\n\nI think I should go with "thoracoabdominal."\n\nLet\'s see the length: "thoracoabdominal" is 14 letters, "trunk" is 5, so "trunk" is shorter.\n\nBut is "trunk" accurate? The trunk includes the pelvis too, but the question says "chest and abdomen," which are part of the trunk, so it\'s correct.\n\nFor example, the trunk region consists of the thorax,'  correct={'llm_judge': True}  fitness=0.80 (4/5 wrong, llm_judge)
+01:33:44  INFO         Round 6/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 3 successful
+01:33:44  INFO       Attack round 7/8
+01:33:44  INFO         Evolving 3 parent(s):
+01:33:44  INFO           fitness=1.00  'The region containing the chest and abdomen is also referred to as the blank area.'
+01:33:44  INFO           fitness=1.00  'The area including both the chest and abdomen can also be referred to as the blank region of the body.'
+01:33:44  INFO           fitness=1.00  'The region that includes the chest and abdomen is also known as the blank area.'
+01:33:50  INFO         Generated 5 candidates
+01:34:25  INFO         Paraphrase: 'The chest and abdomen are part of the blank region.'  →  Victim: 'thoracoabdominal'  correct={'llm_judge': False}  fitness=0.60 (3/5 wrong, llm_judge)
+01:34:25  INFO         *** ATTACK SUCCESS (round 7) ***
+        Paraphrase:    The chest and abdomen are part of the blank region.
+        Victim answer: thoracoabdominal
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.60 vs 0.00 on the original (ROBUST)
+01:34:58  INFO         Paraphrase: 'The chest and abdomen constitute the blank area.'  →  Victim: 'thoracoabdominal'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+01:34:58  INFO         *** ATTACK SUCCESS (round 7) ***
+        Paraphrase:    The chest and abdomen constitute the blank area.
+        Victim answer: thoracoabdominal
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+01:34:58  INFO         [duplicate, skipped] 'The blank region encompasses both the chest and abdomen.'
+01:35:32  INFO         Paraphrase: 'The blank area includes both the chest and abdomen.'  →  Victim: 'thoracoabdominal'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+01:35:32  INFO         *** ATTACK SUCCESS (round 7) ***
+        Paraphrase:    The blank area includes both the chest and abdomen.
+        Victim answer: thoracoabdominal
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+01:36:37  INFO         Paraphrase: 'The region containing both the chest and abdomen is also referred to as the blank region.'  →  Victim: 'thoracoabdominal'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+01:36:37  INFO         *** ATTACK SUCCESS (round 7) ***
+        Paraphrase:    The region containing both the chest and abdomen is also referred to as the blank region.
+        Victim answer: thoracoabdominal
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+01:36:37  INFO         Round 7/8 done: 5 generated, 1 duplicates, 0 rejected, 4 passed validation (queried), 4 successful
+01:36:37  INFO       Attack round 8/8
+01:36:37  INFO         Evolving 3 parent(s):
+01:36:37  INFO           fitness=1.00  'The region containing the chest and abdomen is also referred to as the blank area.'
+01:36:37  INFO           fitness=1.00  'The area including both the chest and abdomen can also be referred to as the blank region of the body.'
+01:36:37  INFO           fitness=1.00  'The region that includes the chest and abdomen is also known as the blank area.'
+01:36:40  INFO         Generated 5 candidates
+01:37:51  INFO         Paraphrase: 'The chest and abdomen, being components of the blank area, are also collectively referred to as such.'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.60 (3/5 wrong, llm_judge)
+01:38:23  INFO         Paraphrase: 'The region that encompasses both the chest and abdomen is also known as the blank area of the body.'  →  Victim: 'thoracoabdominal'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+01:38:23  INFO         *** ATTACK SUCCESS (round 8) ***
+        Paraphrase:    The region that encompasses both the chest and abdomen is also known as the blank area of the body.
+        Victim answer: thoracoabdominal
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Another name for the torso is the blank region of the body?
+Answer(s):  ['trunk']
+Paraphrase: The area including the chest and abdomen can be referred to as the blank part of the body.
+
+[answer-judge-error] HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Another name for the torso is the blank region of the body?
+Answer(s):  ['trunk']
+Paraphrase: The region containing both the chest and abdomen is also referred to as the blank region of the body.
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 1457, in getresponse
+    response.begin()
+  File "/usr/lib/python3.12/http/client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/http/client.py", line 297, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 498, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/run_experiment.py", line 71, in <module>
+    main()
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/run_experiment.py", line 67, in main
+    run_experiment(cfg)
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 174, in run_experiment
+    rounds, paraphrase_records, baseline = _iterative_attack(
+                                           ^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/experiment.py", line 416, in _iterative_attack
+    if not questions_equivalent(question, cand):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/utils/question_equivalence_judge.py", line 205, in questions_equivalent
+    raw = generate_json_ollama(messages=messages, model_name=model_name)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/utils/question_equivalence_judge.py", line 166, in generate_json_ollama
+    response = client.chat_json(
+               ^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/AttackingViaParaphrasing/ollama_client.py", line 143, in chat_json
+    r = self._session.post(
+        ^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 712, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/specific/a/home/cc/students/csguests/zilberman1/.venv/lib/python3.12/site-packages/requests/adapters.py", line 742, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=300)

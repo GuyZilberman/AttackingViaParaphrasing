@@ -1,0 +1,1914 @@
+{
+  "metadata": {
+    "ollama_base_url": "http://127.0.0.1:11434",
+    "attacker_model": "qwen3:4b",
+    "victim_model": "qwen3:4b",
+    "judge_model": "qwen3:4b",
+    "attacker_strategy": "misleading_entity",
+    "n_paraphrases": 5,
+    "max_rounds": 3,
+    "stop_on_success": false,
+    "dataset_path": null,
+    "n_questions": 3,
+    "random_seed": 42,
+    "evaluator": "both",
+    "results_dir": "results",
+    "attacker_temperature": 0.9,
+    "victim_temperature": 0.0,
+    "judge_temperature": 0.0
+  },
+  "results": [
+    {
+      "question_id": "nq_004",
+      "original_question": "Who painted the Mona Lisa?",
+      "ground_truths": [
+        "Leonardo da Vinci",
+        "Leonardo di ser Piero da Vinci"
+      ],
+      "victim_original_answer": "Leonardo da Vinci",
+      "victim_original_correct": {
+        "exact_match": true,
+        "llm_judge": true
+      },
+      "paraphrases": [
+        {
+          "round": 1,
+          "paraphrase": "Which artist created the painting known as the Mona Lisa?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Leonardo da Vinci",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'leonardo da vinci' ≈ 'leonardo da vinci'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 1,
+          "paraphrase": "Who is credited with painting the famous Mona Lisa artwork?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Leonardo da Vinci",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'leonardo da vinci' ≈ 'leonardo da vinci'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 1,
+          "paraphrase": "What painter is associated with the Mona Lisa?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Leonardo da Vinci",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'leonardo da vinci' ≈ 'leonardo da vinci'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 1,
+          "paraphrase": "Which individual painted the iconic Mona Lisa portrait?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Leonardo da Vinci",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'leonardo da vinci' ≈ 'leonardo da vinci'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 1,
+          "paraphrase": "Who produced the Mona Lisa painting, considering the artist's full name?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Leonardo da Vinci",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'leonardo da vinci' ≈ 'leonardo da vinci'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 2,
+          "paraphrase": "To which artist can the Mona Lisa be attributed?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Leonardo da Vinci",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'leonardo da vinci' ≈ 'leonardo da vinci'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 2,
+          "paraphrase": "Who is the artist who painted the well-known Mona Lisa?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Leonardo da Vinci",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'leonardo da vinci' ≈ 'leonardo da vinci'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 2,
+          "paraphrase": "For what painting is Leonardo da Vinci renowned, given the Mona Lisa?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Mona Lisa",
+          "correct": {
+            "exact_match": false,
+            "llm_judge": false
+          },
+          "rationale": {
+            "exact_match": "No match found for prediction 'mona lisa'",
+            "llm_judge": "No ground truth matched."
+          },
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        },
+        {
+          "round": 2,
+          "paraphrase": "Which painter is the Mona Lisa traditionally associated with?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Leonardo da Vinci",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'leonardo da vinci' ≈ 'leonardo da vinci'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 2,
+          "paraphrase": "What individual is historically known for painting the Mona Lisa?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Leonardo da Vinci",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'leonardo da vinci' ≈ 'leonardo da vinci'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 3,
+          "paraphrase": "Who is the creator of the Mona Lisa painting?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Leonardo da Vinci",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'leonardo da vinci' ≈ 'leonardo da vinci'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 3,
+          "paraphrase": "Which painter is attributed to the famous Mona Lisa?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Leonardo da Vinci",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'leonardo da vinci' ≈ 'leonardo da vinci'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 3,
+          "paraphrase": "Who produced the iconic portrait of the Mona Lisa?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Leonardo da Vinci",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'leonardo da vinci' ≈ 'leonardo da vinci'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 3,
+          "paraphrase": "To which artist does the Mona Lisa painting belong?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Leonardo da Vinci",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'leonardo da vinci' ≈ 'leonardo da vinci'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 3,
+          "paraphrase": "Who is the individual responsible for the Mona Lisa artwork?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Leonardo da Vinci",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'leonardo da vinci' ≈ 'leonardo da vinci'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        }
+      ],
+      "attack_success_rate": {
+        "exact_match": 0.06666666666666667,
+        "llm_judge": 0.06666666666666667
+      },
+      "rounds_attempted": 3,
+      "rounds": [
+        {
+          "round": 1,
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 5,
+          "candidates": [
+            {
+              "round": 1,
+              "paraphrase": "Which artist created the painting known as the Mona Lisa?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Leonardo da Vinci",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'leonardo da vinci' ≈ 'leonardo da vinci'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 1,
+              "paraphrase": "Who is credited with painting the famous Mona Lisa artwork?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Leonardo da Vinci",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'leonardo da vinci' ≈ 'leonardo da vinci'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 1,
+              "paraphrase": "What painter is associated with the Mona Lisa?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Leonardo da Vinci",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'leonardo da vinci' ≈ 'leonardo da vinci'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 1,
+              "paraphrase": "Which individual painted the iconic Mona Lisa portrait?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Leonardo da Vinci",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'leonardo da vinci' ≈ 'leonardo da vinci'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 1,
+              "paraphrase": "Who produced the Mona Lisa painting, considering the artist's full name?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Leonardo da Vinci",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'leonardo da vinci' ≈ 'leonardo da vinci'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 5,
+          "candidates": [
+            {
+              "round": 2,
+              "paraphrase": "To which artist can the Mona Lisa be attributed?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Leonardo da Vinci",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'leonardo da vinci' ≈ 'leonardo da vinci'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 2,
+              "paraphrase": "Who is the artist who painted the well-known Mona Lisa?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Leonardo da Vinci",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'leonardo da vinci' ≈ 'leonardo da vinci'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 2,
+              "paraphrase": "For what painting is Leonardo da Vinci renowned, given the Mona Lisa?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Mona Lisa",
+              "correct": {
+                "exact_match": false,
+                "llm_judge": false
+              },
+              "rationale": {
+                "exact_match": "No match found for prediction 'mona lisa'",
+                "llm_judge": "No ground truth matched."
+              },
+              "attack_success": {
+                "exact_match": true,
+                "llm_judge": true
+              }
+            },
+            {
+              "round": 2,
+              "paraphrase": "Which painter is the Mona Lisa traditionally associated with?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Leonardo da Vinci",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'leonardo da vinci' ≈ 'leonardo da vinci'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 2,
+              "paraphrase": "What individual is historically known for painting the Mona Lisa?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Leonardo da Vinci",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'leonardo da vinci' ≈ 'leonardo da vinci'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 5,
+          "candidates": [
+            {
+              "round": 3,
+              "paraphrase": "Who is the creator of the Mona Lisa painting?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Leonardo da Vinci",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'leonardo da vinci' ≈ 'leonardo da vinci'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 3,
+              "paraphrase": "Which painter is attributed to the famous Mona Lisa?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Leonardo da Vinci",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'leonardo da vinci' ≈ 'leonardo da vinci'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 3,
+              "paraphrase": "Who produced the iconic portrait of the Mona Lisa?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Leonardo da Vinci",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'leonardo da vinci' ≈ 'leonardo da vinci'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 3,
+              "paraphrase": "To which artist does the Mona Lisa painting belong?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Leonardo da Vinci",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'leonardo da vinci' ≈ 'leonardo da vinci'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 3,
+              "paraphrase": "Who is the individual responsible for the Mona Lisa artwork?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Leonardo da Vinci",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'leonardo da vinci' ≈ 'leonardo da vinci'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            }
+          ]
+        }
+      ],
+      "n_valid_victim_queries": 15,
+      "successful_attacks": [
+        {
+          "round": 2,
+          "paraphrase": "For what painting is Leonardo da Vinci renowned, given the Mona Lisa?",
+          "victim_answer": "Mona Lisa",
+          "attack_success": {
+            "exact_match": true,
+            "llm_judge": true
+          }
+        }
+      ],
+      "n_successful_attacks": {
+        "exact_match": 1,
+        "llm_judge": 1
+      },
+      "attack_succeeded": {
+        "exact_match": true,
+        "llm_judge": true
+      }
+    },
+    {
+      "question_id": "nq_001",
+      "original_question": "What is the capital of Australia?",
+      "ground_truths": [
+        "Canberra"
+      ],
+      "victim_original_answer": "Canberra",
+      "victim_original_correct": {
+        "exact_match": true,
+        "llm_judge": true
+      },
+      "paraphrases": [
+        {
+          "round": 1,
+          "paraphrase": "What city serves as the capital for Australia?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Canberra",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 1,
+          "paraphrase": "Which city is the capital of Australia?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Canberra",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 1,
+          "paraphrase": "Australia's capital city is what?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Canberra",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 1,
+          "paraphrase": "What is the capital city of Australia?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Canberra",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 1,
+          "paraphrase": "Which city functions as the capital of Australia?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Canberra",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 2,
+          "paraphrase": "What city functions as Australia's capital?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Canberra",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 2,
+          "paraphrase": "Which city serves as the capital of the country Australia?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Canberra",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 2,
+          "paraphrase": "What is the capital city for the nation of Australia?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Canberra",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 2,
+          "paraphrase": "Australia's capital city, what is it called?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Canberra",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 2,
+          "paraphrase": "In which city is the capital of Australia located?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Canberra",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 3,
+          "paraphrase": "What city is the capital of Australia?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Canberra",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 3,
+          "paraphrase": "Which city functions as the capital of the country Australia?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Canberra",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 3,
+          "paraphrase": "What is the capital city for Australia?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Canberra",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 3,
+          "paraphrase": "Australia's capital city, what is it?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Canberra",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 3,
+          "paraphrase": "In which city is Australia's capital located?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Canberra",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        }
+      ],
+      "attack_success_rate": {
+        "exact_match": 0.0,
+        "llm_judge": 0.0
+      },
+      "rounds_attempted": 3,
+      "rounds": [
+        {
+          "round": 1,
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 5,
+          "candidates": [
+            {
+              "round": 1,
+              "paraphrase": "What city serves as the capital for Australia?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Canberra",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 1,
+              "paraphrase": "Which city is the capital of Australia?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Canberra",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 1,
+              "paraphrase": "Australia's capital city is what?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Canberra",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 1,
+              "paraphrase": "What is the capital city of Australia?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Canberra",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 1,
+              "paraphrase": "Which city functions as the capital of Australia?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Canberra",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 5,
+          "candidates": [
+            {
+              "round": 2,
+              "paraphrase": "What city functions as Australia's capital?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Canberra",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 2,
+              "paraphrase": "Which city serves as the capital of the country Australia?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Canberra",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 2,
+              "paraphrase": "What is the capital city for the nation of Australia?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Canberra",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 2,
+              "paraphrase": "Australia's capital city, what is it called?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Canberra",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 2,
+              "paraphrase": "In which city is the capital of Australia located?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Canberra",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 5,
+          "candidates": [
+            {
+              "round": 3,
+              "paraphrase": "What city is the capital of Australia?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Canberra",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 3,
+              "paraphrase": "Which city functions as the capital of the country Australia?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Canberra",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 3,
+              "paraphrase": "What is the capital city for Australia?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Canberra",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 3,
+              "paraphrase": "Australia's capital city, what is it?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Canberra",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 3,
+              "paraphrase": "In which city is Australia's capital located?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Canberra",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'canberra' ≈ 'canberra'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            }
+          ]
+        }
+      ],
+      "n_valid_victim_queries": 15,
+      "successful_attacks": [],
+      "n_successful_attacks": {
+        "exact_match": 0,
+        "llm_judge": 0
+      },
+      "attack_succeeded": {
+        "exact_match": false,
+        "llm_judge": false
+      }
+    },
+    {
+      "question_id": "nq_009",
+      "original_question": "Which ancient civilization built Machu Picchu?",
+      "ground_truths": [
+        "Inca",
+        "Incas",
+        "Inca Empire",
+        "Incan civilization"
+      ],
+      "victim_original_answer": "Inca",
+      "victim_original_correct": {
+        "exact_match": true,
+        "llm_judge": true
+      },
+      "paraphrases": [
+        {
+          "round": 1,
+          "paraphrase": "Which civilization from antiquity constructed Machu Picchu?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Inca",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'inca' ≈ 'inca'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 1,
+          "paraphrase": "What ancient empire built Machu Pic.?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Hmm, the user is asking about which ancient empire built Machu Pic. Wait, that's probably a typo for Machu Picchu. I know Machu Picchu is a famous site in Peru, and it's associated with the Inca Empire, not an empire from ancient times in the sense of like Rome or Egypt. The Inca Empire was a pre-Columbian civilization that existed in the Andes region.\n\nI should confirm the spelling: the user wrote \"Machu Pic.\" which is short for Machu Picchu. The Inca Empire was the one that constructed it around the 15th century, before the Spanish arrived. It's important to note that it's not an \"ancient empire\" in the traditional historical sense because the Inca Empire was relatively recent—only about 100 years before the Spanish conquest. But in common usage, it's often referred to as ancient by some people.\n\nThe user specified \"ancient empire,\" but technically, the Inca Empire isn't ancient; it's more like a historical empire from the 15th century. However, in the context of this question, the answer is definitely the Inca Empire. I need to be precise.\n\nAlso, the user said \"Do not explain. Do not repeat the question. Return only the answer itself.\" So I have to give the shortest direct answer without any extra text. Just the name.\n\nThe answer should be \"Inca Empire\" or \"Inca\". But to be accurate, it's the Inca Empire. Sometimes people say \"Inca civilization,\" but the empire is the correct term here.\n\nI recall that Machu Picchu was built by the Inca Empire, specifically under the rule of Pachacuti. So the empire is the Inca Empire.\n\nI should avoid adding anything else. The user wants only the answer, no explanations, no full sentences. So I'll go with \"Inca Empire\".\n\nWait, the user wrote \"Machu Pic.\" which might be a misspelling, but I think it's clear. No need to correct that in the answer.\n\nFinal answer: Inca Empire\n\nBut to make it shortest, maybe just \"Inca\" is sufficient? Let me think. In historical contexts, it's often called the Inca Empire. For example, in textbooks, it's the Inca Empire. I think \"Inca Empire\" is standard.\n\nThe instruction says \"shortest direct answer.\" So perhaps \"Inca\" is shorter. But to be precise",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'hmm the user is asking about which ancient empire built machu pic wait thats probably a typo for machu picchu i know machu picchu is a famous site in peru and its associated with the inca empire not an empire from ancient times in the sense of like rome or egypt the inca empire was a precolumbian civilization that existed in the andes region\\n\\ni should confirm the spelling the user wrote machu pic which is short for machu picchu the inca empire was the one that constructed it around the 15th century before the spanish arrived its important to note that its not an ancient empire in the traditional historical sense because the inca empire was relatively recentonly about 100 years before the spanish conquest but in common usage its often referred to as ancient by some people\\n\\nthe user specified ancient empire but technically the inca empire isnt ancient its more like a historical empire from the 15th century however in the context of this question the answer is definitely the inca empire i need to be precise\\n\\nalso the user said do not explain do not repeat the question return only the answer itself so i have to give the shortest direct answer without any extra text just the name\\n\\nthe answer should be inca empire or inca but to be accurate its the inca empire sometimes people say inca civilization but the empire is the correct term here\\n\\ni recall that machu picchu was built by the inca empire specifically under the rule of pachacuti so the empire is the inca empire\\n\\ni should avoid adding anything else the user wants only the answer no explanations no full sentences so ill go with inca empire\\n\\nwait the user wrote machu pic which might be a misspelling but i think its clear no need to correct that in the answer\\n\\nfinal answer inca empire\\n\\nbut to make it shortest maybe just inca is sufficient let me think in historical contexts its often called the inca empire for example in textbooks its the inca empire i think inca empire is standard\\n\\nthe instruction says shortest direct answer so perhaps inca is shorter but to be precise' ≈ 'inca'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 1,
+          "paraphrase": "Which pre-colonial society constructed the Machu Picchu site?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Inca",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'inca' ≈ 'inca'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 1,
+          "paraphrase": "What empire in the ancient world created Machu Picchu?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Inca Empire",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'inca empire' ≈ 'inca'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 1,
+          "paraphrase": "Which indigenous civilization of the Andes built Machu Picchu?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Inca",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'inca' ≈ 'inca'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 2,
+          "paraphrase": "What Inca civilization constructed Machu Picchu?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Inca",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'inca' ≈ 'inca'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 2,
+          "paraphrase": "Which ancient Andean civilization is credited with building Machu Picchu?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Inca",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'inca' ≈ 'inca'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 2,
+          "paraphrase": "Machu Picchu was constructed by which pre-Columbian empire?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Inca Empire",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'inca empire' ≈ 'inca'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 2,
+          "paraphrase": "What ancient culture in the Andes constructed Machu Picchu?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Inca",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'inca' ≈ 'inca'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 3,
+          "paraphrase": "Which ancient Andean culture constructed Machu Picchu?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Inca",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'inca' ≈ 'inca'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 3,
+          "paraphrase": "What pre-Columbian empire is associated with Machu Picchu's construction?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Inca Empire",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'inca empire' ≈ 'inca'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 3,
+          "paraphrase": "Which empire built Machu Picchu before European contact?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Inca Empire",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'inca empire' ≈ 'inca'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 3,
+          "paraphrase": "Machu Picchu's construction was attributed to which ancient civilization?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Inca",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'inca' ≈ 'inca'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        },
+        {
+          "round": 3,
+          "paraphrase": "Which civilization from the pre-Columbian era built Machu Picchu?",
+          "status": "queried",
+          "equivalent": true,
+          "victim_answer": "Inca",
+          "correct": {
+            "exact_match": true,
+            "llm_judge": true
+          },
+          "rationale": {
+            "exact_match": "Normalised match: 'inca' ≈ 'inca'",
+            "llm_judge": "Fast-path normalised match."
+          },
+          "attack_success": {
+            "exact_match": false,
+            "llm_judge": false
+          }
+        }
+      ],
+      "attack_success_rate": {
+        "exact_match": 0.0,
+        "llm_judge": 0.0
+      },
+      "rounds_attempted": 3,
+      "rounds": [
+        {
+          "round": 1,
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 5,
+          "candidates": [
+            {
+              "round": 1,
+              "paraphrase": "Which civilization from antiquity constructed Machu Picchu?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Inca",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'inca' ≈ 'inca'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 1,
+              "paraphrase": "What ancient empire built Machu Pic.?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Hmm, the user is asking about which ancient empire built Machu Pic. Wait, that's probably a typo for Machu Picchu. I know Machu Picchu is a famous site in Peru, and it's associated with the Inca Empire, not an empire from ancient times in the sense of like Rome or Egypt. The Inca Empire was a pre-Columbian civilization that existed in the Andes region.\n\nI should confirm the spelling: the user wrote \"Machu Pic.\" which is short for Machu Picchu. The Inca Empire was the one that constructed it around the 15th century, before the Spanish arrived. It's important to note that it's not an \"ancient empire\" in the traditional historical sense because the Inca Empire was relatively recent—only about 100 years before the Spanish conquest. But in common usage, it's often referred to as ancient by some people.\n\nThe user specified \"ancient empire,\" but technically, the Inca Empire isn't ancient; it's more like a historical empire from the 15th century. However, in the context of this question, the answer is definitely the Inca Empire. I need to be precise.\n\nAlso, the user said \"Do not explain. Do not repeat the question. Return only the answer itself.\" So I have to give the shortest direct answer without any extra text. Just the name.\n\nThe answer should be \"Inca Empire\" or \"Inca\". But to be accurate, it's the Inca Empire. Sometimes people say \"Inca civilization,\" but the empire is the correct term here.\n\nI recall that Machu Picchu was built by the Inca Empire, specifically under the rule of Pachacuti. So the empire is the Inca Empire.\n\nI should avoid adding anything else. The user wants only the answer, no explanations, no full sentences. So I'll go with \"Inca Empire\".\n\nWait, the user wrote \"Machu Pic.\" which might be a misspelling, but I think it's clear. No need to correct that in the answer.\n\nFinal answer: Inca Empire\n\nBut to make it shortest, maybe just \"Inca\" is sufficient? Let me think. In historical contexts, it's often called the Inca Empire. For example, in textbooks, it's the Inca Empire. I think \"Inca Empire\" is standard.\n\nThe instruction says \"shortest direct answer.\" So perhaps \"Inca\" is shorter. But to be precise",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'hmm the user is asking about which ancient empire built machu pic wait thats probably a typo for machu picchu i know machu picchu is a famous site in peru and its associated with the inca empire not an empire from ancient times in the sense of like rome or egypt the inca empire was a precolumbian civilization that existed in the andes region\\n\\ni should confirm the spelling the user wrote machu pic which is short for machu picchu the inca empire was the one that constructed it around the 15th century before the spanish arrived its important to note that its not an ancient empire in the traditional historical sense because the inca empire was relatively recentonly about 100 years before the spanish conquest but in common usage its often referred to as ancient by some people\\n\\nthe user specified ancient empire but technically the inca empire isnt ancient its more like a historical empire from the 15th century however in the context of this question the answer is definitely the inca empire i need to be precise\\n\\nalso the user said do not explain do not repeat the question return only the answer itself so i have to give the shortest direct answer without any extra text just the name\\n\\nthe answer should be inca empire or inca but to be accurate its the inca empire sometimes people say inca civilization but the empire is the correct term here\\n\\ni recall that machu picchu was built by the inca empire specifically under the rule of pachacuti so the empire is the inca empire\\n\\ni should avoid adding anything else the user wants only the answer no explanations no full sentences so ill go with inca empire\\n\\nwait the user wrote machu pic which might be a misspelling but i think its clear no need to correct that in the answer\\n\\nfinal answer inca empire\\n\\nbut to make it shortest maybe just inca is sufficient let me think in historical contexts its often called the inca empire for example in textbooks its the inca empire i think inca empire is standard\\n\\nthe instruction says shortest direct answer so perhaps inca is shorter but to be precise' ≈ 'inca'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 1,
+              "paraphrase": "Which pre-colonial society constructed the Machu Picchu site?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Inca",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'inca' ≈ 'inca'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 1,
+              "paraphrase": "What empire in the ancient world created Machu Picchu?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Inca Empire",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'inca empire' ≈ 'inca'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 1,
+              "paraphrase": "Which indigenous civilization of the Andes built Machu Picchu?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Inca",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'inca' ≈ 'inca'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 1,
+          "n_queried": 4,
+          "candidates": [
+            {
+              "round": 2,
+              "paraphrase": "What Inca civilization constructed Machu Picchu?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Inca",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'inca' ≈ 'inca'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 2,
+              "paraphrase": "Which ancient Andean civilization is credited with building Machu Picchu?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Inca",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'inca' ≈ 'inca'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 2,
+              "paraphrase": "Machu Picchu was constructed by which pre-Columbian empire?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Inca Empire",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'inca empire' ≈ 'inca'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "paraphrase": "Which empire in the New World built Machu Picchu?",
+              "status": "rejected",
+              "equivalent": false
+            },
+            {
+              "round": 2,
+              "paraphrase": "What ancient culture in the Andes constructed Machu Picchu?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Inca",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'inca' ≈ 'inca'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "n_generated": 5,
+          "n_duplicates": 0,
+          "n_rejected": 0,
+          "n_queried": 5,
+          "candidates": [
+            {
+              "round": 3,
+              "paraphrase": "Which ancient Andean culture constructed Machu Picchu?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Inca",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'inca' ≈ 'inca'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 3,
+              "paraphrase": "What pre-Columbian empire is associated with Machu Picchu's construction?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Inca Empire",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'inca empire' ≈ 'inca'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 3,
+              "paraphrase": "Which empire built Machu Picchu before European contact?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Inca Empire",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'inca empire' ≈ 'inca'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 3,
+              "paraphrase": "Machu Picchu's construction was attributed to which ancient civilization?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Inca",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'inca' ≈ 'inca'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            },
+            {
+              "round": 3,
+              "paraphrase": "Which civilization from the pre-Columbian era built Machu Picchu?",
+              "status": "queried",
+              "equivalent": true,
+              "victim_answer": "Inca",
+              "correct": {
+                "exact_match": true,
+                "llm_judge": true
+              },
+              "rationale": {
+                "exact_match": "Normalised match: 'inca' ≈ 'inca'",
+                "llm_judge": "Fast-path normalised match."
+              },
+              "attack_success": {
+                "exact_match": false,
+                "llm_judge": false
+              }
+            }
+          ]
+        }
+      ],
+      "n_valid_victim_queries": 14,
+      "successful_attacks": [],
+      "n_successful_attacks": {
+        "exact_match": 0,
+        "llm_judge": 0
+      },
+      "attack_succeeded": {
+        "exact_match": false,
+        "llm_judge": false
+      }
+    }
+  ],
+  "summary": {
+    "n_questions": 3,
+    "n_paraphrases_per_question": 5,
+    "max_rounds": 3,
+    "stop_on_success": false,
+    "evaluators_used": [
+      "exact_match",
+      "llm_judge"
+    ],
+    "overall_attack_success_rate": {
+      "exact_match": 0.022222222222222223,
+      "llm_judge": 0.022222222222222223
+    },
+    "question_attack_success_rate": {
+      "exact_match": 0.3333333333333333,
+      "llm_judge": 0.3333333333333333
+    },
+    "total_valid_victim_queries": 44,
+    "total_successful_attacks": {
+      "exact_match": 1,
+      "llm_judge": 1
+    },
+    "victim_baseline_accuracy": {
+      "exact_match": 1.0,
+      "llm_judge": 1.0
+    }
+  }
+}

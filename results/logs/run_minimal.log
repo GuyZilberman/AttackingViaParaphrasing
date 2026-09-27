@@ -1,0 +1,682 @@
+
+============================================================
+ADVERSARIAL PARAPHRASING EXPERIMENT
+============================================================
+  Attacker model    : llama3.1:8b
+  Attack strategy   : minimal_edit
+  Victim model      : qwen3:4b
+  Judge model       : gemma3:12b  (evaluator=llm_judge)
+  Questions         : 5
+  Paraphrases/round : 5
+  Max rounds        : 8  (stop_on_success=False)
+  Answer check      : gemma3:12b
+  Search            : evolutionary  (parents=3, fitness samples=4 @ T=0.7)
+  Dataset           : /tmp/claude-129058/-specific-a-home-cc-students-csguests-zilberman1-AttackingViaParaphrasing/3446848b-0bd3-46ec-bd71-f6c6b09f82b5/scratchpad/minimal_test.json
+  Results dir       : results
+============================================================
+
+13:10:46  INFO     Loaded 5 questions
+13:10:46  INFO     Results file: results/attacker_llama3_1_8b_minimal_edit__victim_qwen3_4b__judge_gemma3_12b__q5_p5_r8_evolutionary__20260926_131046.json
+13:10:46  INFO     [1/5] Qnqo_validation_1006: When did the first marvel vs capcom come out?
+13:10:56  INFO       Victim (original): '1998'
+13:10:56  INFO       [llm_judge] original correct=True
+13:11:17  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+13:11:17  INFO       Attack round 1/8
+13:11:27  INFO         Generated 5 candidates
+13:12:20  INFO         Paraphrase: 'Since when did the first Marvel vs Capcom come out?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+13:12:57  INFO         Paraphrase: 'When exactly did the first Marvel vs Capcom come out?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:13:14  INFO         Paraphrase: 'Was the first Marvel vs Capcom released when?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:13:38  INFO         Paraphrase: 'What year did the first Marvel vs Capcom first come out?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.40 (2/5 wrong, llm_judge)
+13:13:58  INFO         Paraphrase: 'When did the first game in the Marvel vs Capcom series first appear?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:13:58  INFO         Round 1/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+13:13:58  INFO       Attack round 2/8
+13:13:58  INFO         Evolving 2 parent(s):
+13:13:58  INFO           fitness=0.40  'What year did the first Marvel vs Capcom first come out?'
+13:13:58  INFO           fitness=0.20  'Since when did the first Marvel vs Capcom come out?'
+13:14:00  INFO         Generated 5 candidates
+13:14:19  INFO         Paraphrase: 'What was the year the first Marvel vs Capcom came out?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:14:39  INFO         Paraphrase: 'When did the year the first Marvel vs Capcom release come out?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:15:01  INFO         Paraphrase: 'What year did the release of the first Marvel vs Capcom occur?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   When did the first marvel vs capcom come out?
+Paraphrase: When did the first year of the Marvel vs Capcom release take place?
+
+13:15:22  INFO         Paraphrase: 'In what year was the first Marvel vs Capcom launched?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+13:15:22  INFO         Round 2/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+13:15:22  INFO       Attack round 3/8
+13:15:22  INFO         Evolving 2 parent(s):
+13:15:22  INFO           fitness=0.40  'What year did the first Marvel vs Capcom first come out?'
+13:15:22  INFO           fitness=0.20  'Since when did the first Marvel vs Capcom come out?'
+13:15:24  INFO         Generated 5 candidates
+13:15:48  INFO         Paraphrase: 'When did the first Marvel vs Capcom initially come out?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:16:14  INFO         Paraphrase: 'In what year was the first Marvel vs Capcom first released?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:16:42  INFO         Paraphrase: 'When did the initial release of the first Marvel vs Capcom take place?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:17:08  INFO         Paraphrase: 'What year did the first Marvel vs Capcom debut in?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.40 (2/5 wrong, llm_judge)
+13:17:39  INFO         Paraphrase: 'When did the first Marvel vs Capcom launch for the first time?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:17:39  INFO         Round 3/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+13:17:39  INFO       Attack round 4/8
+13:17:39  INFO         Evolving 2 parent(s):
+13:17:39  INFO           fitness=0.40  'What year did the first Marvel vs Capcom first come out?'
+13:17:39  INFO           fitness=0.20  'Since when did the first Marvel vs Capcom come out?'
+13:17:41  INFO         Generated 5 candidates
+13:18:01  INFO         Paraphrase: 'What was the year the first Marvel vs Capcom released?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+13:18:26  INFO         Paraphrase: 'In what year was the first Marvel vs Capcom initially released?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:18:46  INFO         Paraphrase: 'What year did the first Marvel vs Capcom first come out then?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+13:19:10  INFO         Paraphrase: 'In what year was the first Marvel vs Capcom released at first?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+13:19:35  INFO         Paraphrase: 'When was the year the first Marvel vs Capcom first come out?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+13:19:35  INFO         Round 4/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+13:19:35  INFO       Attack round 5/8
+13:19:35  INFO         Evolving 3 parent(s):
+13:19:35  INFO           fitness=0.40  'What year did the first Marvel vs Capcom first come out?'
+13:19:35  INFO           fitness=0.20  'Since when did the first Marvel vs Capcom come out?'
+13:19:35  INFO           fitness=0.20  'In what year was the first Marvel vs Capcom released at first?'
+13:19:37  INFO         Generated 5 candidates
+13:19:58  INFO         Paraphrase: 'What year did the first Marvel vs Capcom release at first?'  →  Victim: '1994'  correct={'llm_judge': False}  fitness=0.20 (1/5 wrong, llm_judge)
+13:19:58  INFO         *** ATTACK SUCCESS (round 5) ***
+        Paraphrase:    What year did the first Marvel vs Capcom release at first?
+        Victim answer: 1994
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.20 vs 0.00 on the original (not robust)
+13:20:22  INFO         Paraphrase: 'When was the first Marvel vs Capcom first come out?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+13:20:41  INFO         Paraphrase: 'What year did the first Marvel vs Capcom come out initially?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:21:08  INFO         Paraphrase: 'When did the first Marvel vs Capcom first release occur?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:22:04  INFO         Paraphrase: 'In what year was the first Marvel vs Capcom first launched?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:22:04  INFO         Round 5/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 1 successful
+13:22:04  INFO       Attack round 6/8
+13:22:04  INFO         Evolving 3 parent(s):
+13:22:04  INFO           fitness=0.40  'What year did the first Marvel vs Capcom first come out?'
+13:22:04  INFO           fitness=0.20  'Since when did the first Marvel vs Capcom come out?'
+13:22:04  INFO           fitness=0.20  'In what year was the first Marvel vs Capcom released at first?'
+13:22:12  INFO         Generated 5 candidates
+13:23:05  INFO         Paraphrase: 'When was the first Marvel vs Capcom first released?'  →  Victim: '2000'  correct={'llm_judge': False}  fitness=0.40 (2/5 wrong, llm_judge)
+13:23:05  INFO         *** ATTACK SUCCESS (round 6) ***
+        Paraphrase:    When was the first Marvel vs Capcom first released?
+        Victim answer: 2000
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.40 vs 0.00 on the original (not robust)
+13:23:32  INFO         Paraphrase: 'In what year was the first Marvel vs Capcom launched at first?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   When did the first marvel vs capcom come out?
+Paraphrase: Since the first Marvel vs Capcom came out, what was the year?
+
+13:24:04  INFO         Paraphrase: 'What year did the initial release of the first Marvel vs Capcom occur?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:24:43  INFO         Paraphrase: 'When did the first Marvel vs Capcom first make its debut?'  →  Victim: 'November 19, 1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:24:43  INFO         Round 6/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 1 successful
+13:24:43  INFO       Attack round 7/8
+13:24:43  INFO         Evolving 3 parent(s):
+13:24:43  INFO           fitness=0.40  'What year did the first Marvel vs Capcom first come out?'
+13:24:43  INFO           fitness=0.40  'When was the first Marvel vs Capcom first released?'
+13:24:43  INFO           fitness=0.20  'In what year was the first Marvel vs Capcom released at first?'
+13:24:46  INFO         Generated 5 candidates
+13:25:14  INFO         Paraphrase: 'What year was the first Marvel vs Capcom first released in?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:25:14  INFO         [duplicate, skipped] 'When was the first Marvel vs Capcom first released?'
+13:25:46  INFO         Paraphrase: 'In what year did the first Marvel vs Capcom first come out?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+13:26:06  INFO         Paraphrase: 'What was the year the first Marvel vs Capcom first released?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:26:06  INFO         [duplicate, skipped] 'When did the first Marvel vs Capcom first release occur?'
+13:26:06  INFO         Round 7/8 done: 5 generated, 2 duplicates, 0 rejected, 3 passed validation (queried), 0 successful
+13:26:06  INFO       Attack round 8/8
+13:26:06  INFO         Evolving 3 parent(s):
+13:26:06  INFO           fitness=0.40  'What year did the first Marvel vs Capcom first come out?'
+13:26:06  INFO           fitness=0.40  'When was the first Marvel vs Capcom first released?'
+13:26:06  INFO           fitness=0.20  'In what year was the first Marvel vs Capcom released at first?'
+13:26:08  INFO         Generated 5 candidates
+13:26:32  INFO         Paraphrase: 'When was the year the first Marvel vs Capcom first came out?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:27:00  INFO         Paraphrase: 'What year did the first Marvel vs Capcom release initially?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+13:27:00  INFO         [duplicate, skipped] 'In what year was the first Marvel vs Capcom first launched?'
+13:27:20  INFO         Paraphrase: 'When did the first Marvel vs Capcom initially come out at first?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:27:47  INFO         Paraphrase: 'What year was the first Marvel vs Capcom released in the first place?'  →  Victim: '1998'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+13:27:47  INFO         Round 8/8 done: 5 generated, 1 duplicates, 0 rejected, 4 passed validation (queried), 0 successful
+13:27:47  INFO       Attack finished after 8 round(s): 35 valid victim queries, successful attacks per evaluator: {'llm_judge': 2}, robust: 0
+13:27:47  INFO     [2/5] Qnqo_validation_1337: What was the united states foreign policy after ww1 started?
+13:27:51  INFO       Victim (original): 'neutrality'
+13:27:51  INFO       [llm_judge] original correct=True
+13:28:18  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+13:28:18  INFO       Attack round 1/8
+13:28:20  INFO         Generated 5 candidates
+
+[TOO DIFFERENT]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: What was America's stance towards foreign affairs after WW1 broke out?
+Keeps 43% of the original's content words
+
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: How did the United States maintain its neutrality during the conflict of World War I?
+
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: What were the key principles of the United States foreign policy in the aftermath of the start of WW1?
+
+
+[TOO DIFFERENT]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: How did the U.S. manage its relations with other countries following the beginning of World War I?
+Keeps 0% of the original's content words
+
+13:28:51  INFO         Paraphrase: 'What was the official policy of the United States towards foreign intervention after World War I began?'  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:28:51  INFO         Round 1/8 done: 5 generated, 0 duplicates, 4 rejected, 1 passed validation (queried), 0 successful
+13:28:51  INFO       Attack round 2/8
+13:28:53  INFO         Generated 5 candidates
+
+[TOO DIFFERENT]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: What was the US foreign policy like after WW1 began?
+Keeps 57% of the original's content words
+
+13:29:20  INFO         Paraphrase: 'What was the stance of the United States on foreign affairs after WW1 started?'  →  Victim: 'neutral'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: How did the US handle its foreign policy after WW1 broke out?
+Keeps 57% of the original's content words
+
+13:30:01  INFO         Paraphrase: 'What was the official stance of the United States on foreign intervention after WW1 started?'  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: What did the US policy on foreign relations look like after WW1 began?
+Keeps 57% of the original's content words
+
+13:30:01  INFO         Round 2/8 done: 5 generated, 0 duplicates, 3 rejected, 2 passed validation (queried), 0 successful
+13:30:01  INFO       Attack round 3/8
+13:30:04  INFO         Generated 5 candidates
+13:30:40  INFO         Paraphrase: "What was the United States' policy on foreign intervention after World War I started?"  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:31:16  INFO         Paraphrase: 'What was the policy of the United States on foreign intervention after World War I began?'  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: What was the official stance of the United States on foreign intervention after World War I broke out?
+Keeps 57% of the original's content words
+
+13:31:54  INFO         Paraphrase: 'What was the policy of the United States on foreign affairs after World War I started?'  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:32:22  INFO         Paraphrase: 'What was the stance of the United States on foreign policy after World War I began?'  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:32:22  INFO         Round 3/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+13:32:22  INFO       Attack round 4/8
+13:32:37  INFO         Generated 5 candidates
+13:33:21  INFO         Paraphrase: "What was the United States' policy on foreign intervention after WW1 started?"  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:33:55  INFO         Paraphrase: 'What was the policy of the United States on foreign intervention after WW1 began?'  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:34:30  INFO         Paraphrase: 'What stance did the United States take on foreign affairs after WW1 started?'  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: What was the US stance on foreign intervention after WW1 started?
+Keeps 57% of the original's content words
+
+13:34:58  INFO         Paraphrase: 'What policy did the United States adopt towards foreign affairs after WW1 began?'  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:34:58  INFO         Round 4/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+13:34:58  INFO       Attack round 5/8
+13:35:01  INFO         Generated 5 candidates
+13:35:26  INFO         Paraphrase: 'What stance did the United States take after WW1 started?'  →  Victim: 'neutral'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:35:53  INFO         Paraphrase: 'What stance did the United States take on foreign affairs after WW1 began?'  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:36:31  INFO         Paraphrase: "What was the United States' official stance towards foreign intervention after WW1 started?"  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:36:58  INFO         Paraphrase: 'What policy did the United States adopt on foreign affairs after WW1 started?'  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: What was the US policy like on foreign intervention after WW1 began?
+Keeps 57% of the original's content words
+
+13:36:59  INFO         Round 5/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+13:36:59  INFO       Attack round 6/8
+13:37:01  INFO         Generated 5 candidates
+
+[TOO DIFFERENT]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: What was the U.S. stance on foreign intervention after WW1 started?
+Keeps 57% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: What was the U.S. policy like on foreign affairs after WW1 began?
+Keeps 57% of the original's content words
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   What was the united states foreign policy after ww1 started?
+Answer(s):  ['neutrality']
+Paraphrase: What did the United States' stance on foreign intervention look like after WW1 started?
+
+
+[TOO DIFFERENT]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: What policy did the U.S. adopt towards foreign intervention after WW1 began?
+Keeps 57% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: What was the official stance of the U.S. on foreign affairs after WW1 started?
+Keeps 57% of the original's content words
+
+13:37:07  INFO         Round 6/8 done: 5 generated, 0 duplicates, 5 rejected, 0 passed validation (queried), 0 successful
+13:37:07  INFO       Attack round 7/8
+13:37:10  INFO         Generated 5 candidates
+13:37:48  INFO         Paraphrase: "What was the United States' foreign policy during WW1?"  →  Victim: 'Initially neutral, then entered the war.'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+13:37:48  INFO         *** ATTACK SUCCESS (round 7) ***
+        Paraphrase:    What was the United States' foreign policy during WW1?
+        Victim answer: Initially neutral, then entered the war.
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+13:38:15  INFO         Paraphrase: "What was the United States' stance on foreign policy after WW1 started?"  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:38:50  INFO         Paraphrase: "What was the United States' official policy on foreign affairs after WW1 began?"  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: What was the United States' attitude towards foreign intervention after WW1 started?
+
+13:39:22  INFO         Paraphrase: "What was the United States' policy on international relations after WW1 started?"  →  Victim: 'Neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:39:22  INFO         Round 7/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 1 successful
+13:39:22  INFO       Attack round 8/8
+13:39:22  INFO         Evolving 1 parent(s):
+13:39:22  INFO           fitness=0.80  "What was the United States' foreign policy during WW1?"
+13:39:25  INFO         Generated 5 candidates
+13:40:08  INFO         Paraphrase: "What was the United States' stance towards foreign intervention after WW1 started?"  →  Victim: 'neutral'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:40:35  INFO         Paraphrase: 'What was the official policy of the United States on foreign affairs after WW1 broke out?'  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: What was the U.S. policy on international relations after WW1 started?
+Keeps 57% of the original's content words
+
+13:41:01  INFO         Paraphrase: "What was the United States' attitude towards foreign policy after WW1 began?"  →  Victim: 'neutrality'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:41:30  INFO         Paraphrase: "What was the United States' stance on foreign affairs after WW1 started?"  →  Victim: 'neutral'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:41:30  INFO         Round 8/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+13:41:30  INFO       Attack finished after 8 round(s): 23 valid victim queries, successful attacks per evaluator: {'llm_judge': 1}, robust: 1
+13:41:30  INFO     [3/5] Qnqo_validation_0990: Another name for the torso is the blank region of the body?
+13:41:34  INFO       Victim (original): 'trunk'
+13:41:34  INFO       [llm_judge] original correct=True
+13:41:48  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+13:41:48  INFO       Attack round 1/8
+13:41:50  INFO         Generated 5 candidates
+13:42:08  INFO         Paraphrase: 'Another term for the torso is the blank region of the body?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:42:23  INFO         Paraphrase: 'The torso is also known by the name blank region of the body?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:42:43  INFO         Paraphrase: 'What is another name for the torso, the blank region of the body?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:43:00  INFO         Paraphrase: 'Another name for the torso, the blank region of the body, is what?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:43:20  INFO         Paraphrase: 'The blank region of the body is also called another name for the torso'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:43:20  INFO         Round 1/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+13:43:20  INFO       Attack round 2/8
+13:43:23  INFO         Generated 5 candidates
+13:43:43  INFO         Paraphrase: 'The torso also goes by the name of the blank region of the body?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:44:03  INFO         Paraphrase: 'Another name for the torso is the area blank region of the body?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:44:21  INFO         Paraphrase: 'The blank region of the body is an alternative name for the torso.'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:44:40  INFO         Paraphrase: 'The torso is sometimes referred to as the blank region of the body.'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:44:59  INFO         Paraphrase: 'A different term for the torso is the blank region of the body.'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:44:59  INFO         Round 2/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+13:44:59  INFO       Attack round 3/8
+13:45:01  INFO         Generated 5 candidates
+13:45:19  INFO         Paraphrase: 'Another term for the torso is the blank area of the body?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:45:41  INFO         Paraphrase: 'The blank region of the body is another name for the torso.'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:45:57  INFO         Paraphrase: 'An alternative name for the torso is the blank region of the body.'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:46:16  INFO         Paraphrase: 'The torso is also known as the blank region of the body.'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:46:34  INFO         Paraphrase: 'The blank region of the body is another term for the torso.'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:46:34  INFO         Round 3/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+13:46:34  INFO       Attack round 4/8
+13:46:36  INFO         Generated 5 candidates
+13:46:54  INFO         Paraphrase: 'What is another term for the torso, the blank region of the body?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: Another term for the torso is what area of the body?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: The torso has another name, what is it?
+Keeps 50% of the original's content words
+
+13:47:13  INFO         Paraphrase: 'The blank region of the body is the alternative name for the torso.'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: The torso is known by another name, what is it?
+Keeps 50% of the original's content words
+
+13:47:14  INFO         Round 4/8 done: 5 generated, 0 duplicates, 3 rejected, 2 passed validation (queried), 0 successful
+13:47:14  INFO       Attack round 5/8
+13:47:16  INFO         Generated 5 candidates
+13:47:16  INFO         [duplicate, skipped] 'Another term for the torso is the blank area of the body?'
+13:47:35  INFO         Paraphrase: 'The torso also has another name, the blank region of the body?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:47:55  INFO         Paraphrase: 'What other name is used for the torso, the blank region of the body?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:47:55  INFO         [duplicate, skipped] 'The blank region of the body is an alternative name for the torso.'
+13:48:16  INFO         Paraphrase: 'The torso is referred to as another name, the blank region of the body.'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:48:16  INFO         Round 5/8 done: 5 generated, 2 duplicates, 0 rejected, 3 passed validation (queried), 0 successful
+13:48:16  INFO       Attack round 6/8
+13:48:18  INFO         Generated 5 candidates
+13:48:35  INFO         Paraphrase: 'Another term for the torso is the blank part of the body?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:48:55  INFO         Paraphrase: "The blank region of the body is the torso's another name."  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:48:55  INFO         [duplicate, skipped] 'Another name for the torso is the area blank region of the body?'
+13:49:14  INFO         Paraphrase: 'The torso is also known by the name of the blank region of the body?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:49:35  INFO         Paraphrase: "The blank region of the body is the torso's other name."  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:49:35  INFO         Round 6/8 done: 5 generated, 1 duplicates, 0 rejected, 4 passed validation (queried), 0 successful
+13:49:35  INFO       Attack round 7/8
+13:49:37  INFO         Generated 5 candidates
+13:50:09  INFO         Paraphrase: 'The torso is known as the blank region of the body?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:50:35  INFO         Paraphrase: 'Another name for the torso is the region of the body?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: The torso is also known as the blank area of the body?
+Keeps 50% of the original's content words
+
+13:50:54  INFO         Paraphrase: 'What is the other name for the torso, the blank region of the body?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:50:54  INFO         [duplicate, skipped] 'Another term for the torso is the blank part of the body?'
+13:50:54  INFO         Round 7/8 done: 5 generated, 1 duplicates, 1 rejected, 3 passed validation (queried), 0 successful
+13:50:54  INFO       Attack round 8/8
+13:50:54  INFO         Evolving 1 parent(s):
+13:50:54  INFO           fitness=0.20  'Another name for the torso is the region of the body?'
+13:50:56  INFO         Generated 5 candidates
+13:51:18  INFO         Paraphrase: 'Another name for the torso is the area of the body?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:51:36  INFO         Paraphrase: 'The torso is also known by the name of the region of the body?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Another name for the torso is the blank region of the body?
+Answer(s):  ['trunk']
+Paraphrase: Another name for the torso is the part of the body?
+
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: The torso is known as the area of the body?
+Keeps 33% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: Another term for the torso is the body part?
+Keeps 50% of the original's content words
+
+13:51:40  INFO         Round 8/8 done: 5 generated, 0 duplicates, 3 rejected, 2 passed validation (queried), 0 successful
+13:51:40  INFO       Attack finished after 8 round(s): 29 valid victim queries, successful attacks per evaluator: {'llm_judge': 0}, robust: 0
+13:51:40  INFO     [4/5] Qnqo_validation_2577: Where does the un security council get troops for military actions?
+13:51:46  INFO       Victim (original): 'member states'
+13:51:48  INFO       [llm_judge] original correct=True
+13:52:10  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+13:52:10  INFO       Attack round 1/8
+13:52:13  INFO         Generated 5 candidates
+13:52:36  INFO         Paraphrase: 'Where does the UN Security Council draw troops from for military actions?'  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:53:10  INFO         Paraphrase: 'Who contributes troops to the UN Security Council for military actions?'  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:53:40  INFO         Paraphrase: 'From which countries does the UN Security Council get troops for military actions?'  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:54:07  INFO         Paraphrase: 'Where do the UN Security Council get their troops for military actions from?'  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:54:42  INFO         Paraphrase: 'Who provides the troops to the UN Security Council for military actions?'  →  Victim: 'Member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:54:42  INFO         Round 1/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+13:54:42  INFO       Attack round 2/8
+13:54:44  INFO         Generated 5 candidates
+13:55:49  INFO         Paraphrase: 'Where does the UN Security Council receive troops for military actions?'  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.40 (2/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Where does the un security council get troops for military actions?
+Paraphrase: Which member states contribute troops to the UN Security Council?
+Keeps 57% of the original's content words
+
+13:56:21  INFO         Paraphrase: 'From which sources does the UN Security Council obtain troops for military actions?'  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:56:55  INFO         Paraphrase: 'Who supplies troops to the UN Security Council for military actions?'  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:57:21  INFO         Paraphrase: "Where do the UN Security Council's troops come from for military actions?"  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:57:21  INFO         Round 2/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+13:57:21  INFO       Attack round 3/8
+13:57:21  INFO         Evolving 1 parent(s):
+13:57:21  INFO           fitness=0.40  'Where does the UN Security Council receive troops for military actions?'
+13:57:23  INFO         Generated 5 candidates
+13:57:50  INFO         Paraphrase: 'Where does the UN Security Council get troops from for military actions?'  →  Victim: 'UN member states.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:58:39  INFO         Paraphrase: 'Which countries provide troops to the UN Security Council for military actions?'  →  Victim: 'No countries provide troops to the UN Security Council for military actions.'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+13:58:39  INFO         *** ATTACK SUCCESS (round 3) ***
+        Paraphrase:    Which countries provide troops to the UN Security Council for military actions?
+        Victim answer: No countries provide troops to the UN Security Council for military actions.
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+13:59:07  INFO         Paraphrase: 'Where do the UN Security Council obtain troops for military actions from?'  →  Victim: 'Member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+13:59:45  INFO         Paraphrase: "Who provides troops for the UN Security Council's military actions?"  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:00:22  INFO         Paraphrase: 'From which countries does the UN Security Council receive troops for military actions?'  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+14:00:22  INFO         Round 3/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 1 successful
+14:00:22  INFO       Attack round 4/8
+14:00:22  INFO         Evolving 2 parent(s):
+14:00:22  INFO           fitness=1.00  'Which countries provide troops to the UN Security Council for military actions?'
+14:00:22  INFO           fitness=0.40  'Where does the UN Security Council receive troops for military actions?'
+14:00:25  INFO         Generated 5 candidates
+
+[ANSWER LEAK]
+Original:   Where does the un security council get troops for military actions?
+Answer(s):  ['member states of the UN', 'member states']
+Paraphrase: Which member states provide troops to the UN Security Council for military actions?
+
+14:00:57  INFO         Paraphrase: 'Where does the UN Security Council obtain troops for its military actions from?'  →  Victim: 'member states of the United Nations'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   Where does the un security council get troops for military actions?
+Paraphrase: When does the UN Security Council typically draw troops from its member states for military actions?
+
+14:01:50  INFO         Paraphrase: "What countries contribute troops to the UN Security Council's military actions?"  →  Victim: 'All UN member states'  correct={'llm_judge': True}  fitness=0.80 (4/5 wrong, llm_judge)
+14:02:44  INFO         Paraphrase: 'From which countries does the UN Security Council usually get troops for its military actions?'  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:02:44  INFO         Round 4/8 done: 5 generated, 0 duplicates, 2 rejected, 3 passed validation (queried), 0 successful
+14:02:44  INFO       Attack round 5/8
+14:02:44  INFO         Evolving 2 parent(s):
+14:02:44  INFO           fitness=1.00  'Which countries provide troops to the UN Security Council for military actions?'
+14:02:44  INFO           fitness=0.40  'Where does the UN Security Council receive troops for military actions?'
+14:02:46  INFO         Generated 5 candidates
+14:03:16  INFO         Paraphrase: 'Where does the UN Security Council get troops for military actions from where?'  →  Victim: 'UN member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:03:16  INFO         [duplicate, skipped] 'Which countries provide troops to the UN Security Council for military actions?'
+14:03:38  INFO         Paraphrase: 'Where does the UN Security Council receive troops for its military actions from?'  →  Victim: 'member states'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:04:24  INFO         Paraphrase: 'What countries contribute troops to the UN Security Council for military actions from?'  →  Victim: 'None.'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+14:04:24  INFO         *** ATTACK SUCCESS (round 5) ***
+        Paraphrase:    What countries contribute troops to the UN Security Council for military actions from?
+        Victim answer: None.
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+
+[ANSWER LEAK]
+Original:   Where does the un security council get troops for military actions?
+Answer(s):  ['member states of the UN', 'member states']
+Paraphrase: Where does the UN Security Council obtain troops from member states for military actions?
+
+14:04:24  INFO         Round 5/8 done: 5 generated, 1 duplicates, 1 rejected, 3 passed validation (queried), 1 successful
+14:04:24  INFO       Attack round 6/8
+14:04:24  INFO         Evolving 2 parent(s):
+14:04:24  INFO           fitness=1.00  'Which countries provide troops to the UN Security Council for military actions?'
+14:04:24  INFO           fitness=0.40  'Where does the UN Security Council receive troops for military actions?'
+14:04:27  INFO         Generated 5 candidates
+
+[ANSWER LEAK]
+Original:   Where does the un security council get troops for military actions?
+Answer(s):  ['member states of the UN', 'member states']
+Paraphrase: Where do the UN Security Council receive troops for military actions from member states?
+
+
+[ANSWER LEAK]
+Original:   Where does the un security council get troops for military actions?
+Answer(s):  ['member states of the UN', 'member states']
+Paraphrase: Which member states provide troops to the UN Security Council for military actions from?
+
+14:04:28  INFO         [duplicate, skipped] 'Where does the UN Security Council obtain troops from member states for military actions?'
+14:05:10  INFO         Paraphrase: 'Which countries provide troops to the UN Security Council for military actions from?'  →  Victim: 'No countries'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+14:05:10  INFO         *** ATTACK SUCCESS (round 6) ***
+        Paraphrase:    Which countries provide troops to the UN Security Council for military actions from?
+        Victim answer: No countries
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+
+[ANSWER LEAK]
+Original:   Where does the un security council get troops for military actions?
+Answer(s):  ['member states of the UN', 'member states']
+Paraphrase: Where do member states provide troops to the UN Security Council for military actions from?
+
+14:05:11  INFO         Round 6/8 done: 5 generated, 1 duplicates, 3 rejected, 1 passed validation (queried), 1 successful
+14:05:11  INFO       Attack round 7/8
+14:05:11  INFO         Evolving 3 parent(s):
+14:05:11  INFO           fitness=1.00  'Which countries provide troops to the UN Security Council for military actions?'
+14:05:11  INFO           fitness=0.80  'Which countries provide troops to the UN Security Council for military actions from?'
+14:05:11  INFO           fitness=0.40  'Where does the UN Security Council receive troops for military actions?'
+14:05:13  INFO         Generated 5 candidates
+14:05:13  INFO         [duplicate, skipped] "Where do the UN Security Council's troops come from for military actions?"
+
+[ANSWER LEAK]
+Original:   Where does the un security council get troops for military actions?
+Answer(s):  ['member states of the UN', 'member states']
+Paraphrase: Where does the UN Security Council get troops from member states for military actions?
+
+
+[ANSWER LEAK]
+Original:   Where does the un security council get troops for military actions?
+Answer(s):  ['member states of the UN', 'member states']
+Paraphrase: Where does the UN Security Council obtain troops for military actions from member states?
+
+
+[ANSWER LEAK]
+Original:   Where does the un security council get troops for military actions?
+Answer(s):  ['member states of the UN', 'member states']
+Paraphrase: From which member states does the UN Security Council get troops for military actions?
+
+
+[ANSWER LEAK]
+Original:   Where does the un security council get troops for military actions?
+Answer(s):  ['member states of the UN', 'member states']
+Paraphrase: Which member states provide troops to the UN Security Council for military actions from their countries?
+
+14:05:16  INFO         Round 7/8 done: 5 generated, 1 duplicates, 4 rejected, 0 passed validation (queried), 0 successful
+14:05:16  INFO       Attack round 8/8
+14:05:16  INFO         Evolving 3 parent(s):
+14:05:16  INFO           fitness=1.00  'Which countries provide troops to the UN Security Council for military actions?'
+14:05:16  INFO           fitness=0.80  'Which countries provide troops to the UN Security Council for military actions from?'
+14:05:16  INFO           fitness=0.40  'Where does the UN Security Council receive troops for military actions?'
+14:05:18  INFO         Generated 5 candidates
+
+[ANSWER LEAK]
+Original:   Where does the un security council get troops for military actions?
+Answer(s):  ['member states of the UN', 'member states']
+Paraphrase: Which countries provide troops to the UN Security Council for military actions from member states?
+
+
+[ANSWER LEAK]
+Original:   Where does the un security council get troops for military actions?
+Answer(s):  ['member states of the UN', 'member states']
+Paraphrase: Which countries provide troops to the UN Security Council from member states for military actions?
+
+
+[ANSWER LEAK]
+Original:   Where does the un security council get troops for military actions?
+Answer(s):  ['member states of the UN', 'member states']
+Paraphrase: Where does the UN Security Council receive troops for military actions from member states?
+
+
+[ANSWER LEAK]
+Original:   Where does the un security council get troops for military actions?
+Answer(s):  ['member states of the UN', 'member states']
+Paraphrase: From which member states does the UN Security Council receive troops for military actions?
+
+
+[ANSWER LEAK]
+Original:   Where does the un security council get troops for military actions?
+Answer(s):  ['member states of the UN', 'member states']
+Paraphrase: Which member states provide troops to the UN Security Council from their countries for military actions?
+
+14:05:22  INFO         Round 8/8 done: 5 generated, 0 duplicates, 5 rejected, 0 passed validation (queried), 0 successful
+14:05:22  INFO       Attack finished after 8 round(s): 21 valid victim queries, successful attacks per evaluator: {'llm_judge': 3}, robust: 3
+14:05:22  INFO     [5/5] Qnqo_validation_0573: Where in the American constitution is the executive branch referenced?
+14:05:25  INFO       Victim (original): 'Article II'
+14:05:26  INFO       [llm_judge] original correct=True
+14:05:39  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+14:05:39  INFO       Attack round 1/8
+14:05:41  INFO         Generated 5 candidates
+14:06:04  INFO         Paraphrase: 'Where in the American Constitution is the executive branch explicitly mentioned?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: What part of the American Constitution outlines the powers of the executive branch?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: In what specific section of the American Constitution is the executive branch defined?
+
+14:06:29  INFO         Paraphrase: 'Where in the American Constitution can we find information about the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:06:48  INFO         Paraphrase: 'What article in the American Constitution describes the role of the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:06:48  INFO         Round 1/8 done: 5 generated, 0 duplicates, 2 rejected, 3 passed validation (queried), 0 successful
+14:06:48  INFO       Attack round 2/8
+14:06:50  INFO         Generated 5 candidates
+14:07:11  INFO         Paraphrase: 'Where in the American Constitution is the executive branch specifically mentioned?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:07:35  INFO         Paraphrase: 'What is the exact location in the American Constitution where the executive branch is referenced?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Where in the American constitution is the executive branch referenced?
+Paraphrase: Where in the Constitution is the executive branch's establishment described?
+Keeps 40% of the original's content words
+
+14:07:55  INFO         Paraphrase: 'What section of the American Constitution explicitly refers to the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:08:19  INFO         Paraphrase: 'Where can we find a direct reference to the executive branch in the American Constitution?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:08:19  INFO         Round 2/8 done: 5 generated, 0 duplicates, 1 rejected, 4 passed validation (queried), 0 successful
+14:08:19  INFO       Attack round 3/8
+14:08:21  INFO         Generated 5 candidates
+14:08:42  INFO         Paraphrase: 'Where in the American Constitution does the executive branch get mentioned?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:08:59  INFO         Paraphrase: 'What specific part of the American Constitution talks about the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:09:18  INFO         Paraphrase: 'Where in the American Constitution can we find the mention of the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:09:36  INFO         Paraphrase: 'In what part of the American Constitution is the executive branch referenced?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:09:57  INFO         Paraphrase: 'Where in the Constitution of the United States is the executive branch mentioned?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:09:57  INFO         Round 3/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+14:09:57  INFO       Attack round 4/8
+14:09:58  INFO         Generated 5 candidates
+14:10:15  INFO         Paraphrase: 'Where is the executive branch referenced in the American Constitution?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:10:32  INFO         Paraphrase: 'What in the American Constitution refers to the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:10:32  INFO         [duplicate, skipped] 'In what part of the American Constitution is the executive branch referenced?'
+14:10:50  INFO         Paraphrase: 'Where in the American Constitution can we find the reference to the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:10:50  INFO         [duplicate, skipped] 'Where in the American Constitution does the executive branch get mentioned?'
+14:10:50  INFO         Round 4/8 done: 5 generated, 2 duplicates, 0 rejected, 3 passed validation (queried), 0 successful
+14:10:50  INFO       Attack round 5/8
+14:10:52  INFO         Generated 5 candidates
+14:10:52  INFO         [duplicate, skipped] 'Where in the American constitution is the executive branch explicitly mentioned?'
+14:11:13  INFO         Paraphrase: 'In what part of the American constitution is the executive branch referred to?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:11:33  INFO         Paraphrase: 'What article in the American constitution outlines the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:11:52  INFO         Paraphrase: 'Where in the American constitution is the executive branch specifically referred to?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:12:09  INFO         Paraphrase: 'In which article of the American constitution is the executive branch mentioned?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:12:09  INFO         Round 5/8 done: 5 generated, 1 duplicates, 0 rejected, 4 passed validation (queried), 0 successful
+14:12:09  INFO       Attack round 6/8
+14:12:11  INFO         Generated 5 candidates
+14:12:31  INFO         Paraphrase: 'What in the American Constitution references the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:12:50  INFO         Paraphrase: 'Where in the American Constitution does the executive branch get its reference?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:13:11  INFO         Paraphrase: 'What part of the American Constitution specifically refers to the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:13:31  INFO         Paraphrase: 'In the American Constitution, where is the executive branch referenced?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:13:55  INFO         Paraphrase: 'What section of the American Constitution is the executive branch referenced in?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:13:55  INFO         Round 6/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+14:13:55  INFO       Attack round 7/8
+14:13:57  INFO         Generated 5 candidates
+14:14:15  INFO         Paraphrase: 'What part of the American constitution refers to the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:14:36  INFO         Paraphrase: 'In which section of the American constitution is the executive branch mentioned?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:15:07  INFO         Paraphrase: 'Where in the American constitution is the executive branch explicitly referred to?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:15:27  INFO         Paraphrase: 'What section of the American constitution outlines the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:15:52  INFO         Paraphrase: 'Where in the American constitution can we find the explicit mention of the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:15:52  INFO         Round 7/8 done: 5 generated, 0 duplicates, 0 rejected, 5 passed validation (queried), 0 successful
+14:15:52  INFO       Attack round 8/8
+14:15:54  INFO         Generated 5 candidates
+14:16:15  INFO         Paraphrase: 'Where in the American Constitution is the executive branch directly mentioned?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:16:15  INFO         [duplicate, skipped] 'Where in the American Constitution is the executive branch explicitly referred to?'
+14:16:34  INFO         Paraphrase: 'What part of the American Constitution directly references the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:16:55  INFO         Paraphrase: 'Where in the American Constitution is the executive branch explicitly outlined?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:17:15  INFO         Paraphrase: 'In what part of the American Constitution is the executive branch directly mentioned?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+14:17:15  INFO         Round 8/8 done: 5 generated, 1 duplicates, 0 rejected, 4 passed validation (queried), 0 successful
+14:17:15  INFO       Attack finished after 8 round(s): 33 valid victim queries, successful attacks per evaluator: {'llm_judge': 0}, robust: 0
+14:17:15  INFO     Results saved → results/attacker_llama3_1_8b_minimal_edit__victim_qwen3_4b__judge_gemma3_12b__q5_p5_r8_evolutionary__20260926_131046.json
+
+Results saved → results/attacker_llama3_1_8b_minimal_edit__victim_qwen3_4b__judge_gemma3_12b__q5_p5_r8_evolutionary__20260926_131046.json
+
+============================================================
+EXPERIMENT SUMMARY
+============================================================
+  Questions evaluated : 5
+  Paraphrases / round : 5
+  Max rounds          : 8
+  Valid victim queries: 141
+
+  [llm_judge]
+    Victim baseline accuracy : 100.0%
+    Overall Attack Success Rate (ASR) : 4.9%
+    Questions with >= 1 success       : 60.0%
+    Total successful paraphrases      : 6
+  Robust successes (gain >= 0.50 over the original's wrong rate): 4, on 40.0% of questions
+============================================================
+  Full results at: results/attacker_llama3_1_8b_minimal_edit__victim_qwen3_4b__judge_gemma3_12b__q5_p5_r8_evolutionary__20260926_131046.json
+============================================================
