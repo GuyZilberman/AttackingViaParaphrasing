@@ -223,7 +223,11 @@ def main() -> None:
         if victim is not None:
             scanned += 1
             answer = victim.answer(question)
-            ok = judge.evaluate(answer, answers, question=question).correct
+            try:
+                ok = judge.evaluate(answer, answers, question=question).correct
+            except RuntimeError as exc:
+                print(f"[judge failed, skipped] {question}: {exc}")
+                continue
             print(f"[{len(entries)}/{args.n} kept, {scanned} scanned] "
                   f"{'KEEP' if ok else 'drop'}  {question}  →  {answer!r}")
             if not ok:

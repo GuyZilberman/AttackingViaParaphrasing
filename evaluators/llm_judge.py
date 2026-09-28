@@ -136,9 +136,9 @@ class LLMJudgeEvaluator(BaseEvaluator):
                 think=False,
             )
         except Exception as exc:
-            logger.warning("[judge] LLM call failed: %s", exc)
-            return EvalResult(correct=False, score=0.0,
-                              rationale=f"Judge error: {exc}")
+            # Raise rather than return correct=False: a failed call would
+            # otherwise count the victim's answer as wrong (a fake success).
+            raise RuntimeError(f"answer judge call failed: {exc}") from exc
 
         score_val = _extract_score(parsed)
         rationale: str = ""

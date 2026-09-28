@@ -54,8 +54,8 @@ Result file format
           "n_errors": 0,                    # candidates whose model calls failed
           "candidates": [
             {"paraphrase": "...", "status": "rejected", "equivalent": false,
-             "rejected_by": "too_different" | "equivalence" | "answer_leak" |
-                            "answer_preservation"},
+             "rejected_by": "leaked_instruction" | "too_different" | "equivalence" |
+                            "answer_leak" | "answer_preservation"},
             {"paraphrase": "...", "status": "error", "error": "..."},
             {"paraphrase": "...", "status": "duplicate"},
             { ...same fields as a "paraphrases" entry (status "queried")... }
@@ -497,6 +497,22 @@ def _iterative_attack(
             # One failed model call (timeout, server error) must not end the
             # run: record this candidate as an error and move on.
             try:
+                # Free check first: attacker notes leaked into the paraphrase.
+                leak = _leaked_instruction(question, cand)
+                if leak:
+                    print(
+                        "\n[LEAKED INSTRUCTION]"
+                        f"\nOriginal:   {question}"
+                        f"\nParaphrase: {cand}"
+                        f"\nReason:     {leak}\n"
+                    )
+                    record = {"paraphrase": cand, "status": "rejected", "equivalent": False,
+                              "rejected_by": "leaked_instruction",
+                              "rejection_reason": leak}
+                    round_records.append(record)
+                    history.append(record)
+                    continue
+
                 if not questions_equivalent(question, cand):
                     print(
                         "\n[QUESTION EQUIVALENCE FAILED]"
@@ -666,6 +682,16 @@ def _iterative_attack(
             "candidates": round_records,
         })
 
+        # Mostly failed model calls means the server is down or broken, not
+        # that this question is hard: fail the question, so the run's stop
+        # rule (max_consecutive_failures) can end the run.
+        n_err_total = sum(r["n_errors"] for r in rounds)
+        n_tried_total = sum(r["n_generated"] - r["n_duplicates"] for r in rounds)
+        if n_err_total >= _MIN_ERRORS_TO_FAIL and 2 * n_err_total >= n_tried_total:
+            raise RuntimeError(
+                f"{n_err_total} of {n_tried_total} candidates failed with model errors"
+            )
+
         if cfg.stop_on_success and n_succ:
             logger.info("    stop_on_success set; ending search after round %d", rnd)
             break
@@ -713,6 +739,36 @@ _MAX_ANSWER_WORDS = 40
 def _is_non_answer(answer: str) -> bool:
     """True for empty replies and truncated reasoning dumps."""
     return not _normalize(answer) or len(answer.split()) > _MAX_ANSWER_WORDS
+
+
+# A question fails once at least this many of its candidates hit model errors
+# (and they are at least half of those tried).
+_MIN_ERRORS_TO_FAIL = 5
+
+# Characters and words that show up when the attacker leaks its own notes or
+# instructions into a paraphrase instead of returning a clean question.
+_LEAK_CHARS = "()[]{}\""
+# ("synonym" is left out: real paraphrases use it, e.g. "Another synonym for
+# the torso is ...?".)
+_LEAK_WORDS = ("avoid", "replaced", "paraphrase", "rephrase", "reworded",
+               "rewording", "original question", "note:")
+
+
+def _leaked_instruction(original: str, cand: str) -> Optional[str]:
+    """
+    Reason string if the candidate carries attacker notes rather than being a
+    clean question (e.g. "... (replaced with correct synonym 'distinguished')
+    is not valid (avoid adding new text)"), else None. Only flags characters
+    and words the original does not itself contain.
+    """
+    orig_l, cand_l = original.lower(), cand.lower()
+    for ch in _LEAK_CHARS:
+        if ch in cand and ch not in original:
+            return f"adds {ch!r}, which the original does not contain"
+    for w in _LEAK_WORDS:
+        if w in cand_l and w not in orig_l:
+            return f"contains instruction word {w!r}"
+    return None
 
 
 def _print_summary(summary: dict, out_path: Path) -> None:

@@ -246,8 +246,10 @@ def answer_preservation_verdict(
             think=think,
         ))
     except Exception as exc:
-        print(f"[answer-judge-error] {exc}")
-        return 0, "judge call failed"
+        # A failed call is not a verdict: re-raise so the caller records the
+        # candidate as an error, instead of silently rejecting it (which hid
+        # a dead GPU for 9 hours).
+        raise RuntimeError(f"answer-preservation judge call failed: {exc}") from exc
     score = _extract_score(raw)
     if score is None:
         print(f"[answer-judge-parse-error] RAW_TAIL: {raw[-400:]}")
