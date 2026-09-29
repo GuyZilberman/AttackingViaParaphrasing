@@ -88,6 +88,13 @@ class ExperimentConfig:
     # original question's wrong rate (same sampling) by at least this much;
     # otherwise the flip may just reflect the victim's uncertainty.
     robust_margin: float = 0.5
+    # Victim answers sampled on the ORIGINAL question (at fitness_temperature)
+    # before the search; their wrong rate puts the question in a confidence
+    # group (certain / mostly / unsure) that results are reported by. Flips
+    # track the victim's own uncertainty: on 2026-09-26 they hit 5% of
+    # paraphrases when 0/20 samples were wrong and about 50% at >= 5/20.
+    # 0 disables.
+    confidence_samples: int = 20
 
     # ---- Dataset ----
     # None → use built-in data/sample_questions.json
@@ -127,6 +134,8 @@ class ExperimentConfig:
             raise ValueError("n_parents must be >= 1")
         if self.fitness_samples < 0:
             raise ValueError("fitness_samples must be >= 0")
+        if self.confidence_samples < 0:
+            raise ValueError("confidence_samples must be >= 0")
         if self.max_rounds < 1:
             raise ValueError("max_rounds must be >= 1")
         if self.n_questions < 1:
@@ -212,6 +221,9 @@ def parse_args(argv: Optional[List[str]] = None) -> ExperimentConfig:
     parser.add_argument("--robust-margin", type=float, default=defaults.robust_margin,
                         help="Min. wrong-rate gain over the original question for a "
                              "success to count as robust")
+    parser.add_argument("--confidence-samples", type=int, default=defaults.confidence_samples,
+                        help="Victim answers sampled on each original question to group "
+                             "results by the victim's confidence (0 = off)")
 
     # Dataset
     parser.add_argument("--dataset-path", default=None,
@@ -256,6 +268,7 @@ def parse_args(argv: Optional[List[str]] = None) -> ExperimentConfig:
         fitness_samples=args.fitness_samples,
         fitness_temperature=args.fitness_temperature,
         robust_margin=args.robust_margin,
+        confidence_samples=args.confidence_samples,
         dataset_path=args.dataset_path,
         n_questions=args.n_questions,
         random_seed=args.random_seed,

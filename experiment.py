@@ -44,6 +44,10 @@ Result file format
                                                   # paraphrase was wrong
       "victim_original_samples": ["...", ...],  # original asked at fitness_temperature
       "original_wrong_rate": 0.2,        # same measure as fitness, on the original
+      "original_confidence_samples": ["...", ...],  # cfg.confidence_samples fresh
+      "original_confidence_wrong_rate": 0.05,       # answers to the original, and
+      "confidence_group": "mostly",      # the share wrong: certain (none),
+                                         # mostly (< 25%) or unsure
       "n_robust_successes": 1,
       "rounds_attempted": 3,
       "rounds": [                            # full iterative-search trace
@@ -87,7 +91,13 @@ Result file format
       "robust_margin": 0.5,
       "total_robust_successes": 1,
       "question_robust_success_rate": 0.33,   # questions with >= 1 robust success
-      "victim_baseline_accuracy": {"llm_judge": 0.67}
+      "victim_baseline_accuracy": {"llm_judge": 0.67},
+      "confidence_samples": 20,
+      "by_confidence_group": {                # attacked questions only
+          "certain": {"n_questions": 2, "n_queried": 40, "n_successes": 1,
+                      "n_questions_with_success": 1},
+          ...
+      }
   }
 }
 """
@@ -316,6 +326,13 @@ def _run_question(
         "victim_original_correct": original_correct,
         "victim_original_samples": baseline["sample_answers"] if baseline else [],
         "original_wrong_rate": baseline["wrong_rate"] if baseline else None,
+        "original_confidence_samples": baseline["confidence_samples"] if baseline else [],
+        "original_confidence_wrong_rate": (
+            baseline["confidence_wrong_rate"] if baseline else None
+        ),
+        "confidence_group": (
+            confidence_group(baseline["confidence_wrong_rate"]) if baseline else None
+        ),
         "n_robust_successes": n_robust,
         "paraphrases": paraphrase_records,
         "attack_success_rate": asr,
@@ -378,7 +395,27 @@ def _summarize(
             sum(1 for r in results_per_question if r["n_robust_successes"]) / n_q
             if n_q else 0.0
         ),
+        "confidence_samples": cfg.confidence_samples,
+        "by_confidence_group": _by_confidence_group(results_per_question, evaluator_names),
     }
+
+
+def _by_confidence_group(results_per_question: List[dict], evaluator_names: List[str]) -> dict:
+    """Attacked questions and their successes per confidence group (guide evaluator)."""
+    guide = "llm_judge" if "llm_judge" in evaluator_names else evaluator_names[0]
+    groups: Dict[str, dict] = {}
+    for r in results_per_question:
+        if r.get("confidence_group") is None:
+            continue
+        g = groups.setdefault(r["confidence_group"], {
+            "n_questions": 0, "n_queried": 0, "n_successes": 0, "n_questions_with_success": 0,
+        })
+        n_succ = r["n_successful_attacks"].get(guide, 0)
+        g["n_questions"] += 1
+        g["n_queried"] += r["n_valid_victim_queries"]
+        g["n_successes"] += n_succ
+        g["n_questions_with_success"] += n_succ > 0
+    return {name: groups[name] for name in CONFIDENCE_GROUPS if name in groups}
 
 
 def _write_json(path: Path, data: dict) -> None:
@@ -470,6 +507,26 @@ def _iterative_attack(
         "  Original wrong rate: %.2f (%d/%d sampled answers wrong, %s)",
         original_wrong_rate, n_orig_wrong, 1 + len(original_samples), guide,
     )
+
+    # The victim's confidence on the original, from fresh samples only (the
+    # greedy answer is right by selection). Flips track how unsure the victim
+    # already is, so results are reported per confidence group.
+    confidence_samples = [
+        victim.answer(question, temperature=cfg.fitness_temperature)
+        for _ in range(cfg.confidence_samples)
+    ]
+    n_conf_wrong = sum(
+        1 for a in confidence_samples
+        if not _is_non_answer(a) and not evaluate(a)[0][guide]
+    )
+    confidence_wrong_rate = (
+        n_conf_wrong / len(confidence_samples) if confidence_samples else None
+    )
+    if confidence_samples:
+        logger.info(
+            "  Confidence on the original: %d/%d sampled answers wrong (%s)",
+            n_conf_wrong, len(confidence_samples), confidence_group(confidence_wrong_rate),
+        )
 
     for rnd in range(1, cfg.max_rounds + 1):
         logger.info("  Attack round %d/%d", rnd, cfg.max_rounds)
@@ -704,6 +761,8 @@ def _iterative_attack(
     return rounds, queried, {
         "sample_answers": original_samples,
         "wrong_rate": original_wrong_rate,
+        "confidence_samples": confidence_samples,
+        "confidence_wrong_rate": confidence_wrong_rate,
     }
 
 
@@ -733,6 +792,20 @@ def _select_parents(cfg: ExperimentConfig, history: List[dict]) -> List[dict]:
         if len(parents) == cfg.n_parents:
             break
     return parents
+
+
+# Confidence groups by the share of sampled answers to the original that are
+# wrong; the cut-offs match the 2026-09-26 analysis (0/20, 1-4/20, >= 5/20).
+CONFIDENCE_GROUPS = ("certain", "mostly", "unsure")
+
+
+def confidence_group(wrong_rate: Optional[float]) -> Optional[str]:
+    """certain: no sampled answer wrong; mostly: under 25% wrong; unsure: 25% or more."""
+    if wrong_rate is None:
+        return None
+    if wrong_rate == 0:
+        return "certain"
+    return "mostly" if wrong_rate < 0.25 else "unsure"
 
 
 # Victim replies longer than this are unfinished reasoning (qwen3 ran out of
@@ -798,6 +871,13 @@ def _print_summary(summary: dict, out_path: Path) -> None:
     print(f"  Robust successes (gain >= {summary['robust_margin']:.2f} over the "
           f"original's wrong rate): {summary['total_robust_successes']}, on "
           f"{summary['question_robust_success_rate']:.1%} of questions")
+    if summary.get("by_confidence_group"):
+        print(f"  By the victim's confidence on the original "
+              f"({summary['confidence_samples']} sampled answers):")
+        for name, g in summary["by_confidence_group"].items():
+            print(f"    {name:8s} {g['n_questions']:3d} question(s): {g['n_successes']} successes "
+                  f"in {g['n_queried']} queried paraphrases, on "
+                  f"{g['n_questions_with_success']} question(s)")
     print("=" * 60)
     print(f"  Full results at: {out_path}")
     print("=" * 60)

@@ -107,3 +107,41 @@ def test_free_checks_run_before_the_equivalence_judge(judges):
 ])
 def test_leaks_answer_sees_through_possessives(candidate, leaks):
     assert leaks_answer("what was the capital of north vietnam", candidate, ["Hanoi"]) is leaks
+
+
+@pytest.mark.parametrize("wrong_rate, group", [
+    (None, None), (0.0, "certain"), (0.05, "mostly"), (0.2, "mostly"), (0.25, "unsure"), (1.0, "unsure"),
+])
+def test_confidence_group_boundaries(wrong_rate, group):
+    assert experiment.confidence_group(wrong_rate) == group
+
+
+def test_confidence_is_measured_on_fresh_samples_of_the_original(judges):
+    cfg = ExperimentConfig(max_rounds=1, fitness_samples=0, confidence_samples=4)
+    victim = FakeVictim({QUESTION: ["Herman Melville", "Mark Twain", "Herman Melville", "Herman Melville"]})
+    _, _, baseline = attack(cfg, FakeAttacker([[]]), victim)
+    assert len(baseline["confidence_samples"]) == 4
+    assert baseline["confidence_wrong_rate"] == 0.25
+
+
+def test_summary_groups_questions_by_confidence(judges):
+    cfg = ExperimentConfig(max_rounds=1, fitness_samples=0, confidence_samples=4)
+    sure = {"id": "q1", "question": QUESTION, "answers": GOLD}
+    unsure = {"id": "q2", "question": "who wrote the novel moby-dick in 1851", "answers": GOLD}
+    paraphrase = "who was the author of the novel moby dick"
+    victim = FakeVictim({
+        unsure["question"]: ["Herman Melville", "Mark Twain"],  # greedy right, then 2 of 4 samples wrong
+        paraphrase: "Mark Twain",
+    })
+    records = [
+        experiment._run_question(cfg, sure, None, victim, FakeAttacker([[paraphrase]]),
+                                 [FakeJudge()], ["llm_judge"]),
+        experiment._run_question(cfg, unsure, None, victim, FakeAttacker([[]]),
+                                 [FakeJudge()], ["llm_judge"]),
+    ]
+    assert [r["confidence_group"] for r in records] == ["certain", "unsure"]
+    groups = experiment._summarize(cfg, records, ["llm_judge"])["by_confidence_group"]
+    assert groups == {
+        "certain": {"n_questions": 1, "n_queried": 1, "n_successes": 1, "n_questions_with_success": 1},
+        "unsure": {"n_questions": 1, "n_queried": 0, "n_successes": 0, "n_questions_with_success": 0},
+    }
