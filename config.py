@@ -12,19 +12,16 @@ import re
 from dataclasses import asdict, dataclass, field
 from typing import List, Literal, Optional
 
+from attackers.llm_paraphraser import STRATEGIES
+
 
 # ---------------------------------------------------------------------------
-# Available strategies (prompt templates live in attackers/llm_paraphraser.py)
+# Available strategies: derived from the prompt templates in
+# attackers/llm_paraphraser.py, so the CLI never offers a removed one
+# (temporal_shift, scope_change and presupposition crashed after b6b1852).
 # ---------------------------------------------------------------------------
 
-ATTACKER_STRATEGIES = [
-    "misleading_entity",   # swap a key entity to a plausible-but-wrong alternative
-    "temporal_shift",      # modify dates / sequences / order
-    "scope_change",        # narrow or widen scope / geographic qualifier
-    "presupposition",      # embed a false premise inside the question
-    "semantic_preserve",   # genuine paraphrase — control / baseline (should NOT attack)
-    "minimal_edit",        # change only a few words of the original (subtle phrasing)
-]
+ATTACKER_STRATEGIES = list(STRATEGIES)
 
 # Answer correctness is judged by an LLM only: string matching marked valid
 # rewordings wrong ("alpha" vs "somatic motor neurons") and nonsense right
@@ -56,6 +53,10 @@ class ExperimentConfig:
     # nearly accepted "Melissa Fumero" for Penny); llama3.1:8b accepted 8/12
     # wrong; mistral-nemo:12b rejected 7/31 right.
     judge_model: str = "gemma3:12b"
+    # Filters paraphrases that ask a different question. The default is the
+    # attacker's own model, which passed 236 of its own 240 paraphrases on
+    # new data; a different model family can be set here.
+    equivalence_model: str = "llama3.1:8b"
 
     # ---- Attack ----
     attacker_strategy: str = "minimal_edit"
@@ -173,6 +174,8 @@ def parse_args(argv: Optional[List[str]] = None) -> ExperimentConfig:
                         help="Ollama model tag for the victim QA model")
     parser.add_argument("--judge-model", default=defaults.judge_model,
                         help="Ollama model tag for the LLM-as-a-judge evaluator")
+    parser.add_argument("--equivalence-model", default=defaults.equivalence_model,
+                        help="Ollama model tag for the question-equivalence filter")
 
     # Attack
     parser.add_argument("--attacker-strategy", default=defaults.attacker_strategy,
@@ -239,6 +242,7 @@ def parse_args(argv: Optional[List[str]] = None) -> ExperimentConfig:
         attacker_model=args.attacker_model,
         victim_model=args.victim_model,
         judge_model=args.judge_model,
+        equivalence_model=args.equivalence_model,
         attacker_strategy=args.attacker_strategy,
         n_paraphrases=args.n_paraphrases,
         max_rounds=args.max_rounds,

@@ -20,14 +20,14 @@ import json
 import re
 import sys
 from pathlib import Path
-from typing import List, Tuple
+from typing import List, Optional, Tuple
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from ollama_client import normalise_text
-from utils.question_equivalence_judge import _extract_score, client
+from ollama_client import OllamaClient, normalise_text
+from utils.question_equivalence_judge import _default_client, _extract_score
 
 # Scored with tests/eval_judges.py on tests/data/answer_preservation_labels.json.
 # On the first 46 paraphrases (14 drifted), direct prompt:
@@ -201,6 +201,7 @@ def answer_preserved(
     model_name: str = DEFAULT_MODEL,
     think: bool = False,
     structured: bool = True,
+    client: Optional[OllamaClient] = None,
 ) -> int:
     """
     Return:
@@ -209,10 +210,11 @@ def answer_preserved(
 
     `structured` selects the prompt that makes the model spell out what each
     question asks for before scoring (STRUCTURED_SYSTEM); False uses the
-    original direct prompt (ANSWER_PRESERVATION_SYSTEM).
+    original direct prompt (ANSWER_PRESERVATION_SYSTEM). `client` defaults to
+    a client on the default Ollama URL.
     """
     return answer_preservation_verdict(
-        original, candidate, answers, model_name, think, structured
+        original, candidate, answers, model_name, think, structured, client
     )[0]
 
 
@@ -223,6 +225,7 @@ def answer_preservation_verdict(
     model_name: str = DEFAULT_MODEL,
     think: bool = False,
     structured: bool = True,
+    client: Optional[OllamaClient] = None,
 ) -> Tuple[int, str]:
     """Like answer_preserved(), but also returns the judge's short reason."""
     messages = [
@@ -238,7 +241,7 @@ def answer_preservation_verdict(
         },
     ]
     try:
-        raw = json.dumps(client.chat_json(
+        raw = json.dumps((client or _default_client).chat_json(
             model=model_name,
             messages=messages,
             temperature=0.0,

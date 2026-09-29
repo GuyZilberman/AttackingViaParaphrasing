@@ -178,7 +178,7 @@ def run_experiment(cfg: ExperimentConfig) -> dict:
         )
         try:
             results_per_question.append(
-                _run_question(cfg, entry, victim, attacker, evaluators, evaluator_names)
+                _run_question(cfg, entry, client, victim, attacker, evaluators, evaluator_names)
             )
             consecutive_failures = 0
         except Exception as exc:
@@ -236,6 +236,7 @@ def run_experiment(cfg: ExperimentConfig) -> dict:
 def _run_question(
     cfg: ExperimentConfig,
     entry: QuestionEntry,
+    client: OllamaClient,
     victim: VictimModel,
     attacker: LLMParaphraser,
     evaluators: List[BaseEvaluator],
@@ -261,7 +262,7 @@ def _run_question(
     baseline: Optional[dict] = None
     if any(original_correct.values()):
         rounds, paraphrase_records, baseline = _iterative_attack(
-            cfg, attacker, victim, evaluators,
+            cfg, client, attacker, victim, evaluators,
             question, gts, original_correct,
         )
     else:
@@ -395,6 +396,7 @@ def _normalize(text: str) -> str:
 
 def _iterative_attack(
     cfg: ExperimentConfig,
+    client: OllamaClient,
     attacker: LLMParaphraser,
     victim: VictimModel,
     evaluators: List[BaseEvaluator],
@@ -513,7 +515,9 @@ def _iterative_attack(
                     history.append(record)
                     continue
 
-                if not questions_equivalent(question, cand):
+                if not questions_equivalent(
+                    question, cand, model_name=cfg.equivalence_model, client=client
+                ):
                     print(
                         "\n[QUESTION EQUIVALENCE FAILED]"
                         f"\nOriginal:   {question}"
@@ -560,7 +564,8 @@ def _iterative_attack(
 
                 preserved, reason = (
                     answer_preservation_verdict(
-                        question, cand, gts, model_name=cfg.preservation_judge_model
+                        question, cand, gts, model_name=cfg.preservation_judge_model,
+                        client=client,
                     )
                     if cfg.answer_check else (1, "")
                 )

@@ -19,7 +19,9 @@ except Exception:
 
 DEFAULT_MODEL = "llama3.1:8b"
 
-client = OllamaClient()
+# Fallback for standalone use (e.g. the self-test below). Experiments pass the
+# shared client so calls honour the configured Ollama base URL.
+_default_client = OllamaClient()
 
 
 QUESTION_EQUIVALENCE_SYSTEM = (
@@ -161,9 +163,10 @@ def _extract_score(text: str) -> Optional[float]:
 def generate_json_ollama(
     messages: list,
     model_name: str = DEFAULT_MODEL,
-    temperature: float = 0.0
+    temperature: float = 0.0,
+    client: Optional[OllamaClient] = None,
 ) -> str:
-    response = client.chat_json(
+    response = (client or _default_client).chat_json(
         model=model_name,
         messages=messages,
         temperature=temperature,
@@ -177,12 +180,15 @@ def generate_json_ollama(
 def questions_equivalent(
     question1: str,
     question2: str,
-    model_name: str = DEFAULT_MODEL
+    model_name: str = DEFAULT_MODEL,
+    client: Optional[OllamaClient] = None,
 ) -> int:
     """
     Return:
         1 -> the questions are semantically equivalent
         0 -> the questions are not semantically equivalent
+
+    `client` defaults to a client on the default Ollama URL.
     """
     # Cheap exact-match fast path
     if question1.strip().lower() == question2.strip().lower():
@@ -202,7 +208,7 @@ def questions_equivalent(
         }
     ]
 
-    raw = generate_json_ollama(messages=messages, model_name=model_name)
+    raw = generate_json_ollama(messages=messages, model_name=model_name, client=client)
     score_val = _extract_score(raw)
 
     if score_val is None:

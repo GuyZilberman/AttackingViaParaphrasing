@@ -20,8 +20,8 @@ Usage
   # Reflective search only (no parent selection, no victim sampling):
   python3 run_experiment.py --search reflective --fitness-samples 0
 
-  # Change the attack strategy:
-  python3 run_experiment.py --attacker-strategy temporal_shift --n-questions 3 --n-paraphrases 5
+  # Run the non-adversarial control strategy:
+  python3 run_experiment.py --attacker-strategy semantic_preserve --n-questions 3 --n-paraphrases 5
 
   # Use different models for attacker vs victim (when more models are available):
   python3 run_experiment.py \
@@ -56,6 +56,7 @@ def main() -> None:
     print(f"  Attack strategy   : {cfg.attacker_strategy}")
     print(f"  Victim model      : {cfg.victim_model}")
     print(f"  Judge model       : {cfg.judge_model}  (evaluator={cfg.evaluator})")
+    print(f"  Equivalence model : {cfg.equivalence_model}")
     print(f"  Questions         : {cfg.n_questions}")
     print(f"  Paraphrases/round : {cfg.n_paraphrases}")
     print(f"  Max rounds        : {cfg.max_rounds}  (stop_on_success={cfg.stop_on_success})")
