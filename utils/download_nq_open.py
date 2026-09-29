@@ -200,6 +200,25 @@ def main() -> None:
     indices = list(range(len(ds)))
     random.Random(args.seed).shuffle(indices)
 
+    if args.output:
+        out = Path(args.output)
+    elif args.victim_model:
+        slug = re.sub(r"[^a-zA-Z0-9]+", "_", args.victim_model).strip("_")
+        out = PROJECT_ROOT / "data" / f"nq_open_{slug}_correct.json"
+    else:
+        out = PROJECT_ROOT / "data" / "nq_open_sample.json"
+    out.parent.mkdir(parents=True, exist_ok=True)
+
+    def save(entries: list) -> None:
+        with open(out, "w", encoding="utf-8") as fh:
+            json.dump(sorted(entries, key=lambda e: e["id"]), fh, indent=2, ensure_ascii=False)
+
+    # Questions already in the curated set are not candidates again.
+    existing = set()
+    curated = PROJECT_ROOT / "data" / "accepted_questions.json"
+    if curated.exists():
+        existing = {e["id"] for e in json.load(open(curated, encoding="utf-8"))}
+
     entries = []
     scanned = 0
     for idx in indices:
@@ -212,7 +231,7 @@ def main() -> None:
         question = question[0].upper() + question[1:] + "?"
 
         qid = f"nqo_{args.split}_{idx:04d}"
-        if qid in EXCLUDED_IDS or not _gold_usable(answers):
+        if qid in EXCLUDED_IDS or qid in existing or not _gold_usable(answers):
             continue
         if args.context_check and not context_independent(
             client, args.context_judge_model, question, answers
@@ -238,18 +257,10 @@ def main() -> None:
             "question": question,
             "answers": answers,
         })
+        # Save as we go: a long screen should survive a disconnect.
+        save(entries)
 
-    entries.sort(key=lambda e: e["id"])
-    if args.output:
-        out = Path(args.output)
-    elif args.victim_model:
-        slug = re.sub(r"[^a-zA-Z0-9]+", "_", args.victim_model).strip("_")
-        out = PROJECT_ROOT / "data" / f"nq_open_{slug}_correct.json"
-    else:
-        out = PROJECT_ROOT / "data" / "nq_open_sample.json"
-    out.parent.mkdir(parents=True, exist_ok=True)
-    with open(out, "w", encoding="utf-8") as fh:
-        json.dump(entries, fh, indent=2, ensure_ascii=False)
+    save(entries)
     print(f"Saved {len(entries)} questions → {out}")
 
 
