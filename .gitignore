@@ -5,3 +5,5 @@ __pycache__/
 *.pyc
 *.pyo
 /tmp/ollama*.log
+data_fabric/data/
+.env
