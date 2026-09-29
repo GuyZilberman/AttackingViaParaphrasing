@@ -166,6 +166,15 @@ def original_overlap(original: str, candidate: str) -> float:
     return len(orig & cand) / len(orig) if orig else 1.0
 
 
+# A possessive "'s": normalise_text turns "hanoi's" into "hanois", which no
+# longer matches the answer "Hanoi" ("what was hanoi's status...?" leaked it).
+_POSSESSIVE = re.compile(r"(?<=\w)['’]s\b")
+
+
+def _norm(text: str) -> str:
+    return normalise_text(_POSSESSIVE.sub("", text))
+
+
 def leaks_answer(original: str, candidate: str, answers: List[str]) -> bool:
     """
     True if the candidate reveals a known answer, so it has become a
@@ -178,17 +187,17 @@ def leaks_answer(original: str, candidate: str, answers: List[str]) -> bool:
         words like "article" in "In what article ...?" (gold "Article Two")
         do not count.
     """
-    orig_words = set(normalise_text(original).split())
-    cand_words = set(normalise_text(candidate).split())
-    cand_names = {normalise_text(w) for w in candidate.split()[1:] if w[:1].isupper()}
+    orig_words = set(_norm(original).split())
+    cand_words = set(_norm(candidate).split())
+    cand_names = {_norm(w) for w in candidate.split()[1:] if w[:1].isupper()}
     for answer in answers:
         new_words = [
-            w for w in normalise_text(answer).split()
+            w for w in _norm(answer).split()
             if w not in _STOPWORDS and len(w) > 1 and w not in orig_words
         ]
         if new_words and all(w in cand_words for w in new_words):
             return True
-        names = {normalise_text(w) for w in answer.split() if w[:1].isupper()}
+        names = {_norm(w) for w in answer.split() if w[:1].isupper()}
         if any(n in cand_names and n not in orig_words for n in names):
             return True
     return False

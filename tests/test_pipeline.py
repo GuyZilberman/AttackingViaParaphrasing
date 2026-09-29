@@ -96,3 +96,14 @@ def test_free_checks_run_before_the_equivalence_judge(judges):
     assert rejected_by["who wrote moby dick, herman melville?"] == "answer_leak"
     assert judges["equivalence"] == ["who was the author of the novel moby dick"]
     assert [r["paraphrase"] for r in queried] == ["who was the author of the novel moby dick"]
+
+
+@pytest.mark.parametrize("candidate, leaks", [
+    # The paraphrase that scored 27/30 "wrong" in the 2026-09-26 run by naming the answer
+    ("what was hanoi's status as a city in north vietnam", True),
+    ("What was Hanoi’s status as a city in North Vietnam?", True),
+    ("which city served as the seat of government of north vietnam", False),
+    ("what was the capital of north vietnam's government", False),
+])
+def test_leaks_answer_sees_through_possessives(candidate, leaks):
+    assert leaks_answer("what was the capital of north vietnam", candidate, ["Hanoi"]) is leaks
