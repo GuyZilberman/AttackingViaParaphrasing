@@ -16,9 +16,9 @@ Imports are flat (`from config import ...`), so run everything **from the reposi
 running at `http://127.0.0.1:11434` (`--ollama-base-url` to change) with the models pulled. `start_ollama.sh`
 hardcodes a Linux VM layout; elsewhere run `ollama serve`.
 
-Default models: attacker and equivalence judge `llama3.1:8b`; victim `qwen3:4b`; answer judge, answer-preservation
-judge and reference model `gemma3:12b`. `qwen3:4b` is a reasoning build that reasons even with `think=False` (about 490
-tokens per answer); `qwen3:4b-instruct-2507-q4_K_M` answers directly and is far more sensitive to paraphrasing.
+Default models: attacker and equivalence judge `llama3.1:8b`; victim `qwen3:4b`; answer judge and answer-preservation
+judge `gemma3:12b`. `qwen3:4b` is a reasoning build that reasons even with `think=False` (about 490 tokens per
+answer); `qwen3:4b-instruct-2507-q4_K_M` answers directly and is far more sensitive to paraphrasing.
 
 ```bash
 python run_experiment.py --n-questions 3 --n-paraphrases 5 --max-rounds 2
@@ -37,7 +37,7 @@ Dependencies are not pinned (no requirements file): `requests`; `datasets` for `
 ### Tests
 
 - `python -m pytest tests/test_pipeline.py`: offline tests with fake models for the check order, the leak check,
-  confidence groups, the re-test and the reference gate. Run after changing `experiment.py`.
+  confidence groups and the re-test. Run after changing `experiment.py`.
 - `python tests/eval_judges.py --answer-judge gemma3:12b` / `--preservation-judge gemma3:12b`: scores judges against
   the hand labels in `tests/data/` (live Ollama). Note that the preservation prompt was tuned on those same labels.
 - `python utils/question_equivalence_judge.py`: self-test of the equivalence judge on labelled pairs (live Ollama).
@@ -49,20 +49,17 @@ Dependencies are not pinned (no requirements file): `requests`; `datasets` for `
 the `experiment.py` module docstring. Per question (`_run_question` → `_iterative_attack`):
 
 1. The victim answers the original greedily; if every evaluator marks it wrong, the question is not attacked.
-2. Reference check (`--reference-model`): if the reference model gives the known answer to the original fewer than
-   `reference_min_correct` of `reference_samples` times, the question is skipped (`skipped: "reference_unknown"`).
-3. Baseline: `fitness_samples` victim answers on the original give `original_wrong_rate` (greedy counted as right),
+2. Baseline: `fitness_samples` victim answers on the original give `original_wrong_rate` (greedy counted as right),
    and `confidence_samples` fresh answers give `original_confidence_wrong_rate` and the `confidence_group`
    (certain = none wrong, mostly = under 25%, unsure).
-4. Rounds: the attacker (`LLMParaphraser.generate_paraphrases`, shown the known answers and the history of earlier
+3. Rounds: the attacker (`LLMParaphraser.generate_paraphrases`, shown the known answers and the history of earlier
    attempts) proposes candidates. Each passes, in order: leaked attacker notes → word overlap with the original
    (`min_original_overlap`) → answer leak → equivalence judge (`utils/question_equivalence_judge.py`) →
-   answer-preservation judge (`utils/answer_preservation_judge.py`) → reference gate. Free checks come first.
-   Rejections go into the attacker's history with a reason, except the reference gate, whose answers the attacker
-   never sees.
-5. Survivors are asked greedily plus `fitness_samples` times; `fitness` = share wrong. A success is a wrong greedy
+   answer-preservation judge (`utils/answer_preservation_judge.py`). Free checks come first. Rejections go into the
+   attacker's history with a reason.
+4. Survivors are asked greedily plus `fitness_samples` times; `fitness` = share wrong. A success is a wrong greedy
    answer (not a non-answer) on a question the victim answered right.
-6. Re-test: each success gets `retest_samples` fresh answers, compared with the confidence samples by a one-sided
+5. Re-test: each success gets `retest_samples` fresh answers, compared with the confidence samples by a one-sided
    Fisher exact test; `confirmed_success` if p < `retest_alpha`. Report confirmed successes, by confidence group.
 
 Answers are always graded against the ORIGINAL question and gold answers by `evaluators/llm_judge.py`
@@ -84,4 +81,5 @@ instruction-evolution ideas (against commit `a1e21e5`, not this code).
   a question fails once at least 5 of its candidates, and at least half of those tried, have errored, and
   `--max-failures` consecutive failed questions stop the run.
 - **Model output goes to stdout and logging**: rejections are printed (`[QUESTION EQUIVALENCE FAILED]`,
-  `[REFERENCE CHECK FAILED]`, ...); everything else is `logging` at INFO.
+  `[ANSWER LEAK]`, ...); everything else is `logging` at INFO. Printed lines are block-buffered when stdout is a file,
+  so a log file shows them late; the results JSON is complete after every question.

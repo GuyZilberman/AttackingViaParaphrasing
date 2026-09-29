@@ -9,7 +9,7 @@ they do not import the code on this branch.
 | --- | --- | --- |
 | Re-test flagged successes with fresh samples | Essential | `--retest-samples` (default 20) |
 | Report results by the victim's confidence on the original | Essential | `--confidence-samples` (default 20) |
-| Reference-model gate | Useful as one check among several | `--reference-model`, `--reference-samples`, `--reference-min-correct` |
+| Reference-model gate | Useful against the old preservation judge; redundant with the current one | not added (see below) |
 | Evolve the attacker's instruction | No gain with either victim | not added |
 
 ## Main results
@@ -20,7 +20,11 @@ they do not import the code on this branch.
   20/20 times, about 21% at 1-4/20 wrong and about 50% at 5+/20 wrong. The adversarial prompt matched
   plain paraphrasing in every group.
 - Reference gate (`gemma3:12b`, at least 4 of 5 answers right): on the 86 hand-labelled paraphrases with
-  well-posed originals it rejected 0% of valid ones and accepted 43% of drift (branch judges: 29% and 24%).
+  well-posed originals it rejected 0% of valid ones and accepted 43% of drift (branch judges at `a1e21e5`: 29% and
+  24%). Implemented and verified live on 2026-09-29 (PR #3), it was dropped: the current preservation judge already
+  accepts only 3 of the 21 well-posed drifted labels and the gate caught none of those 3, and in a 16-question run
+  with `qwen3:4b-instruct-2507` 6 of its 7 rejections were valid paraphrases that fooled `gemma3:12b` as well
+  (one of them a genuine success), against 1 drift.
 - Instruction evolution: no evolved instruction beat the seed prompt. Against the non-reasoning victim
   `qwen3:4b-instruct-2507` (follow-up F: 37 training and 74 held-out questions), the seed prompt did not
   beat plain paraphrasing either (+0.02 wrong-rate gain, 95% CI -0.02 to +0.06). That victim does fail

@@ -14,7 +14,6 @@ import pytest
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 import experiment
-from attackers.llm_paraphraser import _format_history
 from config import ExperimentConfig
 from evaluators.base import BaseEvaluator, EvalResult
 from utils.answer_preservation_judge import leaks_answer
@@ -24,14 +23,12 @@ GOLD = ["Herman Melville"]
 
 
 class FakeAttacker:
-    """Returns one fixed candidate list per round and keeps the history it was shown."""
+    """Returns one fixed candidate list per round."""
 
     def __init__(self, rounds):
         self.rounds = list(rounds)
-        self.histories = []
 
     def generate_paraphrases(self, question, answers, n=10, history=None, parents=None):
-        self.histories.append([dict(h) for h in history or []])
         return self.rounds.pop(0) if self.rounds else []
 
 
@@ -80,9 +77,9 @@ def judges(monkeypatch):
     return calls
 
 
-def attack(cfg, attacker, victim, question=QUESTION, gts=GOLD, reference=None):
+def attack(cfg, attacker, victim, question=QUESTION, gts=GOLD):
     return experiment._iterative_attack(
-        cfg, None, attacker, victim, [FakeJudge()], question, gts, {"llm_judge": True}, reference,
+        cfg, None, attacker, victim, [FakeJudge()], question, gts, {"llm_judge": True},
     )
 
 
@@ -187,40 +184,3 @@ def test_retest_off_leaves_successes_unconfirmed(judges):
 def test_retest_needs_confidence_samples():
     with pytest.raises(ValueError, match="confidence_samples"):
         ExperimentConfig(confidence_samples=0, retest_samples=20).validate()
-
-
-def test_reference_gate_rejects_drift_without_showing_the_attacker_its_answers(judges):
-    cfg = ExperimentConfig(max_rounds=2, fitness_samples=0, confidence_samples=0, retest_samples=0)
-    drifted = "who was the author of the novel moby dick"
-    kept = "who penned the novel moby dick"
-    reference = FakeVictim({drifted: ["Nathaniel Hawthorne", "Herman Melville"]})  # right 2/5 < 4
-    attacker = FakeAttacker([[drifted, kept], []])
-    rounds, queried, baseline = attack(cfg, attacker, FakeVictim(), reference=reference)
-
-    assert baseline["reference_original"]["n_correct"] == 5
-    rejected = [c for c in rounds[0]["candidates"] if c["paraphrase"] == drifted][0]
-    assert rejected["rejected_by"] == "reference"
-    assert rejected["reference"]["n_correct"] == 2
-    assert [r["paraphrase"] for r in queried] == [kept]
-    assert queried[0]["reference"]["n_correct"] == 5
-
-    shown = attacker.histories[1]  # what the attacker saw before round 2
-    assert shown[0] == {"paraphrase": drifted, "status": "rejected", "rejected_by": "reference"}
-    rendered = _format_history(shown)
-    assert "independent model no longer gives the known answer" in rendered
-    assert "Hawthorne" not in rendered
-
-
-def test_questions_the_reference_does_not_know_are_skipped(judges):
-    cfg = ExperimentConfig(max_rounds=2, fitness_samples=0)
-    attacker = FakeAttacker([["who penned the novel moby dick"]])
-    reference = FakeVictim({QUESTION: "Nathaniel Hawthorne"})
-    rounds, queried, baseline = attack(cfg, attacker, FakeVictim(), reference=reference)
-    assert (rounds, queried) == ([], [])
-    assert baseline["skipped"] == "reference_unknown"
-    assert attacker.histories == []  # the attacker was never asked
-
-
-def test_reference_min_correct_cannot_exceed_its_samples():
-    with pytest.raises(ValueError, match="reference_min_correct"):
-        ExperimentConfig(reference_samples=3, reference_min_correct=4).validate()

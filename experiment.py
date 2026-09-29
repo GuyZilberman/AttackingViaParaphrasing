@@ -28,7 +28,6 @@ Result file format
           "status": "queried",
           "equivalent": true,
           "victim_answer": "...",
-          "reference": {"answers": [...], "n_correct": 5},  # null: gate off
           "correct": {"llm_judge": false},
           "rationale": { "llm_judge": "..." },
           "attack_success": {"llm_judge": true},
@@ -53,9 +52,6 @@ Result file format
       "original_confidence_wrong_rate": 0.05,       # answers to the original, and
       "confidence_group": "mostly",      # the share wrong: certain (none),
                                          # mostly (< 25%) or unsure
-      "reference_original": {"answers": [...], "n_correct": 5},  # null: gate off
-      "skipped": null,                   # "reference_unknown": reference did not
-                                         # know the original, so no search ran
       "n_robust_successes": 1,
       "n_confirmed_successes": 1,        # successes that held up in the re-test
       "rounds_attempted": 3,
@@ -67,8 +63,8 @@ Result file format
           "n_errors": 0,                    # candidates whose model calls failed
           "candidates": [
             {"paraphrase": "...", "status": "rejected", "equivalent": false,
-             "rejected_by": "leaked_instruction" | "too_different" | "answer_leak" |
-                            "equivalence" | "answer_preservation" | "reference"},
+             "rejected_by": "leaked_instruction" | "too_different" | "equivalence" |
+                            "answer_leak" | "answer_preservation"},
             {"paraphrase": "...", "status": "error", "error": "..."},
             {"paraphrase": "...", "status": "duplicate"},
             { ...same fields as a "paraphrases" entry (status "queried")... }
@@ -111,9 +107,7 @@ Result file format
                       "n_questions_with_success": 1, "n_confirmed_successes": 1,
                       "n_questions_with_confirmed_success": 1},
           ...
-      },
-      "reference_check": "gemma3:12b, 4 of 5 answers right",   # null: gate off
-      "n_skipped_reference_unknown": 0
+      }
   }
 }
 """
@@ -176,10 +170,6 @@ def run_experiment(cfg: ExperimentConfig) -> dict:
     )
     evaluators = build_evaluators(cfg, client)
     evaluator_names = [e.name for e in evaluators]
-    # Answers paraphrases the way the victim does (same prompt), for the reference gate
-    reference = (
-        VictimModel(client=client, model=cfg.reference_model) if cfg.reference_check else None
-    )
 
     # --- Dataset ---
     questions = load_questions(
@@ -208,9 +198,9 @@ def run_experiment(cfg: ExperimentConfig) -> dict:
             "[%d/%d] Q%s: %s", q_idx + 1, len(questions), entry["id"], entry["question"]
         )
         try:
-            results_per_question.append(_run_question(
-                cfg, entry, client, victim, attacker, evaluators, evaluator_names, reference,
-            ))
+            results_per_question.append(
+                _run_question(cfg, entry, client, victim, attacker, evaluators, evaluator_names)
+            )
             consecutive_failures = 0
         except Exception as exc:
             consecutive_failures += 1
@@ -272,7 +262,6 @@ def _run_question(
     attacker: LLMParaphraser,
     evaluators: List[BaseEvaluator],
     evaluator_names: List[str],
-    reference: Optional[VictimModel] = None,
 ) -> dict:
     """Baseline + iterative attack for one question; returns its result record."""
     qid = entry["id"]
@@ -295,7 +284,7 @@ def _run_question(
     if any(original_correct.values()):
         rounds, paraphrase_records, baseline = _iterative_attack(
             cfg, client, attacker, victim, evaluators,
-            question, gts, original_correct, reference,
+            question, gts, original_correct,
         )
     else:
         # No paraphrase can count as a successful attack; skip the search.
@@ -358,8 +347,6 @@ def _run_question(
         "confidence_group": (
             confidence_group(baseline["confidence_wrong_rate"]) if baseline else None
         ),
-        "reference_original": baseline.get("reference_original") if baseline else None,
-        "skipped": baseline.get("skipped") if baseline else None,
         "n_robust_successes": n_robust,
         "n_confirmed_successes": n_confirmed,
         "paraphrases": paraphrase_records,
@@ -434,14 +421,6 @@ def _summarize(
         ),
         "confidence_samples": cfg.confidence_samples,
         "by_confidence_group": _by_confidence_group(results_per_question, evaluator_names),
-        "reference_check": (
-            f"{cfg.reference_model}, {cfg.reference_min_correct} of "
-            f"{cfg.reference_samples} answers right" if cfg.reference_check else None
-        ),
-        # Victim right on the original, but the reference model did not know it
-        "n_skipped_reference_unknown": sum(
-            1 for r in results_per_question if r.get("skipped") == "reference_unknown"
-        ),
     }
 
 
@@ -488,17 +467,14 @@ def _iterative_attack(
     question: str,
     gts: List[str],
     original_correct: Dict[str, bool],
-    reference: Optional[VictimModel] = None,
 ) -> Tuple[List[dict], List[dict], dict]:
     """
     Run up to cfg.max_rounds attack rounds on one question.
 
     Each round: generate candidates (informed by all previous attempts),
     drop ones already tried in any round, reject ones that fail
-    questions_equivalent(), (cfg.answer_check) answer_preserved() or (with a
-    `reference` model) the reference gate without querying the victim, then
-    query + evaluate the rest. A question whose original the reference cannot
-    answer reliably is skipped (no rounds; baseline["skipped"] says why).
+    questions_equivalent() or (cfg.answer_check) answer_preserved() without
+    querying the victim, then query + evaluate the rest.
 
     Every queried candidate gets a fitness in [0, 1]: the fraction of victim
     answers judged wrong, over the greedy answer plus cfg.fitness_samples
@@ -541,35 +517,6 @@ def _iterative_attack(
                 {name: r.rationale for name, r in results.items()},
             )
         return eval_cache[key]
-
-    def ask_reference(text: str) -> dict:
-        """Reference answers to `text`, and how many give the known answer."""
-        answers = [
-            reference.answer(text, temperature=cfg.fitness_temperature)
-            for _ in range(cfg.reference_samples)
-        ]
-        n_correct = sum(1 for a in answers if not _is_non_answer(a) and evaluate(a)[0][guide])
-        return {"answers": answers, "n_correct": n_correct}
-
-    # The reference gate only works if the reference knows the answer: else
-    # it rejects every paraphrase, so skip the question.
-    reference_original = None
-    if reference is not None:
-        reference_original = ask_reference(question)
-        if reference_original["n_correct"] < cfg.reference_min_correct:
-            logger.info(
-                "  Reference %s gives the known answer to the original only %d/%d times; "
-                "skipping the attack.",
-                cfg.reference_model, reference_original["n_correct"], cfg.reference_samples,
-            )
-            return [], [], {
-                "sample_answers": [],
-                "wrong_rate": None,
-                "confidence_samples": [],
-                "confidence_wrong_rate": None,
-                "reference_original": reference_original,
-                "skipped": "reference_unknown",
-            }
 
     # Baseline uncertainty on the original question. The greedy original
     # answer was judged correct (else we would not attack), so it counts as
@@ -720,27 +667,6 @@ def _iterative_attack(
                     history.append(record)
                     continue
 
-                # Reference gate. The attacker is told only that the question
-                # drifted, not what the reference answered: a gate the search
-                # can read is a gate it learns to pass.
-                ref = ask_reference(cand) if reference is not None else None
-                if ref is not None and ref["n_correct"] < cfg.reference_min_correct:
-                    print(
-                        "\n[REFERENCE CHECK FAILED]"
-                        f"\nOriginal:   {question}"
-                        f"\nAnswer(s):  {gts}"
-                        f"\nParaphrase: {cand}"
-                        f"\nReference:  {ref['n_correct']}/{cfg.reference_samples} right "
-                        f"{ref['answers']}\n"
-                    )
-                    round_records.append({
-                        "paraphrase": cand, "status": "rejected", "equivalent": False,
-                        "rejected_by": "reference", "reference": ref,
-                    })
-                    history.append({"paraphrase": cand, "status": "rejected",
-                                    "rejected_by": "reference"})
-                    continue
-
                 para_answer = victim.answer(cand)
                 correct_map, rationale_map = evaluate(para_answer)
                 non_answer = _is_non_answer(para_answer)
@@ -778,7 +704,6 @@ def _iterative_attack(
                     "status": "queried",
                     "equivalent": True,
                     "victim_answer": para_answer,
-                    "reference": ref,
                     "correct": correct_map,
                     "rationale": rationale_map,
                     "attack_success": attack_success_map,
@@ -902,7 +827,6 @@ def _iterative_attack(
         "wrong_rate": original_wrong_rate,
         "confidence_samples": confidence_samples,
         "confidence_wrong_rate": confidence_wrong_rate,
-        "reference_original": reference_original,
     }
 
 
@@ -1005,10 +929,6 @@ def _print_summary(summary: dict, out_path: Path) -> None:
     print(f"  Paraphrases / round : {summary['n_paraphrases_per_question']}")
     print(f"  Max rounds          : {summary['max_rounds']}")
     print(f"  Valid victim queries: {summary['total_valid_victim_queries']}")
-    if summary.get("reference_check"):
-        print(f"  Reference gate      : {summary['reference_check']}; "
-              f"{summary['n_skipped_reference_unknown']} question(s) skipped because the "
-              f"reference did not know the original")
     print()
     for ev_name in summary["evaluators_used"]:
         bacc = summary["victim_baseline_accuracy"].get(ev_name, 0)

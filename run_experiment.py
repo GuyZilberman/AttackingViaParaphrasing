@@ -62,9 +62,6 @@ def main() -> None:
     print(f"  Max rounds        : {cfg.max_rounds}  (stop_on_success={cfg.stop_on_success})")
     print(f"  Answer check      : "
           f"{cfg.preservation_judge_model if cfg.answer_check else 'off'}")
-    print(f"  Reference gate    : "
-          + (f"{cfg.reference_model} ({cfg.reference_min_correct}/{cfg.reference_samples} right)"
-             if cfg.reference_check else "off"))
     print(f"  Confidence / test : {cfg.confidence_samples} samples on each original, "
           f"{cfg.retest_samples}-answer re-test of each success (p < {cfg.retest_alpha})")
     print(f"  Search            : {cfg.search}  (parents={cfg.n_parents}, "
