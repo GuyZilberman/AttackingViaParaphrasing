@@ -1,16 +1,12 @@
 import json
 import re
-import sys
 import time
 from pathlib import Path
 
 import torch
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
-# Allow running as "python data_fabric/filter_questions.py" from the repo root
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
-from utils.llm_as_a_judge import _balanced_json_substring, load_model
-
+MODEL_PATH = "models/Llama-3.1-8B-Instruct"
 INPUT_PATH = "data_fabric/data/raw_data.jsonl"
 OUTPUT_PATH = "data_fabric/data/filtered_data.jsonl"
 # Number of the last question the run finished. Delete this file to start over from the first question.
@@ -68,6 +64,37 @@ QUESTION_TEMPLATE = (
     'Question: "{question}"\n'
     'Gold answers: {answers}'
 )
+
+
+# load_model and _balanced_json_substring come from utils/llm_as_a_judge.py, which main no longer has
+def load_model(model_path=MODEL_PATH):
+    tok = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
+    if tok.pad_token_id is None and tok.eos_token_id is not None:
+        tok.pad_token = tok.eos_token
+    model = AutoModelForCausalLM.from_pretrained(
+        model_path,
+        dtype=torch.float16 if torch.cuda.is_available() else torch.float32,
+        device_map="auto",
+        trust_remote_code=True,
+    )
+    return tok, model
+
+
+def _balanced_json_substring(text):
+    """Return the first balanced JSON object or array in text, or None."""
+    opens = {"{": "}", "[": "]"}
+    stack = []
+    start = None
+    for i, ch in enumerate(text):
+        if ch in opens:
+            if not stack:
+                start = i
+            stack.append(opens[ch])
+        elif stack and ch == stack[-1]:
+            stack.pop()
+            if not stack and start is not None:
+                return text[start:i + 1]
+    return None
 
 
 def fast_fail(row):
