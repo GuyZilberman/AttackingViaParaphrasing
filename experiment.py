@@ -35,7 +35,11 @@ Result file format
           "fitness": 0.4,                   # fraction of victim answers judged wrong
                                             # (by llm_judge if enabled)
           "fitness_gain": 0.2,              # fitness - original_wrong_rate
-          "robust_success": false           # success AND gain >= robust_margin
+          "robust_success": false,          # success AND gain >= robust_margin
+          "confirmed_success": true,        # re-test verdict (null: not re-tested)
+          "retest": {"answers": [...], "n_wrong": 17, "n": 20,   # fresh answers vs
+                     "original_n_wrong": 0, "original_n": 20,    # the original's
+                     "p_value": 2e-8}                            # confidence samples
         },
         ...
       ],
@@ -49,6 +53,7 @@ Result file format
       "confidence_group": "mostly",      # the share wrong: certain (none),
                                          # mostly (< 25%) or unsure
       "n_robust_successes": 1,
+      "n_confirmed_successes": 1,        # successes that held up in the re-test
       "rounds_attempted": 3,
       "rounds": [                            # full iterative-search trace
         {
@@ -92,10 +97,15 @@ Result file format
       "total_robust_successes": 1,
       "question_robust_success_rate": 0.33,   # questions with >= 1 robust success
       "victim_baseline_accuracy": {"llm_judge": 0.67},
+      "retest_samples": 20,
+      "retest_alpha": 0.05,
+      "total_confirmed_successes": 1,
+      "question_confirmed_success_rate": 0.33,
       "confidence_samples": 20,
       "by_confidence_group": {                # attacked questions only
           "certain": {"n_questions": 2, "n_queried": 40, "n_successes": 1,
-                      "n_questions_with_success": 1},
+                      "n_questions_with_success": 1, "n_confirmed_successes": 1,
+                      "n_questions_with_confirmed_success": 1},
           ...
       }
   }
@@ -107,6 +117,7 @@ import logging
 import os
 from collections import Counter
 from datetime import datetime
+from math import comb
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
@@ -304,18 +315,21 @@ def _run_question(
             "fitness": r["fitness"],
             "fitness_gain": r["fitness_gain"],
             "robust_success": r["robust_success"],
+            "confirmed_success": r["confirmed_success"],
+            "retest_p_value": r.get("retest", {}).get("p_value"),
         }
         for r in paraphrase_records if any(r["attack_success"].values())
     ]
     n_robust = sum(1 for r in paraphrase_records if r["robust_success"])
+    n_confirmed = sum(1 for r in paraphrase_records if r["confirmed_success"])
     n_successes = {
         ev_name: sum(1 for r in paraphrase_records if r["attack_success"].get(ev_name))
         for ev_name in evaluator_names
     }
     logger.info(
         "  Attack finished after %d round(s): %d valid victim queries, "
-        "successful attacks per evaluator: %s, robust: %d",
-        len(rounds), len(paraphrase_records), n_successes, n_robust,
+        "successful attacks per evaluator: %s, robust: %d, confirmed by re-test: %d",
+        len(rounds), len(paraphrase_records), n_successes, n_robust, n_confirmed,
     )
 
     return {
@@ -334,6 +348,7 @@ def _run_question(
             confidence_group(baseline["confidence_wrong_rate"]) if baseline else None
         ),
         "n_robust_successes": n_robust,
+        "n_confirmed_successes": n_confirmed,
         "paraphrases": paraphrase_records,
         "attack_success_rate": asr,
         "rounds_attempted": len(rounds),
@@ -395,6 +410,15 @@ def _summarize(
             sum(1 for r in results_per_question if r["n_robust_successes"]) / n_q
             if n_q else 0.0
         ),
+        "retest_samples": cfg.retest_samples,
+        "retest_alpha": cfg.retest_alpha,
+        "total_confirmed_successes": sum(
+            r["n_confirmed_successes"] for r in results_per_question
+        ),
+        "question_confirmed_success_rate": (
+            sum(1 for r in results_per_question if r["n_confirmed_successes"]) / n_q
+            if n_q else 0.0
+        ),
         "confidence_samples": cfg.confidence_samples,
         "by_confidence_group": _by_confidence_group(results_per_question, evaluator_names),
     }
@@ -409,12 +433,15 @@ def _by_confidence_group(results_per_question: List[dict], evaluator_names: List
             continue
         g = groups.setdefault(r["confidence_group"], {
             "n_questions": 0, "n_queried": 0, "n_successes": 0, "n_questions_with_success": 0,
+            "n_confirmed_successes": 0, "n_questions_with_confirmed_success": 0,
         })
         n_succ = r["n_successful_attacks"].get(guide, 0)
         g["n_questions"] += 1
         g["n_queried"] += r["n_valid_victim_queries"]
         g["n_successes"] += n_succ
         g["n_questions_with_success"] += n_succ > 0
+        g["n_confirmed_successes"] += r["n_confirmed_successes"]
+        g["n_questions_with_confirmed_success"] += r["n_confirmed_successes"] > 0
     return {name: groups[name] for name in CONFIDENCE_GROUPS if name in groups}
 
 
@@ -689,6 +716,8 @@ def _iterative_attack(
                         attack_success_map.get(guide)
                         and fitness - original_wrong_rate >= cfg.robust_margin
                     ),
+                    # Set by the re-test after the search (None: not re-tested)
+                    "confirmed_success": None,
                 }
                 round_records.append(record)
                 queried.append(record)
@@ -758,6 +787,41 @@ def _iterative_attack(
             logger.info("    stop_on_success set; ending search after round %d", rnd)
             break
 
+    # Re-test every success on fresh samples: the search selected it on a few
+    # noisy answers. Compared with the original's confidence samples (same
+    # temperature), it is confirmed only if it is wrong significantly more often.
+    if cfg.retest_samples and confidence_samples:
+        for r in queried:
+            if not r["attack_success"].get(guide):
+                continue
+            try:
+                answers = [
+                    victim.answer(r["paraphrase"], temperature=cfg.fitness_temperature)
+                    for _ in range(cfg.retest_samples)
+                ]
+                n_wrong = sum(
+                    1 for a in answers if not _is_non_answer(a) and not evaluate(a)[0][guide]
+                )
+            except Exception as exc:
+                logger.warning("    [re-test failed] %r: %s", r["paraphrase"], exc)
+                r["retest"] = {"error": repr(exc)}
+                continue
+            p_value = fisher_greater(n_wrong, len(answers), n_conf_wrong, len(confidence_samples))
+            r["retest"] = {
+                "answers": answers,
+                "n_wrong": n_wrong,
+                "n": len(answers),
+                "original_n_wrong": n_conf_wrong,
+                "original_n": len(confidence_samples),
+                "p_value": p_value,
+            }
+            r["confirmed_success"] = p_value < cfg.retest_alpha
+            logger.info(
+                "    Re-test: %d/%d wrong vs %d/%d on the original, p=%.3f -> %s: %r",
+                n_wrong, len(answers), n_conf_wrong, len(confidence_samples), p_value,
+                "CONFIRMED" if r["confirmed_success"] else "not confirmed", r["paraphrase"],
+            )
+
     return rounds, queried, {
         "sample_answers": original_samples,
         "wrong_rate": original_wrong_rate,
@@ -792,6 +856,14 @@ def _select_parents(cfg: ExperimentConfig, history: List[dict]) -> List[dict]:
         if len(parents) == cfg.n_parents:
             break
     return parents
+
+
+def fisher_greater(a: int, n1: int, b: int, n2: int) -> float:
+    """One-sided Fisher exact p-value that the rate a/n1 exceeds the rate b/n2."""
+    k, n = a + b, n1 + n2
+    return sum(
+        comb(n1, i) * comb(n2, k - i) for i in range(a, min(k, n1) + 1)
+    ) / comb(n, k)
 
 
 # Confidence groups by the share of sampled answers to the original that are
@@ -871,13 +943,17 @@ def _print_summary(summary: dict, out_path: Path) -> None:
     print(f"  Robust successes (gain >= {summary['robust_margin']:.2f} over the "
           f"original's wrong rate): {summary['total_robust_successes']}, on "
           f"{summary['question_robust_success_rate']:.1%} of questions")
+    if summary["retest_samples"]:
+        print(f"  Confirmed by re-test ({summary['retest_samples']} fresh answers, one-sided "
+              f"Fisher p < {summary['retest_alpha']}): {summary['total_confirmed_successes']}, "
+              f"on {summary['question_confirmed_success_rate']:.1%} of questions")
     if summary.get("by_confidence_group"):
         print(f"  By the victim's confidence on the original "
               f"({summary['confidence_samples']} sampled answers):")
         for name, g in summary["by_confidence_group"].items():
             print(f"    {name:8s} {g['n_questions']:3d} question(s): {g['n_successes']} successes "
-                  f"in {g['n_queried']} queried paraphrases, on "
-                  f"{g['n_questions_with_success']} question(s)")
+                  f"({g['n_confirmed_successes']} confirmed) in {g['n_queried']} queried "
+                  f"paraphrases, on {g['n_questions_with_success']} question(s)")
     print("=" * 60)
     print(f"  Full results at: {out_path}")
     print("=" * 60)

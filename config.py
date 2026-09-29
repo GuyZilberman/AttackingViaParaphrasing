@@ -95,6 +95,14 @@ class ExperimentConfig:
     # paraphrases when 0/20 samples were wrong and about 50% at >= 5/20.
     # 0 disables.
     confidence_samples: int = 20
+    # Every success is re-asked retest_samples times (fresh samples at
+    # fitness_temperature) and is confirmed only if it is wrong more often
+    # than the original's confidence samples (one-sided Fisher exact test,
+    # p < retest_alpha). The search picks paraphrases on a few noisy answers,
+    # so their fitness overstates them: on 2026-09-26 only 14 of 37 flagged
+    # successes held up at 30 samples. 0 disables; needs confidence_samples.
+    retest_samples: int = 20
+    retest_alpha: float = 0.05
 
     # ---- Dataset ----
     # None → use built-in data/sample_questions.json
@@ -136,6 +144,13 @@ class ExperimentConfig:
             raise ValueError("fitness_samples must be >= 0")
         if self.confidence_samples < 0:
             raise ValueError("confidence_samples must be >= 0")
+        if self.retest_samples < 0:
+            raise ValueError("retest_samples must be >= 0")
+        if self.retest_samples and not self.confidence_samples:
+            raise ValueError("retest_samples needs confidence_samples > 0: the re-test "
+                             "compares each success with the original's samples")
+        if not 0 < self.retest_alpha < 1:
+            raise ValueError("retest_alpha must be between 0 and 1")
         if self.max_rounds < 1:
             raise ValueError("max_rounds must be >= 1")
         if self.n_questions < 1:
@@ -224,6 +239,11 @@ def parse_args(argv: Optional[List[str]] = None) -> ExperimentConfig:
     parser.add_argument("--confidence-samples", type=int, default=defaults.confidence_samples,
                         help="Victim answers sampled on each original question to group "
                              "results by the victim's confidence (0 = off)")
+    parser.add_argument("--retest-samples", type=int, default=defaults.retest_samples,
+                        help="Fresh victim answers per success, compared with the original's "
+                             "confidence samples by a one-sided Fisher exact test (0 = off)")
+    parser.add_argument("--retest-alpha", type=float, default=defaults.retest_alpha,
+                        help="Significance level for a success to count as confirmed")
 
     # Dataset
     parser.add_argument("--dataset-path", default=None,
@@ -269,6 +289,8 @@ def parse_args(argv: Optional[List[str]] = None) -> ExperimentConfig:
         fitness_temperature=args.fitness_temperature,
         robust_margin=args.robust_margin,
         confidence_samples=args.confidence_samples,
+        retest_samples=args.retest_samples,
+        retest_alpha=args.retest_alpha,
         dataset_path=args.dataset_path,
         n_questions=args.n_questions,
         random_seed=args.random_seed,

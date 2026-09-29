@@ -142,6 +142,45 @@ def test_summary_groups_questions_by_confidence(judges):
     assert [r["confidence_group"] for r in records] == ["certain", "unsure"]
     groups = experiment._summarize(cfg, records, ["llm_judge"])["by_confidence_group"]
     assert groups == {
-        "certain": {"n_questions": 1, "n_queried": 1, "n_successes": 1, "n_questions_with_success": 1},
-        "unsure": {"n_questions": 1, "n_queried": 0, "n_successes": 0, "n_questions_with_success": 0},
+        "certain": {"n_questions": 1, "n_queried": 1, "n_successes": 1, "n_questions_with_success": 1,
+                    "n_confirmed_successes": 1, "n_questions_with_confirmed_success": 1},
+        "unsure": {"n_questions": 1, "n_queried": 0, "n_successes": 0, "n_questions_with_success": 0,
+                   "n_confirmed_successes": 0, "n_questions_with_confirmed_success": 0},
     }
+
+
+def test_fisher_greater():
+    assert experiment.fisher_greater(3, 5, 0, 5) == pytest.approx(10 / 120)  # C(5,3) / C(10,3)
+    assert experiment.fisher_greater(0, 19, 0, 19) == 1.0
+    assert experiment.fisher_greater(5, 30, 12, 30) > 0.9  # the Marvel vs Capcom "wins": noise
+    assert experiment.fisher_greater(18, 30, 0, 30) < 0.001  # the WWI paraphrase: real
+
+
+def test_retest_confirms_only_successes_that_hold_up_on_fresh_samples(judges):
+    cfg = ExperimentConfig(max_rounds=1, fitness_samples=0, confidence_samples=5, retest_samples=20)
+    holds_up = "who was the author of the novel moby dick"
+    lucky = "who penned the novel moby dick"
+    victim = FakeVictim({
+        holds_up: "Mark Twain",
+        lucky: ["Mark Twain"] + ["Herman Melville"] * 30,  # wrong only on the greedy answer
+    })
+    _, queried, _ = attack(cfg, FakeAttacker([[holds_up, lucky]]), victim)
+    by_text = {r["paraphrase"]: r for r in queried}
+    assert all(r["attack_success"]["llm_judge"] for r in queried)
+    assert by_text[holds_up]["confirmed_success"] is True
+    assert by_text[holds_up]["retest"]["n_wrong"] == 20
+    assert by_text[lucky]["confirmed_success"] is False
+    assert by_text[lucky]["retest"]["n_wrong"] == 0
+    assert by_text[lucky]["retest"]["original_n"] == 5
+
+
+def test_retest_off_leaves_successes_unconfirmed(judges):
+    cfg = ExperimentConfig(max_rounds=1, fitness_samples=0, confidence_samples=5, retest_samples=0)
+    paraphrase = "who was the author of the novel moby dick"
+    _, queried, _ = attack(cfg, FakeAttacker([[paraphrase]]), FakeVictim({paraphrase: "Mark Twain"}))
+    assert queried[0]["confirmed_success"] is None and "retest" not in queried[0]
+
+
+def test_retest_needs_confidence_samples():
+    with pytest.raises(ValueError, match="confidence_samples"):
+        ExperimentConfig(confidence_samples=0, retest_samples=20).validate()
