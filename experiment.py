@@ -515,22 +515,8 @@ def _iterative_attack(
                     history.append(record)
                     continue
 
-                if not questions_equivalent(
-                    question, cand, model_name=cfg.equivalence_model, client=client
-                ):
-                    print(
-                        "\n[QUESTION EQUIVALENCE FAILED]"
-                        f"\nOriginal:   {question}"
-                        f"\nParaphrase: {cand}\n"
-                    )
-                    record = {"paraphrase": cand, "status": "rejected", "equivalent": False,
-                              "rejected_by": "equivalence"}
-                    round_records.append(record)
-                    history.append(record)
-                    continue
-
-                # Free checks first. Too big a change: subtle phrasing keeps
-                # most of the original's wording.
+                # Free checks before any model call. Too big a change: subtle
+                # phrasing keeps most of the original's wording.
                 overlap = original_overlap(question, cand)
                 if overlap < cfg.min_original_overlap:
                     print(
@@ -558,6 +544,20 @@ def _iterative_attack(
                     record = {"paraphrase": cand, "status": "rejected", "equivalent": False,
                               "rejected_by": "answer_leak",
                               "rejection_reason": f"names the answer ({' / '.join(gts)})"}
+                    round_records.append(record)
+                    history.append(record)
+                    continue
+
+                if not questions_equivalent(
+                    question, cand, model_name=cfg.equivalence_model, client=client
+                ):
+                    print(
+                        "\n[QUESTION EQUIVALENCE FAILED]"
+                        f"\nOriginal:   {question}"
+                        f"\nParaphrase: {cand}\n"
+                    )
+                    record = {"paraphrase": cand, "status": "rejected", "equivalent": False,
+                              "rejected_by": "equivalence"}
                     round_records.append(record)
                     history.append(record)
                     continue
