@@ -75,6 +75,18 @@ class ExperimentConfig:
     # run skip every remaining question in 5-minute timeouts.
     max_consecutive_failures: int = 2
     preservation_judge_model: str = "gemma3:12b"
+    # Reference gate, after the preservation judge: a model the search never
+    # sees must still give the known answer to the paraphrase in at least
+    # reference_min_correct of reference_samples answers (at
+    # fitness_temperature). Questions whose ORIGINAL it cannot answer that
+    # reliably are skipped, since it would reject every paraphrase. On the 86
+    # hand-labelled paraphrases with well-posed originals, 4 of 5 rejected 0%
+    # of the valid ones and let 43% of the drift through (the branch's judges:
+    # 29% and 24%), so it complements the preservation judge.
+    reference_check: bool = True
+    reference_model: str = "gemma3:12b"
+    reference_samples: int = 5
+    reference_min_correct: int = 4
 
     # ---- Search strategy ----
     search: str = "evolutionary"
@@ -151,6 +163,8 @@ class ExperimentConfig:
                              "compares each success with the original's samples")
         if not 0 < self.retest_alpha < 1:
             raise ValueError("retest_alpha must be between 0 and 1")
+        if self.reference_check and not 1 <= self.reference_min_correct <= self.reference_samples:
+            raise ValueError("reference_min_correct must be between 1 and reference_samples")
         if self.max_rounds < 1:
             raise ValueError("max_rounds must be >= 1")
         if self.n_questions < 1:
@@ -221,6 +235,16 @@ def parse_args(argv: Optional[List[str]] = None) -> ExperimentConfig:
                              "paraphrase must keep (0 = off)")
     parser.add_argument("--no-answer-check", dest="answer_check", action="store_false",
                         help="Skip the answer-preservation check (equivalence check only)")
+    parser.add_argument("--no-reference-check", dest="reference_check", action="store_false",
+                        help="Skip the reference gate (a model the search never sees must "
+                             "still give the known answer)")
+    parser.add_argument("--reference-model", default=defaults.reference_model,
+                        help="Ollama model for the reference gate")
+    parser.add_argument("--reference-samples", type=int, default=defaults.reference_samples,
+                        help="Reference answers per paraphrase")
+    parser.add_argument("--reference-min-correct", type=int,
+                        default=defaults.reference_min_correct,
+                        help="Reference answers that must be right for a paraphrase to pass")
 
     # Search strategy
     parser.add_argument("--search", default=defaults.search, choices=SEARCH_CHOICES,
@@ -283,6 +307,10 @@ def parse_args(argv: Optional[List[str]] = None) -> ExperimentConfig:
         min_original_overlap=args.min_overlap,
         max_consecutive_failures=args.max_failures,
         preservation_judge_model=args.preservation_judge_model,
+        reference_check=args.reference_check,
+        reference_model=args.reference_model,
+        reference_samples=args.reference_samples,
+        reference_min_correct=args.reference_min_correct,
         search=args.search,
         n_parents=args.n_parents,
         fitness_samples=args.fitness_samples,

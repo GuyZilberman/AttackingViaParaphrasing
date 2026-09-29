@@ -323,6 +323,7 @@ def _format_history(history: List[dict]) -> str:
                 "answer_leak": "REJECTED (mentions the answer)",
                 "too_different": "REJECTED (changed too much of the original wording)",
                 "leaked_instruction": "REJECTED (not a clean question: notes or brackets added)",
+                "reference": "REJECTED (an independent model no longer gives the known answer)",
             }.get(h.get("rejected_by"), "REJECTED (not equivalent)")
             if h.get("rejection_reason"):
                 outcome += f" - {h['rejection_reason'][:150]}"
