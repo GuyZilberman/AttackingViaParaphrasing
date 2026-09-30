@@ -7,7 +7,7 @@ they do not import the code on this branch.
 
 | Idea | Verdict | On this branch |
 | --- | --- | --- |
-| Re-test flagged successes with fresh samples | Essential | `--retest-samples` (default 20) |
+| Re-test flagged successes with fresh samples | Essential | `--retest-samples` (default 6 new answers, plus the 4 fitness samples) |
 | Report results by the victim's confidence on the original | Essential | `--confidence-samples` (default 20) |
 | Reference-model gate | Useful against the old preservation judge; redundant with the current one | not added (see below) |
 | Evolve the attacker's instruction | No gain with either victim | not added |

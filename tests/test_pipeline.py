@@ -156,8 +156,8 @@ def test_fisher_greater():
     assert experiment.fisher_greater(18, 30, 0, 30) < 0.001  # the WWI paraphrase: real
 
 
-def test_retest_confirms_only_successes_that_hold_up_on_fresh_samples(judges):
-    cfg = ExperimentConfig(max_rounds=1, fitness_samples=0, confidence_samples=5, retest_samples=20)
+def test_retest_confirms_only_successes_that_hold_up(judges):
+    cfg = ExperimentConfig(max_rounds=1, confidence_samples=5)  # 4 fitness samples + 6 new answers
     holds_up = "who was the author of the novel moby dick"
     lucky = "who penned the novel moby dick"
     victim = FakeVictim({
@@ -168,10 +168,24 @@ def test_retest_confirms_only_successes_that_hold_up_on_fresh_samples(judges):
     by_text = {r["paraphrase"]: r for r in queried}
     assert all(r["attack_success"]["llm_judge"] for r in queried)
     assert by_text[holds_up]["confirmed_success"] is True
-    assert by_text[holds_up]["retest"]["n_wrong"] == 20
+    assert by_text[holds_up]["retest"]["n_wrong"] == 10
     assert by_text[lucky]["confirmed_success"] is False
     assert by_text[lucky]["retest"]["n_wrong"] == 0
     assert by_text[lucky]["retest"]["original_n"] == 5
+
+
+def test_retest_reuses_the_fitness_samples_but_not_the_greedy_answer(judges):
+    cfg = ExperimentConfig(max_rounds=1, fitness_samples=4, confidence_samples=5, retest_samples=6)
+    paraphrase = "who was the author of the novel moby dick"
+    right, wrong = "Herman Melville", "Mark Twain"
+    victim = FakeVictim({paraphrase: [wrong,                              # greedy: the success
+                                      wrong, right, right, right,         # fitness samples: 1 wrong
+                                      wrong, wrong, right, right, right, right]})  # new: 2 wrong
+    _, queried, _ = attack(cfg, FakeAttacker([[paraphrase]]), victim)
+    retest = queried[0]["retest"]
+    assert retest["answers"] == [wrong, wrong, right, right, right, right]
+    assert (retest["n_reused"], retest["n"], retest["n_wrong"]) == (4, 10, 3)
+    assert retest["p_value"] == pytest.approx(experiment.fisher_greater(3, 10, 0, 5))
 
 
 def test_retest_off_leaves_successes_unconfirmed(judges):
