@@ -37,9 +37,11 @@ Result file format
           "fitness_gain": 0.2,              # fitness - original_wrong_rate
           "robust_success": false,          # success AND gain >= robust_margin
           "confirmed_success": true,        # re-test verdict (null: not re-tested)
-          "retest": {"answers": [...], "n_wrong": 17, "n": 20,   # fresh answers vs
-                     "original_n_wrong": 0, "original_n": 20,    # the original's
-                     "p_value": 2e-8}                            # confidence samples
+          "retest": {"answers": [...],      # cfg.retest_samples new answers
+                     "n_reused": 4,          # + the sample_answers above
+                     "n_wrong": 7, "n": 10,  # over both, vs the original's
+                     "original_n_wrong": 0, "original_n": 20,   # confidence
+                     "p_value": 6e-5}                           # samples
         },
         ...
       ],
@@ -97,7 +99,7 @@ Result file format
       "total_robust_successes": 1,
       "question_robust_success_rate": 0.33,   # questions with >= 1 robust success
       "victim_baseline_accuracy": {"llm_judge": 0.67},
-      "retest_samples": 20,
+      "retest_samples": 6,
       "retest_alpha": 0.05,
       "total_confirmed_successes": 1,
       "question_confirmed_success_rate": 0.33,
@@ -787,9 +789,12 @@ def _iterative_attack(
             logger.info("    stop_on_success set; ending search after round %d", rnd)
             break
 
-    # Re-test every success on fresh samples: the search selected it on a few
-    # noisy answers. Compared with the original's confidence samples (same
-    # temperature), it is confirmed only if it is wrong significantly more often.
+    # Re-test every success: its greedy answer alone decided it, and one wrong
+    # answer can happen on a paraphrase that fools the victim no more often
+    # than the original. The success's fitness samples (not selected on: the
+    # greedy answer picked it) plus retest_samples new answers are compared
+    # with the original's confidence samples (same temperature); it is
+    # confirmed only if it is wrong significantly more often.
     if cfg.retest_samples and confidence_samples:
         for r in queried:
             if not r["attack_success"].get(guide):
@@ -799,26 +804,30 @@ def _iterative_attack(
                     victim.answer(r["paraphrase"], temperature=cfg.fitness_temperature)
                     for _ in range(cfg.retest_samples)
                 ]
+                tested = r["sample_answers"] + answers
                 n_wrong = sum(
-                    1 for a in answers if not _is_non_answer(a) and not evaluate(a)[0][guide]
+                    1 for a in tested if not _is_non_answer(a) and not evaluate(a)[0][guide]
                 )
             except Exception as exc:
                 logger.warning("    [re-test failed] %r: %s", r["paraphrase"], exc)
                 r["retest"] = {"error": repr(exc)}
                 continue
-            p_value = fisher_greater(n_wrong, len(answers), n_conf_wrong, len(confidence_samples))
+            p_value = fisher_greater(n_wrong, len(tested), n_conf_wrong, len(confidence_samples))
             r["retest"] = {
                 "answers": answers,
+                "n_reused": len(r["sample_answers"]),
                 "n_wrong": n_wrong,
-                "n": len(answers),
+                "n": len(tested),
                 "original_n_wrong": n_conf_wrong,
                 "original_n": len(confidence_samples),
                 "p_value": p_value,
             }
             r["confirmed_success"] = p_value < cfg.retest_alpha
             logger.info(
-                "    Re-test: %d/%d wrong vs %d/%d on the original, p=%.3f -> %s: %r",
-                n_wrong, len(answers), n_conf_wrong, len(confidence_samples), p_value,
+                "    Re-test: %d/%d wrong (%d fitness samples + %d new) vs %d/%d on the "
+                "original, p=%.3f -> %s: %r",
+                n_wrong, len(tested), len(r["sample_answers"]), len(answers), n_conf_wrong,
+                len(confidence_samples), p_value,
                 "CONFIRMED" if r["confirmed_success"] else "not confirmed", r["paraphrase"],
             )
 
@@ -944,8 +953,9 @@ def _print_summary(summary: dict, out_path: Path) -> None:
           f"original's wrong rate): {summary['total_robust_successes']}, on "
           f"{summary['question_robust_success_rate']:.1%} of questions")
     if summary["retest_samples"]:
-        print(f"  Confirmed by re-test ({summary['retest_samples']} fresh answers, one-sided "
-              f"Fisher p < {summary['retest_alpha']}): {summary['total_confirmed_successes']}, "
+        print(f"  Confirmed by re-test (fitness samples + {summary['retest_samples']} new "
+              f"answers, one-sided Fisher p < {summary['retest_alpha']}): "
+              f"{summary['total_confirmed_successes']}, "
               f"on {summary['question_confirmed_success_rate']:.1%} of questions")
     if summary.get("by_confidence_group"):
         print(f"  By the victim's confidence on the original "

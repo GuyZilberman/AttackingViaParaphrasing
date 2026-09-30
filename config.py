@@ -95,13 +95,18 @@ class ExperimentConfig:
     # paraphrases when 0/20 samples were wrong and about 50% at >= 5/20.
     # 0 disables.
     confidence_samples: int = 20
-    # Every success is re-asked retest_samples times (fresh samples at
-    # fitness_temperature) and is confirmed only if it is wrong more often
-    # than the original's confidence samples (one-sided Fisher exact test,
-    # p < retest_alpha). The search picks paraphrases on a few noisy answers,
-    # so their fitness overstates them: on 2026-09-26 only 14 of 37 flagged
-    # successes held up at 30 samples. 0 disables; needs confidence_samples.
-    retest_samples: int = 20
+    # A success is decided by one greedy answer, which can be wrong even when
+    # the paraphrase does not make the victim wrong more often than the
+    # original (on 2026-09-26 only 14 of 37 flagged successes held up at 30
+    # samples). So each success is tested on its fitness samples plus
+    # retest_samples new answers (all at fitness_temperature) against the
+    # original's confidence samples, and is confirmed only if it is wrong more
+    # often (one-sided Fisher exact test, p < retest_alpha). The fitness
+    # samples can be reused because successes are picked by the greedy answer,
+    # not by them: on the 2026-09-29 runs, 4 reused + 6 new kept about as many
+    # real successes as 20 new (14.4 vs 15 of 18). 0 disables; needs
+    # confidence_samples.
+    retest_samples: int = 6
     retest_alpha: float = 0.05
 
     # ---- Dataset ----
@@ -240,8 +245,9 @@ def parse_args(argv: Optional[List[str]] = None) -> ExperimentConfig:
                         help="Victim answers sampled on each original question to group "
                              "results by the victim's confidence (0 = off)")
     parser.add_argument("--retest-samples", type=int, default=defaults.retest_samples,
-                        help="Fresh victim answers per success, compared with the original's "
-                             "confidence samples by a one-sided Fisher exact test (0 = off)")
+                        help="New victim answers per success; with the success's fitness samples "
+                             "they are compared with the original's confidence samples by a "
+                             "one-sided Fisher exact test (0 = off)")
     parser.add_argument("--retest-alpha", type=float, default=defaults.retest_alpha,
                         help="Significance level for a success to count as confirmed")
 
