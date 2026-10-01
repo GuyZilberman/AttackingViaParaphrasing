@@ -7,3 +7,5 @@ __pycache__/
 /tmp/ollama*.log
 data_fabric/data/
 .env
+
+report/
