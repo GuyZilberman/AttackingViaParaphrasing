@@ -1,0 +1,1612 @@
+
+============================================================
+ADVERSARIAL PARAPHRASING EXPERIMENT
+============================================================
+  Attacker model    : llama3.1:8b
+  Attack strategy   : minimal_edit
+  Victim model      : qwen3:4b-instruct
+  Judge model       : gemma3:12b  (evaluator=llm_judge)
+  Questions         : 16
+  Paraphrases/round : 40
+  Max rounds        : 1  (stop_on_success=False)
+  Answer check      : gemma3:12b
+  Search            : evolutionary  (parents=3, fitness samples=4 @ T=0.7)
+  Dataset           : data/accepted_questions_qwen3_4b_instruct.json
+  Results dir       : /content/runs/results
+============================================================
+
+18:56:44  INFO     Loaded 16 questions
+18:56:44  INFO     Results file: /content/runs/results/attacker_llama3_1_8b_minimal_edit__victim_qwen3_4b_instruct__judge_gemma3_12b__q16_p40_r1_evolutionary__20260928_185644.json
+18:56:44  INFO     [1/16] Qnqo_validation_0573: Where in the American constitution is the executive branch referenced?
+18:56:44  INFO       Victim (original): 'Article II'
+18:56:45  INFO       [llm_judge] original correct=True
+18:56:46  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+18:56:46  INFO       Attack round 1/1
+18:56:50  INFO         Generated 40 candidates
+18:56:52  INFO         Paraphrase: 'Where in the U.S. Constitution is the executive branch mentioned?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:56:53  INFO         Paraphrase: 'Where in the American Constitution is the executive branch located?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:56:55  INFO         Paraphrase: 'In which section of the American Constitution is the executive branch referenced?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: What American document references the executive branch?
+
+18:56:58  INFO         Paraphrase: 'What part of the American Constitution describes the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: In the American Constitution, where is the executive branch defined?
+
+18:57:00  INFO         Paraphrase: 'What article in the American Constitution discusses the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:57:02  INFO         Paraphrase: 'Where is the executive branch discussed in the U.S. Constitution?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:57:03  INFO         Paraphrase: 'Which part of the American Constitution talks about the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:57:05  INFO         Paraphrase: 'In the U.S. Constitution, which article mentions the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: Where in the American Constitution is the branch of government described?
+
+18:57:08  INFO         Paraphrase: 'In which part of the American Constitution is the executive branch described?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:57:09  INFO         Paraphrase: 'Where in the American Constitution is the executive branch described?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: What in the American Constitution describes the executive branch?
+
+18:57:12  INFO         Paraphrase: 'Where in the U.S. Constitution is the executive branch found?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:57:14  INFO         Paraphrase: 'In the American Constitution, which section mentions the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:57:15  INFO         Paraphrase: 'What section of the American Constitution references the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:57:17  INFO         Paraphrase: 'In the U.S. Constitution, what mentions the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: Where in the American Constitution is the branch of government referenced?
+
+18:57:19  INFO         Paraphrase: 'Which article in the American Constitution discusses the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:57:21  INFO         Paraphrase: 'Where in the U.S. Constitution is the executive branch described?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:57:22  INFO         Paraphrase: 'What section in the American Constitution talks about the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:57:24  INFO         Paraphrase: 'In the American Constitution, which article references the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Where in the American constitution is the executive branch referenced?
+Paraphrase: What U.S. document references the executive branch?
+Keeps 40% of the original's content words
+
+18:57:26  INFO         Paraphrase: 'In the American Constitution, which section discusses the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:57:27  INFO         Paraphrase: 'Where in the U.S. Constitution is the executive branch located?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: In the U.S. Constitution, what describes the executive branch?
+
+18:57:30  INFO         Paraphrase: 'Where in the American Constitution is the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:57:32  INFO         Paraphrase: 'In which article of the U.S. Constitution is the executive branch mentioned?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:57:33  INFO         Paraphrase: 'Where in the American Constitution is the executive branch discussed?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:57:35  INFO         Paraphrase: 'In the U.S. Constitution, which section describes the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Where in the American constitution is the executive branch referenced?
+Paraphrase: What U.S. document describes the executive branch?
+Keeps 40% of the original's content words
+
+18:57:36  INFO         Paraphrase: 'Where in the American Constitution is the executive branch mentioned?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:57:38  INFO         Paraphrase: 'Which part of the U.S. Constitution talks about the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where in the American constitution is the executive branch referenced?
+Answer(s):  ['Article Two']
+Paraphrase: In the American Constitution, what references the executive branch?
+
+18:57:41  INFO         Paraphrase: 'In the U.S. Constitution, which article references the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:57:42  INFO         Paraphrase: 'In the American Constitution, which section talks about the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:57:44  INFO         Paraphrase: 'In the American Constitution, what mentions the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:57:45  INFO         Paraphrase: 'What section of the American Constitution discusses the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:57:47  INFO         Paraphrase: 'In the U.S. Constitution, which part mentions the executive branch?'  →  Victim: 'Article II'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:57:47  INFO         Round 1/1 done: 40 generated, 0 duplicates, 9 rejected, 31 passed validation (queried), 0 successful
+18:57:47  INFO       Attack finished after 1 round(s): 31 valid victim queries, successful attacks per evaluator: {'llm_judge': 0}, robust: 0
+18:57:47  INFO     [2/16] Qnqo_validation_0615: Which organelle is the site of atp production and storage?
+18:57:47  INFO       Victim (original): 'Mitochondria'
+18:57:48  INFO       [llm_judge] original correct=True
+18:57:48  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+18:57:48  INFO       Attack round 1/1
+18:57:52  INFO         Generated 28 candidates
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: Where is ATP produced and stored within a cell?
+Keeps 20% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: What is the organelle where energy is generated and stored?
+Keeps 20% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: Which cellular component is responsible for energy production and storage?
+Keeps 40% of the original's content words
+
+18:57:54  INFO         Paraphrase: 'What organelle is the main site of energy production and storage?'  →  Victim: 'Mitochondrion'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: Where does the cell's energy production and storage take place?
+Keeps 40% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: Which organelle is the powerhouse of the cell where ATP is produced and stored?
+Keeps 40% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: Where is the cell's energy stored and produced?
+Keeps 0% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: What is the cellular structure responsible for energy production and storage?
+Keeps 40% of the original's content words
+
+18:57:57  INFO         Paraphrase: 'Which organelle is the site of cellular respiration and energy storage?'  →  Victim: 'Mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: What organelle is responsible for energy generation and storage within the cell?
+Keeps 40% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: Where is the cell's energy generated and stored?
+Keeps 0% of the original's content words
+
+18:57:59  INFO         Paraphrase: 'Which organelle is the primary site of ATP production and storage?'  →  Victim: 'Mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: Where does the cell produce and store energy?
+Keeps 0% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: What is the organelle where energy is stored and produced?
+Keeps 20% of the original's content words
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Which organelle is the site of atp production and storage?
+Answer(s):  ['mitochondrion']
+Paraphrase: Which organelle is the site of energy production and storage in a cell?
+
+18:58:02  INFO         Paraphrase: 'What is the cellular organelle responsible for energy production and storage?'  →  Victim: 'Mitochondrion'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: Where is the cell's energy produced and stored?
+Keeps 0% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: Which organelle is the main energy-producing and -storing site within the cell?
+Keeps 40% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: Where is the cell's energy storage and production located?
+Keeps 40% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: What is the organelle responsible for producing and storing ATP?
+Keeps 40% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: Where is the cellular energy production and storage occurring?
+Keeps 40% of the original's content words
+
+18:58:05  INFO         Paraphrase: 'Which organelle is the site of energy generation and storage within the cell?'  →  Victim: 'Mitochondrion'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: What is the cellular component responsible for energy production and storage?
+Keeps 40% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: Where does the cell's energy production and storage happen?
+Keeps 40% of the original's content words
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Which organelle is the site of atp production and storage?
+Answer(s):  ['mitochondrion']
+Paraphrase: Which organelle is the site of cellular energy production and storage?
+
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: What organelle is the cell's primary energy-producing and -storing site?
+Keeps 40% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Which organelle is the site of atp production and storage?
+Paraphrase: Where is the cell's energy produced and stored in the form of ATP?
+Keeps 20% of the original's content words
+
+18:58:09  INFO         Paraphrase: 'Which organelle is responsible for energy production and storage within the cell?'  →  Victim: 'Mitochondria'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:58:09  INFO         Round 1/1 done: 28 generated, 0 duplicates, 22 rejected, 6 passed validation (queried), 0 successful
+18:58:09  INFO       Attack finished after 1 round(s): 6 valid victim queries, successful attacks per evaluator: {'llm_judge': 0}, robust: 0
+18:58:09  INFO     [3/16] Qnqo_validation_0773: Islamic term for the community of the faithful?
+18:58:09  INFO       Victim (original): 'Ummah'
+18:58:10  INFO       [llm_judge] original correct=True
+18:58:11  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+18:58:11  INFO       Attack round 1/1
+18:58:14  INFO         Generated 32 candidates
+
+[ANSWER PRESERVATION FAILED]
+Original:   Islamic term for the community of the faithful?
+Answer(s):  ['ummat al-Islamiyah', 'Ummah']
+Paraphrase: Islamic term for the community?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Islamic term for the community of the faithful?
+Answer(s):  ['ummat al-Islamiyah', 'Ummah']
+Paraphrase: What is the Islamic term for the faithful?
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: The community of the faithful in Islam?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: Term used in Islam for the faithful?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: What is the term used for the community in Islam?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: The faithful in Islam, what is it called?
+Keeps 25% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: Community in Islam, what is the term?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: Term for the community of believers in Islam?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: In Islam, what is the term for the faithful?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: Community of believers in Islam, what is it?
+Keeps 25% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: Term for the community in Islam, what is it?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: The faithful, what is the term used in Islam?
+Keeps 50% of the original's content words
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Islamic term for the community of the faithful?
+Answer(s):  ['ummat al-Islamiyah', 'Ummah']
+Paraphrase: Term used in Islamic community?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Islamic term for the community of the faithful?
+Answer(s):  ['ummat al-Islamiyah', 'Ummah']
+Paraphrase: What is the term used in the Islamic community?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Islamic term for the community of the faithful?
+Answer(s):  ['ummat al-Islamiyah', 'Ummah']
+Paraphrase: Term for the community of the faithful?
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: The Islamic community, what is it called?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: Term used for the community of believers?
+Keeps 50% of the original's content words
+
+18:58:24  INFO         Paraphrase: 'What is the term used for the Islamic community?'  →  Victim: 'Ummah'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: Community of the faithful, what is it?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: Term used for the faithful in Islam?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: The community, what is the term used in Islam?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: Term for the faithful, what is it?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: In Islamic terms, what is the community?
+Keeps 50% of the original's content words
+
+18:58:26  INFO         Paraphrase: 'Term for the community of the faithful in Islam?'  →  Victim: 'Ummah'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:58:28  INFO         Paraphrase: 'What is the term for the community in Islamic terms?'  →  Victim: 'Ummah'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:58:29  INFO         Paraphrase: 'Term for the Islamic community, what is it?'  →  Victim: 'Ummah'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: The community of believers, what is it called?
+Keeps 25% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: Term used in Islam for the community?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: Term for the community, what is it in Islam?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Islamic term for the community of the faithful?
+Paraphrase: Community of the faithful, what is it called?
+Keeps 50% of the original's content words
+
+18:58:36  INFO         Paraphrase: 'Term for the faithful in Islamic terms'  →  Victim: "Mu'min"  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+18:58:36  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    Term for the faithful in Islamic terms
+        Victim answer: Mu'min
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+18:58:38  INFO         Paraphrase: 'The Islamic community, what is the term for?'  →  Victim: 'Ummah.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:58:38  INFO         Round 1/1 done: 32 generated, 0 duplicates, 26 rejected, 6 passed validation (queried), 1 successful
+18:58:38  INFO       Attack finished after 1 round(s): 6 valid victim queries, successful attacks per evaluator: {'llm_judge': 1}, robust: 1
+18:58:38  INFO     [4/16] Qnqo_validation_0964: What is the name of the big gold dome in jerusalem?
+18:58:38  INFO       Victim (original): 'Dome of the Rock'
+18:58:38  INFO       [llm_judge] original correct=True
+18:58:38  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+18:58:38  INFO       Attack round 1/1
+18:58:41  INFO         Generated 30 candidates
+18:58:43  INFO         Paraphrase: 'What is the name of the large golden dome in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:58:45  INFO         Paraphrase: 'What is the name of the big golden dome in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:58:46  INFO         Paraphrase: 'What is the name of the big gold covered dome in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   What is the name of the big gold dome in jerusalem?
+Paraphrase: What is the name of the large gold-domed structure in Jerusalem?
+Keeps 40% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   What is the name of the big gold dome in jerusalem?
+Paraphrase: What is the name of the significant gold-covered building in Jerusalem?
+Keeps 40% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   What is the name of the big gold dome in jerusalem?
+Paraphrase: What is the name of the gold-domed monument in Jerusalem?
+Keeps 40% of the original's content words
+
+18:58:49  INFO         Paraphrase: 'What is the name of the gold-plated dome in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:58:51  INFO         Paraphrase: 'What is the name of the large gold-colored dome in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:58:53  INFO         Paraphrase: 'What is the name of the gold-covered dome in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   What is the name of the big gold dome in jerusalem?
+Paraphrase: What is the name of the gold-domed building in Jerusalem?
+Keeps 40% of the original's content words
+
+18:58:55  INFO         Paraphrase: 'What is the name of the prominent gold-covered dome in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:58:56  INFO         Paraphrase: 'What is the name of the gold-clad dome in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   What is the name of the big gold dome in jerusalem?
+Paraphrase: What is the name of the gold-domed landmark in Jerusalem?
+Keeps 40% of the original's content words
+
+18:58:58  INFO         Paraphrase: 'What is the name of the gold-encased dome in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   What is the name of the big gold dome in jerusalem?
+Paraphrase: What is the name of the gold-plated monument in Jerusalem?
+Keeps 40% of the original's content words
+
+18:59:00  INFO         Paraphrase: 'What is the name of the significant gold-colored dome in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   What is the name of the big gold dome in jerusalem?
+Paraphrase: What is the name of the gold-covered landmark in Jerusalem?
+Keeps 40% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   What is the name of the big gold dome in jerusalem?
+Paraphrase: What is the name of the gold-domed edifice in Jerusalem?
+Keeps 40% of the original's content words
+
+18:59:02  INFO         Paraphrase: 'What is the name of the large gold-clad dome in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   What is the name of the big gold dome in jerusalem?
+Paraphrase: What is the name of the gold-plated building in Jerusalem?
+Keeps 40% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   What is the name of the big gold dome in jerusalem?
+Paraphrase: What is the name of the gold-covered structure in Jerusalem?
+Keeps 40% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   What is the name of the big gold dome in jerusalem?
+Paraphrase: What is the name of the prominent gold-domed building in Jerusalem?
+Keeps 40% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   What is the name of the big gold dome in jerusalem?
+Paraphrase: What is the name of the gold-encased landmark in Jerusalem?
+Keeps 40% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   What is the name of the big gold dome in jerusalem?
+Paraphrase: What is the name of the gold-plated edifice in Jerusalem?
+Keeps 40% of the original's content words
+
+18:59:05  INFO         Paraphrase: 'What is the name of the gold-colored dome in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:59:06  INFO         Paraphrase: 'What is the name of the large gold-covered dome in Jerusalem?'  →  Victim: 'Dome of the Rock'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   What is the name of the big gold dome in jerusalem?
+Paraphrase: What is the name of the gold-clad building in Jerusalem?
+Keeps 40% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   What is the name of the big gold dome in jerusalem?
+Paraphrase: What is the name of the gold-encased structure in Jerusalem?
+Keeps 40% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   What is the name of the big gold dome in jerusalem?
+Paraphrase: What is the name of the gold-plated landmark in Jerusalem?
+Keeps 40% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   What is the name of the big gold dome in jerusalem?
+Paraphrase: What is the name of the significant gold-domed building in Jerusalem?
+Keeps 40% of the original's content words
+
+18:59:07  INFO         Round 1/1 done: 30 generated, 0 duplicates, 17 rejected, 13 passed validation (queried), 0 successful
+18:59:07  INFO       Attack finished after 1 round(s): 13 valid victim queries, successful attacks per evaluator: {'llm_judge': 0}, robust: 0
+18:59:07  INFO     [5/16] Qnqo_validation_0990: Another name for the torso is the blank region of the body?
+18:59:07  INFO       Victim (original): 'trunk'
+18:59:07  INFO       [llm_judge] original correct=True
+18:59:08  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+18:59:08  INFO       Attack round 1/1
+18:59:11  INFO         Generated 33 candidates
+18:59:13  INFO         Paraphrase: 'Another term for the torso is the blank region of the body?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:59:14  INFO         Paraphrase: 'An alternative name for the torso is the blank region of the body?'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: The torso is also known by what blank term?
+Keeps 33% of the original's content words
+
+18:59:17  INFO         Paraphrase: 'The blank region is another way of saying the torso?'  →  Victim: 'No.'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+18:59:17  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    The blank region is another way of saying the torso?
+        Victim answer: No.
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+18:59:18  INFO         Paraphrase: "What's another name for the torso, this blank region?"  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:59:20  INFO         Paraphrase: 'The blank region is another name for the torso part of the body.'  →  Victim: 'thorax'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:59:22  INFO         Paraphrase: 'Another word for the torso is the blank region of the human body.'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: The blank region can also be called the torso.
+Keeps 50% of the original's content words
+
+18:59:25  INFO         Paraphrase: 'What is the name for the blank region of the body, which is also the torso?'  →  Victim: 'Chest'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:59:26  INFO         Paraphrase: 'An alternative designation for the torso is the blank region of the body.'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:59:29  INFO         Paraphrase: 'The blank region of the body is another way of saying the torso part.'  →  Victim: 'The trunk'  correct={'llm_judge': True}  fitness=0.40 (2/5 wrong, llm_judge)
+18:59:33  INFO         Paraphrase: "What's the term for the blank region of the body that's also the torso?"  →  Victim: 'Abdomen'  correct={'llm_judge': False}  fitness=0.60 (3/5 wrong, llm_judge)
+18:59:33  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    What's the term for the blank region of the body that's also the torso?
+        Victim answer: Abdomen
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.60 vs 0.00 on the original (ROBUST)
+18:59:35  INFO         Paraphrase: 'The blank region of the body is also called the torso.'  →  Victim: 'True'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+18:59:35  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    The blank region of the body is also called the torso.
+        Victim answer: True
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+18:59:38  INFO         Paraphrase: 'The blank region is another term for the torso part of the body.'  →  Victim: 'The blank region is another term for the trunk.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:59:40  INFO         Paraphrase: 'Another name for the torso part is the blank region of the body.'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: What is the term for the torso that can also be described as the blank region?
+Keeps 50% of the original's content words
+
+18:59:41  INFO         Paraphrase: 'The blank region of the body can also be referred to as the torso.'  →  Victim: 'True'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+18:59:41  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    The blank region of the body can also be referred to as the torso.
+        Victim answer: True
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+18:59:43  INFO         Paraphrase: 'An alternative to the term torso is the blank region of the body.'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:59:44  INFO         Paraphrase: "What's another way of saying the torso, the blank region?"  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:59:45  INFO         Paraphrase: 'The blank region of the body is another term for the torso part.'  →  Victim: 'True'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+18:59:45  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    The blank region of the body is another term for the torso part.
+        Victim answer: True
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: The blank region is a term for the torso.
+Keeps 50% of the original's content words
+
+18:59:48  INFO         Paraphrase: 'The torso is another name for the blank region of the body.'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:59:49  INFO         Paraphrase: 'An alternative way of referring to the torso is the blank region of the body.'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:59:51  INFO         Paraphrase: 'The blank region of the body is also known as the torso.'  →  Victim: 'True'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+18:59:51  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    The blank region of the body is also known as the torso.
+        Victim answer: True
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: What is the term for the torso part that is also described as the blank region?
+Keeps 50% of the original's content words
+
+18:59:52  INFO         Paraphrase: 'The blank region is another name for the torso.'  →  Victim: 'False'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+18:59:52  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    The blank region is another name for the torso.
+        Victim answer: False
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: The torso can also be called the blank region.
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Another name for the torso is the blank region of the body?
+Paraphrase: An alternative to the term blank region is the torso.
+Keeps 50% of the original's content words
+
+18:59:54  INFO         Paraphrase: 'The blank region of the body is the term for the torso.'  →  Victim: 'Abdomen'  correct={'llm_judge': False}  fitness=0.20 (1/5 wrong, llm_judge)
+18:59:54  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    The blank region of the body is the term for the torso.
+        Victim answer: Abdomen
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.20 vs 0.00 on the original (not robust)
+18:59:56  INFO         Paraphrase: 'The blank region of the body is another name for the torso part.'  →  Victim: 'True'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+18:59:56  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    The blank region of the body is another name for the torso part.
+        Victim answer: True
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+18:59:58  INFO         Paraphrase: 'What is the term for the blank region of the body that is the torso?'  →  Victim: 'Thorax'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+18:59:59  INFO         Paraphrase: 'An alternative term for the torso is the blank region of the body.'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:00:00  INFO         Paraphrase: 'The torso is another term for the blank region of the body.'  →  Victim: 'trunk'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:00:00  INFO         Round 1/1 done: 33 generated, 0 duplicates, 7 rejected, 26 passed validation (queried), 9 successful
+19:00:00  INFO       Attack finished after 1 round(s): 26 valid victim queries, successful attacks per evaluator: {'llm_judge': 9}, robust: 8
+19:00:00  INFO     [6/16] Qnqo_validation_1197: Who is given credit for inventing the aqua lung?
+19:00:01  INFO       Victim (original): 'Jacques Cousteau and Émile Gagnan.'
+19:00:02  INFO       [llm_judge] original correct=True
+19:00:04  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+19:00:04  INFO       Attack round 1/1
+19:00:07  INFO         Generated 29 candidates
+19:00:09  INFO         Paraphrase: 'Who is given the credit for inventing the aqua lung?'  →  Victim: 'Jacques Cousteau and Émile Gagnan.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:00:15  INFO         Paraphrase: 'Who is credited with inventing the aqua lung?'  →  Victim: 'Jacques Cousteau and Émile Gagnan.'  correct={'llm_judge': True}  fitness=0.40 (2/5 wrong, llm_judge)
+19:00:22  INFO         Paraphrase: 'Who invented the aqua lung and got the credit?'  →  Victim: 'Jacques Cousteau and Emile Gagnan invented the Aqua Lung and received the credit.'  correct={'llm_judge': False}  fitness=0.40 (2/5 wrong, llm_judge)
+19:00:22  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    Who invented the aqua lung and got the credit?
+        Victim answer: Jacques Cousteau and Emile Gagnan invented the Aqua Lung and received the credit.
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.40 vs 0.00 on the original (not robust)
+19:00:26  INFO         Paraphrase: 'Who gets the credit for inventing the aqua lung?'  →  Victim: 'Jacques Cousteau and Émile Gagnan.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Who is given credit for inventing the aqua lung?
+Paraphrase: Who is credited with the invention of the aqua lung?
+Keeps 40% of the original's content words
+
+19:00:28  INFO         Paraphrase: 'Who is attributed with inventing the aqua lung?'  →  Victim: 'Jacques Cousteau and Emile Gagnan.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:00:32  INFO         Paraphrase: 'Who receives the credit for inventing the aqua lung?'  →  Victim: 'Jacques Couste and Emile Gagnan.'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+19:00:34  INFO         Paraphrase: 'Who is responsible for inventing the aqua lung and gets credit?'  →  Victim: 'Jacques Cousteau and Émile Gagnan.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:00:36  INFO         Paraphrase: 'Who invented the aqua lung and has the credit?'  →  Victim: 'Jacques Cousteau and Emile Gagnan.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:00:41  INFO         Paraphrase: 'Who is credited with inventing the aqua lung and receives the credit?'  →  Victim: 'Jacques Cousteau is credited with inventing the aqua lung, though he did not invent it alone—his work was collaborative. The invention is primarily credited to Jacques Cousteau and Emile Gagnan.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:00:48  INFO         Paraphrase: 'Who is credited with inventing the aqua lung and is given the credit?'  →  Victim: 'Jacques Cousteau is credited with inventing the aqua lung, though he did not invent it alone—his work was collaborative. The invention is primarily credited to Jacques Cousteau and Emile Gagnan.'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Who is given credit for inventing the aqua lung?
+Paraphrase: Who invented the aqua lung and is credited with it?
+Keeps 40% of the original's content words
+
+19:00:50  INFO         Paraphrase: 'Who is responsible for inventing the aqua lung and credited with it?'  →  Victim: 'Jacques Cousteau and Emile Gagnan.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:00:52  INFO         Paraphrase: 'Who invented the aqua lung and has the credit for it?'  →  Victim: 'Jacques Cousteau and Émile Gagnan.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:00:53  INFO         Paraphrase: 'Who gets credit for inventing the aqua lung?'  →  Victim: 'Jacques Cousteau and Émile Gagnan.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:00:56  INFO         Paraphrase: 'Who is credited with the invention of the aqua lung and has the credit?'  →  Victim: 'Jacques Cousteau is credited with the invention of the aqua lung.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:00:58  INFO         Paraphrase: 'Who is credited with inventing the aqua lung and is given credit?'  →  Victim: 'Jacques Cousteau.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:01:01  INFO         Paraphrase: 'Who is credited with inventing the aqua lung and receives credit?'  →  Victim: 'Jacques Cousteau.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:01:03  INFO         Paraphrase: 'Who invented the aqua lung and is given the credit?'  →  Victim: 'Jacques Cousteau and Emile Gagnan.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Who is given credit for inventing the aqua lung?
+Paraphrase: Who is credited with the invention of the aqua lung and is credited with it?
+Keeps 40% of the original's content words
+
+19:01:05  INFO         Paraphrase: 'Who invented the aqua lung and gets the credit?'  →  Victim: 'Jacques Cousteau and Emile Gagnan.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:01:06  INFO         Paraphrase: 'Who receives credit for inventing the aqua lung?'  →  Victim: 'Jacques Cousteau and Emile Gagnan.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:01:08  INFO         Paraphrase: 'Who is given credit for inventing the aqua lung and credited with it?'  →  Victim: 'Jacques Cousteau.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Who is given credit for inventing the aqua lung?
+Paraphrase: Who is credited with the invention of the aqua lung and credited with it?
+Keeps 40% of the original's content words
+
+19:01:10  INFO         Paraphrase: 'Who is credited with inventing the aqua lung and credited with inventing it?'  →  Victim: 'Jacques Cousteau.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:01:15  INFO         Paraphrase: 'Who is credited with inventing the aqua lung and gets the credit?'  →  Victim: 'Jacques Cousteau is credited with inventing the aqua lung, though he collaborated with Emile Gagnan. The invention is jointly credited to them.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:01:17  INFO         Paraphrase: 'Who is credited with the invention of the aqua lung and gets credit?'  →  Victim: 'Jacques Cousteau and Emile Gagnan.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:01:19  INFO         Paraphrase: 'Who is credited with the invention of the aqua lung and has the credit for it?'  →  Victim: 'Jacques Cousteau is credited with the invention of the aqua lung.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:01:21  INFO         Paraphrase: 'Who is credited with inventing the aqua lung and has the credit?'  →  Victim: 'Jacques Cousteau is credited with inventing the aqua lung.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:01:21  INFO         Round 1/1 done: 29 generated, 0 duplicates, 4 rejected, 25 passed validation (queried), 1 successful
+19:01:21  INFO       Attack finished after 1 round(s): 25 valid victim queries, successful attacks per evaluator: {'llm_judge': 1}, robust: 0
+19:01:21  INFO     [7/16] Qnqo_validation_1243: The first element on the periodic table is?
+19:01:21  INFO       Victim (original): 'Hydrogen'
+19:01:21  INFO       [llm_judge] original correct=True
+19:01:21  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+19:01:21  INFO       Attack round 1/1
+19:01:24  INFO         Generated 35 candidates
+19:01:25  INFO         Paraphrase: 'The first element in the periodic table is?'  →  Victim: 'Hydrogen'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:01:26  INFO         Paraphrase: 'What is the first element on the periodic table?'  →  Victim: 'Hydrogen'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:01:28  INFO         Paraphrase: 'The first chemical element on the table is?'  →  Victim: 'Hydrogen'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:01:29  INFO         Paraphrase: 'Which is the first element listed on the periodic table?'  →  Victim: 'Hydrogen'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:01:31  INFO         Paraphrase: 'What element is number one on the periodic table?'  →  Victim: 'Hydrogen'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The first of all the elements on the table is?
+Keeps 50% of the original's content words
+
+19:01:32  INFO         Paraphrase: 'On the periodic table, which element comes first?'  →  Victim: 'Hydrogen'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The initial element on the table is?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The first on the list of elements is?
+Keeps 25% of the original's content words
+
+19:01:34  INFO         Paraphrase: 'The number one element on the periodic table is?'  →  Victim: 'Hydrogen'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The top element on the table is?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The first element on the list is?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The initial of all elements on the table is?
+Keeps 25% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The leading element on the table is?
+Keeps 50% of the original's content words
+
+19:01:36  INFO         Paraphrase: 'Which element is first on the table?'  →  Victim: 'Hydrogen'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The beginning element on the table is?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The primary element on the table is?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The topmost element on the table is?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The number one on the list of elements is?
+Keeps 0% of the original's content words
+
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   The first element on the periodic table is?
+Paraphrase: The leading of all elements on the table is?
+
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The first in line on the table is?
+Keeps 50% of the original's content words
+
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   The first element on the periodic table is?
+Paraphrase: The head element on the table is?
+
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The first of all the elements is?
+Keeps 25% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The initial element is?
+Keeps 25% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The first on the list is?
+Keeps 25% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The primary of all elements on the table is?
+Keeps 25% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The number one element is?
+Keeps 25% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The topmost of all elements on the table is?
+Keeps 25% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The first to be listed on the table is?
+Keeps 50% of the original's content words
+
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   The first element on the periodic table is?
+Paraphrase: The leading of all elements is?
+
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The head of the elements on the table is?
+Keeps 25% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The first in order on the table is?
+Keeps 50% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The number one of all elements is?
+Keeps 0% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   The first element on the periodic table is?
+Paraphrase: The top element is?
+Keeps 25% of the original's content words
+
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   The first element on the periodic table is?
+Paraphrase: The first in line is?
+
+19:01:40  INFO         Round 1/1 done: 35 generated, 0 duplicates, 27 rejected, 8 passed validation (queried), 0 successful
+19:01:40  INFO       Attack finished after 1 round(s): 8 valid victim queries, successful attacks per evaluator: {'llm_judge': 0}, robust: 0
+19:01:41  INFO     [8/16] Qnqo_validation_1337: What was the united states foreign policy after ww1 started?
+19:01:41  INFO       Victim (original): 'The United States did not have a formal foreign policy in action during the early stages of World War I, as it had not yet entered the war. The U.S. initially maintained a policy of neutrality when World War I began in 1914.'
+19:01:42  INFO       [llm_judge] original correct=True
+19:01:44  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+19:01:44  INFO       Attack round 1/1
+19:01:48  INFO         Generated 30 candidates
+
+[TOO DIFFERENT]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: What was US foreign policy like after WW1 began?
+Keeps 57% of the original's content words
+
+19:01:55  INFO         Paraphrase: 'How did the US approach foreign policy after WW1 started?'  →  Victim: 'The U.S. did not officially enter World War I until 1917, so it did not have a foreign policy approach to the war during its early stages.'  correct={'llm_judge': False}  fitness=0.60 (3/5 wrong, llm_judge)
+19:01:55  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    How did the US approach foreign policy after WW1 started?
+        Victim answer: The U.S. did not officially enter World War I until 1917, so it did not have a foreign policy approach to the war during its early stages.
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.60 vs 0.00 on the original (ROBUST)
+
+[TOO DIFFERENT]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: What was US foreign policy during the time WW1 began?
+Keeps 43% of the original's content words
+
+19:02:00  INFO         Paraphrase: "What was the foreign policy of the United States after WW1's start?"  →  Victim: 'The United States adopted a policy of neutrality during the early years of World War I.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:02:01  INFO         Paraphrase: 'US foreign policy after WW1 started: what was it?'  →  Victim: 'Isolationism.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:02:06  INFO         Paraphrase: 'What was the stance of the US on foreign policy after WW1 started?'  →  Victim: 'The United States was initially neutral when World War I started in 1914.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: US foreign policy: after WW1 began, what was it?
+Keeps 57% of the original's content words
+
+19:02:11  INFO         Paraphrase: "What was the united states's foreign policy after world war one started?"  →  Victim: 'The United States did not have a foreign policy during World War One because the war started before the U.S. entered it. The U.S. remained neutral until 1917.'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: US foreign policy after WW1's commencement: what was it?
+Keeps 43% of the original's content words
+
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: How did the United States conduct its foreign policy after WW1 started?
+
+19:02:18  INFO         Paraphrase: "What was the United States' foreign policy after WW1's outbreak?"  →  Victim: 'The United States did not enter World War I until 1917, so it had no foreign policy specifically in response to the outbreak of WW1 before that.'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+19:02:18  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    What was the United States' foreign policy after WW1's outbreak?
+        Victim answer: The United States did not enter World War I until 1917, so it had no foreign policy specifically in response to the outbreak of WW1 before that.
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+19:02:21  INFO         Paraphrase: 'What was the foreign policy of the United States after the start of WW1?'  →  Victim: 'Isolationism.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: US foreign policy during the period when WW1 began: what was it?
+Keeps 43% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: What was US foreign policy like after WW1's inception?
+Keeps 43% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: What was the US's foreign policy after WW1 began?
+Keeps 57% of the original's content words
+
+19:02:27  INFO         Paraphrase: 'How did the US approach its foreign policy after WW1 started?'  →  Victim: 'The U.S. did not enter World War I until 1917, so it did not have a foreign policy approach in response to the war beginning.'  correct={'llm_judge': False}  fitness=0.40 (2/5 wrong, llm_judge)
+19:02:27  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    How did the US approach its foreign policy after WW1 started?
+        Victim answer: The U.S. did not enter World War I until 1917, so it did not have a foreign policy approach in response to the war beginning.
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.40 vs 0.00 on the original (not robust)
+19:02:32  INFO         Paraphrase: 'What was the united states foreign policy following the start of WW1?'  →  Victim: 'The United States adopted a policy of neutrality during the early years of World War I.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: US foreign policy: after WW1's start, what was it?
+Keeps 43% of the original's content words
+
+19:02:38  INFO         Paraphrase: "What was the US's stance on foreign policy after WW1 started?"  →  Victim: 'The U.S. had not yet entered World War I when it started in 1914. Its initial stance was neutrality.'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+19:02:41  INFO         Paraphrase: 'What was the foreign policy of the United States after the beginning of WW1?'  →  Victim: 'The United States adopted a policy of neutrality at the beginning of World War I.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:02:48  INFO         Paraphrase: "What was the united states's foreign policy after WW1 commenced?"  →  Victim: "The United States did not participate in World War I until 1917, so it did not have a foreign policy during the war's commencement."  correct={'llm_judge': False}  fitness=0.60 (3/5 wrong, llm_judge)
+19:02:48  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    What was the united states's foreign policy after WW1 commenced?
+        Victim answer: The United States did not participate in World War I until 1917, so it did not have a foreign policy during the war's commencement.
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.60 vs 0.00 on the original (ROBUST)
+
+[TOO DIFFERENT]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: US foreign policy after WW1's beginning: what was it?
+Keeps 43% of the original's content words
+
+19:02:53  INFO         Paraphrase: "What was the US's approach to foreign policy after WW1 started?"  →  Victim: 'The U.S. did not enter World War I until 1917, so it did not have a foreign policy approach to the war during its early stages.'  correct={'llm_judge': False}  fitness=0.20 (1/5 wrong, llm_judge)
+19:02:53  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    What was the US's approach to foreign policy after WW1 started?
+        Victim answer: The U.S. did not enter World War I until 1917, so it did not have a foreign policy approach to the war during its early stages.
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.20 vs 0.00 on the original (not robust)
+
+[ANSWER PRESERVATION FAILED]
+Original:   What was the united states foreign policy after ww1 started?
+Answer(s):  ['neutrality']
+Paraphrase: How did the United States handle its foreign policy after WW1 started?
+
+19:02:59  INFO         Paraphrase: 'What was the united states foreign policy after the outbreak of WW1?'  →  Victim: 'The United States adopted a policy of neutrality during the outbreak of World War I.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: US foreign policy during the time WW1 started: what was it?
+Keeps 57% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: What was the US's foreign policy like after WW1 began?
+Keeps 57% of the original's content words
+
+19:03:04  INFO         Paraphrase: "What was the united states's stance on foreign policy after WW1 started?"  →  Victim: 'The United States was initially neutral when World War I started in 1914.'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   What was the united states foreign policy after ww1 started?
+Paraphrase: US foreign policy after WW1's inception: what was it?
+Keeps 43% of the original's content words
+
+19:03:07  INFO         Paraphrase: "What was the foreign policy of the United States after the start of WW1's conflict?"  →  Victim: 'The United States adopted a policy of neutrality at the start of World War I.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:03:07  INFO         Round 1/1 done: 30 generated, 0 duplicates, 14 rejected, 16 passed validation (queried), 5 successful
+19:03:07  INFO       Attack finished after 1 round(s): 16 valid victim queries, successful attacks per evaluator: {'llm_judge': 5}, robust: 3
+19:03:07  INFO     [9/16] Qnqo_validation_1921: Where does the optic nerve cross the midline?
+19:03:07  INFO       Victim (original): 'Optic chiasm.'
+19:03:07  INFO       [llm_judge] original correct=True
+19:03:07  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+19:03:07  INFO       Attack round 1/1
+19:03:10  INFO         Generated 26 candidates
+19:03:12  INFO         Paraphrase: 'Where does the optic nerve intersect the midline?'  →  Victim: 'Optic chiasm.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:03:13  INFO         Paraphrase: 'At which point does the optic nerve cross the midline?'  →  Victim: 'Optic chiasm.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:03:16  INFO         Paraphrase: 'Where does the optic nerve meet the midline?'  →  Victim: 'At the optic chiasm.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:03:19  INFO         Paraphrase: 'What structure does the optic nerve cross over at the midline?'  →  Victim: 'The optic chiasm.'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+19:03:23  INFO         Paraphrase: 'The optic nerve crosses the midline where?'  →  Victim: 'At the chiasm.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:03:24  INFO         Paraphrase: 'What is the location where the optic nerve crosses the midline?'  →  Victim: 'Optic chiasm.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:03:26  INFO         Paraphrase: 'Where does the optic nerve cross over the midline?'  →  Victim: 'Optic chiasm.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:03:29  INFO         Paraphrase: 'At what location does the optic nerve cross the midline?'  →  Victim: 'Optic chiasm.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:03:31  INFO         Paraphrase: 'The optic nerve crosses the midline at what spot?'  →  Victim: 'Optic chiasm.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Where does the optic nerve cross the midline?
+Paraphrase: Where is the optic nerve's crossing point with the midline?
+Keeps 50% of the original's content words
+
+19:03:35  INFO         Paraphrase: 'What is the point of crossing between the optic nerve and the midline?'  →  Victim: 'The point of crossing between the optic nerve and the midline is the optic chiasm.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:03:36  INFO         Paraphrase: 'The optic nerve crosses the midline where exactly?'  →  Victim: 'At the chiasm.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:03:39  INFO         Paraphrase: 'Where is the intersection of the optic nerve and the midline?'  →  Victim: 'The intersection of the optic nerve and the midline is at the optic chiasm.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:03:42  INFO         Paraphrase: 'What marks the crossing point of the optic nerve and the midline?'  →  Victim: 'The chiasm.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:03:44  INFO         Paraphrase: 'At which location does the optic nerve cross over the midline?'  →  Victim: 'Optic chiasm.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:03:45  INFO         Paraphrase: "Where does the optic nerve's pathway cross the midline?"  →  Victim: 'Optic chiasm.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Where does the optic nerve cross the midline?
+Paraphrase: What is the location of the optic nerve's crossing with the midline?
+Keeps 50% of the original's content words
+
+19:03:47  INFO         Paraphrase: 'What is the midline crossing point of the optic nerve?'  →  Victim: 'Optic chiasm.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:03:49  INFO         Paraphrase: "Where does the optic nerve's path cross the midline?"  →  Victim: 'Optic chiasm.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:03:50  INFO         Paraphrase: 'What marks the crossing of the optic nerve and the midline?'  →  Victim: 'The chiasm.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:03:52  INFO         Paraphrase: 'At what point does the optic nerve cross the midline?'  →  Victim: 'At the chiasm.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:03:53  INFO         Paraphrase: 'The optic nerve crosses the midline at what point of reference?'  →  Victim: 'Optic chiasm'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:03:56  INFO         Paraphrase: 'What is the intersection point of the optic nerve and the midline?'  →  Victim: 'The intersection point of the optic nerve and the midline is the optic chiasm.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   Where does the optic nerve cross the midline?
+Paraphrase: The optic nerve crosses the midline at a specific location.
+
+19:03:58  INFO         Paraphrase: 'What location does the optic nerve cross over at the midline?'  →  Victim: 'Chiasm'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:04:00  INFO         Paraphrase: 'The optic nerve crosses the midline where specifically?'  →  Victim: 'At the chiasm.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:04:00  INFO         Round 1/1 done: 26 generated, 0 duplicates, 3 rejected, 23 passed validation (queried), 0 successful
+19:04:00  INFO       Attack finished after 1 round(s): 23 valid victim queries, successful attacks per evaluator: {'llm_judge': 0}, robust: 0
+19:04:00  INFO     [10/16] Qnqo_validation_2577: Where does the un security council get troops for military actions?
+19:04:00  INFO       Victim (original): 'The UN Security Council does not get troops for military actions. It can authorize peacekeeping missions, but these are composed of personnel from member states, not provided by the UN itself.'
+19:04:02  INFO       [llm_judge] original correct=True
+19:04:06  INFO       Original wrong rate: 0.20 (1/5 sampled answers wrong, llm_judge)
+19:04:06  INFO       Attack round 1/1
+19:04:10  INFO         Generated 32 candidates
+19:04:16  INFO         Paraphrase: 'Where does the UN Security Council obtain troops for military operations?'  →  Victim: 'The UN Security Council does not obtain troops for military operations itself. It authorizes peacekeeping missions, and the actual deployment of personnel is carried out by member states that contribute troops under the mandate of the Security Council.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:04:22  INFO         Paraphrase: 'Where do the UN Security Council get troops for military actions from?'  →  Victim: "The UN Security Council does not get troops for military actions from any member state directly. It can authorize peacekeeping missions, which are composed of personnel from member states, but these are not military actions under the UN's authority. Any use of force by the UN must be authorized by the Security Council, and such actions are typically carried out by member states or through authorized peacekeeping operations, not by the UN itself." (non-answer)  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+19:04:28  INFO         Paraphrase: 'Where does the UN Security Council acquire troops for military purposes?'  →  Victim: 'The UN Security Council does not acquire troops for military purposes. Military action is not authorized or carried out by the UN Security Council itself. Any use of force is limited to authorized peacekeeping operations, which are carried out by member states, not the UN.' (non-answer)  correct={'llm_judge': False}  fitness=0.00 (0/5 wrong, llm_judge)
+19:04:35  INFO         Paraphrase: 'From where does the UN Security Council get troops for military actions?'  →  Victim: 'The UN Security Council does not get troops for military actions. Military operations are carried out by member states or authorized by the UN, but the UN itself does not maintain or deploy troops.'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+19:04:35  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    From where does the UN Security Council get troops for military actions?
+        Victim answer: The UN Security Council does not get troops for military actions. Military operations are carried out by member states or authorized by the UN, but the UN itself does not maintain or deploy troops.
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.20 on the original (ROBUST)
+19:04:42  INFO         Paraphrase: 'Where does the UN Security Council obtain personnel for military actions?'  →  Victim: 'The UN Security Council does not obtain personnel for military actions. Military operations, if any, are carried out by member states, not the UN itself.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER LEAK]
+Original:   Where does the un security council get troops for military actions?
+Answer(s):  ['member states of the UN', 'member states']
+Paraphrase: Where do member states provide troops for UN Security Council actions?
+
+19:04:46  INFO         Paraphrase: 'Where does the UN Security Council obtain forces for military actions?'  →  Victim: 'The UN Security Council does not obtain forces for military actions itself. It can authorize peacekeeping missions, but these are carried out by voluntary contributions from member states, not by the UN directly.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:04:51  INFO         Paraphrase: 'Who supplies troops to the UN Security Council for military actions?'  →  Victim: 'The UN Security Council does not supply troops for military actions. Military operations are carried out by UN peacekeeping missions, which are composed of troops contributed by individual member states, not by the Security Council itself.'  correct={'llm_judge': False}  fitness=0.40 (2/5 wrong, llm_judge)
+19:04:51  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    Who supplies troops to the UN Security Council for military actions?
+        Victim answer: The UN Security Council does not supply troops for military actions. Military operations are carried out by UN peacekeeping missions, which are composed of troops contributed by individual member states, not by the Security Council itself.
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.40 vs 0.20 on the original (not robust)
+19:04:57  INFO         Paraphrase: 'Where does the UN Security Council get troops for military operations?'  →  Victim: 'The UN Security Council does not get troops for military operations. Military personnel for UN operations are provided by member states under UN authorization.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:05:02  INFO         Paraphrase: 'Where does the UN Security Council acquire forces for military actions?'  →  Victim: 'The UN Security Council does not acquire forces for military actions. Military operations are carried out by member states, not the UN itself.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER LEAK]
+Original:   Where does the un security council get troops for military actions?
+Answer(s):  ['member states of the UN', 'member states']
+Paraphrase: From which member states does the UN Security Council get troops?
+
+
+[TOO DIFFERENT]
+Original:   Where does the un security council get troops for military actions?
+Paraphrase: Where does the UN Security Council obtain military personnel?
+Keeps 57% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Where does the un security council get troops for military actions?
+Paraphrase: Who provides troops to the UN Security Council?
+Keeps 57% of the original's content words
+
+19:05:09  INFO         Paraphrase: 'Where does the UN Security Council obtain troops and military equipment?'  →  Victim: 'The UN Security Council does not obtain troops or military equipment directly. It coordinates with member states, which provide personnel and resources under UN mandates. The UN itself does not have a standing military force.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:05:17  INFO         Paraphrase: 'Where does the UN Security Council get forces for military purposes?'  →  Victim: 'The UN Security Council does not get forces for military purposes. Military operations are carried out by member states or authorized by the UN, but the UN itself does not maintain or deploy military forces.'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+19:05:17  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    Where does the UN Security Council get forces for military purposes?
+        Victim answer: The UN Security Council does not get forces for military purposes. Military operations are carried out by member states or authorized by the UN, but the UN itself does not maintain or deploy military forces.
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.20 on the original (ROBUST)
+
+[TOO DIFFERENT]
+Original:   Where does the un security council get troops for military actions?
+Paraphrase: Where does the UN Security Council acquire troops and personnel?
+Keeps 57% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Where does the un security council get troops for military actions?
+Paraphrase: Which countries provide troops to the UN Security Council?
+Keeps 57% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Where does the un security council get troops for military actions?
+Paraphrase: Where do countries contribute troops to the UN Security Council?
+Keeps 57% of the original's content words
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where does the un security council get troops for military actions?
+Answer(s):  ['member states of the UN', 'member states']
+Paraphrase: Where does the UN Security Council get troops and resources for military actions?
+
+
+[TOO DIFFERENT]
+Original:   Where does the un security council get troops for military actions?
+Paraphrase: Who contributes troops to the UN Security Council?
+Keeps 57% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Where does the un security council get troops for military actions?
+Paraphrase: Where does the UN Security Council obtain military forces?
+Keeps 57% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Where does the un security council get troops for military actions?
+Paraphrase: Where do countries supply troops to the UN Security Council?
+Keeps 57% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Where does the un security council get troops for military actions?
+Paraphrase: Where does the UN Security Council acquire military personnel and equipment?
+Keeps 57% of the original's content words
+
+19:05:26  INFO         Paraphrase: 'From which countries does the UN Security Council get troops?'  →  Victim: 'The UN Security Council does not get troops from countries. Member states provide personnel to UN peacekeeping missions, but the Security Council itself does not deploy troops.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:05:31  INFO         Paraphrase: 'Where does the UN Security Council get military forces and equipment?'  →  Victim: 'The UN Security Council does not get military forces or equipment directly. Military forces and equipment are provided by member states voluntarily, and the UN itself does not have a standing military.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Where does the un security council get troops for military actions?
+Paraphrase: Where do member states provide forces for UN Security Council actions?
+Keeps 57% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Where does the un security council get troops for military actions?
+Paraphrase: Where does the UN Security Council obtain troops and resources?
+Keeps 57% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Where does the un security council get troops for military actions?
+Paraphrase: Which member states contribute troops to the UN Security Council?
+Keeps 57% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Where does the un security council get troops for military actions?
+Paraphrase: Where does the UN Security Council acquire forces and personnel?
+Keeps 43% of the original's content words
+
+
+[TOO DIFFERENT]
+Original:   Where does the un security council get troops for military actions?
+Paraphrase: Where do countries provide military forces to the UN Security Council?
+Keeps 57% of the original's content words
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Where does the un security council get troops for military actions?
+Answer(s):  ['member states of the UN', 'member states']
+Paraphrase: Where does the UN Security Council get military personnel and resources?
+
+
+[TOO DIFFERENT]
+Original:   Where does the un security council get troops for military actions?
+Paraphrase: Where do member states supply troops to the UN Security Council?
+Keeps 57% of the original's content words
+
+19:05:34  INFO         Round 1/1 done: 32 generated, 0 duplicates, 19 rejected, 13 passed validation (queried), 3 successful
+19:05:34  INFO       Attack finished after 1 round(s): 13 valid victim queries, successful attacks per evaluator: {'llm_judge': 3}, robust: 2
+19:05:34  INFO     [11/16] Qnqo_validation_2776: When did the usa join world war one?
+19:05:34  INFO       Victim (original): '1917'
+19:05:37  INFO       [llm_judge] original correct=False
+19:05:37  INFO       Victim already wrong on the original (all evaluators); skipping attack.
+19:05:37  INFO       Attack finished after 0 round(s): 0 valid victim queries, successful attacks per evaluator: {'llm_judge': 0}, robust: 0
+19:05:37  INFO     [12/16] Qnqo_validation_2836: Who wrote the music phantom of the opera?
+19:05:37  INFO       Victim (original): 'Andrew Lloyd Webber'
+19:05:37  INFO       [llm_judge] original correct=True
+19:05:37  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+19:05:37  INFO       Attack round 1/1
+19:05:40  INFO         Generated 28 candidates
+19:05:42  INFO         Paraphrase: 'Who composed the music for phantom of the opera?'  →  Victim: 'Andrew Lloyd Webber'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:05:43  INFO         Paraphrase: 'Who created the music for phantom of the opera?'  →  Victim: 'Andrew Lloyd Webber'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:05:45  INFO         Paraphrase: 'Who wrote the music score for phantom of the opera?'  →  Victim: 'Andrew Lloyd Webber'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:05:46  INFO         Paraphrase: 'Who composed the opera music for phantom of the opera?'  →  Victim: 'Andrew Lloyd Webber'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:05:48  INFO         Paraphrase: 'Who was the composer of the music in phantom of the opera?'  →  Victim: 'Andrew Lloyd Webber'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:05:49  INFO         Paraphrase: 'Who was responsible for the music in phantom of the opera?'  →  Victim: 'Andrew Lloyd Webber'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:05:51  INFO         Paraphrase: 'Who wrote the music for phantom of the opera musical?'  →  Victim: 'Andrew Lloyd Webber'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:05:52  INFO         Paraphrase: 'Who composed the music in phantom of the opera musical?'  →  Victim: 'Andrew Lloyd Webber'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:05:54  INFO         Paraphrase: 'Who was the music writer for phantom of the opera?'  →  Victim: 'Andrew Lloyd Webber'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:05:55  INFO         Paraphrase: 'Who wrote the opera music for phantom of the opera?'  →  Victim: 'Andrew Lloyd Webber'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:05:57  INFO         Paraphrase: 'Who composed the music to phantom of the opera?'  →  Victim: 'Andrew Lloyd Webber'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:05:59  INFO         Paraphrase: 'Who wrote the score for phantom of the opera?'  →  Victim: 'Andrew Lloyd Webber'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:06:00  INFO         Paraphrase: 'Who composed the music score of phantom of the opera?'  →  Victim: 'Andrew Lloyd Webber'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:06:02  INFO         Paraphrase: 'Who was the music composer for phantom of the opera?'  →  Victim: 'Andrew Lloyd Webber'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:06:04  INFO         Paraphrase: 'Who wrote the music to the phantom of the opera?'  →  Victim: 'Andrew Lloyd Webber'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+19:06:07  INFO         Paraphrase: 'Who wrote the phantom of the opera music?'  →  Victim: 'Charles Gounod'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+19:06:07  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    Who wrote the phantom of the opera music?
+        Victim answer: Charles Gounod
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+
+[TOO DIFFERENT]
+Original:   Who wrote the music phantom of the opera?
+Paraphrase: Who composed the score for phantom of the opera?
+Keeps 50% of the original's content words
+
+19:06:09  INFO         Paraphrase: 'Who wrote the music in phantom of the opera?'  →  Victim: 'Andrew Lloyd Webber'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:06:10  INFO         Paraphrase: 'Who composed the music of phantom of the opera?'  →  Victim: 'Andrew Lloyd Webber'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:06:12  INFO         Paraphrase: 'Who wrote the opera music in phantom of the opera?'  →  Victim: 'Andrew Lloyd Webber'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:06:13  INFO         Paraphrase: 'Who was the music creator for phantom of the opera?'  →  Victim: 'Andrew Lloyd Webber'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:06:15  INFO         Paraphrase: 'Who wrote the music composition for phantom of the opera?'  →  Victim: 'Andrew Lloyd Webber'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Who wrote the music phantom of the opera?
+Paraphrase: Who composed the opera score for phantom of the opera?
+Keeps 50% of the original's content words
+
+19:06:18  INFO         Paraphrase: 'Who wrote the phantom of the opera music score?'  →  Victim: 'Charles Gounod'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+19:06:18  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    Who wrote the phantom of the opera music score?
+        Victim answer: Charles Gounod
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+19:06:19  INFO         Paraphrase: 'Who composed the music of the phantom of the opera?'  →  Victim: 'Andrew Lloyd Webber'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:06:22  INFO         Paraphrase: 'Who wrote the music composition for the phantom of the opera?'  →  Victim: 'Andrew Lloyd Webber'  correct={'llm_judge': True}  fitness=0.40 (2/5 wrong, llm_judge)
+19:06:24  INFO         Paraphrase: 'Who was responsible for the music composition of phantom of the opera?'  →  Victim: 'Andrew Lloyd Webber'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:06:25  INFO         Paraphrase: 'Who composed the music for the phantom of the opera?'  →  Victim: 'Andrew Lloyd Webber'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:06:25  INFO         Round 1/1 done: 28 generated, 0 duplicates, 2 rejected, 26 passed validation (queried), 2 successful
+19:06:25  INFO       Attack finished after 1 round(s): 26 valid victim queries, successful attacks per evaluator: {'llm_judge': 2}, robust: 2
+19:06:25  INFO     [13/16] Qnqo_validation_2985: A request to the supreme court that it review a case that was already decided is made via a(n)?
+19:06:25  INFO       Victim (original): 'writ of certiorari'
+19:06:26  INFO       [llm_judge] original correct=True
+19:06:27  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+19:06:27  INFO       Attack round 1/1
+19:06:32  INFO         Generated 29 candidates
+19:06:34  INFO         Paraphrase: 'A request to the supreme court for it to review a case that was already decided is made via a(n)?'  →  Victim: 'writ of certiorari'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:06:36  INFO         Paraphrase: 'A request to the supreme court to review a case that was already decided is made via a(n)?'  →  Victim: 'writ of certiorari'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:06:38  INFO         Paraphrase: 'A request to the supreme court for a review of a case that was already decided is made via a(n)?'  →  Victim: 'writ of certiorari'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:06:39  INFO         Paraphrase: 'A request to the supreme court to re-examine a case that was already decided is made via a(n)?'  →  Victim: 'writ of certiorari'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:06:41  INFO         Paraphrase: 'A request to the supreme court for reconsideration of a case that was already decided is made via a(n)?'  →  Victim: 'writ of certiorari'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:06:43  INFO         Paraphrase: 'A petition to the supreme court to review a case that was already decided is made via a(n)?'  →  Victim: 'writ of certiorari'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:06:45  INFO         Paraphrase: 'A petition to the supreme court for a review of a case that was already decided is made via a(n)?'  →  Victim: 'writ of certiorari'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:06:47  INFO         Paraphrase: 'A petition to the supreme court to re-examine a case that was already decided is made via a(n)?'  →  Victim: 'cert petition'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   A request to the supreme court that it review a case that was already decided is made via a(n)?
+Answer(s):  ['a writ of certiorari', 'writ of certiorari']
+Paraphrase: A petition to the supreme court for reconsideration of a case that was already decided is made via a(n)?
+
+19:06:50  INFO         Paraphrase: 'A request to the supreme court for it to reconsider a case that was already decided is made via a(n)?'  →  Victim: 'writ of certiorari'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:06:52  INFO         Paraphrase: 'A request to the supreme court to reconsider a case that was already decided is made via a(n)?'  →  Victim: 'writ of certiorari'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:06:53  INFO         Paraphrase: 'A request to the supreme court for a re-examination of a case that was already decided is made via a(n)?'  →  Victim: 'writ of certiorari'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:06:55  INFO         Paraphrase: 'A request to the supreme court to review again a case that was already decided is made via a(n)?'  →  Victim: 'writ of certiorari'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:06:57  INFO         Paraphrase: 'A request to the supreme court for review again of a case that was already decided is made via a(n)?'  →  Victim: 'writ of certiorari'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:06:58  INFO         Paraphrase: 'A request to the supreme court to review a previously decided case is made via a(n)?'  →  Victim: 'writ of certiorari'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:07:00  INFO         Paraphrase: 'A request to the supreme court for review of a previously decided case is made via a(n)?'  →  Victim: 'writ of certiorari'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:07:02  INFO         Paraphrase: 'A request to the supreme court to re-review a previously decided case is made via a(n)?'  →  Victim: 'writ of certiorari'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:07:03  INFO         Paraphrase: 'A request to the supreme court for re-review of a previously decided case is made via a(n)?'  →  Victim: 'writ of certiorari'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:07:06  INFO         Paraphrase: 'A request to the supreme court to reconsider a case that has already been decided is made via a(n)?'  →  Victim: 'cert petition'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:07:08  INFO         Paraphrase: 'A request to the supreme court for reconsideration of a case that has already been decided is made via a(n)?'  →  Victim: 'writ of certiorari'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:07:09  INFO         Paraphrase: 'A request to the supreme court to re-examine a case that has already been decided is made via a(n)?'  →  Victim: 'Writ of certiorari'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:07:11  INFO         Paraphrase: 'A request to the supreme court for re-examination of a case that has already been decided is made via a(n)?'  →  Victim: 'Writ of certiorari'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:07:13  INFO         Paraphrase: 'A request to the supreme court for a second look at a case that was already decided is made via a(n)?'  →  Victim: 'writ of certiorari'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:07:14  INFO         Paraphrase: 'A request to the supreme court to take another look at a case that was already decided is made via a(n)?'  →  Victim: 'writ of certiorari'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:07:16  INFO         Paraphrase: 'A request to the supreme court for it to re-look at a case that was already decided is made via a(n)?'  →  Victim: 'Writ of certiorari'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:07:18  INFO         Paraphrase: 'A request to the supreme court to re-look at a case that was already decided is made via a(n)?'  →  Victim: 'Writ of certiorari'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:07:20  INFO         Paraphrase: 'A request to the supreme court for a re-look at a case that was already decided is made via a(n)?'  →  Victim: 'Writ of certiorari'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:07:22  INFO         Paraphrase: 'A request to the supreme court to review the outcome of a previously decided case is made via a(n)?'  →  Victim: 'writ of certiorari'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:07:23  INFO         Paraphrase: 'A request to the supreme court for review of the outcome of a previously decided case is made via a(n)?'  →  Victim: 'writ of certiorari'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:07:23  INFO         Round 1/1 done: 29 generated, 0 duplicates, 1 rejected, 28 passed validation (queried), 0 successful
+19:07:23  INFO       Attack finished after 1 round(s): 28 valid victim queries, successful attacks per evaluator: {'llm_judge': 0}, robust: 0
+19:07:23  INFO     [14/16] Qnqo_validation_3283: Who sold out jesus for 30 pieces of silver?
+19:07:23  INFO       Victim (original): 'Judas Iscariot.'
+19:07:23  INFO       [llm_judge] original correct=True
+19:07:23  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+19:07:23  INFO       Attack round 1/1
+19:07:26  INFO         Generated 26 candidates
+19:07:28  INFO         Paraphrase: 'Who betrayed Jesus for 30 pieces of silver?'  →  Victim: 'Judas Iscariot.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who sold out jesus for 30 pieces of silver?
+Answer(s):  ['Judas Iscariot']
+Paraphrase: Who was sold out by Jesus for 30 pieces of silver?
+
+19:07:31  INFO         Paraphrase: 'Who gave up Jesus for 30 pieces of silver?'  →  Victim: 'Judas Iscariot'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:07:33  INFO         Paraphrase: 'Who betrayed Jesus for 30 silver pieces?'  →  Victim: 'Judas Iscariot.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:07:39  INFO         Paraphrase: 'For 30 pieces of silver, who sold out Jesus?'  →  Victim: 'No one sold out Jesus for 30 pieces of silver. That refers to Judas Iscariot selling betrayal information to the authorities, not selling Jesus himself.'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+19:07:39  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    For 30 pieces of silver, who sold out Jesus?
+        Victim answer: No one sold out Jesus for 30 pieces of silver. That refers to Judas Iscariot selling betrayal information to the authorities, not selling Jesus himself.
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+19:07:41  INFO         Paraphrase: 'Who was the one who sold out Jesus for 30 pieces of silver?'  →  Victim: 'Judas Iscariot.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:07:43  INFO         Paraphrase: 'Who delivered Jesus for 30 pieces of silver?'  →  Victim: 'Judas Iscariot'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:07:44  INFO         Paraphrase: 'Who was the one who gave up Jesus for 30 pieces of silver?'  →  Victim: 'Judas Iscariot'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who sold out jesus for 30 pieces of silver?
+Answer(s):  ['Judas Iscariot']
+Paraphrase: Who paid 30 pieces of silver to sell out Jesus?
+
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   Who sold out jesus for 30 pieces of silver?
+Paraphrase: Who bought out Jesus for 30 pieces of silver?
+
+19:07:48  INFO         Paraphrase: 'Who turned in Jesus for 30 pieces of silver?'  →  Victim: 'Judas Iscariot'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:07:50  INFO         Paraphrase: 'Who handed Jesus over for 30 pieces of silver?'  →  Victim: 'Judas Iscariot'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:07:51  INFO         Paraphrase: 'Who gave Jesus over for 30 pieces of silver?'  →  Victim: 'Judas Iscariot'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:07:54  INFO         Paraphrase: 'Who was involved in the sale of Jesus for 30 pieces of silver?'  →  Victim: 'Judas Iscariot was involved in the sale of Jesus for 30 pieces of silver.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:07:58  INFO         Paraphrase: 'Who was responsible for selling Jesus for 30 pieces of silver?'  →  Victim: 'Judas Iscariot was responsible for selling Jesus for 30 pieces of silver.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who sold out jesus for 30 pieces of silver?
+Answer(s):  ['Judas Iscariot']
+Paraphrase: Who got Jesus for 30 pieces of silver?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who sold out jesus for 30 pieces of silver?
+Answer(s):  ['Judas Iscariot']
+Paraphrase: Who paid 30 pieces of silver to betray Jesus?
+
+19:08:03  INFO         Paraphrase: 'Who sold Jesus out for 30 pieces of silver?'  →  Victim: 'Judas Iscariot.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:08:04  INFO         Paraphrase: 'Who gave Jesus away for 30 pieces of silver?'  →  Victim: 'Judas Iscariot'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:08:06  INFO         Paraphrase: 'Who traded Jesus for 30 pieces of silver?'  →  Victim: 'Judas Iscariot'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:08:08  INFO         Paraphrase: 'Who was given 30 pieces of silver to sell out Jesus?'  →  Victim: 'Judas Iscariot.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:08:09  INFO         Paraphrase: 'Who received 30 pieces of silver for selling Jesus?'  →  Victim: 'Judas Iscariot'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:08:11  INFO         Paraphrase: 'Who got 30 pieces of silver for selling out Jesus?'  →  Victim: 'Judas Iscariot'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who sold out jesus for 30 pieces of silver?
+Answer(s):  ['Judas Iscariot']
+Paraphrase: Who gave 30 pieces of silver for Jesus?
+
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who sold out jesus for 30 pieces of silver?
+Answer(s):  ['Judas Iscariot']
+Paraphrase: Who paid 30 pieces of silver for Jesus?
+
+19:08:16  INFO         Paraphrase: 'Who received 30 pieces of silver for giving up Jesus?'  →  Victim: 'Judas Iscariot'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:08:16  INFO         Round 1/1 done: 26 generated, 0 duplicates, 7 rejected, 19 passed validation (queried), 1 successful
+19:08:16  INFO       Attack finished after 1 round(s): 19 valid victim queries, successful attacks per evaluator: {'llm_judge': 1}, robust: 1
+19:08:16  INFO     [15/16] Qnqo_validation_3388: Where was the louisiana purchase signed in 1803?
+19:08:16  INFO       Victim (original): 'The Louisiana Purchase was signed in Paris, France, in 1803.'
+19:08:17  INFO       [llm_judge] original correct=True
+19:08:18  INFO       Original wrong rate: 0.00 (0/5 sampled answers wrong, llm_judge)
+19:08:18  INFO       Attack round 1/1
+19:08:22  INFO         Generated 31 candidates
+19:08:25  INFO         Paraphrase: 'Where was the Louisiana Purchase treaty signed in 1803?'  →  Victim: 'The Louisiana Purchase treaty was signed in Paris, France.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   Where was the louisiana purchase signed in 1803?
+Paraphrase: Where was the Louisiana Purchase signed in 1803, in Paris?
+
+
+[ANSWER LEAK]
+Original:   Where was the louisiana purchase signed in 1803?
+Answer(s):  ['Paris']
+Paraphrase: Where was the Louisiana Purchase treaty signed in 1803, at Paris?
+
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   Where was the louisiana purchase signed in 1803?
+Paraphrase: Where was the Louisiana Purchase signed in 1803 Paris?
+
+19:08:28  INFO         Paraphrase: 'Where did they sign the Louisiana Purchase in 1803?'  →  Victim: 'Paris, France.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:08:31  INFO         Paraphrase: 'Where in 1803 was the Louisiana Purchase signed?'  →  Victim: 'Paris, France'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:08:33  INFO         Paraphrase: 'Where was the purchase of Louisiana signed in 1803?'  →  Victim: 'Paris, France'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:08:37  INFO         Paraphrase: 'Where did the Louisiana Purchase take place in 1803?'  →  Victim: 'Louisiana Territory, along the Mississippi River, between the Mississippi River and the Rocky Mountains.'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+19:08:37  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    Where did the Louisiana Purchase take place in 1803?
+        Victim answer: Louisiana Territory, along the Mississippi River, between the Mississippi River and the Rocky Mountains.
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+19:08:40  INFO         Paraphrase: 'Where was it in 1803 that the Louisiana Purchase was signed?'  →  Victim: 'Paris, France'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:08:42  INFO         Paraphrase: 'Where was the Louisiana Purchase treaty location in 1803?'  →  Victim: 'Paris, France'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:08:45  INFO         Paraphrase: 'Where did they sign the treaty of Louisiana Purchase in 1803?'  →  Victim: 'The treaty of Louisiana Purchase was signed in Paris, France, in 1803.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:08:47  INFO         Paraphrase: 'Where was the Louisiana Purchase document signed in 1803?'  →  Victim: 'Paris, France'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:08:50  INFO         Paraphrase: 'Where was the Louisiana Purchase agreement signed in 1803?'  →  Victim: 'The Louisiana Purchase agreement was signed in Paris, France.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   Where was the louisiana purchase signed in 1803?
+Paraphrase: Where in Paris was the Louisiana Purchase signed in 1803?
+
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   Where was the louisiana purchase signed in 1803?
+Paraphrase: Where was Paris the location for the Louisiana Purchase in 1803?
+
+19:08:52  INFO         Paraphrase: 'Where in 1803 the Louisiana Purchase was signed?'  →  Victim: 'Paris, France'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:08:54  INFO         Paraphrase: 'Where did they sign the treaty of the Louisiana Purchase in 1803?'  →  Victim: 'Paris, France.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:08:55  INFO         Paraphrase: 'Where was the location for signing the Louisiana Purchase in 1803?'  →  Victim: 'Paris, France'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:08:57  INFO         Paraphrase: 'Where was it signed the Louisiana Purchase in 1803?'  →  Victim: 'Paris, France'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:09:00  INFO         Paraphrase: 'Where was the Louisiana Purchase document location in 1803?'  →  Victim: 'The Louisiana Purchase document was signed in Washington, D.C. in 1803.'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+19:09:00  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    Where was the Louisiana Purchase document location in 1803?
+        Victim answer: The Louisiana Purchase document was signed in Washington, D.C. in 1803.
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.00 on the original (ROBUST)
+19:09:02  INFO         Paraphrase: 'Where was the Louisiana Purchase agreement location in 1803?'  →  Victim: 'Paris, France'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER LEAK]
+Original:   Where was the louisiana purchase signed in 1803?
+Answer(s):  ['Paris']
+Paraphrase: Where was the Louisiana Purchase signed, in Paris, in 1803?
+
+
+[ANSWER LEAK]
+Original:   Where was the louisiana purchase signed in 1803?
+Answer(s):  ['Paris']
+Paraphrase: Where was Paris the site for signing the Louisiana Purchase in 1803?
+
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   Where was the louisiana purchase signed in 1803?
+Paraphrase: Where in Paris the Louisiana Purchase was signed in 1803?
+
+19:09:06  INFO         Paraphrase: 'Where in 1803, was the Louisiana Purchase signed?'  →  Victim: 'Paris, France'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+19:09:08  INFO         Paraphrase: 'Where was the treaty of the Louisiana Purchase signed in 1803?'  →  Victim: 'Paris, France'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER LEAK]
+Original:   Where was the louisiana purchase signed in 1803?
+Answer(s):  ['Paris']
+Paraphrase: Where in 1803, Paris was the location for the Louisiana Purchase?
+
+19:09:10  INFO         Paraphrase: 'Where was the Louisiana Purchase treaty site in 1803?'  →  Victim: 'The Louisiana Purchase treaty was signed in Paris, France, in 1803.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:09:14  INFO         Paraphrase: 'Where was the Louisiana Purchase document site in 1803?'  →  Victim: 'The Louisiana Purchase document was signed in Washington, D.C., in 1803.'  correct={'llm_judge': False}  fitness=0.80 (4/5 wrong, llm_judge)
+19:09:14  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    Where was the Louisiana Purchase document site in 1803?
+        Victim answer: The Louisiana Purchase document was signed in Washington, D.C., in 1803.
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.80 vs 0.00 on the original (ROBUST)
+19:09:18  INFO         Paraphrase: 'Where was the Louisiana Purchase agreement site in 1803?'  →  Victim: 'The Louisiana Purchase agreement was signed in Paris, France, in 1803.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[QUESTION EQUIVALENCE FAILED]
+Original:   Where was the louisiana purchase signed in 1803?
+Paraphrase: Where was the Louisiana Purchase signed in Paris in 1803?
+
+19:09:18  INFO         Round 1/1 done: 31 generated, 0 duplicates, 10 rejected, 21 passed validation (queried), 3 successful
+19:09:18  INFO       Attack finished after 1 round(s): 21 valid victim queries, successful attacks per evaluator: {'llm_judge': 3}, robust: 3
+19:09:18  INFO     [16/16] Qnqo_validation_3438: Who was the first European to explore the waters of Cuba, the Bahamas, and Hispaniola?
+19:09:18  INFO       Victim (original): 'Christopher Columbus'
+19:09:18  INFO       [llm_judge] original correct=True
+19:09:19  INFO       Original wrong rate: 0.20 (1/5 sampled answers wrong, llm_judge)
+19:09:19  INFO       Attack round 1/1
+19:09:24  INFO         Generated 31 candidates
+19:09:26  INFO         Paraphrase: 'Who was the European explorer who first explored the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[TOO DIFFERENT]
+Original:   Who was the first European to explore the waters of Cuba, the Bahamas, and Hispaniola?
+Paraphrase: Who initially explored the waters of Cuba, the Bahamas, and Hispaniola in Europe?
+Keeps 57% of the original's content words
+
+19:09:28  INFO         Paraphrase: 'Who was the first explorer from Europe to explore the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:09:30  INFO         Paraphrase: 'Who among Europeans was the first to explore the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:09:31  INFO         Paraphrase: 'What European was the first to explore the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:09:33  INFO         Paraphrase: 'Who explored the waters of Cuba, the Bahamas, and Hispaniola first, among Europeans?'  →  Victim: 'Christopher Columbus.'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:09:35  INFO         Paraphrase: 'Who was the European that initially explored the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:09:36  INFO         Paraphrase: 'Who was the first of Europeans to explore the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:09:38  INFO         Paraphrase: 'Who in Europe was the first to explore the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:09:40  INFO         Paraphrase: "Who was the first European to explore Cuba, the Bahamas, and Hispaniola's waters?"  →  Victim: 'Juan Ponce de León'  correct={'llm_judge': False}  fitness=0.60 (3/5 wrong, llm_judge)
+19:09:40  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    Who was the first European to explore Cuba, the Bahamas, and Hispaniola's waters?
+        Victim answer: Juan Ponce de León
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.60 vs 0.20 on the original (not robust)
+19:09:41  INFO         Paraphrase: 'Who was the European who first explored the waters of Cuba and the Bahamas, as well as Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:09:43  INFO         Paraphrase: "Who was the first European explorer of the waters of Cuba, the Bahamas, and Hispaniola's waters?"  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:09:45  INFO         Paraphrase: 'Who initially discovered the waters of Cuba, the Bahamas, and Hispaniola, as a European?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:09:46  INFO         Paraphrase: 'Who was the first explorer of the waters of Cuba, the Bahamas, and Hispaniola for Europeans?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:09:48  INFO         Paraphrase: 'Who was the first of the Europeans to explore the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+
+[ANSWER PRESERVATION FAILED]
+Original:   Who was the first European to explore the waters of Cuba, the Bahamas, and Hispaniola?
+Answer(s):  ['Christopher Columbus']
+Paraphrase: What was the name of the first European to explore the waters of Cuba, the Bahamas, and Hispaniola?
+
+19:09:51  INFO         Paraphrase: 'Who among the Europeans was the first to explore the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:09:53  INFO         Paraphrase: 'Who was the first European explorer of the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:09:55  INFO         Paraphrase: 'Who initially explored the waters of Cuba, the Bahamas, and Hispaniola as a European?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:09:57  INFO         Paraphrase: 'Who was the first to explore the waters of Cuba, the Bahamas, and Hispaniola in Europe, as an explorer?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:09:58  INFO         Paraphrase: "Who was the first European explorer of Cuba, the Bahamas, and Hispaniola's waters?"  →  Victim: 'Juan Ponce de León'  correct={'llm_judge': False}  fitness=0.60 (3/5 wrong, llm_judge)
+19:09:58  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    Who was the first European explorer of Cuba, the Bahamas, and Hispaniola's waters?
+        Victim answer: Juan Ponce de León
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.60 vs 0.20 on the original (not robust)
+19:10:00  INFO         Paraphrase: 'Who was the first to explore the waters of Cuba, the Bahamas, and Hispaniola, being an European?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:10:03  INFO         Paraphrase: "Who was the first European explorer of the waters of Cuba, the Bahamas, and Hispaniola's waters, among Europeans?"  →  Victim: 'Vasco Núñez de Balboa'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+19:10:03  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    Who was the first European explorer of the waters of Cuba, the Bahamas, and Hispaniola's waters, among Europeans?
+        Victim answer: Vasco Núñez de Balboa
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.20 on the original (ROBUST)
+19:10:05  INFO         Paraphrase: 'Who in Europe was the first explorer to explore the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:10:07  INFO         Paraphrase: 'Who among Europeans was the first explorer to explore the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:10:08  INFO         Paraphrase: "Who was the first European explorer of Cuba, the Bahamas, and Hispaniola's waters, initially?"  →  Victim: 'Juan Ponce de León'  correct={'llm_judge': False}  fitness=1.00 (5/5 wrong, llm_judge)
+19:10:08  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    Who was the first European explorer of Cuba, the Bahamas, and Hispaniola's waters, initially?
+        Victim answer: Juan Ponce de León
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    1.00 vs 0.20 on the original (ROBUST)
+19:10:10  INFO         Paraphrase: 'Who was the first of the Europeans to initially explore the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:10:12  INFO         Paraphrase: "Who was the first European explorer of the waters of Cuba, the Bahamas, and Hispaniola's waters, as an explorer?"  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.20 (1/5 wrong, llm_judge)
+19:10:14  INFO         Paraphrase: "Who was the first of the Europeans to explore the waters of Cuba, the Bahamas, and Hispaniola's waters, initially?"  →  Victim: 'Juan Ponce de León'  correct={'llm_judge': False}  fitness=0.60 (3/5 wrong, llm_judge)
+19:10:14  INFO         *** ATTACK SUCCESS (round 1) ***
+        Paraphrase:    Who was the first of the Europeans to explore the waters of Cuba, the Bahamas, and Hispaniola's waters, initially?
+        Victim answer: Juan Ponce de León
+        Per evaluator: {'llm_judge': True}
+        Wrong rate:    0.60 vs 0.20 on the original (not robust)
+19:10:16  INFO         Paraphrase: 'Who was the European explorer who initially explored the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:10:17  INFO         Paraphrase: 'Who among the Europeans was the first to initially explore the waters of Cuba, the Bahamas, and Hispaniola?'  →  Victim: 'Christopher Columbus'  correct={'llm_judge': True}  fitness=0.00 (0/5 wrong, llm_judge)
+19:10:17  INFO         Round 1/1 done: 31 generated, 0 duplicates, 2 rejected, 29 passed validation (queried), 5 successful
+19:10:17  INFO       Attack finished after 1 round(s): 29 valid victim queries, successful attacks per evaluator: {'llm_judge': 5}, robust: 2
+19:10:17  INFO     Results saved → /content/runs/results/attacker_llama3_1_8b_minimal_edit__victim_qwen3_4b_instruct__judge_gemma3_12b__q16_p40_r1_evolutionary__20260928_185644.json
+
+Results saved → /content/runs/results/attacker_llama3_1_8b_minimal_edit__victim_qwen3_4b_instruct__judge_gemma3_12b__q16_p40_r1_evolutionary__20260928_185644.json
+
+============================================================
+EXPERIMENT SUMMARY
+============================================================
+  Questions evaluated : 16
+  Paraphrases / round : 40
+  Max rounds          : 1
+  Valid victim queries: 290
+
+  [llm_judge]
+    Victim baseline accuracy : 93.8%
+    Overall Attack Success Rate (ASR) : 9.6%
+    Questions with >= 1 success       : 56.2%
+    Total successful paraphrases      : 30
+  Robust successes (gain >= 0.50 over the original's wrong rate): 22, on 50.0% of questions
+============================================================
+  Full results at: /content/runs/results/attacker_llama3_1_8b_minimal_edit__victim_qwen3_4b_instruct__judge_gemma3_12b__q16_p40_r1_evolutionary__20260928_185644.json
+============================================================

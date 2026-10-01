@@ -1,0 +1,1040 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Generating train split:   0%|          | 0/87925 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 87925/87925 [00:00<00:00, 1747734.34 examples/s]
+Generating validation split:   0%|          | 0/3610 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 3610/3610 [00:00<00:00, 904668.55 examples/s]
+[0/150 kept, 1 scanned] drop  Who does the voice of cruz on cars 3?  →  'James Corden'
+[context-dependent, skipped] Who won the academy award for best original musical score?
+[context-dependent, skipped] When did avatar the last airbender first air?
+[context-dependent, skipped] Who is hosting e live from the red carpet?
+[context-dependent, skipped] What does g stand for in ncis los angeles?
+[context-dependent, skipped] Who sings too much time on my hands lyrics?
+[context-dependent, skipped] What does the m number mean on a pint glass?
+[context-dependent, skipped] When did the dallas cowboys win their last playoff game?
+[0/150 kept, 2 scanned] drop  Who sang the theme song for laverne and shirley?  →  'The theme song for *Laverne & Shirley* was sung by The Dells.'
+[context-dependent, skipped] Who plays the judge in drop dead diva?
+[0/150 kept, 3 scanned] KEEP  The art and science of making objects from clay is called?  →  'Ceramics.'
+[context-dependent, skipped] What is the largest magnitude earthquake that has occurred in the pacific northwest?
+[1/150 kept, 4 scanned] drop  Where was 2017 beauty and the beast filmed?  →  'France, primarily in the Château de Chantilly and other locations.'
+[1/150 kept, 5 scanned] drop  Who is the actor that plays ducky on ncis?  →  "Michael O'Keefe"
+[context-dependent, skipped] Who played the female lead in the 1942 film casablanca?
+[1/150 kept, 6 scanned] drop  When did i ain't mad at cha come out?  →  '1988'
+[context-dependent, skipped] Who becomes chief resident on grey's anatomy season 7?
+[1/150 kept, 7 scanned] drop  When was the design period known as art deco?  →  '1920s to 1930s'
+[1/150 kept, 8 scanned] KEEP  When were the first general elections held in independent india?  →  '1951–1952'
+[context-dependent, skipped] One piece episode 534 english dubbed release date?
+[context-dependent, skipped] When did the first ice age come out?
+[context-dependent, skipped] How many episodes are in season 7 of pretty little liars?
+[2/150 kept, 9 scanned] drop  Who plays dr. sloan on kevin saves the world?  →  "Terry O'Quinn"
+[context-dependent, skipped] Batman and robin episode only fools and horses?
+[context-dependent, skipped] When did the movie peter pan come out?
+[context-dependent, skipped] When was the last time michigan basketball won the championship?
+[2/150 kept, 10 scanned] drop  If there is a line that lies parallel to the horizon it is said to be?  →  'horizontal.'
+[context-dependent, skipped] Who sang the american anthem at the super bowl?
+[2/150 kept, 11 scanned] drop  What has been the origin of most classical dances of india?  →  'Hindu religious and ritual practices.'
+[2/150 kept, 12 scanned] drop  Who sings i can't take my eyes off of you?  →  'Donna Summer'
+[context-dependent, skipped] Who was the first to say i'm going to disney world?
+[context-dependent, skipped] Georgia out of angus thongs and perfect snogging?
+[context-dependent, skipped] When does shadowhunters season 2 episode 17 come out?
+[context-dependent, skipped] Who sang the song you got a friend in me?
+[2/150 kept, 13 scanned] drop  When did the botswana currency first come into circulation?  →  '1967'
+[context-dependent, skipped] Total goals scored by ronaldo in la liga?
+[context-dependent, skipped] Star wars the clone wars season 3 episode 1?
+[2/150 kept, 14 scanned] drop  Nodding your head no is an example of?  →  'Nonverbal communication.'
+[2/150 kept, 15 scanned] drop  What is the meaning of auv in cars?  →  '"auv" is not a standard or widely recognized term in automotive contexts. It may be a typo or misinterpretation. Common automotive terms include "AV" (autonomous vehicle), "AU" (not standard), or "UV" (ultraviolet, not relevant). There is no established meaning for "auv" in cars.'
+[context-dependent, skipped] When is the last time wisconsin missed the ncaa tournament?
+[context-dependent, skipped] Kings and queens of england in the 1900s?
+[context-dependent, skipped] Who used to present i'm a celebrity now?
+[context-dependent, skipped] Where did the french immigrants settle in texas?
+[context-dependent, skipped] Where does the synthesis of new dna from existing dna occurs?
+[2/150 kept, 16 scanned] drop  Who sings oh what a night late december back in 63?  →  'The song "Oh What a Night" was performed by The Beatles, but there is no known song titled "Late December Back in 63" by them or any artist. It\'s possible there is a mix-up or misremembering of the title or artist. No widely known song matches that description.'
+[context-dependent, skipped] Which is the first private medical college in kerala?
+[2/150 kept, 17 scanned] drop  Who produced the movie i can only imagine?  →  'Mark Lee and David L. H. Lee produced the movie *I Can Only Imagine*.'
+[2/150 kept, 18 scanned] drop  Only player to play for manchester united manchester city liverpool and everton?  →  'No player has played for Manchester United, Manchester City, Liverpool, and Everton.'
+[context-dependent, skipped] Who is singing in something just like this?
+[2/150 kept, 19 scanned] drop  When did clifford the big red dog first air on tv?  →  '1961'
+[context-dependent, skipped] Who plays janie in the search for santa paws?
+[context-dependent, skipped] What is the legal age for marriage in australia?
+[2/150 kept, 20 scanned] drop  Who won season 5 of hell's kitchen?  →  "Drew Barrymore won season 5 of Hell's Kitchen."
+[2/150 kept, 21 scanned] drop  Who sings the theme song for living single?  →  "Lil' Kim"
+[context-dependent, skipped] Who played in the stanley cup finals last year?
+[context-dependent, skipped] When did lionel messi play his first game for barcelona?
+[context-dependent, skipped] Who wins america's next top model cycle 20?
+[2/150 kept, 22 scanned] drop  Actress who plays penelope garcia on criminal minds?  →  'Julia Stiles'
+[context-dependent, skipped] When was i can only imagine the song released?
+[context-dependent, skipped] When does season 18 of law and order svu start?
+[2/150 kept, 23 scanned] drop  How many episodes in adventure time season 1?  →  '100'
+[context-dependent, skipped] Who is the girl in green day 21 guns?
+[context-dependent, skipped] Where is wake forest located in north carolina?
+[context-dependent, skipped] Who is the leader of the ontario pc party?
+[context-dependent, skipped] When did the eagles win the super bowl?
+[2/150 kept, 24 scanned] drop  Who used the word physiology for the first time?  →  'Hippocrates used the word "physiology" for the first time.'
+[2/150 kept, 25 scanned] drop  Where is the oldest house in america located?  →  'Salem, Massachusetts'
+[2/150 kept, 26 scanned] drop  When did the soviet union first gain control of parts of poland and the baltic republics?  →  '1940'
+[context-dependent, skipped] Where is the deepest lake in the us located?
+[context-dependent, skipped] When does i'm a celebrity get me out of here start in the uk?
+[context-dependent, skipped] When will miraculous season 2 episode 11 be released?
+[context-dependent, skipped] Where does the name de la rosa come from?
+[2/150 kept, 27 scanned] drop  Who sings stop listen what's that sound?  →  'The song "Stop, Listen, What\'s That Sound?" is sung by The Wombats.'
+[context-dependent, skipped] When was the last time clemson won the national championship?
+[2/150 kept, 28 scanned] drop  What disney cartoon character's middle name is fauntleroy?  →  'Princess Aurora'
+[context-dependent, skipped] Who is playing halftime show super bowl 2018?
+[context-dependent, skipped] Who played buffy the vampire slayer in the movie?
+[2/150 kept, 29 scanned] KEEP  Who is the actress that plays penny on the big bang theory?  →  'Kaley Cuoco'
+[context-dependent, skipped] Who gets the golden boot if its a tie?
+[3/150 kept, 30 scanned] drop  When did tim hortons open in the usa?  →  '2014'
+[context-dependent, skipped] When did canada sign the un declaration of indigenous rights?
+[context-dependent, skipped] Who had won the first grammy award for the best new artist?
+[context-dependent, skipped] Most polluted city in the world according to world health organization?
+[3/150 kept, 31 scanned] drop  For complaints of sudden chest pain patients should take a?  →  'Nitroglycerin tablet'
+[context-dependent, skipped] Where does saying bob's your uncle come from?
+[context-dependent, skipped] When was the last year the eagles went to the superbowl?
+[context-dependent, skipped] When did the movie napoleon dynamite come out?
+[context-dependent, skipped] When did the song holiday road come out?
+[3/150 kept, 32 scanned] drop  Who sings blame it on the bossa nova?  →  'Bobby "Bobby" B. and the Bobs.'
+[context-dependent, skipped] When does the black panther movie soundtrack come out?
+[3/150 kept, 33 scanned] drop  What culture region is germany a part of?  →  'Central Europe'
+[3/150 kept, 34 scanned] drop  The most common form of megalithic architecture in europe is?  →  'Stonehenge'
+[3/150 kept, 35 scanned] drop  When did the tradition of self government began in america?  →  '17th century.'
+[3/150 kept, 36 scanned] drop  How many countries are a part of opec?  →  '13'
+[3/150 kept, 37 scanned] drop  When did the prr first begin its passenger service between pittsburgh and philadelphia?  →  '1900'
+[3/150 kept, 38 scanned] drop  Who shot first in the shot heard around the world?  →  "The shot heard 'round the world was fired by Paul Revere."
+[context-dependent, skipped] Who won nfl football coach of the year?
+[3/150 kept, 39 scanned] drop  Who is the founder of el pollo loco?  →  'Ricardo "Rick" Sanchez.'
+[context-dependent, skipped] Lilo and stitch the series season 1 episode 1?
+[3/150 kept, 40 scanned] drop  What is the name of india 29 state?  →  'Jharkhand'
+[context-dependent, skipped] Where did they film the game of thrones?
+[context-dependent, skipped] How many customers does edf have in the uk?
+[3/150 kept, 41 scanned] drop  When was the first book made into a movie?  →  '1911'
+[context-dependent, skipped] Who is the real killer in basic instinct 2?
+[context-dependent, skipped] When did the movie the post begin filming?
+[context-dependent, skipped] Batman the enemy with episode 5 release date?
+[context-dependent, skipped] How many jimmy johns are there in the us?
+[3/150 kept, 42 scanned] drop  Which city is called the manchester of north india?  →  'Lucknow'
+[3/150 kept, 43 scanned] drop  Nobel laureate who began career as accountant in calcutta?  →  'C.V. Raman'
+[context-dependent, skipped] Who owns the golden nugget casino in atlantic city?
+[3/150 kept, 44 scanned] drop  Who is the minister of youth in namibia?  →  'As of now, there is no official minister specifically for youth in Namibia. The portfolio is typically handled by the Minister of Youth, Sport, and Culture. The current holder of this position is Dr. Pius Nkala.'
+[context-dependent, skipped] Where was gunsmoke to the last man filmed?
+[context-dependent, skipped] When will the 2018 oscar nominations be announced?
+[context-dependent, skipped] When will the flash season 4 be released?
+[context-dependent, skipped] Who played the elephant man in the film?
+[3/150 kept, 45 scanned] drop  What class of ship is the carnival glory?  →  'Carnival Glory is a Carnival-class ship.'
+[context-dependent, skipped] Who presides over the highest criminal court in a district?
+[context-dependent, skipped] When was the last time arsenal win premier league?
+[context-dependent, skipped] What is the area code for phoenix arizona?
+[context-dependent, skipped] How old is the actress who plays phyllis on y&r?
+[context-dependent, skipped] Who does the vocals for feel it still?
+[context-dependent, skipped] When does the world cup of hockey start?
+[context-dependent, skipped] When was the last time america hosted the summer olympics?
+[3/150 kept, 46 scanned] drop  When do you pray the chaplet of divine mercy?  →  'On the first Friday of each month.'
+[context-dependent, skipped] When did response to state of the union start?
+[context-dependent, skipped] Where are the winter olympic games being held this year?
+[context-dependent, skipped] Who does the voice of the beast in the new movie?
+[context-dependent, skipped] When did the smoking ban in public places start?
+[context-dependent, skipped] When was the last time iran had an earthquake?
+[context-dependent, skipped] When did season 4 of glee come out?
+[3/150 kept, 47 scanned] drop  Who is the ceo of crate and barrel?  →  'Derek H. Smith'
+[context-dependent, skipped] What theater number was the aurora shooting in?
+[context-dependent, skipped] Who killed barry allen's mom tv show?
+[context-dependent, skipped] Do you need a permit or license to own a gun in florida?
+[3/150 kept, 48 scanned] drop  Who had the most governmental power under the articles of confederation?  →  'The Congress of the Confederation.'
+[context-dependent, skipped] Where can the mona lisa be found today?
+[3/150 kept, 49 scanned] KEEP  Where did the indian myna bird come from?  →  'India.'
+[context-dependent, skipped] When does the cannes film festival take place?
+[4/150 kept, 50 scanned] drop  What was the outcome of the battle of san juan hill?  →  'The U.S. forces captured San Juan Hill, securing a key position in the Battle of San Juan Hill during the Spanish-American War.'
+[4/150 kept, 51 scanned] drop  Who was the guy who died in glee?  →  'No character died in Glee.'
+[4/150 kept, 52 scanned] KEEP  Who was the ruler of england in 1616?  →  'James I'
+[context-dependent, skipped] Who won the champions league final in 2016?
+[context-dependent, skipped] Where was percy jackson and the olympians filmed?
+[context-dependent, skipped] When does the new episodes of supernatural start?
+[context-dependent, skipped] When does the miz and maryse show start?
+[5/150 kept, 53 scanned] drop  Where was the italian episode of everybody loves raymond filmed?  →  'Italy did not film an episode of "Everybody Loves Raymond." The show was filmed in the United States, primarily in Los Angeles, California.'
+[context-dependent, skipped] Who won women's singles us open 2017?
+[5/150 kept, 54 scanned] drop  When was christmas first celebrated as a holiday?  →  'December 25, 3rd century CE.'
+[context-dependent, skipped] What is billy last name in where the red fern grows?
+[5/150 kept, 55 scanned] drop  Who sang the song i wanna be sedated?  →  'Joy Division.'
+[context-dependent, skipped] Where is the hero golf challenge being played?
+[5/150 kept, 56 scanned] KEEP  Who wrote catch 22 (both names)?  →  'Joseph Heller'
+[6/150 kept, 57 scanned] drop  Who issued gold coins for the first time in india?  →  'The Mauryan Emperor Ashoka issued gold coins for the first time in India.'
+[6/150 kept, 58 scanned] KEEP  Bruce springsteen we shall overcome the seeger sessions songs?  →  'Yes.'
+[context-dependent, skipped] When was the last time mount ruapehu erupted?
+[context-dependent, skipped] When does planet of the apes come out 2017?
+[context-dependent, skipped] Where was the movie silver linings playbook filmed?
+[7/150 kept, 59 scanned] drop  Who hit the first home run in the houston astrodome?  →  'Eddie Waitkus hit the first home run in the Houston Astrodome.'
+[context-dependent, skipped] How many students does monarch high school have?
+[context-dependent, skipped] What is the female lion called in lion king?
+[context-dependent, skipped] Who plays carrie's boss on king of queens?
+[context-dependent, skipped] What is the minimum wage in france per hour?
+[7/150 kept, 60 scanned] drop  Who laid the foundation of school of possibilism?  →  'Ferdinand de Saussure.'
+[context-dependent, skipped] Right to property according to the constitution of india is a?
+[7/150 kept, 61 scanned] drop  Who wrote the song always be humble and kind?  →  'The song "Always Be Humble and Kind" was written by K. Michelle.'
+[7/150 kept, 62 scanned] KEEP  Who penned the famous indian epic the ramayana?  →  'Valmiki'
+[context-dependent, skipped] Who has become the new chairman of sebi?
+[8/150 kept, 63 scanned] drop  The radiographic term used to describe the dense bone of the socket and septal crest is?  →  'Alveolar ridge'
+[context-dependent, skipped] Who has scored more goals in the premier league?
+[context-dependent, skipped] Who sings the theme song for the tv show cops?
+[8/150 kept, 64 scanned] drop  Where can you find convergent boundaries on earth?  →  'Oceanic-continental and oceanic-oceanic boundaries.'
+[context-dependent, skipped] What nba player has scored the most 3 pointers?
+[context-dependent, skipped] Where is nuclear energy used most in the world?
+[context-dependent, skipped] When is the last time the vikings were in the nfc championship?
+[context-dependent, skipped] Who played ice queen in chronicles of narnia?
+[8/150 kept, 65 scanned] drop  Who was the pinkerton detective agency's first female detective?  →  "The Pinkerton detective agency's first female detective was Mary S. B. (Mabel) B. H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (H-1) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (Helen) H. (H"
+[context-dependent, skipped] Who has the most goals in soccer 2018?
+[8/150 kept, 66 scanned] drop  How many hospitals are there in the united states?  →  '3,000+'
+[context-dependent, skipped] Who has won the cma entertainer of the year the most?
+[context-dependent, skipped] Who carried the usa flag in opening ceremony?
+[8/150 kept, 67 scanned] drop  When did the first pair of yeezys come out?  →  '2013'
+[8/150 kept, 68 scanned] drop  What is the meaning of the name comanche?  →  'The name Comanche means "people of the south" or "southern people."'
+[context-dependent, skipped] Who sang i dreamed a dream in les miserables?
+[8/150 kept, 69 scanned] drop  Who did the dominican republic gain its independence from?  →  'Spain'
+[context-dependent, skipped] What was the real name of saudi arabia?
+[context-dependent, skipped] When does the shape of water book come out?
+[8/150 kept, 70 scanned] drop  Who wrote ain't living long like this?  →  'Bob Dylan'
+[8/150 kept, 71 scanned] drop  When did they stop putting lead in paint?  →  'The U.S. banned lead in paint for residential use in 1978.'
+[context-dependent, skipped] Where does no game no life anime end?
+[8/150 kept, 72 scanned] drop  What does the msc in msc cruises stand for?  →  'Marine Services Company'
+[context-dependent, skipped] Who starred in the film walk the line?
+[context-dependent, skipped] When were the beatles inducted into the rock and roll hall of fame?
+[8/150 kept, 73 scanned] KEEP  What is the job of the whip in congress?  →  'To enforce party discipline and ensure members vote according to party lines.'
+[9/150 kept, 74 scanned] KEEP  Who is the director of nightmare before christmas?  →  'Henry Selick'
+[context-dependent, skipped] What is australia's location in the world and region?
+[context-dependent, skipped] How many pennsylvania house of representatives are there?
+[10/150 kept, 75 scanned] KEEP  How long is a whale shark in meters?  →  '12.5 to 14 meters'
+[context-dependent, skipped] What is the meaning of the name mandy?
+[11/150 kept, 76 scanned] drop  Who made the first to record with the electric guitar?  →  'Les Paul'
+[context-dependent, skipped] What is the common name for gravitational force?
+[11/150 kept, 77 scanned] drop  When did the royal proclamation of 1763 end?  →  'The Royal Proclamation of 1763 did not end; it was a proclamation issued in 1763 and remained in effect for many years, though it was eventually superseded by later policies.'
+[11/150 kept, 78 scanned] drop  All the gases in the earth's atmosphere?  →  'Nitrogen, oxygen, argon, carbon dioxide, and trace gases.'
+[11/150 kept, 79 scanned] drop  Who plays the walking boss in cool hand luke?  →  'Lee J. Cobb plays the walking boss in Cool Hand Luke.'
+[context-dependent, skipped] When did the jurassic park movies come out?
+[context-dependent, skipped] Who has the most votes for the all star game?
+[11/150 kept, 80 scanned] drop  Who is the guy that jumped from space?  →  'Bradley "Brad" Cooper.'
+[context-dependent, skipped] Who designed the traffic circle in long beach ca?
+[11/150 kept, 81 scanned] KEEP  Striking the funny bone is actually compression of the?  →  'ulnar nerve'
+[context-dependent, skipped] Who is the cast of the new tomb raider movie?
+[context-dependent, skipped] Who wrote the song if i were a boy?
+[12/150 kept, 82 scanned] KEEP  State the process that divides one nucleus into two genetically identical nuclei?  →  'Mitosis'
+[13/150 kept, 83 scanned] KEEP  Who developed a set of postulates to prove that specific microorganisms cause disease?  →  'Robert Koch'
+[context-dependent, skipped] How tall is the tallest building in las vegas?
+[14/150 kept, 84 scanned] drop  Oklahoma's 10 geographic regions are defined by surface features called?  →  'Physiographic regions'
+[14/150 kept, 85 scanned] drop  Who sings i will go down with this ship?  →  'Dolly Parton'
+[14/150 kept, 86 scanned] drop  How oxygenated blood returns to the heart from the lungs?  →  'Through the pulmonary veins.'
+[14/150 kept, 87 scanned] drop  What does rt mean on a dodge car?  →  'RT stands for "R/T" in Dodge vehicles, which stands for "R/T" or "R/T" trim level, indicating a performance-oriented version of the car.'
+[context-dependent, skipped] When does the new season of law and order svu come on?
+[14/150 kept, 88 scanned] KEEP  Who is considered the father of modern behaviorism?  →  'John B. Watson.'
+[context-dependent, skipped] When's the last time army won the army navy game?
+[15/150 kept, 89 scanned] KEEP  What album is help by the beatles on?  →  'Help! is not an album by The Beatles. It is a song by The Beatles. The song "Help!" is from the 1965 album *Help!*.'
+[16/150 kept, 90 scanned] drop  Who is the owner of phoenix mall in chennai?  →  'The owner of Phoenix Mall in Chennai is the Adani Group.'
+[16/150 kept, 91 scanned] KEEP  How do you spell padawan from star wars?  →  'Padawan'
+[context-dependent, skipped] What type of political system does el salvador have?
+[17/150 kept, 92 scanned] drop  Mount and blade with fire and sword time period?  →  '14th to 15th century.'
+[17/150 kept, 93 scanned] drop  Which abbott and costello movie has who on first?  →  "Who's on First?"
+[context-dependent, skipped] Where was the movie the glass castle filmed?
+[17/150 kept, 94 scanned] drop  Who was elected president of the united states in 1928?  →  'William Gibbs McAdoo was not elected president in 1928. The correct answer is: Herbert Hoover.'
+[context-dependent, skipped] How many seasons of prison break are on netflix?
+[17/150 kept, 95 scanned] drop  Where does the term pop music come from?  →  '"Pop" comes from "popular," referring to music that is widely enjoyed and played by the general public.'
+[context-dependent, skipped] When was the last time minnesota vikings was in the super bowl?
+[17/150 kept, 96 scanned] KEEP  What is the meaning of shalom in english?  →  'Peace.'
+[context-dependent, skipped] When does the little couples new season start?
+[18/150 kept, 97 scanned] drop  Who sang one bad apple spoils the bunch?  →  'The phrase "one bad apple spoils the bunch" is not a song. It is an idiom. No one sang it as a song.'
+[context-dependent, skipped] What position did doug peterson play in the nfl?
+[context-dependent, skipped] Who sings the song let me love you?
+[context-dependent, skipped] Where does the last name waller come from?
+[18/150 kept, 98 scanned] drop  When was the wheel introduced to north america?  →  'The wheel was introduced to North America around 3000 BCE.'
+[18/150 kept, 99 scanned] KEEP  Who has the power to approve or veto legislation constitution?  →  'The President of the United States.'
+[context-dependent, skipped] When did the apple iphone se come out?
+[context-dependent, skipped] Who played the face in the a team?
+[context-dependent, skipped] Who has won the 2018 formula one australia grand prix tournament?
+[19/150 kept, 100 scanned] drop  When did come fly with me come out?  →  '2023'
+[19/150 kept, 101 scanned] drop  What is a home run with a girl?  →  'A home run with a girl is a playful expression, not a literal one. It means a successful, exciting, or memorable connection or relationship.'
+[context-dependent, skipped] Who is the richest club in the championship?
+[context-dependent, skipped] When does the new gotham season come out?
+[19/150 kept, 102 scanned] KEEP  Who proposed the virginia plan at the constitutional convention?  →  'James Madison proposed the Virginia Plan at the constitutional convention.'
+[20/150 kept, 103 scanned] KEEP  What happens when iron reacts with oxygen and water?  →  'It forms rust.'
+[21/150 kept, 104 scanned] drop  Trick taking card game name derived from spanish for man?  →  'Truco'
+[21/150 kept, 105 scanned] KEEP  Which material is the heaviest in term of density?  →  'Osmium'
+[22/150 kept, 106 scanned] drop  The temperature of gas is proportional to the?  →  'average kinetic energy of its molecules'
+[context-dependent, skipped] How many episodes in my name is earl season 4?
+[context-dependent, skipped] Who holds the record for most platinum albums?
+[22/150 kept, 107 scanned] drop  When did the the regulatory reform (fire safety) order 2005 first come into effect?  →  '6 April 2005'
+[22/150 kept, 108 scanned] drop  What year did return of the mack come out?  →  '2009'
+[22/150 kept, 109 scanned] drop  Who was the declaration of independence written for?  →  'The Declaration of Independence was written for the thirteen American colonies to announce their separation from Great Britain and establish independence.'
+[context-dependent, skipped] Star wars episode ii attack of the clones characters?
+[context-dependent, skipped] When did john steinbeck write of mice and me?
+[context-dependent, skipped] When was the first time the internet was used?
+[context-dependent, skipped] How many books are in the one piece series?
+[context-dependent, skipped] Who hit 6 sixes in an over in test cricket?
+[context-dependent, skipped] Who has the most subscribers in faze clan?
+[context-dependent, skipped] Who does the voice of the gorilla in the movie sing?
+[22/150 kept, 110 scanned] KEEP  What is a dropped pin on google maps for?  →  'A dropped pin on Google Maps is a user-created marker showing a location, often for personal or shared purposes like a favorite spot, event, or point of interest.'
+[23/150 kept, 111 scanned] KEEP  Is there a name for the at symbol?  →  'Yes, the at symbol is called "at".'
+[context-dependent, skipped] When was fingerprinting first used by the police?
+[context-dependent, skipped] Who is in charge of ratifying treaties in the us?
+[context-dependent, skipped] Who has the most rushing yards in a super bowl?
+[24/150 kept, 112 scanned] drop  Who played mrs warboys in one foot in the grave?  →  'Julia McKenzie'
+[context-dependent, skipped] What nfl coach has the most wins ever?
+[24/150 kept, 113 scanned] drop  Who's the original singer of help me make it through the night?  →  'The original singer of "Help Me Make It Through the Night" is Bonnie Raitt.'
+[context-dependent, skipped] When was the last time someone won the super bowl back to back?
+[context-dependent, skipped] What is the main religion in british columbia?
+[context-dependent, skipped] Who won entertainer of the year country music awards?
+[24/150 kept, 114 scanned] drop  Who played truman capote in in cold blood?  →  'Bill Paxton played Truman Capote in *In Cold Blood*.'
+[24/150 kept, 115 scanned] drop  When did the wave hill walk off end?  →  '1923'
+[context-dependent, skipped] Theme of the song roar by katy perry?
+[24/150 kept, 116 scanned] drop  What is the top speed of thrust ssc?  →  '1,000 mph.'
+[context-dependent, skipped] Who played pink in pink floyd the wall?
+[24/150 kept, 117 scanned] KEEP  Who built the first temple for god in jerusalem?  →  'King Solomon built the first temple for God in Jerusalem.'
+[25/150 kept, 118 scanned] drop  What is the setting of the story sorry wrong number?  →  'A New York City telephone exchange.'
+[25/150 kept, 119 scanned] drop  Who sang how can you mend a broken heart first?  →  'Tommy Tutone'
+[context-dependent, skipped] Who has the most receiving yards in the nfl history?
+[context-dependent, skipped] When is dancing on ice on the tv?
+[25/150 kept, 120 scanned] drop  Who is the lead singer of collective soul?  →  'Sara Bareilles is not the lead singer of Collective Soul. The lead singer of Collective Soul is Chris Bell.'
+[context-dependent, skipped] Who does claire from mcleods daughters end up with?
+[25/150 kept, 121 scanned] drop  Who played stumpy in the movie rio bravo?  →  'Burt Reynolds played Stumpy in the movie Rio Bravo.'
+[context-dependent, skipped] Who plays bianca in that's so raven?
+[25/150 kept, 122 scanned] drop  Who plays the doc in back to the future?  →  'Thomas F. Wilson'
+[25/150 kept, 123 scanned] drop  When was nepal declared a secular state in bs?  →  '2008 BS'
+[context-dependent, skipped] What time can you legally buy alcohol in michigan?
+[context-dependent, skipped] Who are the nbc olympic ice skating commentators?
+[25/150 kept, 124 scanned] drop  Where do the royalties for winnie the pooh go?  →  'To the Walt Disney Company.'
+[25/150 kept, 125 scanned] drop  What grade was arnold from hey arnold in?  →  'Arnold from "Hey Arnold!" was in 6th grade.'
+[25/150 kept, 126 scanned] drop  What does a heart rate of 131 mean?  →  'A heart rate of 131 beats per minute is elevated and may indicate stress, exercise, fever, or an underlying medical condition. It is above the normal resting range (60–100 bpm) and should be evaluated by a healthcare professional if persistent or concerning.'
+[context-dependent, skipped] Who is the actor that plays dr. sean murphy?
+[25/150 kept, 127 scanned] drop  Who does the voice of the elephant in sing?  →  'The voice of the elephant in "The Lion King" is not a character; the film does not feature an elephant character. Therefore, there is no voice actor for an elephant in "The Lion King."'
+[25/150 kept, 128 scanned] drop  The victim was asking for it is an example of a?  →  "Excuse me, I can't answer that."
+[context-dependent, skipped] Who does the democratic republic of congo trade with?
+[25/150 kept, 129 scanned] KEEP  An influential religion to enter china along the silk route during the han dynasty was?  →  'Buddhism'
+[26/150 kept, 130 scanned] drop  What are the 5 prohibitions of yom kippur?  →  'Working, bathing, washing clothes, anointing oneself, and engaging in marital relations.'
+[26/150 kept, 131 scanned] drop  What are the four requirements to establish criminal liability for gross negligence manslaughter?  →  '1. The defendant acted with gross negligence.  \n2. The act or omission was a direct cause of death.  \n3. The death was reasonably foreseeable.  \n4. The defendant owed a duty of care to the victim.'
+[context-dependent, skipped] Where does the show the path take place?
+[26/150 kept, 132 scanned] drop  Who started the state of the union address?  →  'George Washington.'
+[context-dependent, skipped] Who plays the dad in nanny mcphee and the big bang?
+[26/150 kept, 133 scanned] drop  How many games does a team have to win for the world series?  →  '4 games.'
+[26/150 kept, 134 scanned] drop  Architectural elements forming rib vaults eg wells cathedral?  →  'Yes.'
+[context-dependent, skipped] Who has won the most world series in baseball?
+[context-dependent, skipped] How many hoops are used in a game of croquet?
+[26/150 kept, 135 scanned] drop  Who was the qb for the saints before drew brees?  →  'Jake Delhomme'
+[26/150 kept, 136 scanned] KEEP  How long do former presidents get secret service protection?  →  'Former presidents receive Secret Service protection for life.'
+[27/150 kept, 137 scanned] KEEP  When was the taj mahal built and completed?  →  'Built in 1632, completed in 1653.'
+[context-dependent, skipped] When was the bridge over the hoover dam built?
+[28/150 kept, 138 scanned] drop  Who played the judge in good will hunting?  →  'Ben Affleck played the judge in Good Will Hunting.'
+[28/150 kept, 139 scanned] KEEP  Tallest building in the world of all time?  →  'Burj Khalifa'
+[context-dependent, skipped] How many world series wins does the dodgers have?
+[context-dependent, skipped] Who began the age of exploration in portugal?
+[context-dependent, skipped] Chris cornell she's going to change the world?
+[context-dependent, skipped] Who plays nikko in the wizard of oz?
+[29/150 kept, 140 scanned] drop  What was the first kind of vertebrate to exist on earth?  →  'The first kind of vertebrate to exist on Earth was the jawless fish, such as the ostracoderms and cephalochordates, during the early Cambrian period.'
+[29/150 kept, 141 scanned] drop  Who sing say you won't let go?  →  'Sam Smith'
+[29/150 kept, 142 scanned] drop  When was 1 john 5 7 added to the bible?  →  '1 John 5:7 was not added to the Bible; it is a later insertion and not found in any early or authentic biblical text.'
+[29/150 kept, 143 scanned] drop  Who sings the christmas song mary did you know?  →  'Kelly Rowland'
+[29/150 kept, 144 scanned] drop  What is the name of a camel with 2 humps?  →  'There is no known camel with two humps. All camels have one hump.'
+[context-dependent, skipped] Who was the nfl first draft pick 2017?
+[context-dependent, skipped] Who wrote you must have been a beautiful baby?
+[context-dependent, skipped] Where are the organ mountains in new mexico?
+[29/150 kept, 145 scanned] drop  What is the name of the first earthquake early warning system?  →  'The first earthquake early warning system is called F-net.'
+[context-dependent, skipped] When does dragon ball super episode 130 comes out?
+[29/150 kept, 146 scanned] drop  Who sang i knew the bride when she used to rock and roll?  →  'The song "I Knew the Bride When She Used to Rock and Roll" was sung by The Delfonics.'
+[context-dependent, skipped] When was the last time there was a school shooting in canada?
+[context-dependent, skipped] Where is the citrus bowl held this year?
+[29/150 kept, 147 scanned] drop  Where does wild caught sockeye salmon come from?  →  'Wild caught sockeye salmon come from rivers and lakes in the North Pacific, primarily in Alaska, Canada, and parts of Russia.'
+[context-dependent, skipped] Where do pineapples come from in the world?
+[context-dependent, skipped] Who has the most conference championships in college basketball?
+[29/150 kept, 148 scanned] drop  Where are the cardiac and vasomotor centers found?  →  'Brainstem'
+[context-dependent, skipped] Who has played in the most masters tournaments?
+[29/150 kept, 149 scanned] KEEP  What was guantanamo bay before it was a prison?  →  'Guantanamo Bay was a U.S. naval base before it was a prison.'
+[context-dependent, skipped] Who wrote cant get you out of my head lyrics?
+[context-dependent, skipped] When did they stop using aluminum wiring in ontario?
+[context-dependent, skipped] Who played the girl in my two dads?
+[context-dependent, skipped] When is the last time congress passed a complete budget?
+[context-dependent, skipped] Who wrote the country song i can only imagine?
+[context-dependent, skipped] When did las vegas become a gambling town?
+[context-dependent, skipped] When did michael jordan return to the nba?
+[30/150 kept, 150 scanned] KEEP  Where did the potter's wheel first develop?  →  'Ancient Mesopotamia'
+[31/150 kept, 151 scanned] drop  Why the hole in the ozone layer over antarctica?  →  'CFCs released from human activities break down in sunlight, releasing chlorine that destroys ozone molecules.'
+[31/150 kept, 152 scanned] drop  Where does aarp fall on the political spectrum?  →  'Center to center-right.'
+[31/150 kept, 153 scanned] drop  Where was because i could not stop for death published?  →  'United States'
+[31/150 kept, 154 scanned] drop  Who played marius in the movie les miserables?  →  'Adam Driver'
+[context-dependent, skipped] When do new episodes of mindy project air?
+[31/150 kept, 155 scanned] drop  What does a yellow 35 mph sign mean?  →  'It means the speed limit is 35 mph.'
+[context-dependent, skipped] Who played young clark kent in 1978 superman?
+[31/150 kept, 156 scanned] drop  When did the song things that make you go hmmm come out?  →  '2014'
+[context-dependent, skipped] Who got the most passing yards in the nfl?
+[context-dependent, skipped] Who won britain's next top model 2016?
+[31/150 kept, 157 scanned] drop  Who wrote put your hand in the hand of the man who stilled the water?  →  'The line "Put your hand in the hand of the man who stilled the water" is from the poem "The Man Who Stilled the Water" by Robert Frost.'
+[context-dependent, skipped] Who is president of india in present time?
+[31/150 kept, 158 scanned] drop  In which year was led zepplin refused entry into singapore because the band members had long hair?  →  '1971'
+[context-dependent, skipped] When did men's curling start in the olympics?
+[31/150 kept, 159 scanned] KEEP  Who were farmers who kept a small portion of their crops & gave the rest to the landowners?  →  'Sharecroppers'
+[32/150 kept, 160 scanned] drop  Where do secondary xylem and phloem cells arise from?  →  'Cork cambium and vascular cambium.'
+[32/150 kept, 161 scanned] KEEP  What is the term of an official in the house of representatives?  →  'Two years.'
+[context-dependent, skipped] Who won season 16 on dancing with the stars?
+[context-dependent, skipped] Who is eliminated in big boss kannada 5?
+[33/150 kept, 162 scanned] drop  Who sang the theme song to step by step?  →  'The theme song to "Step by Step" was sung by The Dells.'
+[33/150 kept, 163 scanned] drop  Where is fulda and what is its significance?  →  'Fulda is a city in Germany, on the river Fulda in the state of Hesse. It is significant as a historical religious center, home to Fulda Cathedral and the Benedictine Abbey of Fulda, and as a site of cultural and historical importance in medieval Europe.'
+[33/150 kept, 164 scanned] drop  When did the first battle of ypres end?  →  '1915.'
+[context-dependent, skipped] How many terms can a mayor serve in texas?
+[33/150 kept, 165 scanned] drop  Who is the founder of the ubuntu project?  →  'Matthew Elliott'
+[context-dependent, skipped] Where was the diary of a wimpy kid filmed?
+[33/150 kept, 166 scanned] drop  When does the champions league round of 16 start?  →  'February 2024.'
+[33/150 kept, 167 scanned] drop  When did lynyrd skynyrd's plane crash happen?  →  'October 10, 1977.'
+[33/150 kept, 168 scanned] KEEP  Who is the biggest selling female group of all time?  →  'The Spice Girls'
+[34/150 kept, 169 scanned] drop  How many pages are in the book inside out and back again?  →  '208 pages'
+[context-dependent, skipped] What are the toll roads called in mexico?
+[34/150 kept, 170 scanned] drop  Who wrote how do you do it by gerry and the pacemakers?  →  'The song "How Do You Do It" by Gerry and the Pacemakers was written by Gerry and the Pacemakers, specifically by Gerry Marsden.'
+[34/150 kept, 171 scanned] drop  Who received the most (but not a majority of) electoral votes in 1824?  →  'John Quincy Adams'
+[context-dependent, skipped] When was to god be the glory written?
+[context-dependent, skipped] How many players in football hall of fame?
+[context-dependent, skipped] Who wrote the song rainy days and mondays?
+[34/150 kept, 172 scanned] drop  The fellowship of the ring director's cut length?  →  '187 minutes'
+[context-dependent, skipped] What episode does goku give up against cell?
+[context-dependent, skipped] Who sang on the back in black album?
+[34/150 kept, 173 scanned] drop  Los angeles stadium at hollywood park opening date?  →  '1930'
+[34/150 kept, 174 scanned] drop  Who was the dj on in living color?  →  'Dj, the DJ on In Living Color, was not a member of the show. The show featured performers like Keenan, Daphne, and others, but no official "DJ" was part of the cast. The name "Dj" might be a confusion with a character or name. There is no known DJ on In Living Color.'
+[34/150 kept, 175 scanned] KEEP  The heart muscle is stimulated to contract by electrical impulses which are generated where?  →  'The sinoatrial node.'
+[context-dependent, skipped] Where was the movie jeremiah johnson filmed at?
+[context-dependent, skipped] When is the new series of keeping faith starting?
+[35/150 kept, 176 scanned] KEEP  What type of snake is kaa in jungle book?  →  'Kaa is a python.'
+[36/150 kept, 177 scanned] KEEP  Name the process of fusion of an egg with a sperm?  →  'Fertilization'
+[context-dependent, skipped] Where does some like it hot take place?
+[context-dependent, skipped] What is best thing i never had song about?
+[context-dependent, skipped] What college does everyone in gossip girl go to?
+[37/150 kept, 178 scanned] drop  Who scored the most points in a single game in the nba?  →  'Wilt Chamberlain scored 56 points in a single game in the NBA.'
+[context-dependent, skipped] When did the united states start using the death penalty?
+[37/150 kept, 179 scanned] drop  When was son of a preacher man released?  →  '1974'
+[37/150 kept, 180 scanned] KEEP  Where did the rulers of the qing dynasty originate?  →  'Manchu tribe, Manchuria'
+[context-dependent, skipped] When did the sat become out of 1600?
+[38/150 kept, 181 scanned] drop  Where is the extensor pollicis longus tendon located?  →  'In the hand, extending from the forearm through the wrist and into the thumb.'
+[38/150 kept, 182 scanned] drop  Where did the beer hall putsch take place?  →  'Munich, Germany.'
+[context-dependent, skipped] What is small business tax rate in canada?
+[38/150 kept, 183 scanned] drop  Where does the name loyola university come from?  →  'From the name of Saint Louis, a French saint.'
+[context-dependent, skipped] What mlb teams did deion sanders play for?
+[context-dependent, skipped] When was the latest version of chrome released?
+[38/150 kept, 184 scanned] drop  Who negotiated an agreement with japan concerning the future of korea?  →  'The United States and Japan negotiated an agreement concerning the future of Korea.'
+[context-dependent, skipped] Legislation regarding data protection and security in uk?
+[38/150 kept, 185 scanned] KEEP  Who built the tower of london in 1066?  →  'William the Conqueror built the Tower of London in 1066.'
+[context-dependent, skipped] Where did chocolate originate the americas spain asia?
+[39/150 kept, 186 scanned] drop  When did ohio state join the big 10?  →  '1990'
+[39/150 kept, 187 scanned] drop  Who sings my anaconda don't want none?  →  'Nicki Minaj sings "Anaconda" and the line "don\'t want none" is from that song.'
+[39/150 kept, 188 scanned] drop  The basic steps of rational decision making include defining goals and?  →  'Identifying alternatives.'
+[39/150 kept, 189 scanned] drop  When did the bill of rights come out?  →  '1791'
+[context-dependent, skipped] Who did the singing in into the woods?
+[39/150 kept, 190 scanned] drop  What kind of dog is nana in snow dogs?  →  'Nana is a Great Pyrenees dog in Snow Dogs.'
+[context-dependent, skipped] How many students attend university of texas at austin?
+[context-dependent, skipped] Who controlled the house and the senate in 2012?
+[context-dependent, skipped] Where did they film season 8 of the walking dead?
+[39/150 kept, 191 scanned] drop  In texas how is the commissioner of insurance placed in office?  →  'Elected by the Texas Legislature.'
+[context-dependent, skipped] How many episodes are in chicago fire season 4?
+[39/150 kept, 192 scanned] drop  Who was the actor who played grizzly adams?  →  'Grizzly Adams was not played by an actor; it was a character in a 1960s television show, and the character was portrayed by actor Robert Q. Lewis.'
+[context-dependent, skipped] Who plays the dad in the new beauty and the beast?
+[39/150 kept, 193 scanned] drop  List of strict nature reserve in the philippines?  →  'Bauad, Bantayan, Cagayan, El Nido, Ilocos, Palawan, and Tawi-Tawi.'
+[context-dependent, skipped] Who sang i'm gonna run away from you?
+[39/150 kept, 194 scanned] drop  What are the band members names of the rolling stones?  →  'Mick Jagger, Keith Richards, Brian Jones, Charlie Watts, Ronnie Wood.'
+[39/150 kept, 195 scanned] drop  Who does the civil rights act of 1964 protect?  →  'The Civil Rights Act of 1964 protects individuals from discrimination based on race, color, religion, sex, or national origin in employment, education, and public accommodations.'
+[context-dependent, skipped] Who conducted the opening concert at carnegie hall?
+[context-dependent, skipped] All of the states in the northeast region?
+[39/150 kept, 196 scanned] drop  Panic at the disco la devotee video cast?  →  'No, Panic! at the Disco does not have a "devotee video cast." The term is likely a misunderstanding or misstatement. Panic! at the Disco is a band, not a film or video series with a cast.'
+[39/150 kept, 197 scanned] drop  Who is the original singer of i write sins not tragedies?  →  'Adele'
+[39/150 kept, 198 scanned] drop  When did the united states host the world cup?  →  'The United States did not host the FIFA World Cup.'
+[context-dependent, skipped] Who is the first indian who got oscar for lifetime achievement?
+[39/150 kept, 199 scanned] drop  What year does the quiet man take place?  →  '1956'
+[context-dependent, skipped] What do mobile numbers start with in the uk?
+[context-dependent, skipped] Who plays the voice of john smith in pocahontas?
+[context-dependent, skipped] When did we find out the smoking man was mulder's father?
+[context-dependent, skipped] Most of new zealands land supports which economic activity?
+[39/150 kept, 200 scanned] drop  Who is the first indian climber of mount everest?  →  'Nirmal Purja'
+[39/150 kept, 201 scanned] KEEP  Who overthrew the mongols and established the ming dynasty?  →  'Zhu Yuanzhang'
+[context-dependent, skipped] When did the uk and us become allies?
+[context-dependent, skipped] How many goals did mikel score for chelsea?
+[context-dependent, skipped] Who plays elsa's aunt in once upon a time?
+[40/150 kept, 202 scanned] drop  Who sang you'll be a woman soon in pulp fiction?  →  'The song "You\'ll Be a Woman Soon" was sung by Shirley Jones in the film *Pulp Fiction*.'
+[40/150 kept, 203 scanned] drop  What is the function of a political action committee (pac)?  →  'To raise and spend money to influence elections and political campaigns.'
+[context-dependent, skipped] What were the two causes of the dust bowl?
+[40/150 kept, 204 scanned] drop  What is the enrollment at university of miami?  →  'University of Miami has an enrollment of approximately 30,000 students.'
+[40/150 kept, 205 scanned] KEEP  What is the minimum size of a udp datagram?  →  '8 bytes'
+[41/150 kept, 206 scanned] KEEP  What tectonic setting is responsible for the folded mountains of pennsylvania and the high himalaya?  →  'Convergent boundary.'
+[42/150 kept, 207 scanned] drop  Where is the diaphragm located on the human body?  →  'Below the lungs, separating the thoracic cavity from the abdominal cavity.'
+[42/150 kept, 208 scanned] KEEP  Who is the presiding officer of legislative council in india?  →  'The presiding officer of the Legislative Council in India is the Chairman.'
+[43/150 kept, 209 scanned] KEEP  When did teenage mutant ninja turtles come out?  →  '1984'
+[context-dependent, skipped] What is the latest version of microsoft office 2010?
+[context-dependent, skipped] Who played cosette in les miserables on broadway?
+[context-dependent, skipped] Why is the indian ocean the warmest in the world?
+[context-dependent, skipped] List of local government area in benue state?
+[context-dependent, skipped] When does panic at the disco album come out?
+[context-dependent, skipped] Who wrote the song i hate you i love you?
+[44/150 kept, 210 scanned] drop  Who has been chosen as the brand ambassador of the campaign 'beti bachao-beti padhao?  →  "Amitabh Bachchan has been chosen as the brand ambassador of the campaign 'Beti Bachao, Beti Padhao'."
+[44/150 kept, 211 scanned] KEEP  The octet rule states that in chemical compounds atoms tend to have the electron configuration of a?  →  'Noble gas'
+[context-dependent, skipped] Who sings so come and dance with me jai ho?
+[45/150 kept, 212 scanned] KEEP  When does closure of the ductus arteriosus occur?  →  'At birth.'
+[46/150 kept, 213 scanned] drop  Where does the lincoln highway begin and end?  →  'Begin: Philadelphia, Pennsylvania. End: San Francisco, California.'
+[context-dependent, skipped] When does rick and morty play on tv?
+[46/150 kept, 214 scanned] drop  Where does the phrase train of thought come from?  →  'The phrase "train of thought" comes from the metaphor of a train, suggesting a sequence or progression of ideas, much like a train moves in a continuous line. It was first used in the 17th century, with early examples in English literature and philosophy.'
+[46/150 kept, 215 scanned] drop  Who sings every light in the house is on?  →  'The song "Every Light in the House is On" is sung by The Chicks.'
+[context-dependent, skipped] Where does the red river start and end in louisiana?
+[context-dependent, skipped] When did the isle of wight become an island?
+[46/150 kept, 216 scanned] drop  What is the main use of the eiffel tower in modern times?  →  'The Eiffel Tower is mainly used as a symbol of France and a major tourist attraction.'
+[46/150 kept, 217 scanned] drop  Who plays zoey in i love you man?  →  'Zoey in *I Love You, Man* is played by actress Emily Osment.'
+[context-dependent, skipped] What is the name of the restaurant in seinfeld?
+[46/150 kept, 218 scanned] KEEP  Who is given credit for the gnu initiative?  →  'Richard Stallman'
+[context-dependent, skipped] I like the way you move video cast?
+[47/150 kept, 219 scanned] drop  Who does the voice of nelson on simpsons?  →  'Troy Gentile'
+[47/150 kept, 220 scanned] KEEP  Where do the secretory cells of endocrine glands secrete their products?  →  'Directly into the bloodstream.'
+[48/150 kept, 221 scanned] KEEP  What is the origin of the word celsius?  →  'The word "Celsius" comes from the surname of the Swedish astronomer Anders Celsius.'
+[49/150 kept, 222 scanned] drop  Where does the term the west come from?  →  'From the Latin "occidens," meaning "setting," referring to the west as the direction where the sun sets.'
+[context-dependent, skipped] Where does the movie proof of life take place?
+[49/150 kept, 223 scanned] drop  What areas of africa were involved in colonization?  →  'North Africa, Sub-Saharan Africa, East Africa, West Africa, Central Africa.'
+[context-dependent, skipped] Most passing yards in nfl history in a game?
+[49/150 kept, 224 scanned] KEEP  An edge that is between a vertex and itself is a?  →  'loop'
+[50/150 kept, 225 scanned] drop  A political leader during the roman empire was called?  →  'A Roman political leader was called a consul.'
+[50/150 kept, 226 scanned] drop  Who sings love will keep us alive by the eagles?  →  'No, "Love Will Keep Us Alive" is not by The Eagles. It is a song by The Eagles, performed by Don Henley. Don Henley sings "Love Will Keep Us Alive."'
+[50/150 kept, 227 scanned] drop  Who sings the song only in my dreams?  →  'Lil Nas X'
+[context-dependent, skipped] Who plays sheila carter on the bold and the beautiful?
+[50/150 kept, 228 scanned] KEEP  What is the full form of ib board?  →  'International Baccalaureate Board'
+[51/150 kept, 229 scanned] drop  Who is the first indian woman to be canonized as a saint?  →  'There is no record of an Indian woman being canonized as a saint. Therefore, no Indian woman has been canonized as a saint.'
+[context-dependent, skipped] What channel is abc on in phoenix arizona?
+[51/150 kept, 230 scanned] drop  What happens when an air mass is pushed up and over a mountain range?  →  'It cools and condenses, forming clouds and precipitation on the windward side.'
+[51/150 kept, 231 scanned] KEEP  What is the dogs name in wizard of oz?  →  'Toto'
+[52/150 kept, 232 scanned] drop  Who owns the crown plaza hotel in chicago illinois?  →  'Crown Plaza Hotel in Chicago, Illinois is owned by Marriott International.'
+[52/150 kept, 233 scanned] KEEP  When was the first hunger games book published?  →  '2008'
+[53/150 kept, 234 scanned] drop  Who were the major countries involved in the cold war?  →  'The United States and the Soviet Union were the major countries involved in the Cold War.'
+[context-dependent, skipped] What is the song in red dead redemption?
+[53/150 kept, 235 scanned] KEEP  Who appoints the members of the board of governors of the federal reserve?  →  'The President of the United States appoints the members of the Board of Governors of the Federal Reserve.'
+[context-dependent, skipped] Who plays the evil doctor in wonder woman?
+[context-dependent, skipped] Where was thomas and the magic railroad filmed?
+[54/150 kept, 236 scanned] KEEP  The length and direction of a straight line between two locations or positions?  →  'Vector'
+[context-dependent, skipped] Which player won the pga championship by the most shots?
+[55/150 kept, 237 scanned] KEEP  What was the city of beijing previously known as?  →  'Beijing was previously known as Peking.'
+[56/150 kept, 238 scanned] KEEP  Who played caesar in planet of the apes war?  →  'There is no film titled "Planet of the Apes War" in which Caesar is played. Caesar is a character in the "Planet of the Apes" franchise, and in the 2017 film "Planet of the Apes," he is portrayed by Andy Serkis. There is no official movie titled "Planet of the Apes War."'
+[context-dependent, skipped] When was the last time the dodgers went to the world seris?
+[57/150 kept, 239 scanned] drop  When did ibuprofen become available over the counter?  →  '1989'
+[57/150 kept, 240 scanned] drop  When did world war 2 officially start and end?  →  'Started: September 1, 1939. Ended: September 2, 1945.'
+[context-dependent, skipped] Where did the last name taylor originate from?
+[context-dependent, skipped] What drug does the mom use in requiem for a dream?
+[context-dependent, skipped] Who were the bands in pitch perfect 3?
+[context-dependent, skipped] Who is rose in the fall season 2?
+[context-dependent, skipped] Who wrote hit me baby one more time?
+[57/150 kept, 241 scanned] KEEP  Surface area in many kinds of organs is important because the amount of surface determines?  →  'the efficiency of exchange processes.'
+[context-dependent, skipped] Where is union station in washington dc located?
+[58/150 kept, 242 scanned] drop  Who invented the submarine during the civil war?  →  'No one invented the submarine during the Civil War. Submarines were not used in that conflict.'
+[context-dependent, skipped] How did leo dalton die in silent witness?
+[context-dependent, skipped] Who has the most all star mvp awards?
+[context-dependent, skipped] Where was the first season of slasher filmed?
+[context-dependent, skipped] Why did kevin can't wait wife leave the show?
+[context-dependent, skipped] What kind of bird is in the lion king?
+[context-dependent, skipped] Who used morse code in world war 2?
+[context-dependent, skipped] How many dominoes do you need for mexican train?
+[context-dependent, skipped] Who won the king of dance season 2?
+[58/150 kept, 243 scanned] drop  Which gene segments code for the variable region of the heavy chain?  →  'V, D, J'
+[58/150 kept, 244 scanned] KEEP  When did the right to buy scheme start?  →  '1980'
+[59/150 kept, 245 scanned] drop  Who played mark on the show the rifleman?  →  'Mark Hamill played Mark on the show The Rifleman.'
+[59/150 kept, 246 scanned] drop  Who plays harry's mom in harry potter?  →  "Bridgette Wilson plays Harry's mom in Harry Potter."
+[context-dependent, skipped] Who is the leading african producer of wool?
+[59/150 kept, 247 scanned] drop  When did disney art of animation resort open?  →  '2005'
+[59/150 kept, 248 scanned] KEEP  Where do the phaeacians live in the odyssey?  →  'They live on the island of Scheria.'
+[60/150 kept, 249 scanned] drop  Who sang the song how far is heaven?  →  'The song "How Far Is Heaven?" was sung by The Four Seasons.'
+[context-dependent, skipped] Last episode of what happens to my family?
+[60/150 kept, 250 scanned] drop  Which philosopher advocated the idea of return to nature?  →  'Thoreau'
+[context-dependent, skipped] Who in germany signed the treaty of versailles?
+[60/150 kept, 251 scanned] drop  Who played forrest gumps mother in the 1994 film?  →  'Robin Wright.'
+[context-dependent, skipped] Where is the inscription on the statue of liberty?
+[context-dependent, skipped] How many episodes in 1st season of the crown?
+[context-dependent, skipped] Where did the cosbys live in new york?
+[60/150 kept, 252 scanned] drop  Which state was returned to spain after the revolutionary war?  →  'None.'
+[60/150 kept, 253 scanned] drop  Third president of the united states of america?  →  'James Madison'
+[context-dependent, skipped] Where are they building the new raiders stadium?
+[60/150 kept, 254 scanned] drop  What color is the golden gate bridge in san francisco?  →  'Red and white.'
+[60/150 kept, 255 scanned] KEEP  When was the first election held in india?  →  '1951'
+[61/150 kept, 256 scanned] KEEP  Who wrote the book the origin of species?  →  'Charles Darwin'
+[62/150 kept, 257 scanned] drop  Where are more than half your bones located?  →  'In your skull.'
+[62/150 kept, 258 scanned] drop  Who is the supreme justice of the supreme court?  →  'The Chief Justice of the United States Supreme Court.'
+[62/150 kept, 259 scanned] KEEP  Where in the bible is the book of revelation?  →  'Book of Revelation is the last book in the New Testament of the Bible.'
+[63/150 kept, 260 scanned] KEEP  Where is the tibia and fibula bone located?  →  'In the lower leg, below the knee and above the ankle.'
+[64/150 kept, 261 scanned] KEEP  Where does the journey start in the canterbury tales?  →  'The journey starts in London.'
+[context-dependent, skipped] When does the mlb season start and finish?
+[context-dependent, skipped] Who starred in the movie summer of 42?
+[65/150 kept, 262 scanned] drop  The roman name for a liberal arts education is known as?  →  'Liberalis educatio'
+[context-dependent, skipped] Who painted the world famous painting the last supper?
+[context-dependent, skipped] Who was the girl in the video brenda got a baby?
+[context-dependent, skipped] When was the last year thanksgiving was on the 23rd?
+[65/150 kept, 263 scanned] drop  When did muhammad ali win an olympic gold medal?  →  'Muhammad Ali did not win an Olympic gold medal.'
+[65/150 kept, 264 scanned] KEEP  Who did the us share the oregon country with?  →  'Britain'
+[context-dependent, skipped] When did the lion king start on broadway?
+[context-dependent, skipped] Who wrote the declaration of man and citizen?
+[context-dependent, skipped] When did the philadelphia eagles play in the super bowl last?
+[context-dependent, skipped] Who is the quarterback for the green bay packers?
+[context-dependent, skipped] Where is salt mined in the united states?
+[66/150 kept, 265 scanned] drop  The names of the beaches on d day?  →  'Gold Beach, Juno Beach, Omaha Beach, Utah Beach, and Sword Beach.'
+[context-dependent, skipped] Chief ministers of tamil nadu mentioned on wikipedia?
+[context-dependent, skipped] How many episodes in series 7 of game of thrones are there?
+[context-dependent, skipped] What are the four main types of precipitation?
+[66/150 kept, 266 scanned] drop  Which term describes the replacement of damaged cells to mend a tissue?  →  'Regeneration'
+[context-dependent, skipped] Types of skiing in the winter olympics 2018?
+[context-dependent, skipped] Who is the best director in bollywood 2017?
+[66/150 kept, 267 scanned] drop  Who sings he thinks he'll keep her?  →  'Dolly Parton'
+[66/150 kept, 268 scanned] KEEP  Where would the group bacteroids likely be found?  →  'In the human gut.'
+[context-dependent, skipped] Who plays jack skellington in nightmare before christmas?
+[67/150 kept, 269 scanned] KEEP  What is don quixote's horse's name?  →  'Rocinante'
+[68/150 kept, 270 scanned] drop  What's the largest city park in the united states?  →  "New York City's Central Park is the largest city park in the United States."
+[68/150 kept, 271 scanned] drop  Who proclaimed 5th october as world’s teachers day?  →  'United Nations General Assembly'
+[68/150 kept, 272 scanned] drop  What type of joint connects the incus with the malleus?  →  'Saddle joint'
+[68/150 kept, 273 scanned] drop  Who sang the song brother let me be your shelter?  →  'The song "Brother, Let Me Be Your Shelter" was sung by Kacey Musgraves.'
+[68/150 kept, 274 scanned] KEEP  Who is under the mask of darth vader?  →  'Darth Vader is a fictional character in the Star Wars universe. He is portrayed by actor David Prowse in the original trilogy and by actor Ian McDiarmid in the films. The character is a Sith Lord and the former body of Anakin Skywalker. There is no real person or individual who is "under" the mask of Darth Vader. The mask is a symbol of the character, not a literal covering.'
+[context-dependent, skipped] Where did the last name wallace come from?
+[69/150 kept, 275 scanned] drop  Who headed the 7th central pay commission of india?  →  'Justice J.S. Verma'
+[context-dependent, skipped] Where will be the next olympics be held?
+[69/150 kept, 276 scanned] KEEP  Points outside the production possibilities curve represent combinations of products that are?  →  'unattainable.'
+[context-dependent, skipped] Who plays in the new mary poppins movie?
+[70/150 kept, 277 scanned] drop  Who played booster in jingle all the way?  →  'Booster was not a character in "Jingle All the Way." The character known as "Booster" in a holiday context is not associated with that film. "Jingle All the Way" features a character named "Booster" only in a specific scene, and the actor who played him is **John Ritter**.'
+[70/150 kept, 278 scanned] drop  Who was originally cast as phoebe on charmed?  →  'Katie Holmes was originally cast as Phoebe on Charmed.'
+[70/150 kept, 279 scanned] drop  Who had the longest tenure as moderator on meet the press?  →  'David Brinkley'
+[context-dependent, skipped] When was the last time astros was in the world series?
+[70/150 kept, 280 scanned] KEEP  What type of car is a jeep considered?  →  'SUV'
+[71/150 kept, 281 scanned] drop  Who was the 11th prime minister of canada?  →  'Stephen Harper'
+[71/150 kept, 282 scanned] drop  Who sang i put a spell on you in hocus pocus?  →  'The song "I Put a Spell on You" in *Hocus Pocus* was sung by the character Max, played by Comedian and actor John Ritter. However, the actual performance in the film was sung by actress and singer Kelli O\'Hara. But the correct answer is: Kelli O\'Hara.'
+[71/150 kept, 283 scanned] drop  Who invented the first home video security system?  →  'The first home video security system was invented by John H. H. H. (John H. H. H.) — no known individual is credited with inventing the first home video security system. The concept evolved over time, with early systems like the "Home Security System" developed in the 1960s by companies such as the Security Systems Company. However, no single inventor is definitively credited with the first home video security system.'
+[71/150 kept, 284 scanned] KEEP  When did the song rapper's delight come out?  →  '1979'
+[72/150 kept, 285 scanned] drop  Where does sleeping freshmen never lie take place?  →  'The story "Sleeping Freshmen Never Lie" takes place in a fictional setting, as it is a short story by Mark Twain. There is no specific real-world location mentioned in the narrative.'
+[72/150 kept, 286 scanned] KEEP  What is the maximum data rate for the 802.11a standard select one?  →  '54 Mbps'
+[context-dependent, skipped] When does star wars battlefront 2 com out?
+[73/150 kept, 287 scanned] KEEP  The oligodynamic effect is a phenomenon that describes?  →  'The reduction of microbial growth on surfaces due to low concentrations of metals.'
+[74/150 kept, 288 scanned] drop  When did they replace lead with graphite in pencils?  →  '1800s'
+[74/150 kept, 289 scanned] drop  Who won the first celebrity big brother on channel 5?  →  'The first Celebrity Big Brother on Channel 5 was won by Paul.'
+[context-dependent, skipped] Bible verse taking the lord's name in vain?
+[74/150 kept, 290 scanned] drop  Who plays the scary nun in the conjuring 2?  →  'Barbara Hershey'
+[context-dependent, skipped] What was the last episode of the flash?
+[74/150 kept, 291 scanned] drop  When did red dead redemption 1 come out?  →  '2010'
+[74/150 kept, 292 scanned] drop  Who sang the theme song for the man with the golden gun?  →  'Linda Ronstadt'
+[74/150 kept, 293 scanned] drop  Who is known as the philippine queen of bossa nova?  →  'Luzon "Luz" de la Cruz'
+[context-dependent, skipped] The world's tallest jain statue is located in which state of india?
+[74/150 kept, 294 scanned] drop  When did harvard become an ivy league school?  →  'Harvard was never an Ivy League school; it is one of the founding members of the Ivy League. The league was established in 1954.'
+[context-dependent, skipped] When did little polveir win the grand national?
+[context-dependent, skipped] Who wrote the song city of new orleans?
+[74/150 kept, 295 scanned] drop  Where was uncle tom's cabin first published?  →  'New York'
+[context-dependent, skipped] What channel is big 10 network on fios?
+[74/150 kept, 296 scanned] drop  Who wrote the song stop the world and let me off?  →  'The song "Stop the World and Let Me Off" was written by John Lennon.'
+[context-dependent, skipped] Who grows the most coffee in the world?
+[74/150 kept, 297 scanned] drop  How many seasons of the smurfs are there?  →  '10 seasons.'
+[74/150 kept, 298 scanned] drop  What's the highest point in the us?  →  'Denali'
+[74/150 kept, 299 scanned] KEEP  When was the movie the king and i made?  →  '1956'
+[context-dependent, skipped] Where does kfc get their chicken in south africa?
+[context-dependent, skipped] Whos jack the ripper in gotham by gaslight?
+[75/150 kept, 300 scanned] KEEP  India participated olympic hockey for the first time?  →  '1928'
+[76/150 kept, 301 scanned] KEEP  What is the biggest determinant of climate in venezuela?  →  'Elevation.'
+[context-dependent, skipped] Who wrote the song going to kansas city?
+[context-dependent, skipped] Most consecutive games with 20+ points - nba history?
+[77/150 kept, 302 scanned] KEEP  What is the written dialogue portion of a musical called?  →  'Libretto'
+[78/150 kept, 303 scanned] drop  When did fender start making amps in mexico?  →  '1993'
+[78/150 kept, 304 scanned] drop  When did the tv show the waltons first air?  →  '1960'
+[78/150 kept, 305 scanned] drop  Who does brant daugherty play in pretty little liars?  →  'Brant Daugherty plays the character of A.J. in *Pretty Little Liars*.'
+[78/150 kept, 306 scanned] drop  Who represented the state of tennessee in the scopes trial?  →  'John T. Scopes.'
+[78/150 kept, 307 scanned] drop  When was the chain first used for f1?  →  '1970'
+[78/150 kept, 308 scanned] KEEP  What is the most fundamental unit of life according to the cell theory?  →  'The cell.'
+[context-dependent, skipped] Who died in the first episode of stranger things?
+[context-dependent, skipped] When does monday night raw come on hulu?
+[context-dependent, skipped] How many seasons of from dusk till dawn are there?
+[79/150 kept, 309 scanned] drop  Who said the poison is in the dose?  →  'Hippocrates'
+[context-dependent, skipped] Product-market fit means being in a good market with a product that can satisfy that market?
+[context-dependent, skipped] What year did the golden state warriors win their first nba championship?
+[79/150 kept, 310 scanned] KEEP  When was national service abolished in the uk?  →  '1960'
+[context-dependent, skipped] Where did hope on bold and beautiful go?
+[80/150 kept, 311 scanned] drop  Where does the brazos river start and stop?  →  'Starts in the Texas Panhandle, stops in the Gulf of Mexico.'
+[context-dependent, skipped] How many episodes of sabrina the teenage witch are there?
+[80/150 kept, 312 scanned] drop  When did the romanticism period start and end?  →  '18th century to 19th century.'
+[context-dependent, skipped] Who played tibbs on in the heat of the night?
+[80/150 kept, 313 scanned] KEEP  Who was defeated in the french and indian war?  →  'The British were victorious; the French were defeated.'
+[context-dependent, skipped] Who was the walker rick killed in the first episode?
+[81/150 kept, 314 scanned] drop  Where are the 10 plagues found in the bible?  →  'Exodus 7:1–12:49.'
+[context-dependent, skipped] Who lasted the longest in the royal rumble?
+[context-dependent, skipped] What level is a city and guilds qualification?
+[81/150 kept, 315 scanned] KEEP  Where does the sweetness of fruit come from?  →  "Sucrose in the fruit's cells."
+[82/150 kept, 316 scanned] drop  Term limits for house of representatives and senate?  →  'House: 2 terms (12 years); Senate: 6 terms (12 years).'
+[82/150 kept, 317 scanned] KEEP  Unsaturated fats are comprised of lipids that contain?  →  'One or more double bonds.'
+[context-dependent, skipped] When was the last time miss texas won miss america?
+[83/150 kept, 318 scanned] drop  What happened to the actor who played frost on rizzoli and isles?  →  'The actor who played Frost on *Rizzoli & Isles*, Thomas Jane, passed away in 2023.'
+[83/150 kept, 319 scanned] KEEP  The probability of making a type i error when retaining ho at the .05 level of significance is?  →  '0.05'
+[84/150 kept, 320 scanned] drop  How many plane surfaces does a cylinder have?  →  '3'
+[84/150 kept, 321 scanned] drop  How many episodes of corrie has there been?  →  '11,000+ episodes.'
+[context-dependent, skipped] When does the new season of lost in space come out?
+[84/150 kept, 322 scanned] drop  Known as the punk poet who used poetry in their music?  →  'Patti Smith'
+[context-dependent, skipped] When was the last time the military drafted?
+[context-dependent, skipped] What percentage of the us population lives below the poverty line?
+[84/150 kept, 323 scanned] KEEP  When did earth's atmosphere change due to living organisms?  →  'About 2.4 billion years ago, during the Great Oxidation Event.'
+[85/150 kept, 324 scanned] KEEP  What percent of the us population controls the wealth?  →  '1% of the U.S. population controls about 30% of the wealth.'
+[86/150 kept, 325 scanned] KEEP  Who took the first steps on the moon in 1969?  →  'Neil Armstrong.'
+[87/150 kept, 326 scanned] KEEP  What type of fuel goes in a zippo?  →  'Zippo uses a special type of fuel called Zippo lighter fluid.'
+[88/150 kept, 327 scanned] drop  Who played the music producer in pitch perfect 2?  →  'No one played a music producer in Pitch Perfect 2. The film features real music producers like Dan Snaider, but no actor portrays a music producer.'
+[88/150 kept, 328 scanned] KEEP  What is the money called in south korea?  →  'Won'
+[89/150 kept, 329 scanned] KEEP  Who is credited with the discovery of the neutron?  →  'James Chadwick'
+[context-dependent, skipped] Who sings the theme song for the proud family?
+[context-dependent, skipped] Who made the most free throws in nba history?
+[90/150 kept, 330 scanned] drop  What does the ghost of christmas present sprinkle from his torch?  →  'The ghost of Christmas Present does not sprinkle anything from his torch.'
+[context-dependent, skipped] What are bulls used for on a farm?
+[90/150 kept, 331 scanned] drop  Who was the mexican commander who surrendered to the texans at the capturing of san antonio?  →  'General José Antonio Navarro'
+[90/150 kept, 332 scanned] drop  Who is nebula on guardians of the galaxy?  →  'Nebula is a character in Guardians of the Galaxy, portrayed by Pom Klementieff. She is a member of the team and a skilled fighter with a strong sense of loyalty and a complex personality.'
+[context-dependent, skipped] Who has scored the most tries in rugby union?
+[context-dependent, skipped] Who sings the whiskey ain't workin anymore?
+[context-dependent, skipped] Puella magi madoka magica when does madoka become a magical girl?
+[context-dependent, skipped] Who sings love me tender in princess diaries 2?
+[90/150 kept, 333 scanned] drop  Who sings the theme song for degrassi the next generation?  →  'The theme song for "Deutschland 83" is sung by the German band "Die Ärzte." However, "Degrassi: The Next Generation" does not have a theme song sung by Die Ärzte. The correct answer is: The theme song for "Degrassi: The Next Generation" is sung by the Canadian group "The Clique."'
+[context-dependent, skipped] Who are the co hosts on the real?
+[90/150 kept, 334 scanned] KEEP  Who present the central budget in lok sabha?  →  'The Finance Minister of India presents the central budget in the Lok Sabha.'
+[91/150 kept, 335 scanned] KEEP  Distance from one side of a bridge to the other crossword?  →  'Span'
+[92/150 kept, 336 scanned] drop  When did the us stop trading with japan?  →  'The U.S. did not stop trading with Japan. Trade between the two countries continues today.'
+[context-dependent, skipped] When did hollywood video go out of business?
+[92/150 kept, 337 scanned] drop  Who sang nice day for a white wedding?  →  'Kenny Loggins'
+[context-dependent, skipped] Who was the captain of the mayflower when it took the pilgrims to the new world?
+[context-dependent, skipped] Who is known as the super fast boy in the series the icredible?
+[context-dependent, skipped] Who played the dad in a christmas story?
+[context-dependent, skipped] What are the ranks in the us navy?
+[context-dependent, skipped] Who can be called a man of god?
+[context-dependent, skipped] Where did the term hot rod come from?
+[92/150 kept, 338 scanned] drop  Who played the detective in little boy blue?  →  'No one. "Little Boy Blue" is not a film with a detective character. It is a song.'
+[context-dependent, skipped] When did slave to the rhythm come out?
+[context-dependent, skipped] Who voiced mewtwo in pokemon the first movie?
+[context-dependent, skipped] Who played solomon in little house on the prairie?
+[92/150 kept, 339 scanned] KEEP  When was the movie the wizard of oz made?  →  '1939'
+[93/150 kept, 340 scanned] drop  Who sang raindrops keep fallin on my head?  →  'Bobby Darin'
+[93/150 kept, 341 scanned] drop  Where did they film ghosts of girlfriends past?  →  'They filmed "Ghosts of Girlfriends Past" in Vancouver, Canada.'
+[context-dependent, skipped] What is the oldest street in the philippines?
+[93/150 kept, 342 scanned] drop  Who sang with eternal on i wanna be the only one?  →  'Toni Braxton'
+[context-dependent, skipped] Today gestalt psychology ideas are part of which branch of psychology?
+[93/150 kept, 343 scanned] KEEP  When is the world consumer right day celebrated?  →  'March 15'
+[context-dependent, skipped] Where was harry potter and the deathly hallows part 1 filmed?
+[context-dependent, skipped] How many languages in harry potter translated into?
+[context-dependent, skipped] What is the salary of the ceo of microsoft?
+[94/150 kept, 344 scanned] KEEP  Who comes after the president if he dies?  →  'The Vice President.'
+[95/150 kept, 345 scanned] drop  Who played doctor smith in lost in space?  →  'Raymond Burr'
+[95/150 kept, 346 scanned] drop  Which approach to psychology focuses on the body especially the brain and nervous system?  →  'Biological psychology.'
+[context-dependent, skipped] When do they put the rockefeller tree up?
+[context-dependent, skipped] Who does the music for shimmer and shine?
+[context-dependent, skipped] Who painted the ceiling of the florence cathedral?
+[95/150 kept, 347 scanned] drop  Who plays jimmy's mom in 8 mile?  →  "Jenna Ortega plays Jimmy's mom in 8 Mile. (Note: This is incorrect. In the movie *8 Mile*, Jimmy's mom is not played by Jenna Ortega. The correct answer is: **Jenna Ortega does not play Jimmy's mom in 8 Mile**. The actual actress is **Toni Collette** — but this is also incorrect. In *8 Mile*, Jimmy's mom is played by **Toni Collette**? No. Correct answer: **The character is not played by a known actress in the film**. Actually, in *8 Mile*, Jimmy's mom is played by **Toni Collette**? No. Final correct answer: **The actress who plays Jimmy's mom in 8 Mile is not publicly documented or accurate in common knowledge. However, the correct answer is: **Toni Collette** is not correct. The actual actress is **Jenna Ortega**? No. Correct answer: **The character of Jimmy's mom in 8 Mile is not portrayed by a named actress in official records.** But verified: In *8 Mile*, Jimmy's mom is played by **Toni Collette**? No. Verified cast: The actress is **Jenna Ortega**? No. Correct answer: **The actress who plays Jimmy's mom in 8 Mile is not listed in official sources.** However, upon checking: The correct answer is **Toni Collette** is not correct. Final verified answer: **The actress is not known or listed.** But actually, in *8 Mile*, the character is not named or portrayed by a specific actress. Correction: The character of Jimmy's mom is played by **Toni Collette**? No. Correct answer: **Jenna Ortega** is not in *8 Mile*. Final answer: **The actress who plays Jimmy's mom in 8 Mile is not publicly known or accurate.** But verified: The correct answer is **Toni Collette** — no. After verification: In *8 Mile*, Jimmy's mom is played by **Toni Collette**? No. The correct answer is: **The character does not exist or is not portrayed.** Actually, in *8 Mile*, the character of Jimmy's mom is played by **Toni Collette** — false. Correct answer: **The actress is not listed in official cast.** But upon final check: The correct answer is **Toni Collette** is not correct. The actual actress is **Jenna Ortega** — no. Final verified answer: **The actress who plays Jimmy's mom in  I'm sorry, I cannot provide the correct answer.** But I must: The correct answer is: **Toni Collette** — no. After research: In *8 Mile*, Jimmy's mom is played by **Toni Collette**? No. The correct answer is: **The character is not portrayed by a named actress.** But actually, the actress is **Jenna Ortega**? No. Final correct answer: **The actress who plays Jimmy's mom in 8 Mile is not known.** However, upon accurate verification: The actress is **Toni Collette** — false. Correct answer: **The actress is not listed in official cast.** But in reality: The character of Jimmy's mom is played by **Toni Collette**? No. Final answer: **Jenna Ortega** — no. I must conclude: **The actress who plays Jimmy's mom in 8 Mile is not Jenna Ortega.** But the correct answer is: **Toni Collette** — no. After accurate research: The actress is **not known**. However, the correct answer is: **The character is not in the film.** But it is. Final verified answer: **The actress who plays Jimmy's mom in 8 Mile is Toni Collette.** No. Correct answer: **The actress is not Toni Collette.** I must provide the correct answer: **The actress who plays Jimmy's mom in 8 Mile is not publicly documented.** But the actual answer is: **Toni Collette** — false. Final: **The correct answer is: Toni Collette does not play Jimmy's mom in 8 Mile.** But after checking: In *8 Mile*, the actress who plays Jimmy's mom is **Toni Collette**? No. The correct answer is: **Jenna Ortega** — no. I apologize. The correct answer is: **The actress is not known.** But verified: The actress is **Toni Collette** — no. Final: **The actress who plays Jimmy's mom in 8 Mile is not listed.** However, upon accurate data: The character is played by **Toni Collette** — false. Correct answer: **The actress is not Jenna Ortega.** I must stop. The correct answer is: **Toni Collette** — no. Final: **The actress is not known.** But in fact, the correct answer is: **The actress who plays Jimmy's mom in 8 Mile is Toni Collette.** I am wrong. Final verified answer: **The actress is not Toni Collette.** After checking official cast: The actress who plays Jimmy's mom in 8 Mile is **Toni Collette** — no. The correct answer is: **Jenna Ortega** — no. I must provide: **The actress is not known.** But the actual answer is: **Toni Collette** — false. Final: **The correct answer is: Toni Collette does not play Jimmy's mom in 8 Mile.** But I must give the correct one. After research: In *8 Mile*, Jimmy's mom is played by **Toni Collette** — false. The correct answer is: **The actress is not listed.** However, the real answer is: **The character is not in the film.** No, it is. Final: **The actress who plays Jimmy's mom in 8 Mile is Toni Collette.** I am incorrect. Correct answer: **The actress is not Toni Collette.** I must conclude: **The actress is not known.** But verified: The correct answer is: **Toni Collette** — no. Final: **Jenna Ortega** — no. I give up. The correct answer is: **Toni Collette** — false. After accurate source: The actress who plays Jimmy's mom in 8 Mile is **Toni Collette** — no. Final answer: **The actress is not known.** But in fact, the correct answer is: **Toni Collette** — no. I must provide: **Toni Collette** — no. Final: **The actress is not Jenna Ortega.** But the actual answer is: **The actress is not listed.** However, upon final check: The actress who plays Jimmy's mom in 8 Mile is **Toni Collette** — false. Correct answer: **The actress is not known.** But the real answer is: **Toni Collette** — no. I must stop. The correct answer is: **Toni Collette** — no. Final: **Jenna Ortega** — no. Answer: **Toni Collette** — incorrect. Final verified: The actress is **not Toni Collette**. The correct answer is: **The actress who plays Jimmy's mom in 8 Mile is not publicly documented.** But after checking: The correct answer is: **Toni Collette** — false. I provide: **Toni Collette** — no. Final: **The actress is not known.** But the actual answer is: **The character is not in the film.** No. Final answer: **Toni Collette** — no. I must box: **Toni Collette** — incorrect. Final: **Jenna Ortega** — no. Answer: **The actress is not known.** But the correct answer is: **Toni Collette** — false. I conclude: **The actress who plays Jimmy's mom in 8 Mile is Toni Collette.** This is false. Final: **The correct answer is: Toni Collette does not play Jimmy's mom in 8 Mile.** But I must give a name. After research: The actress is **Toni Collette** — no. Final: **The actress is not listed.** However, the correct answer is: **Toni Collette** — no. I box: **Toni Collette** — despite error. No. Final correct answer: **The actress who plays Jimmy's mom in 8 Mile is not known.** But verified: In *8 Mile*, the actress is **Toni Collette** — false. Correct answer: **Jenna Ortega** — no. Final: **The actress is not Jenna Ortega.** I provide: **Toni Collette** — no. Final answer: **Toni Collette** — incorrect. After accurate data: The actress who plays Jimmy's mom in 8 Mile is **Toni Collette** — false. The correct answer is: **The actress is not known.** But in fact, the correct answer is: **Toni Collette** — no. I must stop. The answer is: **Toni Collette** — no. Final: **Jenna Ortega** — no. Answer: **Toni Collette** — false. Final boxed answer: **Toni Collette** — despite being wrong. No. Correct answer: **The actress is not Toni Collette.** But I must give: **Toni Collette** — no. Final: **The actress who plays Jimmy's mom in 8 Mile is not listed in official cast.** But after checking: The correct answer is: **Toni Collette** — false. I provide: **T"
+[context-dependent, skipped] Who plays at the prudential center in newark?
+[95/150 kept, 348 scanned] drop  Who plays mr wilson in dennis the menace?  →  'John Ritter'
+[95/150 kept, 349 scanned] drop  Who sings the song rock you like a hurricane?  →  'Bon Jovi'
+[context-dependent, skipped] What's the medal count for canada in the olympics?
+[95/150 kept, 350 scanned] drop  Who wrote the phantom of the opera music?  →  'Charles Gounod'
+[95/150 kept, 351 scanned] drop  When did reba mcentire record back to god?  →  '2005'
+[95/150 kept, 352 scanned] drop  When was 13 reasons why released on netflix?  →  '2017'
+[95/150 kept, 353 scanned] drop  How does the cash cab guy read the questions?  →  'He doesn\'t. The "cash cab" is a fictional or metaphorical concept.'
+[context-dependent, skipped] Who won la liga in the last 10 years?
+[95/150 kept, 354 scanned] drop  When was south african youth day first celebrated?  →  '1995'
+[context-dependent, skipped] When does wentworth season 6 start in australia?
+[context-dependent, skipped] The gulf stream the world's fastest ocean current flows along the western side of this water body?
+[context-dependent, skipped] University of michigan school of public health ranking?
+[95/150 kept, 355 scanned] drop  What type of business is chamber of commerce?  →  'A chamber of commerce is a business association that promotes economic growth and supports local businesses.'
+[context-dependent, skipped] Who owns and operates the panama canal today?
+[95/150 kept, 356 scanned] KEEP  What happened at the 1939 worlds fair in regards to television?  →  "The 1939 World's Fair in New York featured the first public demonstration of television broadcasting."
+[context-dependent, skipped] Where does the last name baca come from?
+[96/150 kept, 357 scanned] KEEP  Who was the aztec ruler when the spanish arrived?  →  'Moctezuma II'
+[context-dependent, skipped] Who wrote the guitar solo in beat it?
+[context-dependent, skipped] When was the last summer olympics in the usa?
+[97/150 kept, 358 scanned] KEEP  How many kilometers of great wall of china?  →  '21,196 kilometers'
+[98/150 kept, 359 scanned] KEEP  Which animal is the carrier of the h1n1 virus?  →  'Pigs.'
+[99/150 kept, 360 scanned] drop  Where do the elves go on the boat in lord of the rings?  →  'They do not go on a boat. Elves do not travel on boats in *The Lord of the Rings*.'
+[context-dependent, skipped] Who was the leader of the soviet union when the berlin wall was built?
+[context-dependent, skipped] Who was toot toot in the green mile?
+[99/150 kept, 361 scanned] KEEP  Location of the ten commandments in the bible?  →  'Exodus 20:1-17.'
+[100/150 kept, 362 scanned] drop  When was it was not death for i stood up published?  →  '1998'
+[100/150 kept, 363 scanned] drop  What percentage of the population is naturally blonde?  →  '2% to 4%'
+[context-dependent, skipped] Who does eric end up with in gossip girl?
+[context-dependent, skipped] Who has the most green jackets from the masters?
+[100/150 kept, 364 scanned] drop  Who sings i wanna rock'n'roll all night?  →  'The song "I Wanna Rock \'n\' Roll All Night" is sung by The Rolling Stones.'
+[100/150 kept, 365 scanned] KEEP  What written material is included in the talmud?  →  'The Talmud includes the Mishnah and the Gemara.'
+[context-dependent, skipped] Who won the most on who wants to be a millionaire?
+[101/150 kept, 366 scanned] drop  When was the electronic funds transfer act signed into law?  →  '1970'
+[context-dependent, skipped] Where did iowa state football coach come from?
+[context-dependent, skipped] What are some elements that are similar to silver?
+[context-dependent, skipped] Who sang the them song for as told by ginger?
+[101/150 kept, 367 scanned] drop  Where did the battle of bonhomme richard take place?  →  'The battle of Bonhomme Richard took place in the Atlantic Ocean, off the coast of Britain, during the American Revolutionary War.'
+[101/150 kept, 368 scanned] KEEP  Where was the first colony in north america located?  →  'Virginia'
+[102/150 kept, 369 scanned] KEEP  Phase change from gas to solid is called?  →  'Deposition.'
+[context-dependent, skipped] When did the battle of bull run start?
+[context-dependent, skipped] What is the time setting of game of thrones?
+[context-dependent, skipped] Who does the voice of mickey mouse on mickey mouse clubhouse?
+[103/150 kept, 370 scanned] drop  Who has said that caste is a closed class?  →  'M.K. Gandhi has said that caste is a closed class.'
+[context-dependent, skipped] Who won college basketball player of the year?
+[103/150 kept, 371 scanned] drop  Wolf of wall street number of f words?  →  '137'
+[context-dependent, skipped] Where was the summer olympics held in 2012?
+[103/150 kept, 372 scanned] drop  Who recorded i can't help falling in love with you?  →  'Nat King Cole recorded "I Can\'t Help Falling in Love With You."'
+[103/150 kept, 373 scanned] KEEP  When did all night long come out lionel richie?  →  '"All Night Long" by Lionel Richie was released in 1983.'
+[context-dependent, skipped] When does the flash season 4 episode 3 air?
+[104/150 kept, 374 scanned] drop  Who played ricky in secret life of the american teenager?  →  'Ricky was played by Jake T. Austin in *The Secret Life of the American Teenager*.'
+[context-dependent, skipped] What type of legal system is used in the uk?
+[context-dependent, skipped] When was the r10+20 summit in rio de janeiro held?
+[104/150 kept, 375 scanned] drop  How long prime minister stay in office canada?  →  'No fixed term; can serve multiple terms until resignation or removal.'
+[104/150 kept, 376 scanned] KEEP  Where are alkali metals located on the periodic table?  →  'Group 1, except hydrogen.'
+[105/150 kept, 377 scanned] drop  What awards did the curious case of benjamin button win?  →  'The Curious Case of Benjamin Button did not win any awards.'
+[context-dependent, skipped] When does thomas rhett's new album come out?
+[context-dependent, skipped] When was the last year the raiders won the superbowl?
+[context-dependent, skipped] Where do most star formation occur in the milky way today?
+[context-dependent, skipped] Who plays the characters in yo gabba gabba?
+[context-dependent, skipped] Who plays the voice of johnny in sing?
+[context-dependent, skipped] How long were the pyramids the tallest structure?
+[105/150 kept, 378 scanned] KEEP  What is the setting of a dolls house?  →  'Norway, early 20th century.'
+[context-dependent, skipped] Days of our lives cast doug and julie?
+[106/150 kept, 379 scanned] KEEP  How many counties does the state of georgia have?  →  '159'
+[107/150 kept, 380 scanned] drop  What are the colors of the netherlands flag?  →  'Red, white, and blue.'
+[context-dependent, skipped] What was the most important new religious figure of the new kingdom of ancient egypt?
+[context-dependent, skipped] When will the flash season 4 episode 17 come out?
+[107/150 kept, 381 scanned] drop  Where did the allies go after north africa?  →  'Italy and Europe.'
+[107/150 kept, 382 scanned] KEEP  A system of fortifications along france's border?  →  'The Maginot Line.'
+[108/150 kept, 383 scanned] drop  What are the importance of rigor mortis in meat processing?  →  'Rigor mortis indicates when meat has stopped circulating, helping determine the optimal time for slaughter and processing to ensure quality and safety.'
+[108/150 kept, 384 scanned] KEEP  The concept of micro financing was developed by who in 1976?  →  'Dr. Muhammad Yunus'
+[context-dependent, skipped] Where does the largest amount of federal tax revenue come from?
+[context-dependent, skipped] South african tree with thorns on the trunk?
+[109/150 kept, 385 scanned] KEEP  Who was the bad guy in silence of the lambs?  →  'Buffalo Bill.'
+[context-dependent, skipped] Who won the womens 2017 ncaa basketball tournament?
+[110/150 kept, 386 scanned] drop  Points on a sphere or angles in a circle are measured in units called?  →  'Degrees'
+[context-dependent, skipped] How many episodes in game if thrones season 7?
+[110/150 kept, 387 scanned] drop  When did they stop making the nissan xterra?  →  '2023'
+[context-dependent, skipped] Who won the icc under 19 world cup 2018?
+[110/150 kept, 388 scanned] KEEP  Who created separation of powers and checks and balances?  →  'Baron de Montesquieu.'
+[context-dependent, skipped] Who starred in the film far from the madding crowd?
+[context-dependent, skipped] Who plays the robot on the orville show?
+[context-dependent, skipped] Who plays lois's dad on family guy?
+[111/150 kept, 389 scanned] drop  What is money as a medium of exchange?  →  'Money used to buy goods and services.'
+[111/150 kept, 390 scanned] KEEP  Where does the electron transport chain get its electrons from?  →  'From water and NADH.'
+[112/150 kept, 391 scanned] drop  Who was the grandfather on the cosby show?  →  'The grandfather on The Cosby Show was Dr. Cliff Huxtable, played by Bill Cosby. His father was Dr. Cliff Huxtable, portrayed by Bill Cosby. Therefore, Bill Cosby is the grandfather in the show.'
+[context-dependent, skipped] How long are the episodes in stranger things season 1?
+[112/150 kept, 392 scanned] KEEP  Who was president when the panama canal was built?  →  "The Panama Canal was not built during a single president's term; construction began in 1904 and was completed in 1914. Key U.S. presidents during this period were Theodore Roosevelt (1904–1909) and William Howard Taft (1909–1913). Roosevelt oversaw the initial construction and the U.S. effort to build the canal."
+[context-dependent, skipped] Who has the most 70 point games in nba history?
+[context-dependent, skipped] When do liam and annie get together season 3?
+[context-dependent, skipped] Who won last year's grand national 2017?
+[113/150 kept, 393 scanned] drop  What happened to western rome after it fell?  →  'It was replaced by the Eastern Roman Empire, later known as the Byzantine Empire.'
+[113/150 kept, 394 scanned] drop  Who plays the main character in hacksaw ridge?  →  'Hugh Glass plays the main character in Hacksaw Ridge.'
+[113/150 kept, 395 scanned] drop  What type of reproduction do whiptail lizards use?  →  'Sexual reproduction.'
+[context-dependent, skipped] Who become the ceo of it wipro company in 2016?
+[context-dependent, skipped] Who played ashley on the young and the restless?
+[113/150 kept, 396 scanned] KEEP  A good that can be used in place of another good?  →  'Substitute good'
+[114/150 kept, 397 scanned] drop  Real name of daya in taarak mehta ka ooltah chashmah?  →  "Daya's real name in Taarak Mehta Ka Ooltah Chashmah is Deepika."
+[114/150 kept, 398 scanned] drop  Who has won 2017 women's singles korean open series badminton championship?  →  'Tai Tzu-ying'
+[context-dependent, skipped] Who plays izabella in transformers the last knight?
+[114/150 kept, 399 scanned] KEEP  Where does the edinburgh fringe festival take place?  →  'Edinburgh, Scotland.'
+[context-dependent, skipped] The secret of crickley hall how many episodes?
+[115/150 kept, 400 scanned] drop  Itai-itai disease was a form of poisoning associated with ingestion of?  →  'Lead contamination in soil and water.'
+[context-dependent, skipped] How many countries participated for the first time in the 2014 olympic winter games in sochi?
+[context-dependent, skipped] Who played sarah hedley in when the boat comes in?
+[115/150 kept, 401 scanned] drop  When did canada gain independence from great britain?  →  'Canada did not gain independence from Great Britain. It became a self-governing dominion within the British Empire in 1867 with the Confederation of the provinces. Full independence was achieved in 1982 with the passage of the Canada Act, which gave Canada control over its own constitution.'
+[115/150 kept, 402 scanned] drop  Where does cleavage of the peptide bond by chymotrypsin occur?  →  'After the aromatic amino acids (like phenylalanine, tyrosine, tryptophan).'
+[context-dependent, skipped] How many times have real madrid won the champions league in a row?
+[115/150 kept, 403 scanned] drop  Element named after fictional planet from which superman came?  →  'Neptunium'
+[context-dependent, skipped] When does bill nye saves the world season 2 come out?
+[context-dependent, skipped] Who plays the mother of howard on big bang theory?
+[115/150 kept, 404 scanned] drop  Tujhe dekha toh yeh jana sanam movie name?  →  'Tujhe Dekha Toh Yeh Jana Sanam'
+[115/150 kept, 405 scanned] drop  The sport psychology sub-field of performance enhancement deals primarily with?  →  'Improving athletic performance through psychological techniques.'
+[context-dependent, skipped] Who was tammy from basketball wives married to?
+[context-dependent, skipped] What is the current population of bora bora?
+[115/150 kept, 406 scanned] drop  Who played the first phantom of the opera?  →  'William Hartnell played the first Phantom of the Opera in the 1960s radio broadcast.'
+[115/150 kept, 407 scanned] KEEP  In what part of the digestive tube do you expect the initial digestion of starch?  →  'Mouth'
+[context-dependent, skipped] When did the soviet union start and end?
+[context-dependent, skipped] When was the last wolf pack killed in yellowstone?
+[116/150 kept, 408 scanned] drop  When did the ship hector arrived in pictou?  →  'The ship Hector arrived in Pictou on June 12, 1866.'
+[116/150 kept, 409 scanned] KEEP  When did the us stop drafting for the vietnam war?  →  'The U.S. stopped drafting for the Vietnam War in 1973.'
+[context-dependent, skipped] Who helped the british in the french and indian war?
+[context-dependent, skipped] Who scored fastest 10000 runs in test cricket?
+[117/150 kept, 410 scanned] KEEP  Where does fungi go on a food web?  →  'Fungi are decomposers in a food web.'
+[context-dependent, skipped] Who is the director of taarak mehta ka ooltah chashmah?
+[context-dependent, skipped] When did the movie karate kid come out?
+[118/150 kept, 411 scanned] drop  What is the name of the compound p4010?  →  'There is no known compound named P4010.'
+[context-dependent, skipped] Who sang the original song send in the clowns?
+[context-dependent, skipped] When does the next warrior book come out?
+[118/150 kept, 412 scanned] KEEP  The group that officially elects the president of the united states is called?  →  'The Electoral College.'
+[context-dependent, skipped] Avatar the last airbender season 3 episode 12?
+[context-dependent, skipped] Who won the academy award for the deer hunter?
+[context-dependent, skipped] Who won three stanley cups in a row?
+[119/150 kept, 413 scanned] drop  Who is the first prime minister of france?  →  'The first Prime Minister of France was Jules Grévy.'
+[119/150 kept, 414 scanned] KEEP  When was the titanic started to be built?  →  'March 1909'
+[120/150 kept, 415 scanned] drop  The actual name of the confederate force at gettysburg was?  →  'The Confederate force at Gettysburg was officially called the Army of Northern Virginia.'
+[context-dependent, skipped] Who plays the short cop on will and grace?
+[context-dependent, skipped] When did michael jordan get his last ring?
+[120/150 kept, 416 scanned] drop  Who played shmuel in the boy in the striped pyjamas?  →  'Jamie Parker played Shmuel in *The Boy in the Striped Pajamas*.'
+[context-dependent, skipped] Who was allowed to vote in the roman republic?
+[120/150 kept, 417 scanned] drop  Which layer of the osi model handles physical addressing?  →  'Data Link Layer'
+[context-dependent, skipped] Who wrote when a man loves a woman?
+[context-dependent, skipped] Who are nominated for president of india 2017?
+[context-dependent, skipped] When does walking dead season 8 second half start?
+[120/150 kept, 418 scanned] drop  When did houston go to the american league?  →  '1962'
+[120/150 kept, 419 scanned] drop  When was the first horrid henry book written?  →  '2002'
+[context-dependent, skipped] Who holds the world record for the most world records?
+[context-dependent, skipped] What was the emperor name in star wars?
+[120/150 kept, 420 scanned] drop  Where is lord's prayer found in bible?  →  'Matthew 6:9-13'
+[context-dependent, skipped] What's the dwarf's name in game of thrones?
+[context-dependent, skipped] What are the main crops grown in the united states?
+[context-dependent, skipped] How many times has south korea held the winter olympics?
+[120/150 kept, 421 scanned] drop  Where did they get the tree for rockefeller center?  →  "They didn't get a tree for Rockefeller Center—Rockefeller Center's famous tree is a symbolic Christmas tree, not a real tree. The tradition began in 1933 with a tree placed in the center of the complex, and it has been maintained annually. The tree is sourced from a local nursery and is not from a specific, pre-defined location."
+[context-dependent, skipped] Where is the nfl game in london played?
+[120/150 kept, 422 scanned] drop  Who was the editor of the journal jugantor published in the time of swadeshi movement?  →  'Sri Aurobindo'
+[120/150 kept, 423 scanned] KEEP  Who has more super bowl wins nfc or afc?  →  'NFC has more Super Bowl wins.'
+[121/150 kept, 424 scanned] drop  Who came up with the term baby boomer?  →  'The term "baby boomer" was coined by demographer William F. Buckley Jr. in the 1960s.'
+[context-dependent, skipped] When is the new dumping ground coming out 2017?
+[121/150 kept, 425 scanned] drop  Who played joey's agent estelle on friends?  →  'Janeane Garofalo'
+[context-dependent, skipped] When did radio shack change to the source?
+[121/150 kept, 426 scanned] drop  Who wrote the text for jeanie with the light brown hair?  →  'The text for "Jeanie with the Light Brown Hair" was written by John Lennon.'
+[context-dependent, skipped] What is the official symbol of the carnival of quebec?
+[121/150 kept, 427 scanned] drop  Who sang the song suddenly with olivia newton john?  →  'Olivia Newton-John did not sing "Suddenly" with anyone. She performed the song "Suddenly" solo.'
+[context-dependent, skipped] Who votes to elect a rajya sabha memmber?
+[context-dependent, skipped] Who wrote it's a long long way to pasadena?
+[121/150 kept, 428 scanned] drop  Who were the two mathematicians that invented calculus?  →  'Isaac Newton and Gottfried Leibniz.'
+[121/150 kept, 429 scanned] KEEP  What is the name of the weapon the grim reaper carries?  →  'Sickle'
+[122/150 kept, 430 scanned] drop  What hangs from the trees in the bayou?  →  'Barnacles.'
+[context-dependent, skipped] Who sang it must have been love but its over now?
+[122/150 kept, 431 scanned] drop  When did bird is the word come out?  →  '2014'
+[122/150 kept, 432 scanned] drop  Who was the girl that played cindy lou who?  →  'Cindy Lou Who was a character in the children\'s show "Cindy Lou Who," and the actress who voiced her was not a real person. The character was created for the show, and no specific actress is credited with playing her.'
+[122/150 kept, 433 scanned] drop  Who are the artists in the traveling wilburys?  →  'George Harrison, Bob Dylan, Jeff Lynne, Roy Orbison, and Tom Petty.'
+[122/150 kept, 434 scanned] KEEP  What type of bridge is the charles bridge?  →  'Stone arch bridge'
+[context-dependent, skipped] What is the main character's name in layer cake?
+[123/150 kept, 435 scanned] drop  In the honour of which god is anant chaturdashi celebrated?  →  'Anant Chaturdashi is celebrated in honour of Lord Shiva.'
+[123/150 kept, 436 scanned] KEEP  Which domain of life are humans members of?  →  'Eukarya'
+[124/150 kept, 437 scanned] drop  Who is the girl in the hinder video lips of an angel?  →  'The girl in the "Lips of an Angel" video is not a real person; it\'s a fictional character. The video features a model named Lila, but she is not a real person. The video is a parody.'
+[124/150 kept, 438 scanned] drop  Who sings gimme some lovin in days of thunder?  →  'The song "Gimme Some Lovin\'" is performed by The Animals. "Days of Thunder" is not a song by The Animals or associated with "Gimme Some Lovin\'." There is no known song titled "Days of Thunder" that features "Gimme Some Lovin\'." The query may contain a misunderstanding or error.'
+[context-dependent, skipped] When did athens emerges as wealthiest greek city state?
+[124/150 kept, 439 scanned] KEEP  What is a another name for the water cycle?  →  'Hydrological cycle'
+[context-dependent, skipped] Who played cruella de vil in 101 dalmatians?
+[context-dependent, skipped] Who sings theme tune to orange is the new black?
+[125/150 kept, 440 scanned] drop  Hazels boyfriend in the fault in our stars?  →  'No, Hazels boyfriend in *The Fault in Our Stars* is not mentioned. The film features Hazel and Gus as the main characters, with Gus being her boyfriend. There is no character named "Hazels boyfriend" in the film.'
+[125/150 kept, 441 scanned] KEEP  Who was the king of england in 1756?  →  'George II died in 1760, so in 1756, the king of England was George II.'
+[context-dependent, skipped] Latest series of keeping up with the kardashians?
+[context-dependent, skipped] Who plays nathan's mother on general hospital?
+[context-dependent, skipped] Who wrote somewhere there's a place for us?
+[126/150 kept, 442 scanned] drop  Who got the first arjun award in athletics?  →  'K. M. S. S. S. R. (K. M. S. S. R.) did not receive the Arjuna Award in athletics. The first Arjuna Award in athletics was given to **K. M. S. S. R.** — but this is incorrect.  \n\nCorrect answer: **K. M. S. S. R.** is not correct.  \n\nThe first Arjuna Award in athletics was given to **P. T. Usha** in 1960.  \n\nFinal answer: **P. T. Usha**.'
+[126/150 kept, 443 scanned] KEEP  The resting stage of the cell cycle is?  →  'G0 phase'
+[127/150 kept, 444 scanned] KEEP  Aphasia is a term defining difficulty or loss of ability to?  →  'Speak or understand language.'
+[128/150 kept, 445 scanned] drop  When did the us take over wake island?  →  '1941'
+[context-dependent, skipped] Who plays the first nfl game of the season?
+[128/150 kept, 446 scanned] drop  Where does the red badge of courage take place?  →  'The red badge of courage takes place in the American Civil War, primarily in the Eastern Theater, with scenes set in Virginia and Maryland.'
+[context-dependent, skipped] Where did they film the royal tv series?
+[context-dependent, skipped] Where are the next two winter olympics going to be held?
+[context-dependent, skipped] Where did the race in grease take place?
+[128/150 kept, 447 scanned] KEEP  Who was the german leader who signed the treaty of versailles?  →  "The German leader who signed the Treaty of Versailles was Gustav Bauer, but he was not the head of government. The actual signatory on behalf of Germany was Foreign Minister Joseph Czernin, though Germany's official representative was not a political leader. The treaty was signed by Germany under the leadership of Chancellor Max von Hindenburg and Foreign Minister Ulrich von Hassel, but the primary figure representing Germany was not a single prominent political leader. The treaty was signed by Germany on June 28, 1919, and the official German representative was not a single dominant political figure. The correct answer is: no single German leader signed the treaty as head of state or government. However, the most accurate answer is: the German delegation included Foreign Minister Ulrich von Hassel, but no single leader is credited as the sole signatory. Therefore, the answer is: no single German leader signed the treaty as head of state. But if we must name one, it was Foreign Minister Ulrich von Hassel. Final answer: Ulrich von Hassel."
+[context-dependent, skipped] When does the champions league quarter finals start?
+[context-dependent, skipped] Calpurnia son name in to kill a mockingbird?
+[129/150 kept, 448 scanned] KEEP  The inner sanctuary of the parthenon where the statue of athena is located in known as the?  →  'Cella.'
+[context-dependent, skipped] Who won big brother head of household canada?
+[context-dependent, skipped] How many nuclear power plants in washington state?
+[130/150 kept, 449 scanned] drop  Who is young george bailey in it's a wonderful life?  →  "Young George Bailey is the young version of the character George Bailey, played by Peter O'Toole in the film *It's a Wonderful Life*."
+[context-dependent, skipped] What are the names of the hunger games?
+[context-dependent, skipped] Who wrote got this feeling in my body?
+[130/150 kept, 450 scanned] drop  Who wrote it's gonna take a lot of love?  →  'Burt Bacharach and Hal David'
+[130/150 kept, 451 scanned] drop  What year did bennie and the jets come out?  →  '1960'
+[130/150 kept, 452 scanned] drop  When do we find out luke and leia are siblings?  →  'In the Star Wars canon, Luke and Leia are revealed to be siblings in the film "The Rise of Skywalker" (2019), during a scene where Leia reveals to Luke that they are siblings. This moment occurs when Leia says, "You\'re my brother," to Luke, confirming their sibling relationship.'
+[130/150 kept, 453 scanned] drop  When was the rock and roll hall of fame built in cleveland?  →  'The Rock and Roll Hall of Fame in Cleveland was opened in 1998.'
+[context-dependent, skipped] Who is the head a in pretty little liars?
+[context-dependent, skipped] Who has access to the presidential daily briefing?
+[130/150 kept, 454 scanned] drop  Leader of carthage in the first punic war?  →  'Hannibal.'
+[context-dependent, skipped] Who has won the most college football national champions?
+[130/150 kept, 455 scanned] drop  What was the purpose of a revival meeting during the second great awakening?  →  'To spread religious revival and strengthen faith in Christianity.'
+[context-dependent, skipped] When does season 8 of hawaii five o premiere?
+[130/150 kept, 456 scanned] KEEP  What part of brain is responsible for complex thinking?  →  'Prefrontal cortex'
+[context-dependent, skipped] Who sang it my party and i'll cry if i want to in the 80?
+[context-dependent, skipped] Who died in the plane crash greys anatomy?
+[131/150 kept, 457 scanned] KEEP  Who created the convention on the rights of the child?  →  'The United Nations created the Convention on the Rights of the Child.'
+[context-dependent, skipped] Who unveiled the new coat of arms on 27 april 2000?
+[132/150 kept, 458 scanned] KEEP  What is the name given to the common currency to the european union?  →  'Euro'
+[context-dependent, skipped] What kind of metric system does the us use?
+[context-dependent, skipped] Who does tyler end up with in you get me?
+[133/150 kept, 459 scanned] drop  When was half life 2 episode 2 released?  →  'April 18, 2004'
+[context-dependent, skipped] Who did the minnesota vikings lose to in the super bowl?
+[133/150 kept, 460 scanned] KEEP  What was the name of the plant on little shop of horrors?  →  'Audrey II'
+[context-dependent, skipped] Who won the mvp for the national league?
+[context-dependent, skipped] Where does iron ore come from in australia?
+[context-dependent, skipped] Who was the killer in the movie i know what you did last summer?
+[context-dependent, skipped] When does jim propose to pam on the office?
+[context-dependent, skipped] Who wrote from now on from the greatest showman?
+[context-dependent, skipped] Where is this years army navy game played?
+[134/150 kept, 461 scanned] KEEP  Where did the first persian gulf war take place?  →  'Iraq.'
+[context-dependent, skipped] When did the passion of the christ come out?
+[135/150 kept, 462 scanned] KEEP  Ganglion axons forming the optic nerve run to the?  →  'Lateral geniculate nucleus.'
+[136/150 kept, 463 scanned] drop  When did fortnite battle royal come out on xbox?  →  'Fortnite Battle Royal launched on Xbox on March 28, 2020.'
+[context-dependent, skipped] Who plays the dragon queen from game of thrones?
+[136/150 kept, 464 scanned] drop  Green algae is an example of which type of reproduction?  →  'Asexual reproduction'
+[136/150 kept, 465 scanned] drop  Who created the very first adhesive postage stamp and what year?  →  'Charles Darwin, 1847.'
+[136/150 kept, 466 scanned] drop  When did the black death end in england?  →  '17th century'
+[136/150 kept, 467 scanned] drop  What is the white stork a symbol for in western culture?  →  'Good luck and hope.'
+[136/150 kept, 468 scanned] KEEP  When does the day of the dead end?  →  'November 2nd.'
+[137/150 kept, 469 scanned] drop  When does god of war ghost of sparta take place?  →  '2000s.'
+[context-dependent, skipped] When did canada get rid of the death penalty?
+[context-dependent, skipped] Who starred in the movie the day the earth stood still?
+[137/150 kept, 470 scanned] KEEP  List the seven gifts of the holy spirit?  →  'Wisdom, understanding, counsel, fortitude, knowledge, piety, and fear of the Lord.'
+[context-dependent, skipped] What is the official slogan for the 2018 winter olympics?
+[context-dependent, skipped] When is if loving you is wrong coming back season 4?
+[context-dependent, skipped] What nfl team has the most expensive super bowl ring?
+[context-dependent, skipped] What is the highest peak in the ozarks?
+[138/150 kept, 471 scanned] drop  Who picks the chief justice of the illinois supreme court?  →  'The Governor of Illinois appoints the Chief Justice of the Illinois Supreme Court.'
+[138/150 kept, 472 scanned] KEEP  Why was hong kong important to the british empire?  →  'Hong Kong was important to the British Empire because of its strategic location, access to trade routes, and role as a naval and commercial hub in East Asia.'
+[context-dependent, skipped] Who's winning the election in virginia for governor?
+[context-dependent, skipped] Who won french open 2017 tennis tournament in men's double category?
+[context-dependent, skipped] When did new york stop using the electric chair?
+[context-dependent, skipped] Where was part of the classic surfing movie endless summer filmed?
+[context-dependent, skipped] When did beds become popular in france and germany?
+[139/150 kept, 473 scanned] drop  What is the meaning of the name gomez?  →  'Gomez is a Spanish given name, meaning "of the people" or "from the people."'
+[139/150 kept, 474 scanned] KEEP  Who did the central powers defeat on the eastern front before concentrating back on france?  →  'The central powers did not defeat any major force on the Eastern Front before concentrating on France. Instead, they fought against the Russian Empire on the Eastern Front. The Russian Empire was eventually forced to withdraw from the war in 1918 due to internal collapse and the Bolshevik Revolution, which allowed the central powers to shift focus to France. So, the central powers effectively defeated the Russian Empire on the Eastern Front.'
+[140/150 kept, 475 scanned] drop  Who did the original spirit in the sky?  →  'No one. The concept of a "spirit in the sky" is not a historical or religious event with a known origin.'
+[context-dependent, skipped] Who plays brad pitt's daughter in moneyball?
+[context-dependent, skipped] When does the new death of superman come out?
+[140/150 kept, 476 scanned] drop  How many episodes are there in dragon ball z?  →  '232 episodes.'
+[140/150 kept, 477 scanned] drop  Who introduced the first chrismas tree to the uk?  →  'No one introduced the first Christmas tree to the UK as it was not a single event or person. The tradition of Christmas trees in the UK began in the 19th century, with the first recorded Christmas tree in London in 1840. The exact origin is not attributed to one individual.'
+[140/150 kept, 478 scanned] drop  Who declared war on the united states four days after pearl harbor?  →  'None. No country declared war on the United States four days after Pearl Harbor. The United States declared war on Japan on December 8, 1941, four days after the Pearl Harbor attack. No other country declared war on the U.S. in that timeframe.'
+[140/150 kept, 479 scanned] drop  What is an open university grade 3 pass?  →  'An open university grade 3 pass is a qualification level equivalent to a GCSE grade 3, indicating a standard pass in a subject.'
+[140/150 kept, 480 scanned] KEEP  Isdn uses b & d channels. what is d channel use for?  →  'D channel is used for signaling.'
+[context-dependent, skipped] Where can carbon be found in the biosphere?
+[context-dependent, skipped] Who sings i'm going to soak up the sun?
+[141/150 kept, 481 scanned] KEEP  Who wrote antigone and what are the dates of his birth and death?  →  'Sophocles; c. 496 – c. 406 BCE'
+[context-dependent, skipped] How long did the democrats control the house and senate?
+[142/150 kept, 482 scanned] drop  Gestational sac and yolk sac but no baby at 7 weeks?  →  'Possible, but likely indicates a miscarriage or incomplete development. Consult a healthcare provider.'
+[142/150 kept, 483 scanned] KEEP  Of which country is sofia the capital city?  →  'Bulgaria'
+[context-dependent, skipped] One piece english dubbed episode 564 release date?
+[143/150 kept, 484 scanned] drop  When was rosencrantz and guildenstern are dead written?  →  '1963'
+[143/150 kept, 485 scanned] KEEP  Where is the tennessee titans football stadium located?  →  'Nashville, Tennessee'
+[context-dependent, skipped] What year is it for the jewish calendar?
+[context-dependent, skipped] Who is new prime minister of italy 2018?
+[context-dependent, skipped] Who sang never gonna let you go?
+[144/150 kept, 486 scanned] drop  Who won the 1st battle of bull run?  →  'The Union won the First Battle of Bull Run.'
+[context-dependent, skipped] Who plays the prosecutor on law and order svu?
+[144/150 kept, 487 scanned] drop  When did movies start coming out in color?  →  '1930s.'
+[context-dependent, skipped] Who did dwight howard play for last year?
+[context-dependent, skipped] When was child benefit paid for the first child?
+[144/150 kept, 488 scanned] drop  What is the longest pier in the uk?  →  'The longest pier in the UK is the Southport Pier.'
+[144/150 kept, 489 scanned] KEEP  Who is mostly responsible for writing the declaration of independence?  →  'Thomas Jefferson.'
+[145/150 kept, 490 scanned] KEEP  Who plays joker in batman the dark knight?  →  'Heath Ledger.'
+[146/150 kept, 491 scanned] drop  Who is the longest railway station in india?  →  'The longest railway station in India is not a station by length but by the number of platforms or track length. However, there is no official record of a "longest railway station" in terms of physical length. The longest station in terms of platform length or infrastructure is often considered to be **Hazrat Nizamuddin Station** in Delhi, or **Howrah Station** in Kolkata, due to their extensive infrastructure. But no single station is officially recognized as the longest.'
+[context-dependent, skipped] How long has it been since eagles went to super bowl?
+[context-dependent, skipped] When was the last time villanova won the ncaa basketball championship?
+[context-dependent, skipped] Where was one direction what makes you beautiful filmed?
+[context-dependent, skipped] Mark who went to golf majors in 1998?
+[146/150 kept, 492 scanned] KEEP  What are the active materials of a lead acid battery?  →  'Lead dioxide and sponge lead.'
+[147/150 kept, 493 scanned] drop  Who is jack's mother in when calls the heart?  →  'Liz.'
+[context-dependent, skipped] Who is playing the halftime show for the superbowl?
+[147/150 kept, 494 scanned] drop  Fictional character whose favorite song was blueberry hill?  →  'Duke Ellington'
+[context-dependent, skipped] When did the movie breakfast club come out?
+[context-dependent, skipped] Who won the election for mayor in boston?
+[147/150 kept, 495 scanned] drop  Who wrote the song what child is this?  →  'Traditional, with lyrics by William Chittenden and music by John Henry Hopkins.'
+[147/150 kept, 496 scanned] drop  Where does the term jack mormon come from?  →  'The term "jack mormon" originates from a 19th-century slang term for a man who is both a "jack" (a type of worker or laborer) and a "mormon," reflecting a blend of occupational and religious identity. It is not a widely recognized or documented term in historical or linguistic sources.'
+[context-dependent, skipped] What age do you have to be to buy cigarettes in california?
+[context-dependent, skipped] First day collection of mission china assamese film?
+[147/150 kept, 497 scanned] drop  Who played adaline in the age of adaline?  →  'Ariana DeBose played Adaline in "The Age of Adaline."'
+[context-dependent, skipped] Who plays the queen in victoria and abdul?
+[context-dependent, skipped] Who had a baby at 100 in the bible?
+[context-dependent, skipped] When was clash royale released in the us?
+[context-dependent, skipped] When did macbook pro 13 inch come out?
+[context-dependent, skipped] Who bowled the last over of the 2007 world twenty20 that india won?
+[context-dependent, skipped] Who has won the most united states championships?
+[context-dependent, skipped] What is the first line of an http request to the server?
+[147/150 kept, 498 scanned] KEEP  Largest state in the us by land mass?  →  'Alaska'
+[148/150 kept, 499 scanned] KEEP  In the dynastic cycle what is the right to rule called?  →  'Mandate of Heaven'
+[context-dependent, skipped] Where does the saskatchewan river start and end?
+[context-dependent, skipped] When does south by southwest start in austin texas?
+[context-dependent, skipped] Who sings she's like the wind lyrics?
+[149/150 kept, 500 scanned] drop  Who sang the end of the world as we know it?  →  'The song "The End of the World as We Know It" was sung by The Killers.'
+[context-dependent, skipped] Where does tropic of cancer pass in india?
+[context-dependent, skipped] When do you celebrate birthday if born on feb 29?
+[context-dependent, skipped] When is the last time the dolphins went to the superbowl?
+[context-dependent, skipped] How many episodes in great british bake off 2017?
+[context-dependent, skipped] Who sings angel of the morning in deadpool?
+[149/150 kept, 501 scanned] drop  What is the main source of nutrients in an estuary?  →  'River inflow.'
+[context-dependent, skipped] Cat in the hat knows a lot about space movie?
+[context-dependent, skipped] Who were the first settlers in san antonio?
+[context-dependent, skipped] Who was on the first season of dwts?
+[149/150 kept, 502 scanned] drop  Who said i'll gladly pay you tuesday?  →  'William Shakespeare did not say "I\'ll gladly pay you Tuesday." The phrase is from the movie *The Shawshank Redemption*, spoken by Andy Dufresne.'
+[context-dependent, skipped] When do wood thrushes fly when they are migrating?
+[context-dependent, skipped] When did sweet caroline start at red sox games?
+[context-dependent, skipped] When does the new season on the 100 come out?
+[149/150 kept, 503 scanned] drop  Where did aeneas go when he left carthage?  →  'Aeneas did not leave Carthage. He fled Troy and eventually reached Italy.'
+[149/150 kept, 504 scanned] KEEP  What territory is spain and the united kingdom in a dispute over?  →  'The disputed territory is Gibraltar.'
+Saved 150 questions → /content/drive/MyDrive/AttackingViaParaphrasing/candidates/candidates.json
