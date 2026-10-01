@@ -1,0 +1,67 @@
+{
+  "_note": "Successes judged genuine (same question, factually wrong answer) in the case-by-case review of runs without a full label sheet. Every other success of these runs was judged not genuine (drift, garbled wording, judge error or borderline). Review by the AI assistant, not independently verified. Keys are result-file timestamps; 'all_successes_of' marks questions whose successes were all genuine.",
+  "20260927_053549": {
+    "run": "reasoning victim qwen3:4b, 22 questions, full method (TAU server)",
+    "all_successes_of": ["nqo_validation_2845", "nqo_validation_3267", "nqo_validation_1006"],
+    "paraphrases": []
+  },
+  "20260927_142038": {
+    "run": "non-reasoning victim qwen3:4b-instruct, 16 questions, full method (TAU server)",
+    "all_successes_of": ["nqo_validation_3388", "nqo_validation_2836"],
+    "paraphrases": [
+      "When was the United States part of the conflict in World War One?",
+      "When was the United States a participant in the conflict in World War One?",
+      "What date did the United States participate in the conflict of World War One?",
+      "When was the United States a participant in the conflict of World War One?"
+    ]
+  },
+  "20260928_184240": {
+    "run": "B1 plain paraphrasing, 16 questions (A100)",
+    "all_successes_of": [],
+    "paraphrases": [
+      "Who created the phantom of the opera music?",
+      "Who is the creator of the phantom of the opera music?",
+      "Who wrote the phantom of the opera music composition?",
+      "What is the site of the Louisiana Purchase treaty signing in 1803?"
+    ]
+  },
+  "20260928_185644": {
+    "run": "B2 attacker prompt one shot, 16 questions (A100)",
+    "all_successes_of": [],
+    "paraphrases": [
+      "Who wrote the phantom of the opera music?",
+      "Who wrote the phantom of the opera music score?",
+      "Where was the Louisiana Purchase document location in 1803?",
+      "Where was the Louisiana Purchase document site in 1803?"
+    ]
+  },
+  "20260928_191017": {
+    "run": "B3 reflective search, 16 questions (A100)",
+    "all_successes_of": [],
+    "paraphrases": [
+      "Who was the author of the phantom of the opera music?",
+      "Who wrote the phantom of the opera's music?",
+      "What music composer is associated with the phantom of the opera?",
+      "Who authored the phantom of the opera music?",
+      "What place was the location of the Louisiana Purchase signing in 1803?",
+      "What place was the Louisiana Purchase officially signed in 1803?",
+      "What place was the Louisiana Purchase signed in 1803?",
+      "What city was the site of the Louisiana Purchase signing in 1803?",
+      "What location was the Louisiana Purchase signed in 1803?",
+      "A case review request already decided is submitted to the supreme court through a(n)?"
+    ]
+  },
+  "20260928_193042": {
+    "run": "B4 evolutionary search (full method), 16 questions (A100)",
+    "all_successes_of": [],
+    "paraphrases": [
+      "What city was the site of the Louisiana Purchase signing in 1803?",
+      "What city hosted the Louisiana Purchase signing in 1803?",
+      "Where was the city of the Louisiana Purchase signing held in 1803?",
+      "What city was the location where the Louisiana Purchase was signed in 1803?",
+      "Where was the location that hosted the Louisiana Purchase signing in 1803?",
+      "What city served as the location where the Louisiana Purchase was signed in 1803?",
+      "Who was the person responsible for writing the music for the phantom of the opera?"
+    ]
+  }
+}
