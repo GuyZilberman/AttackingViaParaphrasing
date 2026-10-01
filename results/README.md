@@ -20,9 +20,11 @@ success counts are not comparable to later ones.
 | `...minimal_edit__victim_qwen3_4b_instruct__...q16_p5_r8...20260927_142038.json` | **Non-reasoning victim** `qwen3:4b-instruct`, the 16 questions it answers | 64 -> 21 (Louisiana Purchase, Phantom composer, US joining WWI) | `run_instruct16.log` |
 | `...minimal_edit__...q5_p5_r8...20260926_131046.json` | Minimal-edit test, 5 questions | 6 -> 2 | `run_minimal.log` |
 
-## Main study (96 questions, Colab A100, Ollama 0.34.4)
+## Main study (96 questions, Colab A100)
 
 Victim `qwen3:4b-instruct`, questions `data/main_study_questions.json`.
+Ollama 0.34.4 for part 2 and B1; part 1 ran on an unpinned install whose
+version was not recorded.
 These runs also have the 20-answer confidence sample and re-test
 ("confirmed"). Labels for every success, with a reason, are in
 `labels/` (Excel; column "My label").
