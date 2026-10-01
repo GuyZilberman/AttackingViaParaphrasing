@@ -107,6 +107,20 @@ successes reviewed by hand as **genuine**: the same question in other words,
 answered wrongly. The result files and logs of all runs are on the
 `results-archive` branch (`results/README.md` there indexes them).
 
+## Reproducing the report's numbers
+
+```bash
+git restore --source=origin/results-archive --worktree -- results/   # result files and labels
+python3 analysis/report_tables.py
+```
+
+This prints every table the report uses (main study vs. B1, confidence
+groups, the B1–B4 baselines, reasoning vs. non-reasoning victim) from the
+result files and the success labels in `results/labels/`. The labels come
+from a case-by-case review by the AI assistant used in the project and were
+not independently verified. `results/` is git-ignored on `main`, so the
+restored files don't show up as changes.
+
 ## Questions
 
 Questions come from NQ-Open (`google-research-datasets/nq_open`) and are
@@ -147,6 +161,7 @@ python3 tests/test_model_sanity.py            # victim answers to sample questio
 | `utils/download_nq_open.py` | download and screen NQ-Open candidates |
 | `ollama_client.py` | Ollama HTTP client |
 | `data/` | question sets and curation rules |
+| `analysis/report_tables.py` | recomputes the report's tables from the archived results and labels |
 | `tests/` | offline tests, judge evaluation, labelled data |
 | `data_fabric/` | a teammate's earlier data-gathering scripts (Hugging Face models, not used by the pipeline) |
 | `experiments/colab_ideas/` | scripts behind the "four ideas" experiments (re-test, confidence groups, reference gate, instruction evolution); see its README |

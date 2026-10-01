@@ -1,3 +1,4 @@
 requests>=2.31
 datasets>=2.18      # only for downloading NQ-Open questions (utils/download_nq_open.py)
 pytest>=8.0         # only for tests/test_pipeline.py
+openpyxl>=3.1       # only for analysis/report_tables.py (reads the label sheets)
