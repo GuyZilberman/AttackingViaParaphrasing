@@ -1,0 +1,96 @@
+% Technical report, course project 5.5: Attacking LLMs via subtle paraphrasing.
+% ACM double-column conference format (acmart, sigconf). 4-8 pages.
+% Compile on Overleaf (acmart is built in) or locally with: latexmk -pdf main.tex
+\documentclass[sigconf,nonacm]{acmart}
+
+\usepackage{booktabs}
+
+\settopmatter{printacmref=false}
+\renewcommand\footnotetextcopyrightpermission[1]{}
+\pagestyle{plain}
+
+\begin{document}
+
+\title{Attacking LLMs via Subtle Paraphrasing}
+
+% TODO: names and emails of all three team members
+\author{Guy Zilberman}
+\affiliation{\institution{Tel Aviv University}\country{Israel}}
+\author{Team member 2}
+\affiliation{\institution{Tel Aviv University}\country{Israel}}
+\author{Team member 3}
+\affiliation{\institution{Tel Aviv University}\country{Israel}}
+
+\begin{abstract}
+% ~200 words or fewer. Problem, method, main numbers, takeaway.
+% Main numbers to use: 96 curated NQ-Open questions; genuine confirmed wrong
+% answers on 22 of 95 attacked questions; reasoning vs non-reasoning victim
+% (0 vs 21 genuine on 16 shared questions); B1 plain rewording vs full method.
+TODO
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+% Motivation from the project brief: LLMs are used as an authority, e.g. for
+% fact checking. Question: does a semantically equivalent phrasing exist that
+% leads to a factually wrong answer with high probability (no typos, no
+% invisible characters)? What we did, at a high level, and the main findings.
+TODO
+
+\section{Related Work}
+% Prior work on prompt / paraphrase sensitivity of LLMs and adversarial text
+% attacks; GEPA \cite{agrawal2025gepa} for reflective prompt evolution, which
+% our search builds on. Where our work fits in.
+TODO
+
+\section{Technical Approach}
+% Pipeline (figure): attacker -> free checks (leaked notes, >=60% word
+% overlap, answer leak) -> equivalence and answer-preservation checks ->
+% victim (1 greedy + 4 sampled answers) -> LLM judge -> fitness.
+% Search: 8 rounds x 5 paraphrases; evolutionary parent selection (one parent
+% per distinct wrong answer, after GEPA's Pareto idea) vs reflective.
+% Minimal-edit attacker prompt. Confidence groups (20 samples on the
+% original) and the 20-answer re-test with a one-sided Fisher exact test.
+% Models and why: victim qwen3:4b-instruct / qwen3:4b, attacker llama3.1:8b,
+% judges gemma3:12b (judge accuracy from tests/eval_judges.py).
+% Question curation (data/CURATION.md).
+TODO
+
+\section{Results}
+\subsection{Experimental setup}
+% Datasets (22 / 16 / 96 questions), models, hardware (A100, Ollama 0.34.4),
+% metrics: raw success, robust, confirmed, genuine (manual review), and
+% the second-annotator agreement.
+TODO
+
+\subsection{Main study}
+% Table: full method vs B1 on the 96 questions: raw, confirmed, genuine,
+% questions with a genuine success; by confidence group.
+TODO
+
+\subsection{What each part of the method adds}
+% Table: B1-B4 on the 16-question set.
+TODO
+
+\subsection{Reasoning vs non-reasoning victim}
+% 0 vs 21 genuine successes on the same 16 questions; matching wrong answers.
+TODO
+
+\section{Discussion}
+% Drift and reward hacking (what the search exploits), judge errors,
+% confirmed != genuine, hardware nondeterminism (GPU / Ollama version),
+% small question sets, single attacker and victim family. Future work.
+TODO
+
+\section{Conclusion}
+TODO
+
+\section{Contributions}
+% What each team member did.
+TODO
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references}
+
+\end{document}
