@@ -26,7 +26,8 @@ all three models at once (we used an A100 40 GB on Google Colab; a 16 GB T4 is
 too small), and about 16 GB of disk for the models.
 
 ```bash
-# 1. Ollama, pinned to the version used for all results
+# 1. Ollama, pinned to the version used for the results (part 1 of the
+#    main study ran on an unpinned install whose version was not recorded)
 curl -fsSL https://ollama.com/install.sh | OLLAMA_VERSION=0.34.4 sh
 OLLAMA_KEEP_ALIVE=24h OLLAMA_MAX_LOADED_MODELS=3 ollama serve &
 
