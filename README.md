@@ -9,7 +9,8 @@ pass validity checks (same question, same correct answer, mostly the same
 words) before it reaches the **victim** LLM. An LLM **judge** decides whether
 the victim's answer is wrong. The search runs for several rounds, feeding back
 what worked (evolutionary search, after GEPA). Every success is then re-tested
-on fresh answers, and successes are reviewed by hand.
+on fresh answers, and successes are reviewed case by case for changes of
+meaning (see the report).
 
 All models run locally through [Ollama](https://ollama.com):
 
@@ -37,11 +38,13 @@ ollama pull llama3.1:8b
 ollama pull gemma3:12b
 ollama pull qwen3:4b          # only for the reasoning-victim runs
 
-# 3. Code
-git clone https://github.com/GuyZilberman/AttackingViaParaphrasing.git
-cd AttackingViaParaphrasing
+# 3. Code: the submitted code/ folder (or a clone of
+#    https://github.com/GuyZilberman/AttackingViaParaphrasing)
+cd code
 pip install -r requirements.txt
 ```
+
+All commands below run from inside `code/`.
 
 The code talks to Ollama at `http://127.0.0.1:11434` (change it with
 `--ollama-base-url`). `start_ollama.sh` starts the server on the TAU servers we
@@ -104,23 +107,27 @@ success with its re-test, and a summary. The format is documented at the top
 of `experiment.py`.
 
 A success is an automatic verdict. The numbers in the report count only
-successes reviewed by hand as **genuine**: the same question in other words,
-answered wrongly. The result files and logs of all runs are on the
-`results-archive` branch (`results/README.md` there indexes them).
+successes reviewed case by case as **genuine**: the same question in other
+words, answered wrongly. The result files and logs of the original study are
+on the `results-archive` branch of the GitHub repository
+(`results/README.md` there indexes them); they are not part of the submitted
+`code/` folder.
 
 ## Reproducing the report's numbers
 
+The result files and labels are fetched from GitHub, then the script runs on
+them (from inside `code/`):
+
 ```bash
-git restore --source=origin/results-archive --worktree -- results/   # result files and labels
+git clone --depth 1 -b results-archive https://github.com/GuyZilberman/AttackingViaParaphrasing.git ../results-archive
+cp -r ../results-archive/results ./results
 python3 analysis/report_tables.py
 ```
 
-This prints every table the report uses (main study vs. B1, confidence
+This prints the original study's tables (main study vs. B1, confidence
 groups, the B1–B4 baselines, reasoning vs. non-reasoning victim) from the
-result files and the success labels in `results/labels/`. The labels come
-from a case-by-case review by the AI assistant used in the project and were
-not independently verified. `results/` is git-ignored on `main`, so the
-restored files don't show up as changes.
+result files and the success labels in `results/labels/`, described in the
+report.
 
 ## Questions
 
