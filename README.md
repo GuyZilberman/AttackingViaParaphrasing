@@ -108,7 +108,7 @@ of `experiment.py`.
 A success is an automatic verdict. The numbers in the report count only
 successes reviewed case by case as **genuine**: the same question in other
 words, answered wrongly. The result files, logs and success labels of the
-original study are in `results/`; `results/README.md` indexes them.
+original study are in `results/`; `results/INDEX.md` indexes them.
 
 ## Reproducing the report's numbers
 
