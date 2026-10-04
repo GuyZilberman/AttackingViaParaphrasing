@@ -2,18 +2,21 @@
   "_note": "Successes judged genuine (same question, factually wrong answer) in the case-by-case review of runs without a full label sheet. Every other success of these runs was judged not genuine (drift, garbled wording, judge error or borderline). Review by the AI assistant, not independently verified. Keys are result-file timestamps; 'all_successes_of' marks questions whose successes were all genuine.",
   "20260927_053549": {
     "run": "reasoning victim qwen3:4b, 22 questions, full method (TAU server)",
-    "all_successes_of": ["nqo_validation_2845", "nqo_validation_3267", "nqo_validation_1006"],
+    "all_successes_of": [
+      "nqo_validation_2845",
+      "nqo_validation_3267",
+      "nqo_validation_1006"
+    ],
     "paraphrases": []
   },
   "20260927_142038": {
     "run": "non-reasoning victim qwen3:4b-instruct, 16 questions, full method (TAU server)",
-    "all_successes_of": ["nqo_validation_3388", "nqo_validation_2836"],
-    "paraphrases": [
-      "When was the United States part of the conflict in World War One?",
-      "When was the United States a participant in the conflict in World War One?",
-      "What date did the United States participate in the conflict of World War One?",
-      "When was the United States a participant in the conflict of World War One?"
-    ]
+    "all_successes_of": [
+      "nqo_validation_3388",
+      "nqo_validation_2836"
+    ],
+    "paraphrases": [],
+    "note": "The 4 answers to the WWI-entry question that give only the year ('1917') against the gold 'April 1917' are counted as borderline, not genuine, as in the report."
   },
   "20260928_184240": {
     "run": "B1 plain paraphrasing, 16 questions (A100)",

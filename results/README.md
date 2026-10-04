@@ -17,7 +17,7 @@ success counts are not comparable to later ones.
 | File (timestamp) | Run | Raw -> genuine | Log |
 |---|---|---|---|
 | `...minimal_edit__victim_qwen3_4b__...q22_p5_r8...20260927_053549.json` | **Full run**, 22 questions, reasoning victim `qwen3:4b` | 69 -> 14 (Grinch's dog, Cybermen, Marvel vs Capcom) | `run_full22_final.log` |
-| `...minimal_edit__victim_qwen3_4b_instruct__...q16_p5_r8...20260927_142038.json` | **Non-reasoning victim** `qwen3:4b-instruct`, the 16 questions it answers | 64 -> 21 (Louisiana Purchase, Phantom composer, US joining WWI) | `run_instruct16.log` |
+| `...minimal_edit__victim_qwen3_4b_instruct__...q16_p5_r8...20260927_142038.json` | **Non-reasoning victim** `qwen3:4b-instruct`, the 16 questions it answers | 64 -> 17 (Louisiana Purchase, Phantom composer); 4 more on the WWI-entry question gave only '1917' and count as borderline | `run_instruct16.log` |
 | `...minimal_edit__...q5_p5_r8...20260926_131046.json` | Minimal-edit test, 5 questions | 6 -> 2 | `run_minimal.log` |
 
 ## Main study (96 questions, Colab A100)
