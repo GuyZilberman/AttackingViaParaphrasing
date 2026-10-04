@@ -107,8 +107,19 @@ of `experiment.py`.
 
 A success is an automatic verdict. The numbers in the report count only
 successes reviewed case by case as **genuine**: the same question in other
-words, answered wrongly. The result files, logs and success labels of the
-original study are in `results/`; `results/INDEX.md` indexes them.
+words, answered wrongly. `results/` holds the original study's runs used in
+the report (file names end with these timestamps) and, in `results/labels/`,
+the success labels:
+
+| File (`...` = configuration prefix) | Run |
+|---|---|
+| `...q96_p5_r8_evolutionary__main_study_combined.json` | Main study, full method (B4), 96 questions; combined from the two parts below |
+| `...q96_p5_r8_evolutionary__20260930_024234.json` | Main study, part 1 (first 68 questions) |
+| `...q28_p5_r8_evolutionary__20260930_114610.json` | Main study, part 2 (remaining 28 questions) |
+| `...q96_p40_r1_evolutionary__20261001_000152.json` | Main study, plain paraphrasing (B1) |
+| `...20260928_184240.json`, `..._185644`, `..._191017`, `..._193042` | B1, B2, B3, B4 on the 16-question set |
+| `...q16_p5_r8_evolutionary__20260927_142038.json` | Non-reasoning victim, 16 questions |
+| `...q22_p5_r8_evolutionary__20260927_053549.json` | Reasoning victim (`qwen3:4b`), 22 questions |
 
 ## Reproducing the report's numbers
 
