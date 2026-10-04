@@ -38,8 +38,7 @@ ollama pull llama3.1:8b
 ollama pull gemma3:12b
 ollama pull qwen3:4b          # only for the reasoning-victim runs
 
-# 3. Code: the submitted code/ folder (or a clone of
-#    https://github.com/GuyZilberman/AttackingViaParaphrasing)
+# 3. Code: the submitted code/ folder
 cd code
 pip install -r requirements.txt
 ```
@@ -108,25 +107,18 @@ of `experiment.py`.
 
 A success is an automatic verdict. The numbers in the report count only
 successes reviewed case by case as **genuine**: the same question in other
-words, answered wrongly. The result files and logs of the original study are
-on the `results-archive` branch of the GitHub repository
-(`results/README.md` there indexes them); they are not part of the submitted
-`code/` folder.
+words, answered wrongly. The result files, logs and success labels of the
+original study are in `results/`; `results/README.md` indexes them.
 
 ## Reproducing the report's numbers
 
-The result files and labels are fetched from GitHub, then the script runs on
-them (from inside `code/`):
-
 ```bash
-git clone --depth 1 -b results-archive https://github.com/GuyZilberman/AttackingViaParaphrasing.git ../results-archive
-cp -r ../results-archive/results ./results
 python3 analysis/report_tables.py
 ```
 
 This prints the original study's tables (main study vs. B1, confidence
 groups, the B1–B4 baselines, reasoning vs. non-reasoning victim) from the
-result files and the success labels in `results/labels/`, described in the
+result files and the success labels in `results/`, described in the
 report.
 
 ## Questions

@@ -1,11 +1,7 @@
 """
-Recompute every number the report quotes, from the result files and the
-success labels.
+Recompute the original study's tables in the report, from the result files
+and the success labels in results/. Run from the code folder:
 
-The result files and labels live on the `results-archive` branch. Bring them
-into the (git-ignored) results/ folder first, then run from the project root:
-
-    git restore --source=origin/results-archive --worktree -- results/
     pip install openpyxl
     python3 analysis/report_tables.py
 
